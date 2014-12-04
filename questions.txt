@@ -1,0 +1,76 @@
+1. How to convert recursion to tail recursion? How to use continuation passing style?
+
+2. Quick perm algorithm? (Iterative permutation algorithm)
+
+3. Proof of Garsia-Wachs algorithm(also why it is O(nlgn)).
+
+4. 传纸条问题最大流解法时间复杂度
+
+5. Box stacking problem ( Rotation allowed but only unique box)
+
+6. CCI5  9.11 last solution
+
+7. How do "free" and "malloc" work in C language?(solved)
+
+8.  Efficient algorithm to print all subsets of length k in an array of n elements (Stack overflow)
+
+9. Optimization of solution to finding median of two sorted arrays problem
+
+10. 4 sum O(n^2 logn) solution (leetcode solved?).
+
+11. Leetcode climbing stairs print all paths
+
+12. Use gray code to solve Hanoi problem iteratively
+
+13. Iteration time on unorder_map ? 
+
+14. Generalization of Bit operation method of Single Number 2 problem 
+
+15. Regular expression matching DFA solution
+
+16. Polish notation related problems (Conversion, evaluation..)
+
+17. Morris preorder solution runtime error???(Asked on Leetcode forum)
+
+18.  Find swapped elements in BST with duplicate values (Asked on Leetcode forum and Stackoverflow)
+
+19. Reconstruct binary tree from traversal iteratively
+
+20. Reconstruct binary tree from post-order and in-order traversal not
+correct??(Solved) --> what if duplicates are allowed(Asked on Leetcode forum)?
+
+21. Convert sorted list to BST iteratively
+
+22. Implement iterative version of recursive sorting algorithms(e.g. Merge
+Sort, Leetcode: Merge K sorted lists).
+
+23. Binary search extensions (11.2, done, add while reviewing)
+
+24. Two pointers problems summary
+
+25. Word Ladder Bi-directional BFS (Yu's solution)
+
+26. Practice BFS and DFS problems more (DFS: practice cutting branches faster)
+(Using DP questions)
+
+27. DP solution is slower than DFS solution to the Palidrome Patitioning
+problem. (Asked on Leetcode)
+
+28. C++ initialize array size using constant variable(Asked on Stackoverflow,
+solved, since it is allowed in C++ by extension in gcc)
+
+29. Practice backtracking algorithm
+
+30. Solution to maximum m segment sums problem using DP(on the book)
+
+31. The problem copy list with random pointer uses the approach in the problem
+Clone Graph.
+
+32. Pay attention to the edge cases and overflowing cases in number-related
+problems!
+
+33. Why does the LRU Cache store maps rather than simply store
+values?(Asked on StackOverflow)
+
+Plan: 
+Leetcode(150): 10/Day

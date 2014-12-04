@@ -1,0 +1,42 @@
+Cases need to consider:
+
+1. Valid case, either the index is at the edge or not
+
+2. Target is within the range of the array but not contained in the array
+
+3. Target is out of the range of the array, either smaller than the minimum
+element in the array of greater than the maximum element in the array.
+
+
+Type of problems:
+
+1. Find lower or upper bound(inclusive). Leetcode: Search for a Range. Lower
+bound is the most basic one and can be used in many other problems.
+
+2. Find insertion position, which is the index of the target after it is
+inserted. It is very similar to lower bound problem. Leetcode: Search Insert
+Position.
+
+3. Search in rotated sorted array. Note that there's only one dividing point,
+either in the right half or the left half. And wheather a half contains the
+dividing point or not can be determined by comparing the left element and right
+element of the half. Also note that if there could be duplicates in the array,
+the worst case time is linear. Leetcode: Search in Rotated Sorted Array I and
+II. EPI: 12.2 Search a cyclically sorted array(Find minimum in rotated sorted
+array I and II).
+
+4. Search lower bound (exclusive). Leetcode: Sqrt(x). 
+
+5. Find a local minimum. Some problems just don't give you the target value. The
+algorithm is usually like first check the middle value for a certain condition
+and use that condition to determine whether the next step is to go to the left
+half or the right half. The key is to determine what condition to use.
+EPI: 12.1.1
+
+6. Find kth smallest element in two sorted arrays(A, B). The key to solve this
+problem is to compare the element A[ia-1] and B[ib-1] (ia + ib == k) and
+determine the possible location of the kth smallest element. ia is usually k/2.
+Note that in binary search, sometimes the dividing point is not necessarily the
+middle point, but some point that satisfies a certion condition. This problem
+is very non-trivial. Leetcode: Median of Two Sorted Arrays. EPI: 12.3 Search in
+Two Sorted Arrays.

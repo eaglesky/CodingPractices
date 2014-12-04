@@ -1,0 +1,6 @@
+1. Pay attention to release the memory after deleting a node.
+
+2. Add dummy node to simplify handling the first node in the list.
+
+3. Two loops logic: Use one pointer to iteratve through the list and another
+pointer associated with the first one processing each sub list.

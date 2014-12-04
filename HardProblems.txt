@@ -1,0 +1,180 @@
+1. Remove duplicates from sorted array 1 and 2*(Two pointers,
+one direction)(implementation)
+
+2. Remove duplicates from sorted list 2. One loop solution is not necessary.
+Two loops can be even better. (implementation)
+
+3. Leetcode: Longest Consecutive(Algorithm)
+
+4. Leetcode: Three Sum(Algorithm)
+
+5*. Four Sum(Algorithm)(Not finished with the best solution) 
+
+6*. Permutation Sequence(Algorithm and implementation)
+
+7. Trapping Rain Water(Algorithm)
+
+8. Gas Station(Algorithm)
+
+9*. Candy (Algorithm and implementation of the best solution)
+
+10. Single Number 1 and 2* (Algorithm)
+
+11. Copy List with Random Pointer (Implentation)
+
+12*. Linked List Cycle II (Algorithm and implentation, Very tricky!)
+
+13. LRU Cache(Motivation and Implementation)
+
+14. Valid Palindrome (Implentation, multiple cases)
+
+15*. strStr (Implentation of the solution without using strlen)
+
+16. Longest Palindromic Substring(Algorithm, especially the best solution)
+
+17*. Regular Expression Matching(Algorithm and implementation)
+
+18*. Wild Card(Algorithm and implementation of the best solution)
+
+19*. Valid number (Implentation & multiple cases)
+
+20*. Integer to Roman and vice versa(Algorithm)
+
+21. SimplifyPath(Implementation & multiple cases)
+
+22*. Length of last word (Algorithm)
+
+23*. Longest Valid Parentheses(Implementation(Recursive relation of DP solution),
+Algorithm and Implementation of the stack solutions)
+
+24. Largest Rectangle in Histogram(Algorithm and Implementation)
+
+25. Evaluate Reverse Polish Notation(Implementation details)
+
+26. Morris Traversal(Algorithm and implementation)
+
+27*. Binary Tree Inorder Traversal(Algorithm and implementation of stack
+solution)
+
+28*. Binary Tree Postorder Traversal(Algorithm and implementation of one-stack
+solution)
+
+29. Symmetric Tree(Algorithm of the both solutions)
+
+30. Flatten Binary Tree to linked list(Algorithms of both solutions)
+
+31. Populating Next Right Pointers in Each Node II (Implentation, logic is very
+difficult!)
+
+32*. Construct binary tree from preorder and inorder traversal (Algorithm and
+implementation)
+
+33. Convert Sorted List to Binary Search Tree(Algorithm of the best solution)
+
+34*. Binary Tree Maximum Path Sum (Implementation details!)
+
+35. Merge K Sorted Lists (Algorithm)
+
+36*. Sort List(Implementation of the iterative solution is very hard!)
+
+37. First Missing Positive(Algorithm and implementation)
+
+38. Sort Colors(Algorithm and implementation of the best solution)
+
+39. Subsets I, II* (Multiple Algorithms)
+
+40. Permutations2 (Algorithm, easy to make mistakes!)
+
+41. Combinations (Multiple Algorithms)
+
+42*. Letter Combinations of a phone number (Algorithm of Iterative solution)
+
+43*. Word Ladder II(Algorithm and implementation, very hard!)
+
+44. Palindrome Partitioning(Algorithm of DP solution)
+
+45*. Palindrome Partitioning II(Algorithm of O(n) space solution)
+
+46. N queens iterative backtracking algorithm
+
+47. Restore IP address (Iterative algorithm)
+
+48*. Generate Parenthesis(Two Iterative algorithms) -->multiple parenthesis?
+
+49. Word Search(Implementation)
+
+50*. Pow(x, n) (Algorithm of the best solution and implementation details)
+
+51. Maximum Subarray (Algorithm of Best solution)
+
+52. Best time to buy and sell stock(Algorithm of the best solution)
+
+53. Longest Substring without repeating characters(Algorithm* and implementation)
+
+54. Container with Most Water (Algorithm)
+
+55. Maximal Rectangle(Multiple algorithms)
+
+56. Best time to buy and sell stock III(Multiple Algorithms)
+
+57*. Interleaving String(Implementation)
+
+58. Scramble String (Algorithm* and Implementation)
+
+59*. Minimum Path Sum(Implementation)
+
+60. Edit Distance (Algorithm and Implementation)
+
+61. Decode Ways(Implementation)
+
+62*. Word Break II(Algorithm and Implementation)
+
+63*. Reverse Integer(Implementation)
+
+64. Palindrome Number(Implementation)
+
+65*. Insert Interval(Algorithm)
+
+66*. Minimum Window Substring(Implementation)
+
+67*. Multiply Strings(Algorithm and Implementation)
+
+68*. Substring with Concatenation of All Words(Algorithm and Implementation)
+
+69*. Spiral Matrix (Implementation)
+
+70*. Divide Two Integers(Algorithm and Implementation)
+
+71*. Text Justification(Algorithm and Implementation)
+
+72. Max Points on a line(Algorithm and Implementation)
+
+73. Min Stack(Algorithm of the best solution)
+
+74*. Intersection of Two Linked Lists(Algorithm of the best solution)
+
+75*. Longest Substring with At Most Two Distinct Characters(Algorithm and
+Implementation)
+
+76*. One Edit Distance(Implementation)
+
+
+Careercup(5th edition).
+
+1. Linked Lists 2.3(Algorithm)
+2. Scalablility and Memory Limits 10.3(Algorithm), 10.6(Algorithm),
+10.7(Algorithm)
+
+
+E:
+1. AdditiveNumbers(Algorithm and Implementation)
+
+CP:
+1. Find local minimum in 1d array of distinct elements in log(n) time(boundary
+included) (Algorithm)
+
+2. Find local minimum in 2d array of distince elements in O(n) time (boundary
+included) (Algorithm)
+
+3. Sliding window problem (Multiple Algorithms)
+

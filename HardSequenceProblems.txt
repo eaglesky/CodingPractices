@@ -1,0 +1,18 @@
+1. Remove duplicates from sorted array 1 and 2, remove element(Two pointers,
+one direction)(implementation)
+
+2. Remove duplicates from sorted list 2. One loop solution is not necessary.
+Two loops can be even better. (implementation)
+
+3. When you expect to do some kinds of searching within linear time, always
+remember to try constructing a hash set/map first, so that you can have enough
+background information beforehand. Leetcode: Longest Consecutive
+Sequence(algorithm). However sometimes it might be easier to search while
+iterating. Leetcode: Two Sum
+
+4. Finding two elements whose sum is equal to the target value can be done
+using two pointers iterating from two ends to the middle in
+linear time if the array is already sorted(duplicates are allowed).
+Leetcode: Three Sum
+
+5.Four Sum(Algorithm) 

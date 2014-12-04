@@ -1,0 +1,101 @@
+1. Usually a tricky algorithm can be found by simulating the process and trying
+to find the hidden pattern, or the key point.
+
+2. For problems that an element is affected by the neighbors, usually we can
+consider iterating the whole array from two directions(two passes), or try to
+restrict one side or both sides. Simulation
+can be done by iterate each element and expand to the two sides.
+Leetcode: Trapping rain water, Candy, Largest Rectangle in Histogram
+
+3. Use head-insertion method to reverse linked list.
+Leetcode: Reverse Linked List II, Reverse Nodes in k-Group, Reorder List
+
+4. Use two pointers to find the kth position from the end of a list or the
+middle node of a list.
+
+
+6. The technique that find local minimum/maximum : Leetcode--Largest Rectangle
+in Histogram
+
+7. The stack solution of binary tree traversal can store nodes to be traversed,
+which can be used even if the structure of the previous traversed nodes have
+been changed!
+
+8. Recursive solution taking two nodes as parameters, usually the recursive
+function assumes the input nodes satisfy a certain condition. Leetcode :
+symmetric tree, populating next right pointers in each node.
+
+9. Bottom-up recursion often features dynamic pointer(reference) as one
+parameter of the recursive function.
+Leetcode: Construct BST from preorder and inorder traversal, convert sorted
+list to BST. 
+
+10. Use priority queue to reduce the time complexity of finding smallest
+element for multiple times.
+
+11. When using BFS to find all the shortest paths, it is necessary to store the
+mapping from current state and the previous state in a map. Note that there
+could be multiple states prior to the current state. In addition to the map, it
+is also necessary to store the levels of each state, since we need to check the
+levels of the adjacent states and if the adjacent state has been visited and its
+level is equal to current level plus 1, we need to add the current state to the
+parents of the adjacent state. It can also be stored in the map.
+
+Use DFS to find out the paths given the map, and reverse them.
+
+Leetcode: Word Ladder II.
+
+12. One good way to save memory is to use the memory of input parameters. This
+can also be used in recording visited nodes in BFS. 
+Leetcode: Surrounded Regions
+Another way is to use conditions instead of mappings:
+Leetcode: Roman to Integer.
+
+13. For problems that involve with recursive relation(or DFS), always consider the
+possible repetition of subproblems and try improve the basic DFS by using
+memorization or dynamic programming. Note that if the returned value of the
+recursive method is a single value, then there can often be a corresponding DP
+solution that improves the performance.
+
+14. To use stacks to simulate DFS process with array storing all the valid
+leaves, each element of the stack should contain at least the current path,
+along with other information used in cutting branches.
+Leetcode: Generate Parentheses
+
+15. DFS problems that require to return all combinations can also be solved
+using DP approach. Leetcode: Generate Parentheses
+
+16. For max/min length of subarray/substring problems, try consider the max/min
+length of subarray/substrings ends with each element and the recursive relation
+with that of previous element.
+
+17. When there is a need to iterative through every pair of elements in an
+array, one smart way is to start from leftmost and rightmost element and shrink
+to the middle. The essence of this algorithm is that it skips many unnecessary
+comparisons. 
+Leetcode: Container with most water
+
+18. For DP problems, the key is often to find minmum number of parameters to
+represent the recursive relation. Think about how you can break the original
+problem down to some sub problems and then try finding out the parameters that
+best define the division.
+
+19. When processing each element in an array and you want the information of
+other elements, try storing the positions of other elements in a map
+beforehand.
+RocketFuel: Single-output deque
+
+20. It is often very tricky to initialize the cache array for DP. If the
+recursive relation involves more than 1 parameter, then the first dimension
+should gurantee that the initialization of that dimentison is the most easy
+one. Otherwise, consider choosing other parameters as the first dimension.
+Even if this means using more memory, but as long as the memory has the same
+complexity, it is OK.
+Leetcode: Regular Expression Matching.
+
+21. For parenthesis problems, if the problem uses the length of a parenthesis,
+consider using the index in the stack.
+Leetcode: Longest Valid Parentheses
+
+22. When there is a need to concatenate numbers and count number of digits,
+always consider converting numbers to strings! Epic: Additive Numbers

@@ -1,0 +1,108 @@
+1. Be careful about the end value of iterator after the for loop!!
+
+2. When adding/multiply two numbers digits by digits, consider the following cases:
+
+(1) Different lengths 
+
+(2) Last carry
+
+(3) Null number(when number is represented as a list)
+
+Leetcode: Add Two Numbers, Add Binary
+
+3. Don't forget pushing the iterator forward in a loop!
+
+4. When dealing with pointers to the linked list nodes, be careful to consider
+whether they are NULL or not first.
+
+5. For all functions that take a linked list pointer as an parameter, consider
+the case when the list is NULL first;
+
+6. Change the iterator first before "continue"
+
+7. Be careful about the boundary check in the loop especially when it is
+embedded in other loops!
+
+8. For stirng related problems, always consider the case when the string is
+empty!
+
+9. When treating a digit character as a digit, make sure to convert it to an
+integer first! (int d = 'c' - '0')
+
+10. When dealing with integers, make sure to check the overflow cases(INT_MAX
+and INT_MIN). And the method is to check whether the base is greater than
+INT_MAX/10(and there is more digigts comming)
+or not first, and then check the next digit to see if it is greater
+than 7. Also be careful about the fact that |INT_MIN| = |INT_MAX| + 1, and
+therefore it is possible for overflow to happen when negating an negative
+number(this can be solved using unsigned int). Also for increasing number,
+always be careful using the time operation on it. Try to avoid using that 
+and use division instead. Another way of checking overflows is to use unsigned
+int or long long type to hold the number first and then check it.
+
+Leetcode: String to Integer , Pow(x, n), Palidrome number, Divide two integers
+
+11. Carefully consider test cases outside your own algorithm!
+
+12. Don't forget the returned value! (Write it first in a function!)
+
+13. Anagrams refer to multiple strings(more than 1)! Leetcode : Anagrams
+
+14. When use string.find method, remember to check the case when the target
+string is not found.
+
+15. Always remember to check the case when the vector is empty!
+
+16. Find swapped nodes in BST(no duplicates), pay attention to the case when
+the swapped nodes are neighbors.
+
+17. Pay attention to the definition of BST:
+
+(1)The left subtree of a node contains only nodes with keys less than the node's
+key.
+
+(2)The right subtree of a node contains only nodes with keys greater than the
+node's key.
+
+(3)Both the left and right subtrees must also be binary search trees.
+
+18. Pay attention to the recursive relation of finding the depth of BST.
+
+19. When doing recursion on binary trees, think carefully about what will
+happen on the NULL child nodes.
+
+20. DFS, pay attention to the starting position of the next recursive function
+and don't forget checking visited status.
+
+21. Be careful that string.size() is unsigned int type, so try avoid using it
+to do operations with other integer and using the result as a terminal
+condition.
+
+22. When computing double number from integer, pay attention to the conversion.
+Leetcode : Max Points on a line
+
+23. For questions related to string, consider the case when the string pointer
+is NULL(if it is c-string) and when the strings are empty(or part of them are
+empty) (Leetcode: strstr)
+
+24. Be careful when put the embeded "if" out when there is an "else" statement
+associated with the outer "if"!
+Leetcode: Simplify Path
+
+25. When thinking about possible values of function paramters, be sure to
+consider all the places where the function gets called!
+
+26. When considering numberic string and do convertion of string to number, be
+careful about the case when there are leading zeros!
+
+27. When changing the structure of a binary tree, be careful about the child
+pointers in the node, make sure they are NULL when they are not pointing
+anywhere in the new tree.
+Leetcode: Binary Tree Upside Down.
+
+28. Be careful about the possible overflow cases: Negation, shifting, and all
+other basic operations.
+
+29. When iterating two array/strings at the same time, don't use the same
+iterator!
+Leetcode: One Edit Distance.
