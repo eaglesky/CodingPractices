@@ -1,8 +1,8 @@
 # Review of data structures
 
-## 1. Array
+### 1. Array
 
-### Fixed size.
+#### Fixed size.
 
 ```
 // C/C++
