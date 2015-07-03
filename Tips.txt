@@ -99,3 +99,7 @@ Leetcode: Longest Valid Parentheses
 
 22. When there is a need to concatenate numbers and count number of digits,
 always consider converting numbers to strings! Epic: Additive Numbers
+
+23. When there's a need to store elements in a map before hand, try thinking 
+about if it makes it easier to store each element in the map while processing 
+each element instead of doing it in a separate iteration beforehand.

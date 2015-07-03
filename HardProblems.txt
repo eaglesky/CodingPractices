@@ -158,6 +158,7 @@ Implementation)
 
 76*. One Edit Distance(Implementation)
 
+77*. Two sum(Algorithm of the best solution)
 
 Careercup(5th edition).
 
