@@ -26,7 +26,7 @@ std::vector<int> v = {0, 1, 2, 3, 4, 5};
 ```
 
 Reference:
-* The C++ Standard Library -- A Tutorial and Reference, Nicolai
-* STL source code analysis, Hou Jie
+* *The C++ Standard Library -- A Tutorial and Reference*, Nicolai
+* *STL source code analysis*, Hou Jie
 * [http://en.cppreference.com/w/cpp/container/vector](http://en.cppreference.com/w/cpp/container/vector)
 
