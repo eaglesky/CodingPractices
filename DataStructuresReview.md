@@ -9,3 +9,8 @@
 int arr[5];
 int* arr2 = new int[5];
 ```
+
+```
+//Java
+int[] arr = {3, 5, 7};
+```
