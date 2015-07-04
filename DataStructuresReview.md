@@ -17,7 +17,7 @@ int[] arr = {3, 5, 7};
 
 #### Dynamic size:
 
-(How it resizes?)
+(How does it resize?)
 ```
 //C++ STL vector
 //The capacity will double when full, but it never shrinks unless shrink_to_fit() is called
