@@ -25,8 +25,16 @@ std::vector<std::string> words4(5, "Mo");
 std::vector<int> v = {0, 1, 2, 3, 4, 5};
 ```
 
+```
+//Java
+//Growth policy is generally similar to C++ STL vector. However how it shrinks still remains unclear
+java.util.ArrayList<Integer> arr = new java.util.ArrayList<Integer>();
+```
+
 Reference:
-* *The C++ Standard Library -- A Tutorial and Reference*, Nicolai
-* *STL source code analysis*, Hou Jie
-* [http://en.cppreference.com/w/cpp/container/vector](http://en.cppreference.com/w/cpp/container/vector)
+1. *The C++ Standard Library -- A Tutorial and Reference*, Nicolai
+2. *STL source code analysis*, Hou Jie
+3. [http://en.cppreference.com/w/cpp/container/vector](http://en.cppreference.com/w/cpp/container/vector)
+4. *Head first Java*
+
 
