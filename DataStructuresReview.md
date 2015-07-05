@@ -32,6 +32,7 @@ java.util.ArrayList<Integer> arr = new java.util.ArrayList<Integer>();
 ```
 
 Reference:
+
 1. *The C++ Standard Library -- A Tutorial and Reference*, Nicolai
 2. *STL source code analysis*, Hou Jie
 3. [http://en.cppreference.com/w/cpp/container/vector](http://en.cppreference.com/w/cpp/container/vector)
