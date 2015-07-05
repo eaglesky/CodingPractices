@@ -17,7 +17,7 @@ int[] arr = {3, 5, 7};
 
 #### Dynamic size:
 
-(How does it resize?)
+(How does it resize? Proof of constant amortized time can be found [here](http://stackoverflow.com/questions/6550509/amortized-analysis-of-stdvector-insertion))
 ```
 //C++ STL vector
 //The capacity will double when full, but it never shrinks unless shrink_to_fit() is called
