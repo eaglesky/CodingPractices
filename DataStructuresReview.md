@@ -31,6 +31,12 @@ std::vector<int> v = {0, 1, 2, 3, 4, 5};
 java.util.ArrayList<Integer> arr = new java.util.ArrayList<Integer>();
 ```
 
+### 2. Stack
+
+```
+// C++ STL stack
+// The internal container is deque by default [1]
+```
 Reference:
 
 1. *The C++ Standard Library -- A Tutorial and Reference*, Nicolai
