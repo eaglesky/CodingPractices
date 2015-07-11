@@ -66,6 +66,28 @@ int main() {
 }
 ```
 
+```
+// Java Stack
+// Extends Vector, which is similar to ArrayList,
+// but they still differ in some ways [5].
+import java.util.Stack;
+public class TestStack {
+	public static void main (String[] args) {
+		Stack<Integer> st = new Stack<Integer>();
+		st.push(1);
+		st.push(3);
+		st.push(5);
+		st.push(7);
+
+		while (!st.empty()) {
+			System.out.println(st.peek());
+			st.pop();
+		}
+	}
+}
+```
+
+However, according to Java docs [6]: *A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class*. 
 
 
 
@@ -75,5 +97,7 @@ Reference:
 2. *STL source code analysis*, Hou Jie
 3. [http://en.cppreference.com/w](http://en.cppreference.com/w)
 4. *Head first Java*
+5. [http://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/](http://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/)
+6. [https://docs.oracle.com/javase/8/docs/api/](https://docs.oracle.com/javase/8/docs/api/)
 
 
