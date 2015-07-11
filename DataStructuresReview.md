@@ -35,7 +35,7 @@ java.util.ArrayList<Integer> arr = new java.util.ArrayList<Integer>();
 
 ```
 // C++ STL stack
-// The internal container is deque by default [1] ( [Comparison of deque and vector](http://www.gotw.ca/gotw/054.htm) )
+// The internal container is deque by default [1] 
 // No random access or iterator
 #include <stack>
 using namespace std;
@@ -65,6 +65,7 @@ int main() {
     cout << endl;
 }
 ```
+[Comparison of deque and vector](http://www.gotw.ca/gotw/054.htm)
 
 ```
 // Java Stack
