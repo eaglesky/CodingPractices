@@ -36,6 +36,7 @@ java.util.ArrayList<Integer> arr = new java.util.ArrayList<Integer>();
 ```
 // C++ STL stack
 // The internal container is deque by default [1]
+// No random access or iterator
 #include <stack>
 using namespace std;
 int main() {
