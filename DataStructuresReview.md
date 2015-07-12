@@ -87,8 +87,42 @@ public class TestStack {
 	}
 }
 ```
-
 However, according to Java docs [6]: *A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class*. 
+
+### 3. Queue
+
+```
+// C++ STL queue
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+int main() {
+	queue<string> q;
+	// insert three elements into the queue
+	q.push("These ");
+	q.push("are ");
+	q.push("more than ");
+	// read and print two elements from the queue
+	cout << q.front();
+	q.pop();
+	cout << q.front();
+	q.pop();
+	// insert two new elements
+	q.push("four ");
+	q.push("words!");
+	// skip one element
+	q.pop();
+	// read and print two elements
+	cout << q.front();
+	q.pop();
+	cout << q.front() << endl;
+	q.pop();
+	// print number of elements in the queue
+	cout << "number of elements in the queue: " << q.size()
+		 << endl;
+}
+```
 
 
 
