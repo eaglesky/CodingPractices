@@ -88,6 +88,22 @@ public class TestStack {
 }
 ```
 However, according to Java docs [6]: *A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class*. 
+```
+import java.util.*;
+public class TestDequeStack {
+	public static void main (String[] args) {
+		Deque<Integer> stack = new ArrayDeque<Integer>();
+		stack.push(1);
+		stack.push(3);
+		stack.push(5);
+		stack.push(7);
+	    while (stack.peek() != null) {
+	    	int curElement = stack.pop();
+	    	System.out.println(curElement);
+	    }
+	}
+}
+```
 
 ### 3. Queue
 
@@ -147,6 +163,7 @@ public class TestQueue {
 }
 ```
 
+ArrayDeque is implemented as a circular array, according to the source code [7].
 
 
 Reference:
@@ -157,5 +174,5 @@ Reference:
 4. *Head first Java*
 5. [http://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/](http://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/)
 6. [https://docs.oracle.com/javase/8/docs/api/](https://docs.oracle.com/javase/8/docs/api/)
-
+7. [http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/ArrayDeque.java](http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/ArrayDeque.java)
 
