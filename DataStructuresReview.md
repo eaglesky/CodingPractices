@@ -165,6 +165,21 @@ public class TestQueue {
 
 ArrayDeque is implemented as a circular array, according to the source code [7].
 
+### 4. Set and Map
+
+```
+// C++ STL set and map
+// Internal data structure: red-black trees
+// Search, removal, and insertion operations have logarithmic complexity(log n)
+#include <map>
+#include <set>
+
+int main() {
+	std::set<int> set;
+	std::set<std::string, char> gradeList;
+	...
+}
+```
 
 Reference:
 
