@@ -187,6 +187,7 @@ int main() {
 // C++ STL unordered_set and unordered_map
 // Internal data structure: hash table, each bucket of which is associated with a linked list [1]
 // Amortized constant time for insertions, deletions, and element search
+// Iteration takes longer time, linear to the number of buckets and elements
 #include <unordered_set>
 #include <unordered_map>
 int main() {
