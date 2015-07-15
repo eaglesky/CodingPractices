@@ -176,8 +176,22 @@ ArrayDeque is implemented as a circular array, according to the source code [7].
 
 int main() {
 	std::set<int> set;
-	std::set<std::string, char> gradeList;
+	std::map<std::string, char> gradeList;
 	...
+}
+```
+
+### 5. HashSet and HashMap
+
+```
+// C++ STL unordered_set and unordered_map
+// Internal data structure: hash table, each bucket of which is associated with a linked list [1]
+// Amortized constant time for insertions, deletions, and element search
+#include <unordered_set>
+#include <unordered_map>
+int main() {
+	std::unordered_set<std::string> coll;
+	std::unordered_map<std::string, char> grade_list;
 }
 ```
 
