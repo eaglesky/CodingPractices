@@ -269,11 +269,13 @@ int main() {
 ```
 
 The internal structure of Java HashMap and HashSet is almost the same as STL unordered_map and unordered_set [9]. 
+
 The internal structure of Java LinkedHashMap and LinkedHashSet can be found at [10].  According to the docs of LinkedHashMap:
 *Like HashMap, it provides constant-time performance for the basic operations (add, contains and remove), assuming the hash function disperses elements properly among the buckets. Performance is likely to be just slightly below that of HashMap, due to the added expense of maintaining the linked list, with one exception: Iteration over the collection-views of a LinkedHashMap requires time proportional to the size of the map, regardless of its capacity. Iteration over a HashMap is likely to be more expensive, requiring time proportional to its capacity*
 
 Difference between Java HashMap and Hashtable can be found at [11].
 
+Java set collection are all based on corresponding map collection, according to the constructor of HashSet [12]. 
 Reference:
 
 1. *The C++ Standard Library -- A Tutorial and Reference*, Nicolai
@@ -287,3 +289,4 @@ Reference:
 9. [http://javahungry.blogspot.com/2013/08/hashing-how-hash-map-works-in-java-or.html](http://javahungry.blogspot.com/2013/08/hashing-how-hash-map-works-in-java-or.html)
 10. [http://geekrai.blogspot.com/2013/06/linkedhashmap-implementation-in-java.html](http://geekrai.blogspot.com/2013/06/linkedhashmap-implementation-in-java.html)
 11. [http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable](http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
+12. [http://zhouyunan2010.iteye.com/blog/1236220](http://zhouyunan2010.iteye.com/blog/1236220)
