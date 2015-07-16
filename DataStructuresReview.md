@@ -184,6 +184,7 @@ int main() {
 ```
 // Java sets: The common implementation is TreeSet, and the other two implementations
 // are HashSet and LinkedHashSet
+// The internal structure of TreeSet is also Red-Black tree [8].
 import java.util.*;
 
 public class TestSet {
@@ -221,6 +222,37 @@ public class TestSet {
 }
 ```
 
+```
+// Java map. The internal structure and performance are similar to those of the corresponding Sets.
+import java.util.*;
+
+public class TestMap {
+	public static void main (String[] args) {
+		Map<String, Integer> testMap = new TreeMap<String, Integer>();
+		//Map<String, Integer> testMap = new HashMap<String, Integer>();
+		//Map<String, Integer> testMap = new LinkedHashMap<String, Integer>();
+		//Map<String, Integer> testMap = new Hashtable<String, Integer>();
+
+		testMap.put("Allen", 1);
+		testMap.put("Jack", 3);
+		testMap.put("Tom", 5);
+		testMap.put("Tom", 7);
+		int curVal = testMap.get("Tom");
+		System.out.println("Tom = " + curVal);
+		System.out.println("Current Size = " + testMap.size());
+		testMap.remove("Tom");
+		boolean checkContainKey = testMap.containsKey("Tom");
+		System.out.println("Contains Tom ? " + checkContainKey);
+		System.out.println("Tom value = " + testMap.get("Tom"));
+
+		for (Map.Entry<String, Integer> entry : testMap.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+		}
+
+	}
+}
+```
+
 ### 5. HashSet and HashMap
 
 ```
@@ -236,6 +268,12 @@ int main() {
 }
 ```
 
+The internal structure of Java HashMap and HashSet is almost the same as STL unordered_map and unordered_set [9]. 
+The internal structure of Java LinkedHashMap and LinkedHashSet can be found at [10].  According to the docs of LinkedHashMap:
+*Like HashMap, it provides constant-time performance for the basic operations (add, contains and remove), assuming the hash function disperses elements properly among the buckets. Performance is likely to be just slightly below that of HashMap, due to the added expense of maintaining the linked list, with one exception: Iteration over the collection-views of a LinkedHashMap requires time proportional to the size of the map, regardless of its capacity. Iteration over a HashMap is likely to be more expensive, requiring time proportional to its capacity*
+
+Difference between Java HashMap and Hashtable can be found at [11].
+
 Reference:
 
 1. *The C++ Standard Library -- A Tutorial and Reference*, Nicolai
@@ -245,4 +283,7 @@ Reference:
 5. [http://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/](http://beginnersbook.com/2013/12/difference-between-arraylist-and-vector-in-java/)
 6. [https://docs.oracle.com/javase/8/docs/api/](https://docs.oracle.com/javase/8/docs/api/)
 7. [http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/ArrayDeque.java](http://grepcode.com/file/repository.grepcode.com/java/root/jdk/openjdk/6-b14/java/util/ArrayDeque.java)
-
+8. [http://javahungry.blogspot.com/2014/06/how-treemap-works-ten-treemap-java-interview-questions.html](http://javahungry.blogspot.com/2014/06/how-treemap-works-ten-treemap-java-interview-questions.html)
+9. [http://javahungry.blogspot.com/2013/08/hashing-how-hash-map-works-in-java-or.html](http://javahungry.blogspot.com/2013/08/hashing-how-hash-map-works-in-java-or.html)
+10. [http://geekrai.blogspot.com/2013/06/linkedhashmap-implementation-in-java.html](http://geekrai.blogspot.com/2013/06/linkedhashmap-implementation-in-java.html)
+11. [http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable](http://stackoverflow.com/questions/40471/differences-between-hashmap-and-hashtable)
