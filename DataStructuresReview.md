@@ -275,7 +275,7 @@ The internal structure of Java LinkedHashMap and LinkedHashSet can be found at [
 
 Difference between Java HashMap and Hashtable can be found at [11].
 
-Java set collection are all based on corresponding map collection, according to the constructor of HashSet [12]. 
+Java set collections are all based on corresponding map collections, according to the constructor of HashSet [12]. 
 Reference:
 
 1. *The C++ Standard Library -- A Tutorial and Reference*, Nicolai
