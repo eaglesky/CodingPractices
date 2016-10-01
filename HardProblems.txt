@@ -101,7 +101,7 @@ implementation)
 
 48*. Generate Parenthesis(Two Iterative algorithms) -->multiple parenthesis?
 
-49. Word Search(Implementation)
+49*. Word Search(Implementation)
 
 50*. Pow(x, n) (Algorithm of the best solution and implementation details)
 
