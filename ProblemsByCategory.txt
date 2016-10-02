@@ -1,0 +1,17 @@
+Reference Books:
+(1) Cracking the coding interview
+(2) Head first Java
+(3) Leetcode
+
+1. Arrays and HashTables
+
+Knowledge:
+(1) Hash Tables -- implementation, performance, collision.
+(2) Resizeable array
+	Implementation: Vector(C++), ArrayList(Java)
+	Performance: get, set is O(1), amortized time of add is O(1) and why. 
+(3) Basic language syntax for array(fixed and dynamic), hash map and hash set.
+
+Problems:
+(1)[Leetcode]Two Sum.
+(2)[Leetcode]First Missing Positive(Algorithm and Implementation)
