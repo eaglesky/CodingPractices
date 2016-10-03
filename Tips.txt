@@ -103,3 +103,7 @@ always consider converting numbers to strings! Epic: Additive Numbers
 23. When there's a need to store elements in a map before hand, try thinking 
 about if it makes it easier to store each element in the map while processing 
 each element instead of doing it in a separate iteration beforehand.
+
+24. If there is different representation for different ranges(from low to high),
+consider to substract the high first and store the corresponding representation.
+Leetcode: Integer to Roman

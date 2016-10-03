@@ -1,3 +1,6 @@
+Good habbit: After coding, walk through the code for both normal and edge cases!
+Do not skip any lines of code. Think about each line of code you write
+
 1. Be careful about the end value of iterator after the for loop!!
 
 2. When adding/multiply two numbers digits by digits, consider the following cases:
@@ -23,7 +26,7 @@ the case when the list is NULL first;
 7. Be careful about the boundary check in the loop especially when it is
 embedded in other loops!
 
-8. For stirng related problems, always consider the case when the string is
+8. For string related problems, always consider the case when the string is
 empty!
 
 9. When treating a digit character as a digit, make sure to convert it to an

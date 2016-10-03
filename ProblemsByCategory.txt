@@ -14,4 +14,14 @@ Knowledge:
 
 Problems:
 (1)[Leetcode]Two Sum.
-(2)[Leetcode]First Missing Positive(Algorithm and Implementation)
+(2)[Leetcode]First Missing Positive(Algorithm and Implementation*)
+
+2. Strings
+
+Knowledge:
+(1)JAVA: String, StringBuilder and char[]
+
+Problems:
+(1)[Leetcode]Integer To Roman(Algorithm*)
+(2)[Leetcode]Roman To Integer(Algorithm*)
+
