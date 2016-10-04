@@ -25,3 +25,13 @@ Problems:
 (1)[Leetcode]Integer To Roman(Algorithm*)
 (2)[Leetcode]Roman To Integer(Algorithm*)
 
+3. Linked Lists
+
+Knowledge:
+(1)Java: LinkedList class -- double linked list, performance
+(2)Two pointers technique is frequently used! The diff between any two given linked list
+can always be found in O(m+n) time.  
+
+Problems:
+(1)[Leetcode]Intersection Of Two Linked Lists(Best Algorithm and Best Implementation*)
+
