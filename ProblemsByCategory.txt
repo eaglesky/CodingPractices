@@ -31,7 +31,18 @@ Knowledge:
 (1)Java: LinkedList class -- double linked list, performance
 (2)Two pointers technique is frequently used! The diff between any two given linked list
 can always be found in O(m+n) time.  
+(3)Sometimes we can use the input pointers to reduce the number of pointers created.
+(4)It is possible to delete a node only by using that pointer if that node is not the head
+or tail --- by shifting the contents of the following nodes toward it and remove the last one.
+(5)Adding dummy node to the front a linked list can be convenient for iterating over the list 
+using two pointers, especially if we want to remove the first node, or insert in front of the 
+first node.
+(6)Edge cases: (think normal case first), insert/remove the first/last node, one node linked list,
+null list.
 
 Problems:
 (1)[Leetcode]Intersection Of Two Linked Lists(Best Algorithm and Best Implementation*)
+	Remember this algorithm(including the first trial)!
+(2)[Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case 
+thinking)
 
