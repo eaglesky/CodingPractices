@@ -39,10 +39,18 @@ using two pointers, especially if we want to remove the first node, or insert in
 first node.
 (6)Edge cases: (think normal case first), insert/remove the first/last node, one node linked list,
 null list.
+(7)Head insertion technique for reversing nodes. This process includes node removing and node 
+insertion. Must add dummy node. Must start from the second node and use a pointer pointing to the
+tail node that other nodes are inserted before.
 
 Problems:
-(1)[Leetcode]Intersection Of Two Linked Lists(Best Algorithm and Best Implementation*)
+(1)Node finding: 
+	- [Leetcode]Intersection Of Two Linked Lists(Best Algorithm* and Best Implementation*)
 	Remember this algorithm(including the first trial)!
-(2)[Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case 
-thinking)
+(2)Remove nodes: 
+	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case 
+	thinking)
+(3)Reverse nodes: 
+	- [Leetcode]Swap Nodes in Pairs(Implementation)
+	- [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
 
