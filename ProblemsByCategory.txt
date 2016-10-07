@@ -39,9 +39,7 @@ using two pointers, especially if we want to remove the first node, or insert in
 first node.
 (6)Edge cases: (think normal case first), insert/remove the first/last node, one node linked list,
 null list.
-(7)Head insertion technique for reversing nodes. This process includes node removing and node 
-insertion. Must add dummy node. Must start from the second node and use a pointer pointing to the
-tail node that other nodes are inserted before.
+(7)Three approaches for reversing linked list and their implementation(see below).
 
 Problems:
 (1)Node finding: 
@@ -51,6 +49,16 @@ Problems:
 	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case 
 	thinking)
 (3)Reverse nodes: 
-	- [Leetcode]Swap Nodes in Pairs(Implementation)
-	- [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
+	a. Basic head insertion(Iterative and recursive) -- creating a new linked list, original head 
+	pointer will become tail pointer, and the new head pointer keeps updating. No need for the dummy node.
+	   - [Leetcode] Reverse Linked List(Implementation, recursive algorithm*)
+	b. Incremental head insertion -- This process includes node removing and node insertion.
+	   Must add dummy node. Must start from the second node and use a pointer pointing to the
+       tail node that other nodes are inserted before.
+	   - [Leetcode]Swap Nodes in Pairs(Implementation)
+	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
+	c. Tail insertion. Inserting each node right after the original tail node. Need to first aquire
+	 pointer to the tail node and then start from the first node. Original tail node will become new
+	 head node. Pointer to the original head node need to be stored or it will be lost.
+	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
 
