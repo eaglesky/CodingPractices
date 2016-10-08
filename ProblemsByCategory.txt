@@ -53,12 +53,15 @@ Problems:
 	pointer will become tail pointer, and the new head pointer keeps updating. No need for the dummy node.
 	   - [Leetcode] Reverse Linked List(Implementation, recursive algorithm*)
 	b. Incremental head insertion -- This process includes node removing and node insertion.
-	   Must add dummy node. Must start from the second node and use a pointer pointing to the
-       tail node that other nodes are inserted before.
+	   Must add dummy node. Must start from the second node(cur node start from curTail.next) and use 
+	   a pointer pointing to the tail node(curTail is fixed!) that other nodes are inserted before. 
 	   - [Leetcode]Swap Nodes in Pairs(Implementation)
 	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
+	   - [Leetcode]Reverse Linked List II(Implementation*)
 	c. Tail insertion. Inserting each node right after the original tail node. Need to first aquire
 	 pointer to the tail node and then start from the first node. Original tail node will become new
 	 head node. Pointer to the original head node need to be stored or it will be lost.
 	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
+(4)Copy linked list:
+	- [Leetcode]Copy List with Random Pointer(Algorithm*, two approaches)
 

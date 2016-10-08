@@ -107,3 +107,8 @@ each element instead of doing it in a separate iteration beforehand.
 24. If there is different representation for different ranges(from low to high),
 consider to substract the high first and store the corresponding representation.
 Leetcode: Integer to Roman
+
+25. Ways of saving space(hash table):
+(1) Use switch, if the key is limited;
+(2) Use input space, like tip 12. If the data structure is linked list, then the mapping
+can be done by adding a node between every two original nodes. 
