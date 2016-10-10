@@ -11,10 +11,23 @@ Knowledge:
 	Implementation: Vector(C++), ArrayList(Java)
 	Performance: get, set is O(1), amortized time of add is O(1) and why. 
 (3) Basic language syntax for array(fixed and dynamic), hash map and hash set.
+(4) Implementation of equals and hashCode methods in Java(See <<Effective Java>>,
+http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html)
 
 Problems:
-(1)[Leetcode]Two Sum.
-(2)[Leetcode]First Missing Positive(Algorithm and Implementation*)
+(1)[Leetcode]First Missing Positive(Algorithm and Implementation*)
+(2) K Sum problems. Can be solved using two approaches:
+    a.
+    (2.1) Two sum
+        (2.1.1) Input array is random, find out one solution.
+            - [Leetcode] Two sum.
+        (2.1.2) Input array is random, find out all unique solutions.
+    (2.2) Three sum
+        (2.1.1) Input array is random, find out all unique solutions.
+            - [Leetcode] Three sum.
+            - [Leetcode] Three sum closest.
+    (2.3) Four sum(Random input array, find out all unique solutions)
+        -[Leetcode] Four sum.
 
 2. Strings
 
@@ -49,19 +62,33 @@ Problems:
 	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case 
 	thinking)
 (3)Reverse nodes: 
-	a. Basic head insertion(Iterative and recursive) -- creating a new linked list, original head 
+	(3.1). Basic head insertion(Iterative and recursive) -- creating a new linked list, original head 
 	pointer will become tail pointer, and the new head pointer keeps updating. No need for the dummy node.
 	   - [Leetcode] Reverse Linked List(Implementation, recursive algorithm*)
-	b. Incremental head insertion -- This process includes node removing and node insertion.
+	(3.2). Incremental head insertion -- This process includes node removing and node insertion.
 	   Must add dummy node. Must start from the second node(cur node start from curTail.next) and use 
 	   a pointer pointing to the tail node(curTail is fixed!) that other nodes are inserted before. 
 	   - [Leetcode]Swap Nodes in Pairs(Implementation)
 	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
 	   - [Leetcode]Reverse Linked List II(Implementation*)
-	c. Tail insertion. Inserting each node right after the original tail node. Need to first aquire
+	(3.3). Tail insertion. Inserting each node right after the original tail node. Need to first aquire
 	 pointer to the tail node and then start from the first node. Original tail node will become new
 	 head node. Pointer to the original head node need to be stored or it will be lost.
 	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
 (4)Copy linked list:
 	- [Leetcode]Copy List with Random Pointer(Algorithm*, two approaches)
+
+
+Implementation Utils:
+1. Sorting an array:
+    (1) Java:
+            int[] nums;
+            Arrays.sort(nums);//In place, stable, O(nlogn) time.
+2. Max and min Int
+    (1) Java:
+            Integer.MAX_VALUE;
+            Integer.MIN_VALUE;
+3. Absolute value:
+    (1) Java:
+            int absDiff = Math.abs(4-5);
 
