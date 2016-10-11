@@ -17,7 +17,16 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 Problems:
 (1)[Leetcode]First Missing Positive(Algorithm and Implementation*)
 (2) K Sum problems. Can be solved using two approaches:
-    a.
+    a. Sort the input array first. Then using two pointers starting from the beginning
+    and the end of the array, moving one of them towards the other each time based on 
+    the comparison of the sum of the two elements and target, until they meet. The two 
+    pointers process takes O(n) time. No extra space needed.
+    b. Using a hash set of list of n elements to record the results and remove duplicates.
+    Sort the input array first if K > 2. Cache the sums and their corresponding elements
+    while iterating the array. The result hash set has to be used to remove the duplicates!
+
+    No matter which approach to use, divide K into two parts first. Iterate the second part
+    and hash or iterate using two pointers on the first part.
     (2.1) Two sum
         (2.1.1) Input array is random, find out one solution.
             - [Leetcode] Two sum.
