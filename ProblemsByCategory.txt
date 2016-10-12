@@ -37,6 +37,9 @@ Problems:
             - [Leetcode] Three sum closest.
     (2.3) Four sum(Random input array, find out all unique solutions)
         -[Leetcode] Four sum.
+(3) Remove duplicates(Maximum allowed duplicates == K). Two ways of checking duplicates! 
+    (3.1)[Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
+    (3.2)[Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm*).
 
 2. Strings
 
