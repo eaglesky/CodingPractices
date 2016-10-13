@@ -61,7 +61,8 @@ can always be found in O(m+n) time.
 or tail --- by shifting the contents of the following nodes toward it and remove the last one.
 (5)Adding dummy node to the front a linked list can be convenient for iterating over the list 
 using two pointers, especially if we want to remove the first node, or insert in front of the 
-first node.
+first node. Think carefully about edge cases involving the head node if we want not to add the
+dummy node.
 (6)Edge cases: (think normal case first), insert/remove the first/last node, one node linked list,
 null list.
 (7)Three approaches for reversing linked list and their implementation(see below).
@@ -73,6 +74,7 @@ Problems:
 (2)Remove nodes: 
 	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case 
 	thinking)
+    - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*)
 (3)Reverse nodes: 
 	(3.1). Basic head insertion(Iterative and recursive) -- creating a new linked list, original head 
 	pointer will become tail pointer, and the new head pointer keeps updating. No need for the dummy node.
