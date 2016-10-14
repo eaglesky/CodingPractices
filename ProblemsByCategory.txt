@@ -75,6 +75,9 @@ Problems:
 	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case 
 	thinking)
     - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*)
+    - Generalization of above to allow K duplicates -- Remove duplicates from sorted list III.
+    (Implementation* -- multiple cases)
+
 (3)Reverse nodes: 
 	(3.1). Basic head insertion(Iterative and recursive) -- creating a new linked list, original head 
 	pointer will become tail pointer, and the new head pointer keeps updating. No need for the dummy node.
@@ -105,4 +108,10 @@ Implementation Utils:
 3. Absolute value:
     (1) Java:
             int absDiff = Math.abs(4-5);
+
+4. Convert String to Int:
+    (1) Java:
+            String number = "10";
+            int result = Integer.parseInt(number);
+            Integer result2 = Integer.valueOf(number);
 
