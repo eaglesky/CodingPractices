@@ -40,6 +40,10 @@ Problems:
 (3) Remove duplicates(Maximum allowed duplicates == K). Two ways of checking duplicates! 
     (3.1)[Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
     (3.2)[Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm*).
+(4) Inward two pointers:
+    (4.1)[Leetcode] Three sum problems.
+    (4.2)[Leetcode] Container with most water(Algorithm)
+
 
 2. Strings
 
@@ -49,6 +53,10 @@ Knowledge:
 Problems:
 (1)[Leetcode]Integer To Roman(Algorithm*)
 (2)[Leetcode]Roman To Integer(Algorithm*)
+(3)Non-adjacent duplicates and sliding window:
+    - [Leetcode]Longest Substring Without Repeating Characters(Best Algorithm* and Implementation), 
+    - [Leetcode]Longest Substring with At Most K Distinct Characters(Algorithm* and Implementation*)
+
 
 3. Linked Lists
 
@@ -77,7 +85,6 @@ Problems:
     - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*)
     - Generalization of above to allow K duplicates -- Remove duplicates from sorted list III.
     (Implementation* -- multiple cases)
-
 (3)Reverse nodes: 
 	(3.1). Basic head insertion(Iterative and recursive) -- creating a new linked list, original head 
 	pointer will become tail pointer, and the new head pointer keeps updating. No need for the dummy node.
@@ -108,6 +115,10 @@ Implementation Utils:
 3. Absolute value:
     (1) Java:
             int absDiff = Math.abs(4-5);
+5. Comparison of two numerical values:
+    (1) Java:
+            int maxOfTwo = Math.max(5, 4);
+            int minOfTwo = Math.min(5, 4);
 
 4. Convert String to Int:
     (1) Java:

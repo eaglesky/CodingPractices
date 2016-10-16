@@ -2,6 +2,8 @@ Good habbit: After coding, re-check the problem description and walk through the
 for both normal and edge cases! Do not skip any lines of code. Think about each line
 of code you write.
 
+Think about a working solution first and then try optimizing it. 
+
 When there are multiple cases and decisions, write them down to figure out the logic!
 
 1. Be careful about the end value of iterator after the for loop!!
