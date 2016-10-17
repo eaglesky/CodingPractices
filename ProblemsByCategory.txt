@@ -38,11 +38,11 @@ Problems:
     (2.3) Four sum(Random input array, find out all unique solutions)
         -[Leetcode] Four sum.
 (3) Remove duplicates(Maximum allowed duplicates == K). Two ways of checking duplicates! 
-    (3.1)[Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
-    (3.2)[Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm*).
+    - [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
+    - [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm*).
 (4) Inward two pointers:
-    (4.1)[Leetcode] Three sum problems.
-    (4.2)[Leetcode] Container with most water(Algorithm)
+    - [Leetcode] Three sum problems.
+    - [Leetcode] Container with most water(Algorithm)
 
 
 2. Strings
@@ -53,9 +53,17 @@ Knowledge:
 Problems:
 (1)[Leetcode]Integer To Roman(Algorithm*)
 (2)[Leetcode]Roman To Integer(Algorithm*)
-(3)Non-adjacent duplicates and sliding window:
+(3)Sliding window approach for substring problems:
+    * Think about why sliding window approach would work first. It basically considers each substring that starts with the character at the left pointer and skip some by moving the left pointer. The substring within the sliding window(before the right pointer) often satisfies a certion condition. And usually the substrings starting from the characters in between don't satisfy that condition. 
+    * A map of character to position or character to count should be created at the beginning. Sometimes one may not be enough. Especially when there are multiple input strings.
+    * The main for loop is moving the right pointer and check each character to see if it should stop and begin moving the left pointer. Need to think very carefully about this check. When the check doesn't pass, usually we need to update the map, in some ways. (Sometimes the map should always be updated)
+    * If the above check passes, then an inner loop should be performed to move the left pointer. Remember to update the result(max/min length) first. Depending on the specific problem, the left pointer can or cannot be moved to the destination directly. Also during this process we might need to remove or change some entries in the map.
+    * Return the max/min result. May need to do one more comparision.
+
     - [Leetcode]Longest Substring Without Repeating Characters(Best Algorithm* and Implementation), 
     - [Leetcode]Longest Substring with At Most K Distinct Characters(Algorithm* and Implementation*)
+    - [Leetcode]Minimum Window Substring(Algorithm* and Implementation*)
+    - [Leetcode]Substring with Concatenation of All Words(Algorithm* and Implementation*)
 
 
 3. Linked Lists
@@ -125,4 +133,18 @@ Implementation Utils:
             String number = "10";
             int result = Integer.parseInt(number);
             Integer result2 = Integer.valueOf(number);
+5. Count the occurence of each character in a string:
+    (1) Java:
+            String t = "aerwerrsdf";
+            Map<Character, Integer> TcharCounts = new HashMap<>();
+            for (int i = 0; i < t.length(); ++i) {
+                int curCount = TcharCounts.getOrDefault(t.charAt(i), 0);
+                TcharCounts.put(t.charAt(i), curCount + 1);
+            }
+6. Substring:
+    (1) Java (public String substring(int beginIndex,
+               int endIndex) ), beginIndex is inclusive and endIndex is exclusive 
+            "hamburger".substring(4, 8) returns "urge"
+            "smiles".substring(1, 5) returns "mile"
+
 
