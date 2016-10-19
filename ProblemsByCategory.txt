@@ -54,7 +54,7 @@ Problems:
 (1)[Leetcode]Integer To Roman(Algorithm*)
 (2)[Leetcode]Roman To Integer(Algorithm*)
 (3)Sliding window approach for substring problems:
-    * Think about why sliding window approach would work first. It basically considers each substring that starts with the character at the left pointer and skip some by moving the left pointer. The substring within the sliding window(before the right pointer) often satisfies a certion condition. And usually the substrings starting from the characters in between don't satisfy that condition. 
+    * Think about why sliding window approach would work first. It basically considers each substring that starts with the character at the left pointer and skip some by moving the left pointer. The substring within the sliding window(before the right pointer) often satisfies a certain condition. And usually the substrings starting from the characters in between don't satisfy that condition. 
     * A map of character to position or character to count should be created at the beginning. Sometimes one may not be enough. Especially when there are multiple input strings.
     * The main for loop is moving the right pointer and check each character to see if it should stop and begin moving the left pointer. Need to think very carefully about this check. When the check doesn't pass, usually we need to update the map, in some ways. (Sometimes the map should always be updated)
     * If the above check passes, then an inner loop should be performed to move the left pointer. Remember to update the result(max/min length) first. Depending on the specific problem, the left pointer can or cannot be moved to the destination directly. Also during this process we might need to remove or change some entries in the map.
@@ -70,17 +70,11 @@ Problems:
 
 Knowledge:
 (1)Java: LinkedList class -- double linked list, performance
-(2)Two pointers technique is frequently used! The diff between any two given linked list
-can always be found in O(m+n) time.  
+(2)Two pointers technique is frequently used! The diff between any two given linked list can always be found in O(m+n) time.
 (3)Sometimes we can use the input pointers to reduce the number of pointers created.
-(4)It is possible to delete a node only by using that pointer if that node is not the head
-or tail --- by shifting the contents of the following nodes toward it and remove the last one.
-(5)Adding dummy node to the front a linked list can be convenient for iterating over the list 
-using two pointers, especially if we want to remove the first node, or insert in front of the 
-first node. Think carefully about edge cases involving the head node if we want not to add the
-dummy node.
-(6)Edge cases: (think normal case first), insert/remove the first/last node, one node linked list,
-null list.
+(4)It is possible to delete a node only by using that pointer if that node is not the head or tail --- by shifting the contents of the following nodes toward it and remove the last one.
+(5)Adding dummy node to the front a linked list can be convenient for iterating over the list using two pointers, especially if we want to remove the first node, or insert in front of the first node. Think carefully about edge cases involving the head node if we want not to add the dummy node.
+(6)Edge cases: (think normal case first), insert/remove the first/last node, one node linked list, null list.
 (7)Three approaches for reversing linked list and their implementation(see below).
 
 Problems:
@@ -88,24 +82,18 @@ Problems:
 	- [Leetcode]Intersection Of Two Linked Lists(Best Algorithm* and Best Implementation*)
 	Remember this algorithm(including the first trial)!
 (2)Remove nodes: 
-	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case 
-	thinking)
+	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case thinking)
     - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*)
-    - Generalization of above to allow K duplicates -- Remove duplicates from sorted list III.
-    (Implementation* -- multiple cases)
+    - Generalization of above to allow K duplicates -- Remove duplicates from sorted list III.(Implementation* -- multiple cases)
 (3)Reverse nodes: 
-	(3.1). Basic head insertion(Iterative and recursive) -- creating a new linked list, original head 
-	pointer will become tail pointer, and the new head pointer keeps updating. No need for the dummy node.
+	(3.1). Basic head insertion(Iterative and recursive) -- creating a new linked list, original head pointer will become tail pointer, and the new head pointer keeps updating. No need for the dummy node.
 	   - [Leetcode] Reverse Linked List(Implementation, recursive algorithm*)
 	(3.2). Incremental head insertion -- This process includes node removing and node insertion.
-	   Must add dummy node. Must start from the second node(cur node start from curTail.next) and use 
-	   a pointer pointing to the tail node(curTail is fixed!) that other nodes are inserted before. 
+	   Must add dummy node. Must start from the second node(cur node start from curTail.next) and use a pointer pointing to the tail node(curTail is fixed!) that other nodes are inserted before. 
 	   - [Leetcode]Swap Nodes in Pairs(Implementation)
 	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
 	   - [Leetcode]Reverse Linked List II(Implementation*)
-	(3.3). Tail insertion. Inserting each node right after the original tail node. Need to first aquire
-	 pointer to the tail node and then start from the first node. Original tail node will become new
-	 head node. Pointer to the original head node need to be stored or it will be lost.
+	(3.3). Tail insertion. Inserting each node right after the original tail node. Need to first aquire pointer to the tail node and then start from the first node. Original tail node will become new head node. Pointer to the original head node need to be stored or it will be lost.
 	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
 (4)Copy linked list:
 	- [Leetcode]Copy List with Random Pointer(Algorithm*, two approaches)
