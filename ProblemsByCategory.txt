@@ -82,7 +82,7 @@ Problems:
 	- [Leetcode]Intersection Of Two Linked Lists(Best Algorithm* and Best Implementation*)
 	Remember this algorithm(including the first trial)!
 (2)Remove nodes: 
-	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node and edge case thinking)
+	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node, two pointers moving and edge case thinking)
     - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*)
     - Generalization of above to allow K duplicates -- Remove duplicates from sorted list III.(Implementation* -- multiple cases)
 (3)Reverse nodes: 
@@ -95,6 +95,10 @@ Problems:
 	   - [Leetcode]Reverse Linked List II(Implementation*)
 	(3.3). Tail insertion. Inserting each node right after the original tail node. Need to first aquire pointer to the tail node and then start from the first node. Original tail node will become new head node. Pointer to the original head node need to be stored or it will be lost.
 	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
+(4)Re-arrange nodes:
+    Removing nodes first, and then either insert them into the original list or a new list. The latter way requires creating a new dummy node and tail node for appending, more nodes than the former way but could be simpler. The former way need to deal with some special cases, like removing and inserting into the old place, which could affect the next position of the pointer.
+    - [Leetcode]Rotate List(Implementation, practice two pointers moving--two ways)
+    - [Leetcode]Partition List(Best algorithm*)
 (4)Copy linked list:
 	- [Leetcode]Copy List with Random Pointer(Algorithm*, two approaches)
 
