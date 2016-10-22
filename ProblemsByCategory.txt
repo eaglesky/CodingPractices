@@ -79,11 +79,11 @@ Knowledge:
 
 Problems:
 (1)Node finding: 
-	- [Leetcode]Intersection Of Two Linked Lists(Best Algorithm* and Best Implementation*)
+    - [Leetcode]Intersection Of Two Linked Lists(Best Algorithm* and Best Implementation*)
 	Remember this algorithm(including the first trial)!
     - [Leetcode]Linked List Cycle II(Algorithm* and Implementation*)
 (2)Remove nodes: 
-	- [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node, two pointers moving and edge case thinking)
+    - [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node, two pointers moving and edge case thinking)
     - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*)
     - Generalization of above to allow K duplicates -- Remove duplicates from sorted list III.(Implementation* -- multiple cases)
 (3)Reverse nodes: 
@@ -102,6 +102,19 @@ Problems:
     - [Leetcode]Partition List(Best algorithm*)
 (4)Copy linked list:
 	- [Leetcode]Copy List with Random Pointer(Algorithm*, two approaches)
+
+
+4. Stack and Queue
+
+Knowledge:
+(1)Java implemenation: 
+Interfact Deque<E>, push(E item), pop(), peek(). 
+Interface Queue<E>, offer(e), poll(), peek(). 
+Both of them can be implemented as class ArrayDeque<E>, which is very likely a double direction resizeable array. According to java doc, "This class is likely to be faster than Stack when used as a stack, and faster than LinkedList when used as a queue". This data structure doesn't allow null element, as peek() returns null when the deque is empty. peek() does not throw any exceptions.
+
+Problems:
+
+
 
 
 Implementation Utils:
