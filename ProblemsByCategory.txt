@@ -41,8 +41,9 @@ Problems:
     - [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
     - [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm*).
 (4) Inward two pointers:
-    - [Leetcode] Three sum problems.
+    - [Leetcode] Previous three sum problems.
     - [Leetcode] Container with most water(Algorithm)
+    - [Leetcode] Trapping rain water(Multiple Algorithms* and implementation*)
 
 
 2. Strings
@@ -107,12 +108,15 @@ Problems:
 4. Stack and Queue
 
 Knowledge:
-(1)Java implemenation: 
+(1)stack can be implemented as resizable array or linked list; queue can be implemented as cyclic array, double resizeable array or linked list.
+(2)Java implemenation: 
 Interfact Deque<E>, push(E item), pop(), peek(). 
 Interface Queue<E>, offer(e), poll(), peek(). 
+Iteration using iterator and descendingItarator -- different results!
 Both of them can be implemented as class ArrayDeque<E>, which is very likely a double direction resizeable array. According to java doc, "This class is likely to be faster than Stack when used as a stack, and faster than LinkedList when used as a queue". This data structure doesn't allow null element, as peek() returns null when the deque is empty. peek() does not throw any exceptions.
 
 Problems:
+(1)[Leetcode]Simplify path(Implementation*)
 
 
 
@@ -122,24 +126,36 @@ Implementation Utils:
     (1) Java:
             int[] nums;
             Arrays.sort(nums);//In place, stable, O(nlogn) time.
+
 2. Max and min Int
     (1) Java:
             Integer.MAX_VALUE;
             Integer.MIN_VALUE;
+
 3. Absolute value:
     (1) Java:
             int absDiff = Math.abs(4-5);
-5. Comparison of two numerical values:
+
+4. Comparison of two numerical values:
     (1) Java:
             int maxOfTwo = Math.max(5, 4);
             int minOfTwo = Math.min(5, 4);
 
-4. Convert String to Int:
+5. Find the maximum/minimum in an array as well as the index:
+    (1) Java:
+        input: int[] height
+        int highestPos = 0;
+        int result = 0;
+        for (int i = 0; i < height.length; ++i) {
+            highestPos = (height[i] > height[highestPos]) ? i : highestPos;
+        }
+
+6. Convert String to Int:
     (1) Java:
             String number = "10";
             int result = Integer.parseInt(number);
             Integer result2 = Integer.valueOf(number);
-5. Count the occurence of each character in a string:
+7. Count the occurence of each character in a string:
     (1) Java:
             String t = "aerwerrsdf";
             Map<Character, Integer> TcharCounts = new HashMap<>();
@@ -147,10 +163,22 @@ Implementation Utils:
                 int curCount = TcharCounts.getOrDefault(t.charAt(i), 0);
                 TcharCounts.put(t.charAt(i), curCount + 1);
             }
-6. Substring:
+8. Substring:
     (1) Java (public String substring(int beginIndex,
                int endIndex) ), beginIndex is inclusive and endIndex is exclusive 
             "hamburger".substring(4, 8) returns "urge"
             "smiles".substring(1, 5) returns "mile"
+
+9. Find the index of a character in a string:
+    (1) Java:
+            String str1 = "allen chin is a hero";
+            int pos1 = str1.indexOf('a'); // 0
+            int pos2 = str1.indexOf('a', 3); // 14
+        
+
+10. Initialization of multiple variables:
+    (1) Java supports this, which can also be used in for-loop
+        int a1 = 3, a2 = 5, a3 = 7;
+
 
 
