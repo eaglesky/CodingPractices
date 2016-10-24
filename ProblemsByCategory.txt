@@ -156,11 +156,16 @@ direction resizeable array. According to java doc, "This class is likely to be f
 than Stack when used as a stack, and faster than LinkedList when used as a queue".
 This data structure doesn't allow null element, as peek() returns null when the deque
 is empty. peek() does not throw any exceptions.
+(3)In some design problems, sometimes it is good to call peek() first in pop()/poll
+().
 
 Problems:
 (1)[Leetcode]Simplify path(Implementation*)
 (2)[Leetcode]Evaluate reverse polish notation(Implementation)
-
+(3)[Leetcode]Min stack(Multiple algorithms*, practice conversion between primitive
+types and Binary Numeric Promotion)
+(4)[Leetcode]Implement queue using stacks(Algorithm*)
+(5)[Leetcode]Implement stack using queues(Best Algorithm*)
 
 
 
@@ -249,5 +254,7 @@ Implementation Utils:
          }
          return typeOfDay;
         }
+
+12. Conversion between primitive types and Binary Numeric Promotion
 
 
