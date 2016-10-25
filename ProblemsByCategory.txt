@@ -168,6 +168,21 @@ types and Binary Numeric Promotion)
 (5)[Leetcode]Implement stack using queues(Best Algorithm*)
 
 
+5. Trees
+
+Knowledge:
+(1)Definition of tree, binary tree and binary search tree, and the differences between
+them. For BST, definition can vary slightly with respect to equality, if there could
+be duplicate values.
+(2)Balanced vs Unbalanced. Two common types of balanced trees are red-black tree and
+AVL tree.
+(3)Definition of complete, full and perfect binary trees.
+(4)Binary tree number of nodes n = 2^k - 1 (k is the number of levels)
+(5)Binary tree inorder, preorder and postorder traversal and their three implementations
+(see related problems below).
+
+Problems:
+(1)
 
 Implementation Utils:
 1. Sorting an array:
