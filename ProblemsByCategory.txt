@@ -182,7 +182,7 @@ AVL tree.
 (see related problems below).
 
 Problems:
-(1)
+(1)Binary tree inorder traversal(Algorithm* and Implementation*)
 
 Implementation Utils:
 1. Sorting an array:
