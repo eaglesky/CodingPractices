@@ -179,10 +179,11 @@ AVL tree.
 (3)Definition of complete, full and perfect binary trees.
 (4)Binary tree number of nodes n = 2^k - 1 (k is the number of levels)
 (5)Binary tree inorder, preorder and postorder traversal and their three implementations
-(see related problems below).
+(see related problems below). -- N-ary trees?
 
 Problems:
 (1)Binary tree inorder traversal(Algorithm* and Implementation*)
+(2)Binary tree preorder traversal(Multiple Algorithms* and implementation)
 
 Implementation Utils:
 1. Sorting an array:
