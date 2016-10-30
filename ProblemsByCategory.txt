@@ -180,10 +180,16 @@ AVL tree.
 (4)Binary tree number of nodes n = 2^k - 1 (k is the number of levels)
 (5)Binary tree inorder, preorder and postorder traversal and their three implementations
 (see related problems below). -- N-ary trees?
+(6)About Morris traversal: the basic idea is to use null right child of some nodes
+to store the succedents beforehand and delete them afterhand.
+
+
 
 Problems:
-(1)Binary tree inorder traversal(Algorithm* and Implementation*)
-(2)Binary tree preorder traversal(Multiple Algorithms* and implementation)
+(1)Binary tree inorder traversal(Algorithms* and Implementation*)
+(2)Binary tree preorder traversal(Algorithms* and implementation)
+(3)Binary tree postorder traversal(Algorithms* and implementation), it can be seen
+as a reverse of preorder traversal.
 
 Implementation Utils:
 1. Sorting an array:
