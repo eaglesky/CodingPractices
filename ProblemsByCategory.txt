@@ -191,10 +191,19 @@ right). It is also necessary to create a dummy node and have its left child be t
 root.
 
 Problems:
-(1)Binary tree inorder traversal(Algorithms* and Implementation*)
-(2)Binary tree preorder traversal(Algorithms* and implementation)
-(3)Binary tree postorder traversal(Algorithms* and implementation), it can be seen
-as a reverse of preorder traversal.
+(1) Traversal:
+    - [Leetcode]Binary tree inorder traversal(Algorithms* and Implementation*)
+    - [Leetcode]Binary tree preorder traversal(Algorithms* and implementation)
+    - [Leetcode]Binary tree postorder traversal(Algorithms* and implementation), it
+    can be seen as a reverse of preorder traversal.
+    - [Leetcode]Binary tree level order traversal I(Multiple algorithms* and best
+    implementation of recursive solution*), II is just adding reverse to the end of
+    the solution of I. [Leetcoe]Zigzag level order traversal. Reverse the array for
+    that level every two levels(or assign the values reversely when creating the array
+    for that level).
+
+
+
 
 Implementation Utils:
 1. Sorting an array:
@@ -225,12 +234,17 @@ Implementation Utils:
             highestPos = (height[i] > height[highestPos]) ? i : highestPos;
         }
 
-6. Convert String to Int:
+6. Reverse a list:
+    (1) Java: in place.
+        java.util.Collections.reverse(List<?> list).
+
+7. Convert String to Int:
     (1) Java:
             String number = "10";
             int result = Integer.parseInt(number);
             Integer result2 = Integer.valueOf(number);
-7. Count the occurence of each character in a string:
+
+8. Count the occurence of each character in a string:
     (1) Java:
             String t = "aerwerrsdf";
             Map<Character, Integer> TcharCounts = new HashMap<>();
@@ -238,24 +252,25 @@ Implementation Utils:
                 int curCount = TcharCounts.getOrDefault(t.charAt(i), 0);
                 TcharCounts.put(t.charAt(i), curCount + 1);
             }
-8. Substring:
+
+9. Substring:
     (1) Java (public String substring(int beginIndex,
                int endIndex) ), beginIndex is inclusive and endIndex is exclusive
             "hamburger".substring(4, 8) returns "urge"
             "smiles".substring(1, 5) returns "mile"
 
-9. Find the index of a character in a string:
+10. Find the index of a character in a string:
     (1) Java:
             String str1 = "allen chin is a hero";
             int pos1 = str1.indexOf('a'); // 0
             int pos2 = str1.indexOf('a', 3); // 14
         
 
-10. Initialization of multiple variables:
+11. Initialization of multiple variables:
     (1) Java supports this, which can also be used in for-loop
         int a1 = 3, a2 = 5, a3 = 7;
 
-11. Switch syntax:
+12. Switch syntax:
     (1) Java:
         public String getTypeOfDayWithSwitchStatement(String dayOfWeekArg) {
          String typeOfDay;
@@ -282,6 +297,6 @@ Implementation Utils:
          return typeOfDay;
         }
 
-12. Conversion between primitive types and Binary Numeric Promotion
+13. Conversion between primitive types and Binary Numeric Promotion
 
 
