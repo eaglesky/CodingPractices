@@ -154,8 +154,10 @@ Iteration using iterator and descendingItarator -- different results!
 Both of them can be implemented as class ArrayDeque<E>, which is very likely a double
 direction resizeable array. According to java doc, "This class is likely to be faster
 than Stack when used as a stack, and faster than LinkedList when used as a queue".
-This data structure doesn't allow null element, as peek() returns null when the deque
-is empty. peek() does not throw any exceptions.
+The Deque interface usually doesn't allow null element, as peek() returns null when
+the deque is empty. peek() does not throw any exceptions. ArrayDeque doesn't permit
+null element while LinkedList does. Stack interface permits null element too. However
+try not to put null element in all cases.
 (3)In some design problems, sometimes it is good to call peek() first in pop()/poll
 ().
 
@@ -201,7 +203,10 @@ Problems:
     the solution of I. [Leetcoe]Zigzag level order traversal. Reverse the array for
     that level every two levels(or assign the values reversely when creating the array
     for that level).
-
+    - [Leetcode]Symmetric Tree(Algorithm and Multiple Implementation*). Iterative
+    solution using queue or stack can add the elements in any order.
+    - [Leetcode]Balanced binary tree(Best Implementation*)
+    - [Leetcode]Populating next right pointers in each node I and II(Implementation)
 
 
 

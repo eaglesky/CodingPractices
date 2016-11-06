@@ -114,3 +114,6 @@ other basic operations.
 29. When iterating two array/strings at the same time, don't use the same
 iterator!
 Leetcode: One Edit Distance.
+
+30. Think if a parameter is really necessary when writting a recursive function. Sometimes
+we make the function return special value. 
