@@ -11,7 +11,9 @@ Knowledge:
 	Implementation: Vector(C++), ArrayList(Java)
 	Performance: get, set is O(1), amortized time of add is O(1) and why. 
 (3) Basic language syntax for array(fixed and dynamic), hash map and hash set.
-(4) Implementation of equals and hashCode methods in Java(See <<Effective Java>>,
+(4) In java, it's better to use constructor to get the shallow copy of ArrayList than
+calling the clone method, since List interface does not have clone method.
+(5) Implementation of equals and hashCode methods in Java(See <<Effective Java>>,
 http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html)
 
 Problems:
@@ -200,13 +202,18 @@ Problems:
     can be seen as a reverse of preorder traversal.
     - [Leetcode]Binary tree level order traversal I(Multiple algorithms* and best
     implementation of recursive solution*), II is just adding reverse to the end of
-    the solution of I. [Leetcoe]Zigzag level order traversal. Reverse the array for
+    the solution of I.
+      [Leetcode]Zigzag level order traversal. Reverse the array for
     that level every two levels(or assign the values reversely when creating the array
     for that level).
+      [Leetcode]Binary Tree right side view -- small variation of level order traversal.
     - [Leetcode]Symmetric Tree(Algorithm and Multiple Implementation*). Iterative
     solution using queue or stack can add the elements in any order.
     - [Leetcode]Balanced binary tree(Best Implementation*)
     - [Leetcode]Populating next right pointers in each node I and II(Implementation)
+    - [Leetcode]Flatten binary tree to linked list(Multiple Algorithms*)
+    - DFS for all the paths: [Leetcode]Path Sum I and II(Implementation). Current
+    path needs to be copied first and then put into the result array.
 
 
 
@@ -247,7 +254,8 @@ Implementation Utils:
     (1) Java:
             String number = "10";
             int result = Integer.parseInt(number);
-            Integer result2 = Integer.valueOf(number);
+            Integer result2 = Integer.valueOf(number);//if number is of int type,
+            // this can also convert it to its Integer class
 
 8. Count the occurence of each character in a string:
     (1) Java:
