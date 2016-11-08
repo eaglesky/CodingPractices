@@ -214,6 +214,9 @@ Problems:
     - [Leetcode]Flatten binary tree to linked list(Multiple Algorithms*)
     - DFS for all the paths: [Leetcode]Path Sum I and II(Implementation). Current
     path needs to be copied first and then put into the result array.
+(2) Recontruction of binary tree:
+    - [Leetcode]Construct Binary Tree from Inorder and Postorder Traversal(Algorithm*
+    and Implementation*)
 
 
 
