@@ -1,6 +1,8 @@
 Good habbit: After coding, re-check the problem description and walk through the code 
 for both normal and edge cases! Do not skip any lines of code. Think about each line
 of code you write(including the return value).
+For recursive functions, pay more attention to the all possible return values, including
+the output parameters.
 
 Think about a working solution first and then try optimizing it. 
 

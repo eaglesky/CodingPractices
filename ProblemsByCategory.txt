@@ -183,7 +183,8 @@ AVL tree.
 (3)Definition of complete, full and perfect binary trees.
 (4)Binary tree number of nodes n = 2^k - 1 (k is the number of levels)
 (5)Binary tree inorder, preorder and postorder traversal and their three implementations
-(see related problems below). -- N-ary trees?
+(see related problems below, remember the implementation of them except Morris). --
+N-ary trees?
 (6)About Morris traversal: the basic idea is to use null right child of some nodes
 to store the succedents beforehand and delete them afterhand. Preorder and inorder
 are similar, since the right children are always traversed at last, and therefore
@@ -215,8 +216,15 @@ Problems:
     - DFS for all the paths: [Leetcode]Path Sum I and II(Implementation). Current
     path needs to be copied first and then put into the result array.
 (2) Recontruction of binary tree:
-    - [Leetcode]Construct Binary Tree from Inorder and Postorder Traversal(Algorithm*
-    and Implementation*)
+    - [Leetcode]Construct Binary Tree from Inorder and Postorder Traversal (Algorithm*
+    and Implementation*), and Construct Binary Tree from Preorder and Inorder Traversal
+    (same). Cannot construct the binary tree from Preorder and Postorder(why? When
+    coming up with exceptions, try starting with the simplest examples)
+(3) Binary Search Tree:
+        * Definition
+        * Ascending order when doing inorder traversal on it
+    - [Leetcode]Validate Binary Search Tree(Multiple algorithms* and Implementations*)
+    -- this reveals an important attribute of BST when traversing it!
 
 
 
