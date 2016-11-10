@@ -220,11 +220,17 @@ Problems:
     and Implementation*), and Construct Binary Tree from Preorder and Inorder Traversal
     (same). Cannot construct the binary tree from Preorder and Postorder(why? When
     coming up with exceptions, try starting with the simplest examples)
+    Note that if duplicates exist in the input array, there may not be unique tree!
 (3) Binary Search Tree:
         * Definition
         * Ascending order when doing inorder traversal on it
     - [Leetcode]Validate Binary Search Tree(Multiple algorithms* and Implementations*)
-    -- this reveals an important attribute of BST when traversing it!
+        -- this reveals an important attribute of BST when traversing it!
+    - [Leetcode]Recover Binary Search Tree(Algorithm and Implementation). Note that
+    this question assumes there are no duplicates in BST! What would be the solution
+    if there could be duplicates?
+    - [Leetcode]Convert Sorted Array to Binary Search Tree(Algorithms and Iterative
+    Implementation*)
 
 
 
