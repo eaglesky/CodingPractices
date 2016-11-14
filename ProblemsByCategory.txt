@@ -1,5 +1,6 @@
 Reference Books:
 (1) Cracking the coding interview
+(2) Introduction to algorithms
 (2) Head first Java
 (3) Leetcode
 
@@ -181,7 +182,7 @@ be duplicate values.
 (2)Balanced vs Unbalanced. Two common types of balanced trees are red-black tree and
 AVL tree.
 (3)Definition of complete, full and perfect binary trees.
-(4)Binary tree number of nodes n = 2^k - 1 (k is the number of levels)
+(4)Number of nodes in perfect binary tree: n = 2^k - 1 (k is the number of levels)
 (5)Binary tree inorder, preorder and postorder traversal and their three implementations
 (see related problems below, remember the implementation of them except Morris). --
 N-ary trees?
@@ -192,8 +193,16 @@ after traversing back through the thread pointer there is no need to visit the l
 children again. However for postorder traversal, the parent node is traversed at last.
 So after traversing back through the thread pointer, the left children have to be
 visited reversely(only those nodes from the diret left child all the way down to the
-right). It is also necessary to create a dummy node and have its left child be the
+right). It is also necessary to create a dummy node and(7) have its left child be the
 root.
+(7)Binary search tree:
+    (7.1)Definition
+    (7.2)Ascending order when doing inorder traversal on it
+    (7.3)Search, Minimum, Maximum, Successor, Predecessor operations all run in
+    O(h) time. h is the height of the BST.
+    (7.4)Insertion and Deletion(harder, see one example problem) can also run in O
+    (h) time.
+
 
 Problems:
 (1) Traversal:
@@ -222,8 +231,6 @@ Problems:
     coming up with exceptions, try starting with the simplest examples)
     Note that if duplicates exist in the input array, there may not be unique tree!
 (3) Binary Search Tree:
-        * Definition
-        * Ascending order when doing inorder traversal on it
     - [Leetcode]Validate Binary Search Tree(Multiple algorithms* and Implementations*)
         -- this reveals an important attribute of BST when traversing it!
     - [Leetcode]Recover Binary Search Tree(Algorithm and Implementation). Note that
@@ -231,6 +238,8 @@ Problems:
     if there could be duplicates?
     - [Leetcode]Convert Sorted Array to Binary Search Tree(Algorithms and Iterative
     Implementation*)
+    - [Leetcode]Convert Sorted List to Binary Search Tree(Best Algorithm* and Implementations*),
+    constructing tree from array can often be solved by bottom-up approach!
 
 
 

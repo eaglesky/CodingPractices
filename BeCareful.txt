@@ -121,3 +121,7 @@ Leetcode: One Edit Distance.
 we make the function return special value. 
 
 31. Consider using hash map when searching for an element in an array.
+
+32. When implementing an algorithm, think carefully about each parameter of a function
+-- whether it is necessary or not, if it can be simplified. Improper paramter could
+complicate the implementation!
