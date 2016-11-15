@@ -200,8 +200,8 @@ root.
     (7.2)Ascending order when doing inorder traversal on it
     (7.3)Search, Minimum, Maximum, Successor, Predecessor operations all run in
     O(h) time. h is the height of the BST.
-    (7.4)Insertion and Deletion(harder, see one example problem) can also run in O
-    (h) time.
+    (7.4)Insertion(easy) and Deletion(harder, see one example problem) can also run
+    in O(h) time.
 
 
 Problems:
@@ -240,6 +240,7 @@ Problems:
     Implementation*)
     - [Leetcode]Convert Sorted List to Binary Search Tree(Best Algorithm* and Implementations*),
     constructing tree from array can often be solved by bottom-up approach!
+    - [Leetcode]Delete Node in a BST(Algorithms* and Implementation)
 
 
 
