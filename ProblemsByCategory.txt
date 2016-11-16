@@ -199,10 +199,11 @@ root.
     (7.1)Definition
     (7.2)Ascending order when doing inorder traversal on it
     (7.3)Search, Minimum, Maximum, Successor, Predecessor operations all run in
-    O(h) time. h is the height of the BST.
+    O(h) time. h is the height of the BST. See the Leetcode practics for Successor
+    implementation.
     (7.4)Insertion(easy) and Deletion(harder, see one example problem) can also run
     in O(h) time.
-
+    (7.5)Selection and Rank. See Leetcode problem below.
 
 Problems:
 (1) Traversal:
@@ -241,6 +242,19 @@ Problems:
     - [Leetcode]Convert Sorted List to Binary Search Tree(Best Algorithm* and Implementations*),
     constructing tree from array can often be solved by bottom-up approach!
     - [Leetcode]Delete Node in a BST(Algorithms* and Implementation)
+    - [Leetcode]Inorder Successor in BST(Algorithm*). This algorithm uses the ascending
+    order attribute of BST so that it can run in O(h) time not in O(n) time. Therefore
+    this algorithm works only when the target is INORDER successor and there are no
+    duplicates in the tree. If duplicates are allowed, this algorithm can not gurantee
+    that the node returned is INORDER successor. Example:
+            13
+          10
+        9
+          10(returned node)
+            10 (look-up node)    
+    This algorithm can be easily extended to implement Ceiling and Floor methods.
+    - [Leetcode]Kth Smallest Element in a BST(Multiple Algorithms*)
+
 
 
 
