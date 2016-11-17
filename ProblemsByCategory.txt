@@ -1,8 +1,9 @@
 Reference Books:
 (1) Cracking the coding interview
-(2) Introduction to algorithms
-(2) Head first Java
-(3) Leetcode
+(2) Robert Sedgewick's Algorithms
+(3) Introduction to algorithms
+(4) Head first Java
+(5) Leetcode
 
 1. Arrays and HashTables
 
@@ -180,7 +181,7 @@ Knowledge:
 them. For BST, definition can vary slightly with respect to equality, if there could
 be duplicate values.
 (2)Balanced vs Unbalanced. Two common types of balanced trees are red-black tree and
-AVL tree.
+AVL tree. Usually the height of a balanced BST is O(log(N)).
 (3)Definition of complete, full and perfect binary trees.
 (4)Number of nodes in perfect binary tree: n = 2^k - 1 (k is the number of levels)
 (5)Binary tree inorder, preorder and postorder traversal and their three implementations
@@ -204,6 +205,7 @@ root.
     (7.4)Insertion(easy) and Deletion(harder, see one example problem) can also run
     in O(h) time.
     (7.5)Selection and Rank. See Leetcode problem below.
+    (7.6)Range query. See Robert's Algorithms. O(n) time and O(h) space
 
 Problems:
 (1) Traversal:
@@ -256,7 +258,34 @@ Problems:
     - [Leetcode]Kth Smallest Element in a BST(Multiple Algorithms*)
 
 
+6. Heap
 
+Knowledge(mainly come from Robert's Algorithms):
+(1)Priority queue is a abstract data type, like an interface in Java, that can be
+implemented with different concrete data structures -- unordered array, ordered array
+, linked list or heap. The performance of the basic operations like max and insert
+varies in all those implmentations(See Robert's Algorithms for the comparison chart).
+(2)Heap is a concrete data structure that is typically used to implement priority
+queue. Usually heap refers to binary heap, but could also refer to d-ary heaps. In
+concept, a binary heap is a complete binary tree. Each node in the tree is larger
+than or equal to the keys in that node's two children. The heap operations require
+traversing not only down but also up, so in practice, heap is usually implemented
+as an array.
+(3)Attributions of Heap:
+    (3.1)The largest key in a heap-ordered binary tree is found at the root.
+    (3.2)The height of a complete binary tree of size N is ⎣lg N⎦ .
+(4)Operations on heap:
+    (3.1)parent, leftChild, rightChild. Simple O(1) operations on the indices.
+    (3.2)Size of array and size of heap is different!
+    (3.3)exchange two nodes.
+    (3.4)Bottom-up reheapify (swim). O(lg N)
+    (3.5)Top-down reheapify (sink). O(lg N)
+    (3.6)Insert. Add a new key, increase heap size, call 3.4. O(lg N)
+    (3.7)Remove the maximum/minimum(root), and return the new root key. Exchange last
+    key with the root key, decrease heap size, call 3.5 to sink the root key. O(lg
+    N).
+    (3.8)Build heap. Call insert(3.6) one by one. O(N) -- proof is in Introduction
+    to Algorithms. This can convert an unordered array to a heap.
 
 Implementation Utils:
 1. Sorting an array:
