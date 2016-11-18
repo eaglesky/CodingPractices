@@ -286,6 +286,17 @@ as an array.
     N).
     (3.8)Build heap. Call insert(3.6) one by one. O(N) -- proof is in Introduction
     to Algorithms. This can convert an unordered array to a heap.
+(5)Indexed priority queue(Robert's Algorithms). Puting indices into a PQ insead of
+the keys directly, and compare the nodes based on the key(not the index!). Therefore
+for when implementing it using a heap, besides the heap array, we also need a map
+of index to the key, which is often implemented with another array since the index
+is usually an integer. The operation 3.7 for this case usually returns the index.
+And besides the typical PQ operations, there are change(int k, Item item) method that
+change the key associated with index k to a new key, which requires a third array
+storing the actual array index for each index of the key(another map). For typical
+heap PQ, it usually takes the array index directly so no mapping is needed.
+An useful applciation is also provided in the book: merging multiple sorted streams.
+
 
 Implementation Utils:
 1. Sorting an array:
