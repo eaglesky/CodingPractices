@@ -206,6 +206,10 @@ root.
     in O(h) time.
     (7.5)Selection and Rank. See Leetcode problem below.
     (7.6)Range query. See Robert's Algorithms. O(n) time and O(h) space
+(8)Trie(Prefix tree/radix tree/digital tree):
+    (8.1)Refer to Robert's Algorithms. Think of the chars on the link instead of on
+    the node.
+    (8.2)The map in each node can be implemented with hashmap or array.
 
 Problems:
 (1) Traversal:
@@ -256,6 +260,9 @@ Problems:
             10 (look-up node)    
     This algorithm can be easily extended to implement Ceiling and Floor methods.
     - [Leetcode]Kth Smallest Element in a BST(Multiple Algorithms*)
+(4) Trie:
+    - [Leetcode]Implement Trie (Prefix Tree)(Full Implementation*, recursive solution
+    of delete?)
 
 
 6. Heap
