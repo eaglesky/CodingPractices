@@ -210,6 +210,7 @@ root.
     (8.1)Refer to Robert's Algorithms. Think of the chars on the link instead of on
     the node.
     (8.2)The map in each node can be implemented with hashmap or array.
+    (8.3)See the first two leetcode problems for complete implementation of trie methods.
 
 Problems:
 (1) Traversal:
@@ -263,6 +264,7 @@ Problems:
 (4) Trie:
     - [Leetcode]Implement Trie (Prefix Tree)(Full Implementation*, recursive solution
     of delete?)
+    - [Leetcode]Add and Search Word - Data structure design(Implementation)
 
 
 6. Heap
