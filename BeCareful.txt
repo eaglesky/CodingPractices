@@ -125,3 +125,8 @@ we make the function return special value.
 32. When implementing an algorithm, think carefully about each parameter of a function
 -- whether it is necessary or not, if it can be simplified. Improper paramter could
 complicate the implementation!
+
+33. Multiple solutions are usually:
+(1)Implemented with multiple data structures;
+(2)Recursive / iterative
+(3)Same data structure, but different algorithms.

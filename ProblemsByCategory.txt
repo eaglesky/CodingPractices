@@ -55,6 +55,13 @@ Problems:
 
 Knowledge:
 (1)JAVA: String, StringBuilder and char[]
+(2)Palindrome.
+    (2.1)Definition. Check if a string is palindrome can be easily done in O(n) time.
+    (2.2)Check if concatenation of two strings is a palindrome. The reverse of the
+    second string has to be the 1)the prefix of the first string, and the rest of
+    the first string is a palindrome, or 2)the first string is the prefix of the reverse
+    of second string, and the rest of the reversed string is a palindrome. [Leetcode]Palindrome
+    Pairs in the Trie part.
 
 Problems:
 (1)[Leetcode]Integer To Roman(Algorithm*)
@@ -265,6 +272,9 @@ Problems:
     - [Leetcode]Implement Trie (Prefix Tree)(Full Implementation*, recursive solution
     of delete?)
     - [Leetcode]Add and Search Word - Data structure design(Implementation)
+    - [Leetcode]Palindrome Pairs(Multiple Algorithms* and Implementations*). One way
+    to improve the speed of not optimal algorithm is consider caching some values
+    when building the trie.
 
 
 6. Heap
