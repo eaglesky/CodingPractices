@@ -272,9 +272,10 @@ Problems:
     - [Leetcode]Implement Trie (Prefix Tree)(Full Implementation*, recursive solution
     of delete?)
     - [Leetcode]Add and Search Word - Data structure design(Implementation)
-    - [Leetcode]Palindrome Pairs(Multiple Algorithms* and Implementations*). One way
-    to improve the speed of not optimal algorithm is consider caching some values
-    when building the trie.
+    - [Leetcode]Palindrome Pairs(Multiple Algorithms* and Implementations*).(Distinct
+    indices (i, j) just means that i != j) One way to improve the speed of not optimal
+    algorithm is consider caching some values when building the trie. Remember the
+    edge cases for the second approach.
 
 
 6. Heap
@@ -411,5 +412,10 @@ Implementation Utils:
         }
 
 13. Conversion between primitive types and Binary Numeric Promotion
+
+14. Fastest way to return a list view of any number of elements:
+    (1) Java:
+         List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");
+         
 
 
