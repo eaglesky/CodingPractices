@@ -8,7 +8,8 @@ Reference Books:
 1. Arrays and HashTables
 
 Knowledge:
-(1) Hash Tables -- implementation, performance, collision.
+(1) Hash Tables -- implementation, performance, collision. Iteration each element
+in it usually requires iterate each bucket.
 (2) Resizeable array
 	Implementation: Vector(C++), ArrayList(Java)
 	Performance: get, set is O(1), amortized time of add is O(1) and why. 
@@ -278,7 +279,27 @@ Problems:
     edge cases for the second approach.
 
 
-6. Heap
+6. Graph
+
+Knowledge:
+(1)Representations(Refer to CTCI):
+    (1.1)Adjacency list. V(number of Vertices) + E(number of edges) space for directed
+    graph, or V + 2E for undirected graph. This is usually the preferred representation.
+    Works well when accessing the neighbors is frequent. For fast edge lookup, just
+    use hashset of integers(instead of list) as the element of arrays in the Graph
+    class(Refer to the implementation of adjacency list in Robert's Algorithms)
+    (2.2)Adjacency matrix. V*V space. Fast for edge lookup, easier to represent weights,
+    but usually takes more space than adjacency list. And has no way to represent
+    parallel edges.
+(2)DFS. Can be used for counting the number of connected components in a graph, check
+if two vertices are connected, etc. Implemented recursively.
+(3)BFS. Usually used for finding the shorted path between two vertices. Implemented
+iteratively using queue. Enqueue a node only when it is not visited, and mark it when
+it is firsted enqueued.
+
+
+
+7. Heap
 
 Knowledge(mainly come from Robert's Algorithms):
 (1)Priority queue is a abstract data type, like an interface in Java, that can be
@@ -416,6 +437,6 @@ Implementation Utils:
 14. Fastest way to return a list view of any number of elements:
     (1) Java:
          List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");
-         
+
 
 
