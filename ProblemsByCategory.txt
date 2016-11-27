@@ -63,6 +63,8 @@ Knowledge:
     the first string is a palindrome, or 2)the first string is the prefix of the reverse
     of second string, and the rest of the reversed string is a palindrome. [Leetcode]Palindrome
     Pairs in the Trie part.
+(3)Don't forget the edge case when the string is empty! If this happens, for loop
+on the string won't happen!
 
 Problems:
 (1)[Leetcode]Integer To Roman(Algorithm*)
@@ -330,9 +332,9 @@ If the graph is not connected, then DFS and BFS below must be called for each no
     * Checking if the adjNode is valid can also be done inside the recursive function
     --- at the beginning if the curNode is not valid, return.
 
-    (2.2)BFS. Usually used for finding the shorted path between two vertices. Implemented
+    (2.2)BFS. Usually used for finding the shorted path(s) between two vertices. Implemented
     iteratively using queue, O(V + E) time. 
-    Algorithm of BFS(node)
+    * Algorithm of BFS(node)
         If node is null, return; //queue usually doesn't allow null value
         Create queue q;
         q.enqueue(node);
@@ -344,11 +346,40 @@ If the graph is not connected, then DFS and BFS below must be called for each no
             for (adjNode : curNode.adjNodes) {
                 if (visited(adjNode) == false) {
                     visited(adjNode) = true;
+                    prev[adjNode] = curNode; //Record the predecessor, used when you
+                                             //want the shorted path
                     q.enqueue(adjNode);
                 }
             }
         }
+        print(prev) // Print out the shortest path recursively, optional
         done;
+
+    * Algorithm of level BFS(node), which can give the distance from the node being
+    traversed to the source node
+        If node is null, return; //queue usually doesn't allow null value
+        Create queue q;
+        q.enqueue(node);
+        visited(node) = true; //Usually a hashmap. Flexible, can vary a bit depending
+                              //on the problem
+        for (level = 0; !q.isEmpty; ++level) {
+            size = q.size();
+            for (i = 0; i < size; ++i) {
+                curNode = q.dequeue();
+                visit(curNode);
+                for (adjNode : curNode.adjNodes) {
+                    if (visited(adjNode) == false) {
+                        visited(adjNode) = true;
+                        prev[adjNode] = curNode;  //optional
+                        q.enqueue(adjNode);
+                    }
+                }          
+            }
+        }
+        print(prev)  //optional
+        done;
+
+    * Bidirectional BFS. See [Leetcode]Word Ladder for implementation.
 
 Problems:
 (1)[Leetcode]Clone Graph, good practice for BFS and DFS. (Algorithms* and Implementations*)
@@ -356,6 +387,8 @@ Problems:
 we need to add some restrictions to prevent stack overflow.Remember BFS implementation
 to this kind of problems.
 (3)[Leetcode]Number of Islands. (Algorithms*)
+(4)[Leetcode]Word Ladder I(Algorithms and Implementations*). Remember the implementation
+of Bidirectional BFS.
 
 7. Heap
 
