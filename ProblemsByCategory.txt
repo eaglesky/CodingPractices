@@ -301,7 +301,7 @@ If the graph is not connected, then DFS and BFS below must be called for each no
     * Algorithm of DFS(node, visited)
         if node is null, return; //Can be omitted sometimes
         visit(node)
-        visited(node) = true; //Usually a hashmap. Flexible, can vary a bit depending
+        visited[node] = true; //Usually a hashmap. Flexible, can vary a bit depending
                               //on the problem
         for (adjNode : node.adjNodes) {
             if (visited(adjNode) == false) {
@@ -315,14 +315,14 @@ If the graph is not connected, then DFS and BFS below must be called for each no
     Small variation of DFS(node)
         if node is null, return;
         visit(node);
-        visited(node) = true;
+        visited[node] = true;
         DFS(node, visited);
         Done;
 
     DFS(node, visited):
         for (adjNode : node.adjNodes) {
             if (visited(adjNode) == false) {
-                visited(adjNode) = true;
+                visited[adjNode] = true;
                 visit(adjNode);
                 DFS(adjNode, visited);
             }
@@ -338,7 +338,7 @@ If the graph is not connected, then DFS and BFS below must be called for each no
         If node is null, return; //queue usually doesn't allow null value
         Create queue q;
         q.enqueue(node);
-        visited(node) = true; //Usually a hashmap. Flexible, can vary a bit depending
+        visited[node] = true; //Usually a hashmap. Flexible, can vary a bit depending
                               //on the problem
         while (!q.isEmpty) {
             curNode = q.dequeue();
@@ -360,7 +360,7 @@ If the graph is not connected, then DFS and BFS below must be called for each no
         If node is null, return; //queue usually doesn't allow null value
         Create queue q;
         q.enqueue(node);
-        visited(node) = true; //Usually a hashmap. Flexible, can vary a bit depending
+        visited[node] = true; //Usually a hashmap. Flexible, can vary a bit depending
                               //on the problem
         for (level = 0; !q.isEmpty; ++level) {
             size = q.size();
@@ -369,7 +369,7 @@ If the graph is not connected, then DFS and BFS below must be called for each no
                 visit(curNode);
                 for (adjNode : curNode.adjNodes) {
                     if (visited(adjNode) == false) {
-                        visited(adjNode) = true;
+                        visited[adjNode] = true;
                         prev[adjNode] = curNode;  //optional
                         q.enqueue(adjNode);
                     }
@@ -378,6 +378,55 @@ If the graph is not connected, then DFS and BFS below must be called for each no
         }
         print(prev)  //optional
         done;
+
+    * BFS(node, endNode) finding all the shortest paths: (see [Leetcode]Word Ladder2)
+        If node is null, return; //queue usually doesn't allow null value
+        Create queue q;
+        q.enqueue(node);
+        str2Dis[node] = 1; //Map of node to the distance to the source node(level),
+                           //also used for checking if the node has been visited
+        prevs[node] = emptyList; //Map of node to list of its predecessors
+        shortestDis = -1;
+        while (!q.isEmpty) {
+            curNode = q.dequeue();
+            curDis = str2Dis.get(curNode);
+            if (shortestDis > -1 && curDis >= shortestDis) {
+                break;
+            }
+            visit(curNode);
+            for (adjNode : curNode.adjNodes) {
+                if (adjNode == endNode) {
+                    shortestDis = curDis + 1;
+                }
+                if (!str2Dis.containsKey(adjNode)) {
+                    str2Dis[adjNode] = curDis + 1;
+                    prev[adjNode].add(curNode); 
+                    q.enqueue(adjNode);
+                } else if (str2Dis.get(adjNode) == curDis + 1) {
+                    prev[adjNode].add(curNode);
+                }
+            }
+        }
+        getPaths(endNode, prev, pathList, pathLists)
+        done;
+
+        getPaths(endNode, prev, pathList, pathLists): //DFS finding all paths
+            prevNodes = pathList.get(endNode);
+            if (prevNodes == null) { //There could be no path to endNode at all!
+                return;
+            }
+            pathList.add(endNode); //If we add to the front here, then there is no
+                                   //need to reverse later
+            for (prevNode : prevNodes) {
+                getPaths(prevNode, prev, pathList, pathLists);
+            }
+            if (prevNodes.isEmpty()) { //The root node has no predecessors
+                pathListReversed = pathList.reverseCopy();
+                pathLists.add(pathListReversed);
+            }
+            pathList.removeLastNode();
+            done;
+
 
     * Bidirectional BFS. See [Leetcode]Word Ladder for implementation.
 
@@ -389,6 +438,8 @@ to this kind of problems.
 (3)[Leetcode]Number of Islands. (Algorithms*)
 (4)[Leetcode]Word Ladder I(Algorithms and Implementations*). Remember the implementation
 of Bidirectional BFS.
+(5)[Leetcode]Word Ladder II(Algorithms and Implementations*). Remember the implementation
+of finding all shortest paths using BFS. 
 
 7. Heap
 
