@@ -332,6 +332,39 @@ If the graph is not connected, then DFS and BFS below must be called for each no
     * Checking if the adjNode is valid can also be done inside the recursive function
     --- at the beginning if the curNode is not valid, return.
 
+    * Finding all the paths between two states:
+        main:
+            DFS(node, curPath, paths);
+            return paths;
+
+        DFS(node, curPath, paths):
+            if node is end node:
+                paths.add(curPath.shallow_copy);
+                return;
+            for (adjNode : node.adjNodes) {
+                if (isValid(adjNode)) {
+                    curPath.add(adjNode);
+                    DFS(adjNode, curPath, paths);
+                    curPath.removeLast;
+                }
+            }
+            Done;
+
+    * Variation of above:
+        main is the same:
+        DFS(node, curPath, paths):
+            if node is end node:
+                paths.add(curPath.shallow_copy);
+                return;
+            curPath.add(node);
+            for (adjNode : node.adjNodes) {
+                if (isValid(adjNode)) {
+                    DFS(adjNode, curPath, paths);
+                }
+            }
+            curPath.removeLast;
+            Done;
+
     (2.2)BFS. Usually used for finding the shorted path(s) between two vertices. Implemented
     iteratively using queue, O(V + E) time. 
     * Algorithm of BFS(node)
@@ -421,7 +454,8 @@ If the graph is not connected, then DFS and BFS below must be called for each no
                 getPaths(prevNode, prev, pathList, pathLists);
             }
             if (prevNodes.isEmpty()) { //The root node has no predecessors
-                pathListReversed = pathList.reverseCopy();
+                pathListReversed = pathList.reverseCopy(); //Don't forget to make
+                                                           //a copy first!
                 pathLists.add(pathListReversed);
             }
             pathList.removeLastNode();
