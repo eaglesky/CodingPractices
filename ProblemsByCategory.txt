@@ -55,7 +55,10 @@ Problems:
 2. Strings
 
 Knowledge:
-(1)JAVA: String, StringBuilder and char[]
+(1)JAVA: String, StringBuilder and char[]. StringBuilder is essentially a wrapper
+of dynamic char array , and append(string) basically copy each character from input
+string to the end of existing char array. When deleting, it will shift the characters
+after those deleted forward. 
 (2)Palindrome.
     (2.1)Definition. Check if a string is palindrome can be easily done in O(n) time.
     (2.2)Check if concatenation of two strings is a palindrome. The reverse of the
@@ -341,8 +344,9 @@ If the graph is not connected, then DFS and BFS below must be called for each no
             if node is end node:
                 paths.add(curPath.shallow_copy);
                 return;
+
             for (adjNode : node.adjNodes) {
-                if (isValid(adjNode)) {
+                if (isValid(adjNode)) { //Cut branches in isValid
                     curPath.add(adjNode);
                     DFS(adjNode, curPath, paths);
                     curPath.removeLast;
@@ -474,6 +478,9 @@ to this kind of problems.
 of Bidirectional BFS.
 (5)[Leetcode]Word Ladder II(Algorithms and Implementations*). Remember the implementation
 of finding all shortest paths using BFS. 
+(6)[Leetcode]Restore IP Addresses(Implementation*). 
+
+
 
 7. Heap
 
@@ -576,12 +583,23 @@ Implementation Utils:
             int pos1 = str1.indexOf('a'); // 0
             int pos2 = str1.indexOf('a', 3); // 14
         
+11. Concatinating strings and add delimiters between them:
+    (1) Java 8: public static String join(CharSequence delimiter,
+                          Iterable<? extends CharSequence> elements)
+            List<String> strings = new LinkedList<>();
+            strings.add("Java");strings.add("is");
+            strings.add("cool");
+            String message = String.join(" ", strings);
+            //message returned is: "Java is cool"
+            //This essentially iterate the input collection and append each element
+            to a string builder with delimiter in between. And at last convert the
+            string builder to string by calling sb.toString().
 
-11. Initialization of multiple variables:
+12. Initialization of multiple variables:
     (1) Java supports this, which can also be used in for-loop
         int a1 = 3, a2 = 5, a3 = 7;
 
-12. Switch syntax:
+13. Switch syntax:
     (1) Java:
         public String getTypeOfDayWithSwitchStatement(String dayOfWeekArg) {
          String typeOfDay;
@@ -608,9 +626,9 @@ Implementation Utils:
          return typeOfDay;
         }
 
-13. Conversion between primitive types and Binary Numeric Promotion
+14. Conversion between primitive types and Binary Numeric Promotion
 
-14. Fastest way to return a list view of any number of elements:
+15. Fastest way to return a list view of any number of elements:
     (1) Java:
          List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");
 

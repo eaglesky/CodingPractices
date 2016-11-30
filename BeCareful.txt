@@ -3,6 +3,7 @@ for both normal and edge cases! Do not skip any lines of code. Think about each 
 of code you write(including the return value).
 For recursive functions, pay more attention to the all possible return values, including
 the output parameters.
+Also remember to check if the index is out of boundary
 
 Think about a working solution first and then try optimizing it. 
 
