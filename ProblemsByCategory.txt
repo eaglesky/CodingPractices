@@ -299,7 +299,11 @@ Knowledge:
 (2)Traversal. Don't forget null input node and loops!
 Also note that the following pseudocode only implements traversing from one node.
 If the graph is not connected, then DFS and BFS below must be called for each node!
-    (2.1)DFS. Can be used for counting the number of connected components in a graph,
+The following template is just used for implementation. Think about the problem itself
+when considering the algorithm -- like what parameters to use in the recursive
+functions and what they do in each recursion.
+(2.1)DFS. Can be used for counting the number of connected components in
+a graph,
     check if two vertices are connected, etc. Implemented recursively.
     * Algorithm of DFS(node, visited)
         if node is null, return; //Can be omitted sometimes
@@ -337,7 +341,7 @@ If the graph is not connected, then DFS and BFS below must be called for each no
 
     * Finding all the paths between two states:
         main:
-            DFS(node, curPath, paths);
+            DFS(node, curPath, paths); //Initialize the capacity of curPath if possible!
             return paths;
 
         DFS(node, curPath, paths):
@@ -349,7 +353,10 @@ If the graph is not connected, then DFS and BFS below must be called for each no
                 if (isValid(adjNode)) { //Cut branches in isValid
                     curPath.add(adjNode);
                     DFS(adjNode, curPath, paths);
-                    curPath.removeLast;
+                    curPath.removeLast; //This can be omitted if curPath is a fixed
+                                        //size array. If so, upperId of the array
+                                        //should be increased by 1 and passed to DFS
+                                        //recursive function
                 }
             }
             Done;
@@ -478,7 +485,11 @@ to this kind of problems.
 of Bidirectional BFS.
 (5)[Leetcode]Word Ladder II(Algorithms and Implementations*). Remember the implementation
 of finding all shortest paths using BFS. 
-(6)[Leetcode]Restore IP Addresses(Implementation*). 
+(6)[Leetcode]Restore IP Addresses(Implementation*). '012' is invalid while '0' is
+valid.
+(7)[Leetcode]Combination Sum(Implementation). What's the DP solution?
+(8)[Leetcode]Combination Sum II(Algorithm*). DP solution? Remember the way of thinking
+combination related problems!
 
 
 
