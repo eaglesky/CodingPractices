@@ -303,8 +303,9 @@ The following template is just used for implementation. Think about the problem 
 when considering the algorithm -- like what parameters to use in the recursive
 functions and what they do in each recursion.
 (2.1)DFS. Can be used for counting the number of connected components in
-a graph,
-    check if two vertices are connected, etc. Implemented recursively.
+a graph, check if two vertices are connected, etc. Implemented recursively. Iterative
+solution usually uses a stack. And a map of node to its parent can be created while
+traversing to retrieve the paths.
     * Algorithm of DFS(node, visited)
         if node is null, return; //Can be omitted sometimes
         visit(node)
@@ -376,7 +377,7 @@ a graph,
             curPath.removeLast;
             Done;
 
-    (2.2)BFS. Usually used for finding the shorted path(s) between two vertices. Implemented
+(2.2)BFS. Usually used for finding the shorted path(s) between two vertices. Implemented
     iteratively using queue, O(V + E) time. 
     * Algorithm of BFS(node)
         If node is null, return; //queue usually doesn't allow null value
@@ -491,6 +492,10 @@ valid.
 (8)[Leetcode]Combination Sum II(Algorithm*). DP solution? Remember the way of thinking
 combination related problems!
 (9)[Leetcode]Combination Sum III(Implementation*).
+(10)[Leetcode]N Queens. (Algorithm*)
+(11)[Leetcode]Generate Parentheses. (Algorithm). DP solution?
+
+
 
 
 7. Heap
@@ -644,6 +649,11 @@ Implementation Utils:
          List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");
          Note that the returned list is backed by the original array, not a copy,
          so modifying the original array will change the list!
+
+16. Initialize elements of an array with same values:
+    (1) Java:
+        boolean[] validCols = new boolean[n];
+        Arrays.fill(validCols, true);
 
 
 
