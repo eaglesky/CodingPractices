@@ -58,7 +58,8 @@ Knowledge:
 (1)JAVA: String, StringBuilder and char[]. StringBuilder is essentially a wrapper
 of dynamic char array , and append(string) basically copy each character from input
 string to the end of existing char array. When deleting, it will shift the characters
-after those deleted forward. 
+after those deleted forward. To remove the last element in the StringBuilder, just
+use sb.setLength(sb.length() - 1).
 (2)Palindrome.
     (2.1)Definition. Check if a string is palindrome can be easily done in O(n) time.
     (2.2)Check if concatenation of two strings is a palindrome. The reverse of the
@@ -224,6 +225,9 @@ root.
     the node.
     (8.2)The map in each node can be implemented with hashmap or array.
     (8.3)See the first two leetcode problems for complete implementation of trie methods.
+    (8.4)The value of each node can be boolean, integer, or even a String -- representation
+    of the word from the root to the node. And this value can change and be used for
+    de-duplication. E.g. [Leetcode] Word Search II.
 
 Problems:
 (1) Traversal:
@@ -351,13 +355,15 @@ traversing to retrieve the paths.
                 return;
 
             for (adjNode : node.adjNodes) {
-                if (isValid(adjNode)) { //Cut branches in isValid
+                if (isValid(adjNode, visited)) { //Cut branches in isValid
                     curPath.add(adjNode);
+                    visited[adjNode] = true;
                     DFS(adjNode, curPath, paths);
                     curPath.removeLast; //This can be omitted if curPath is a fixed
                                         //size array. If so, upperId of the array
                                         //should be increased by 1 and passed to DFS
                                         //recursive function
+                    visited[adjNode] = false;
                 }
             }
             Done;
@@ -368,13 +374,17 @@ traversing to retrieve the paths.
             if node is end node:
                 paths.add(curPath.shallow_copy);
                 return;
+            //isValid can also be called here instead of later, usually must be after
+            //checking if the node is end node!
             curPath.add(node);
+            visited[node] = true;
             for (adjNode : node.adjNodes) {
-                if (isValid(adjNode)) {
+                if (isValid(adjNode, visited)) {
                     DFS(adjNode, curPath, paths);
                 }
             }
             curPath.removeLast;
+            visited[node] = false;
             Done;
 
 (2.2)BFS. Usually used for finding the shorted path(s) between two vertices. Implemented
@@ -482,23 +492,29 @@ Problems:
 we need to add some restrictions to prevent stack overflow.Remember BFS implementation
 to this kind of problems.
 (3)[Leetcode]Number of Islands. (Algorithms*)
-(4)[Leetcode]Word Ladder I(Algorithms and Implementations*). Remember the implementation
+(4)[Leetcode]Word Search. (Algorithm*)
+(5)[Leetcode]Word Search II. (Algorithm and Best Implementation*)
+(6)[Leetcode]Word Ladder I(Algorithms and Implementations*). Remember the implementation
 of Bidirectional BFS.
-(5)[Leetcode]Word Ladder II(Algorithms and Implementations*). Remember the implementation
+(7)[Leetcode]Word Ladder II(Algorithms and Implementations*). Remember the implementation
 of finding all shortest paths using BFS. 
-(6)[Leetcode]Restore IP Addresses(Implementation*). '012' is invalid while '0' is
+(8)[Leetcode]Restore IP Addresses(Implementation*). '012' is invalid while '0' is
 valid.
-(7)[Leetcode]Combination Sum(Implementation). What's the DP solution?
-(8)[Leetcode]Combination Sum II(Algorithm*). DP solution? Remember the way of thinking
+(9)[Leetcode]Combination Sum(Implementation). What's the DP solution?
+(10)[Leetcode]Combination Sum II(Algorithm*). DP solution? Remember the way of thinking
 combination related problems!
-(9)[Leetcode]Combination Sum III(Implementation*).
-(10)[Leetcode]N Queens. (Algorithm*)
-(11)[Leetcode]Generate Parentheses. (Algorithm). DP solution?
+(11)[Leetcode]Combination Sum III(Implementation*).
+(12)[Leetcode]N Queens. (Algorithm*)
+(13)[Leetcode]Generate Parentheses. (Algorithm). DP solution?
+(14)[Leetcode]Sudoku Solver(Implementation). DFS with return boolean check.
+
+7. Permutations and Combinations.
+
+Problems:
+(1)[Leetcode]Permutations (Multiple Algorithms*)
 
 
-
-
-7. Heap
+8. Heap
 
 Knowledge(mainly come from Robert's Algorithms):
 (1)Priority queue is a abstract data type, like an interface in Java, that can be
