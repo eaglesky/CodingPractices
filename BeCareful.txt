@@ -131,3 +131,5 @@ complicate the implementation!
 (1)Implemented with multiple data structures;
 (2)Recursive / iterative
 (3)Same data structure, but different algorithms.
+
+34. Always think about if the divisor could be zero or not!

@@ -511,7 +511,9 @@ combination related problems!
 7. Permutations and Combinations.
 
 Problems:
-(1)[Leetcode]Permutations (Multiple Algorithms*)
+(1)[Leetcode]Permutations I and II (Multiple Algorithms*)
+(2)[Leetcode]Permutation Sequence(Best Algorithm and Implementation*)
+(3)[Leetcode]Combinations(Algorithms*)
 
 
 8. Heap
