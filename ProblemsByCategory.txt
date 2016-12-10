@@ -508,12 +508,28 @@ combination related problems!
 (13)[Leetcode]Generate Parentheses. (Algorithm). DP solution?
 (14)[Leetcode]Sudoku Solver(Implementation). DFS with return boolean check.
 
-7. Permutations and Combinations.
+
+
+7. Permutations, Combinations and Subsets.
+Knowledge:
+(1)Factorial representation of Permutation: P(n,k) = n! / (n-k)! 
+(2)Factorial representation of Combination: C(n,k) = n! / (k! * (n-k)!)
+(3)(1 + X)^n = Sum(Cn,k * X^k), 0 <= k <= n
+(4)C(n,k) = C(n-1, k-1) + C(n-1, k)
+(5)Permutations, Combinations and Subsets can all be solved by standard DFS or iterative
+solution based on induction. To remove duplicates, we can either use a hashtable or
+sort the original array first and then compare the current number with the previous
+one. Combinations and Subsets problems can also be solved using BitSet, but not recommended
+as first trial.
 
 Problems:
 (1)[Leetcode]Permutations I and II (Multiple Algorithms*)
 (2)[Leetcode]Permutation Sequence(Best Algorithm and Implementation*)
 (3)[Leetcode]Combinations(Algorithms*)
+(4)[Leetcode]Subsets I and II(Multiple Algorithms*)
+(5)[Leetcode]Letter combinations of a phone number(Iterative Algorithm*). Remember
+the iterative algorithm!
+
 
 
 8. Heap
@@ -554,6 +570,12 @@ change the key associated with index k to a new key, which requires a third arra
 storing the actual array index for each index of the key(another map). For typical
 heap PQ, it usually takes the array index directly so no mapping is needed.
 An useful applciation is also provided in the book: merging multiple sorted streams.
+
+
+9. Bit Manipulation
+
+Problems:
+(1)[Leetcode]Gray Code(Algorithm*). Remember the algorithm.
 
 
 Implementation Utils:
