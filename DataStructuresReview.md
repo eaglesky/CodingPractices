@@ -140,7 +140,7 @@ int main() {
 }
 ```
 
-```
+```java
 // Java Queue interface
 // Result: 2 4 6 8
 import java.util.*;

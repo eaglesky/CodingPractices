@@ -107,18 +107,57 @@ Knowledge:
 (1)Java: LinkedList class -- double linked list, performance
 (2)Two pointers technique is frequently used! The diff between any two given linked
 list can always be found in O(m+n) time.
-(3)Sometimes we can use the input pointers to reduce the number of pointers created.
-(4)It is possible to delete a node only by using that pointer if that node is not
+(3)Two pointers iteration on two linked lists(one on each of them):
+    (3.1)while (p != null || q != null) {
+            if (p == null) {
+                operation on q;
+                q = q.next;
+            } else if (q == null) {
+                operation on p;
+                p = p.next;
+            } else {
+                operation on both p and q(might have more branches here)
+                p = p.next;
+                q = q.next;
+            }
+        }
+    (3.2)while (p != null && q != null) {
+            operation on both p and q.(might have more branches here)
+            p = p.next;
+            q = q.next;
+        }
+        while (p != null) {
+            operation on p.
+            p = p.next;
+        }
+        while (q != null) {
+            operation on q.
+            q = q.next;
+        }
+    (3.3)(probably best): while(p != null || q != null) {
+                              if (p != null && (q == null || condition_of_iterate_p))
+                              {
+                                    operation on p.
+                                    p = p.next;
+                              } else {
+                                    operation on q.
+                                    q = q.next
+                              }
+                          }
+   The above implementations can also be appied to two pointers iteration on arrays
+   or strings. E.g. The merge function of Merge Sort. 
+(4)Sometimes we can use the input pointers to reduce the number of pointers created.
+(5)It is possible to delete a node only by using that pointer if that node is not
 the head or tail --- by shifting the contents of the following nodes toward it and
 remove the last one.
-(5)Adding dummy node to the front a linked list can be convenient for iterating over
+(6)Adding dummy node to the front a linked list can be convenient for iterating over
 the list using two pointers, especially if we want to remove the first node, or insert
 in front of the first node. Think carefully about edge cases involving the head node
 if we do not want to add the dummy node(for node finding problems, think about the
 case when there is only one node in a list).
-(6)Edge cases: (think normal case first), insert/remove the first/last node, one node
+(7)Edge cases: (think normal case first), insert/remove the first/last node, one node
 linked list, null list.
-(7)Three approaches for reversing linked list and their implementation(see below).
+(8)Three approaches for reversing linked list and their implementation(see below).
 
 Problems:
 (1)Node finding:
@@ -572,7 +611,27 @@ heap PQ, it usually takes the array index directly so no mapping is needed.
 An useful applciation is also provided in the book: merging multiple sorted streams.
 
 
-9. Bit Manipulation
+
+9. Sorting and Searching
+
+Knowledge(mainly from Colding Manual):
+(1)Source code for sortings is in Sortings.java.
+(2)Insertion sort, bubble sort and selection sort. Although all of them run in O(n^2)
+time using O(1) space, insertion sort is usually the most efficient(fastest), while
+bubble sort is the least efficient. This can be seen from the source code, the number
+of basic operations in each loop of bubble sort is simly larger than the other two.
+When the input array is mostly or fully sorted, insertion sort can perform much less
+operations, while selection sort still performs almost as many as usual. Selection
+sort generally performs more comparisons than insertion sort, but less writes.
+Also note that the first two algorithms are stable, while the selection sort is not.
+Example: for [9, 3, 2, 9, 1], the first 9 will be swapped with 1, leading to a change
+of relative order of the two 9s.
+(3)
+
+
+
+
+10. Bit Manipulation
 
 Problems:
 (1)[Leetcode]Gray Code(Algorithm*). Remember the algorithm.
@@ -584,21 +643,44 @@ Implementation Utils:
             int[] nums;
             Arrays.sort(nums);//In place, stable, O(nlogn) time.
 
-2. Max and min Int
+2. Copying an array to a new array:
+    (1) Java:
+        (1.1)System.arraycopy():
+            int[] arr = {1,2,3,4,5};
+            int[] copied = new int[10];
+            System.arraycopy(arr, 0, copied, 1, 5);//5 is the length to copy
+            System.out.println(Arrays.toString(copied));
+
+        Output:
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            [0, 1, 2, 3, 4, 5, 0, 0, 0, 0]
+
+        (1.2)Arrays.copyOf() returns a copy of original array:
+            int[] copied = Arrays.copyOf(arr, 10); //10 the the length of the new array
+            System.out.println(Arrays.toString(copied));
+            copied = Arrays.copyOf(arr, 3);
+            System.out.println(Arrays.toString(copied));
+
+        Output:
+            [1, 2, 3, 4, 5, 0, 0, 0, 0, 0]
+            [1, 2, 3]
+
+
+3. Max and min Int
     (1) Java:
             Integer.MAX_VALUE;
             Integer.MIN_VALUE;
 
-3. Absolute value:
+4. Absolute value:
     (1) Java:
             int absDiff = Math.abs(4-5);
 
-4. Comparison of two numerical values:
+5. Comparison of two numerical values:
     (1) Java:
             int maxOfTwo = Math.max(5, 4);
             int minOfTwo = Math.min(5, 4);
 
-5. Find the maximum/minimum in an array as well as the index:
+6. Find the maximum/minimum in an array as well as the index:
     (1) Java:
         input: int[] height
         int highestPos = 0;
@@ -607,18 +689,18 @@ Implementation Utils:
             highestPos = (height[i] > height[highestPos]) ? i : highestPos;
         }
 
-6. Reverse a list:
+7. Reverse a list:
     (1) Java: in place.
         java.util.Collections.reverse(List<?> list).
 
-7. Convert String to Int:
+8. Convert String to Int:
     (1) Java:
             String number = "10";
             int result = Integer.parseInt(number);
             Integer result2 = Integer.valueOf(number);//if number is of int type,
             // this can also convert it to its Integer class
 
-8. Count the occurence of each character in a string:
+9. Count the occurence of each character in a string:
     (1) Java:
             String t = "aerwerrsdf";
             Map<Character, Integer> TcharCounts = new HashMap<>();
@@ -627,19 +709,19 @@ Implementation Utils:
                 TcharCounts.put(t.charAt(i), curCount + 1);
             }
 
-9. Substring:
+10. Substring:
     (1) Java (public String substring(int beginIndex,
                int endIndex) ), beginIndex is inclusive and endIndex is exclusive
             "hamburger".substring(4, 8) returns "urge"
             "smiles".substring(1, 5) returns "mile"
 
-10. Find the index of a character in a string:
+11. Find the index of a character in a string:
     (1) Java:
             String str1 = "allen chin is a hero";
             int pos1 = str1.indexOf('a'); // 0
             int pos2 = str1.indexOf('a', 3); // 14
         
-11. Concatinating strings and add delimiters between them:
+12. Concatinating strings and add delimiters between them:
     (1) Java 8: public static String join(CharSequence delimiter,
                           Iterable<? extends CharSequence> elements)
             List<String> strings = new LinkedList<>();
@@ -651,11 +733,11 @@ Implementation Utils:
             to a string builder with delimiter in between. And at last convert the
             string builder to string by calling sb.toString().
 
-12. Initialization of multiple variables:
+13. Initialization of multiple variables:
     (1) Java supports this, which can also be used in for-loop
         int a1 = 3, a2 = 5, a3 = 7;
 
-13. Switch syntax:
+14. Switch syntax:
     (1) Java:
         public String getTypeOfDayWithSwitchStatement(String dayOfWeekArg) {
          String typeOfDay;
@@ -682,15 +764,15 @@ Implementation Utils:
          return typeOfDay;
         }
 
-14. Conversion between primitive types and Binary Numeric Promotion
+15. Conversion between primitive types and Binary Numeric Promotion
 
-15. Fastest way to return a list view of any number of elements:
+16. Fastest way to return a list view of any number of elements:
     (1) Java:
          List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");
          Note that the returned list is backed by the original array, not a copy,
          so modifying the original array will change the list!
 
-16. Initialize elements of an array with same values:
+17. Initialize elements of an array with same values:
     (1) Java:
         boolean[] validCols = new boolean[n];
         Arrays.fill(validCols, true);
