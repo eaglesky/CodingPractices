@@ -597,36 +597,77 @@ as an array.
     (3.7)Remove the maximum/minimum(root), and return the new root key. Exchange last
     key with the root key, decrease heap size, call 3.5 to sink the root key. O(lg
     N).
-    (3.8)Build heap. Call insert(3.6) one by one. O(N) -- proof is in Introduction
-    to Algorithms. This can convert an unordered array to a heap.
+    (3.8)Build heap. Call insert(3.6) one by one. O(nlogn), but if we do it from right
+    to left: to call sink(3.5) from the halfway of the array to the left, it runs
+    in O(2n) = O(n) time.The proof is in Introduction to Algorithms. This can convert
+    an unordered array to a heap. 
+    (3.9)Heap sort(ascending order): (http://algs4.cs.princeton.edu/24pq/Heap.java.html)
+        Build max heap(3.8)
+        while (N > 1) {
+            swap(root, last element of the heap);
+            N--  // Decrease the heap size by 1.
+            sink(root);
+        }
 (5)Indexed priority queue(Robert's Algorithms). Puting indices into a PQ insead of
-the keys directly, and compare the nodes based on the key(not the index!). Therefore
-for when implementing it using a heap, besides the heap array, we also need a map
-of index to the key, which is often implemented with another array since the index
-is usually an integer. The operation 3.7 for this case usually returns the index.
-And besides the typical PQ operations, there are change(int k, Item item) method that
-change the key associated with index k to a new key, which requires a third array
-storing the actual array index for each index of the key(another map). For typical
-heap PQ, it usually takes the array index directly so no mapping is needed.
-An useful applciation is also provided in the book: merging multiple sorted streams.
+the keys directly, and compare the nodes based on the key(not the index!). What is
+swapped during reheapfiying is the content of the array(the indices). Therefore when
+implementing it using a heap, besides the heap array, we also need a map of index
+to the key, which is often implemented with another array since the index is usually
+an integer. The operation 3.7 for this case usually returns the index. And besides
+the typical PQ operations, there are change(int k, Item item) method that change the
+key associated with index k to a new key, which requires a third array storing the
+actual array index for each index of the key(another map). For typical heap PQ, it
+usually takes the array index directly so no mapping is needed. An useful applciation
+is also provided in the book: merging multiple sorted streams.
+Source code: http://algs4.cs.princeton.edu/24pq/IndexMinPQ.java.html
 
 
 
 9. Sorting and Searching
 
-Knowledge(mainly from Colding Manual):
+Knowledge(mainly from Coding Manual and Robert's Algorithms):
 (1)Source code for sortings is in Sortings.java.
 (2)Insertion sort, bubble sort and selection sort. Although all of them run in O(n^2)
-time using O(1) space, insertion sort is usually the most efficient(fastest), while
-bubble sort is the least efficient. This can be seen from the source code, the number
-of basic operations in each loop of bubble sort is simly larger than the other two.
-When the input array is mostly or fully sorted, insertion sort can perform much less
-operations, while selection sort still performs almost as many as usual. Selection
-sort generally performs more comparisons than insertion sort, but less writes.
+time using O(1) space, insertion sort is usually the most efficient(fastest, even
+faster than other O(nlogn) sorting algorithms when the array is small), while bubble
+sort is the least efficient. This can be seen from the source code, the number of
+basic operations in each loop of bubble sort is simly larger than the other two. When
+the input array is mostly or fully sorted, insertion sort can perform much less operations,
+while selection sort still performs almost as many as usual. Selection sort generally
+performs more comparisons than insertion sort, but less writes.
 Also note that the first two algorithms are stable, while the selection sort is not.
 Example: for [9, 3, 2, 9, 1], the first 9 will be swapped with 1, leading to a change
 of relative order of the two 9s.
-(3)
+(3)Merge sort. O(nlogn) time. Needs auxiliary space. Can be implemented using top-down
+or bottom-up approaches. The space usage can be reduced a bit by adding more array
+copy operations and do in-place changes instead of returning a new array. The speed
+can be further improved by using insertion sort instead of merge sort when the subarray
+is small.
+(4)Quick sort. Worst case O(n^2) time and on average O(nlogn) time. To make sure it
+runs in O(nlogn), either the pivot is choosen randomly or the array is shuffled before
+partitioning. Two partition schemes exist -- Lomuto(used in Introduction to Algorithms)
+and Hoare(similiar to my implementation, which seems to be more popular, but not easy
+to understand. Need to remember it).
+As per Robert's Algorithms, the average performance of quick sort is usually better
+than the other O(nlogn) sorting algorithms, due to fewer data movements and comparisons.
+The speed can be further improved by using insertion sort instead of quick sort when
+the subarray is small.
+(5)Heap sort. The algorithm is in 8.3.9. O(nlogn) time and O(1) space, unstable. The
+number of comparisons is simliar to quick sort, but the cache misses are much larger
+than the other sorting algorithms, becasue the array entries are rarely compared with
+nearby array entries(locality of reference is lower). Cache is always loaded in blocks
+and each block contains data that are adjacent to each other. Thus quick sort still
+outperforms heap sort most of the time.
+(6)Linear time sorts.
+    (6.1)Counting sort. It tries to put each input element directly to the destination
+    according to the number of elements that are no greater than it, which is computed
+    beforehand. <<Introduction to Algorithms>>
+        * Counting sort is efficient if the range of input data is not significantly
+        greater than the number of objects to be sorted. Consider the situation where
+        the input sequence is between range 1 to 10K and the data is 10, 5, 10K, 5K.
+        * It works as long as the input elements can be mapped to a range of integers.
+        So even if the input elements are negative or characters, it could still work.
+        * Counting sort is stable. Thus it can be used as a subroutine in radix sort.
 
 
 
@@ -635,6 +676,10 @@ of relative order of the two 9s.
 
 Problems:
 (1)[Leetcode]Gray Code(Algorithm*). Remember the algorithm.
+
+
+
+
 
 
 Implementation Utils:
