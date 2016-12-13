@@ -668,7 +668,21 @@ outperforms heap sort most of the time.
         * It works as long as the input elements can be mapped to a range of integers.
         So even if the input elements are negative or characters, it could still work.
         * Counting sort is stable. Thus it can be used as a subroutine in radix sort.
-
+    (6.2)Radix sort. This is useful when each of the input elements consists of several
+    (preferably known and fixed) columns. In such case, this algorithm uses stable
+    sort to sort from the least significant to the most significant column. E.g, if
+    the input elements are d-digit integers:
+    Radix-sort(A, d):
+        for i = 1 to d {
+            stable_sort(like counting sort) A on digit i;
+        }
+    If we do stable sort for each digit using linear sorts like counting sort, the
+    radix sort runs in O(d(n+k)) time, or O(dn) since k is less than 10. However in
+    practice radix can be easily outperformed by other sorting algorithms when d is
+    larger than logn. Also radix sort requires more space and less flexible than the
+    other in-place sorting algorithms.
+    https://www.quora.com/If-Radix-sort-has-a-better-time-complexity-why-is-quick-sort-preferred-both-in-APIs-and-in-terms-of-interviews
+    Overall, radix sort is a stable sort.
 
 
 
