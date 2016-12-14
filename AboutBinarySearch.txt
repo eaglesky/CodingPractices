@@ -5,7 +5,7 @@ Cases need to consider:
 2. Target is within the range of the array but not contained in the array
 
 3. Target is out of the range of the array, either smaller than the minimum
-element in the array of greater than the maximum element in the array.
+element in the array or greater than the maximum element in the array.
 
 
 Type of problems:
