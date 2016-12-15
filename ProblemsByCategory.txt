@@ -693,7 +693,13 @@ outperforms heap sort most of the time.
         minimum element in the array or greater than the maximum element in the array.
         * For above cases, don't forget the case when the input array has no or only
         one element.
-    (7.3)Type of search problems and its implementations:
+    (7.3)Type of search problems and its implementations. General idea is to start
+    with initial range of candidates [low, high], compare target with a[mid](or a
+    [low], a[high] if necessary), then narrow down the candidates by half and search
+    in the new range. Pay attention to how mid value is calculated since we want the
+    range to keep shrinking to 1. For problems that the range can not be cut down
+    to half(time is more than O(logn)), low or high can be increased or decreased
+    gradually.
         (7.3.1)Traditional problem -- return the index of the element if found, otherwise
         return -1:
             int binarySearch(int[] a, int target) {
@@ -724,6 +730,7 @@ outperforms heap sort most of the time.
                 } else {
                     return mid;
                 }
+            }
         (7.3.2)Returns the index of first element that is greater than or equal to
         the target element. Returns n if all elements in the array of n are less than
         the target element.
@@ -759,14 +766,17 @@ outperforms heap sort most of the time.
         When the target is within the range of the input array, returning low or high
         are all fine since they will be equal in the end, however when the target
         is not within the range, the end value of low is not equal to high!
-        (7.3.4)
+        (7.3.4)Search in rotated sorted array.
 
 Problems:
 Binary Search problems:
-    (1)[Leetcode]Search Insert Position(Algorithms*). (7.3.2) and (7.3.3). If the
+    (1)[Leetcode]Search Insert Position(Algorithms*). (7.3.2). If the
     target is in the array and there are more than one, then the returned index could
     be the id of any of those elements.
     (2)[Leetcode]Search for a Range(Algorithms*). (7.3.2) and (7.3.3)
+    (3)[Leetcode]Sqrt(x). (Algorithm*). (7.3.2). Be careful about overflow!
+    (4)[Leetcode]Search in rotated sorted array I and II(Algorithm*). (7.3.1)with
+    changes. Remember the algorithm!
 
 
 
