@@ -1,3 +1,9 @@
+/**
+* Let A be an unsorted array of n integers, with A[O] >= A[1] and A[n- 2] <= A[n- 1]. 
+* Call an index i a local minimum if A[i] is less than or equal to its neighbors.
+* How would you efficiently find a local minimum, if one exists?
+*/
+
 #include <iostream>
 #include <vector>
 using namespace std;
