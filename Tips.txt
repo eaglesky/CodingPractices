@@ -113,7 +113,13 @@ Leetcode: Integer to Roman
 (2) Use input space, like tip 12. If the data structure is linked list, then the mapping
 can be done by adding a node between every two original nodes. 
 
-26. If a certain operation is awkward to put at the end of each iteration in a for
-loop, you can put it at the begining too. E.g., factorial /= n - i - 1 at the end
-could result in the divisor being zero, so you can put it at the begining and change
-it to factorial /= n - i. 
+26. If a certain operation is awkward to put at the end of each iteration in a
+for loop, you can put it at the begining too. E.g., factorial /= n - i - 1 at the
+end could result in the divisor being zero, so you can put it at the begining and
+change it to factorial /= n - i.
+
+27. Some times if the variables you want to swap are parameters of some function,
+you can simply call that function with the swapped parameters. For iterative solution,
+just going ahead without swapping may just require handling very few cases. Leetcode:
+Median of two sorted arrays.
+
