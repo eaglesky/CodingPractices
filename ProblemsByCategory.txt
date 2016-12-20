@@ -3,8 +3,9 @@ Reference Books:
 (2) Robert Sedgewick's Algorithms
 (3) Introduction to algorithms
 (4) Head first Java
-(5) Leetcode
-(6) Element of Programming Interviews(EPI)
+(5) Leetcode C++ solutions by Fangqin Dai(solutions)
+(6) Element of Programming Interviews(EPI)(solutions)
+(7) Leetcode OJ(problems and solutions)
 
 1. Arrays and HashTables
 
@@ -135,6 +136,8 @@ list can always be found in O(m+n) time.
             operation on q.
             q = q.next;
         }
+        This approach is preferable if we can skip iterating the non-null list after
+        the loop breaks. E.g. merge two sorted linked lists.
     (3.3)(probably best): while(p != null || q != null) {
                               if (p != null && (q == null || condition_of_iterate_p))
                               {
@@ -592,18 +595,18 @@ as an array.
     (4.1)parent, leftChild, rightChild. Simple O(1) operations on the indices.
     (4.2)Size of array and size of heap is different!
     (4.3)exchange two nodes.
-    (4.4)Bottom-up reheapify (swim). O(lg N)
-    (4.5)Top-down reheapify (sink). O(lg N)
-    (4.6)Insert. Add a new key, increase heap size, call 3.4. O(lg N)
+    (4.4)Bottom-up reheapify (swim/sift-down). O(lg N)
+    (4.5)Top-down reheapify (sink/sift-up). O(lg N)
+    (4.6)Insert. Add a new key, increase heap size, call 4.4. O(lg N)
     (4.7)Remove the maximum/minimum(root), and return the new root key. Exchange last
-    key with the root key, decrease heap size, call 3.5 to sink the root key. O(lg
+    key with the root key, decrease heap size, call 4.5 to sink the root key. O(lg
     N).
-    (4.8)Build heap. Call insert(3.6) one by one. O(nlogn), but if we do it from right
-    to left: to call sink(3.5) from the halfway of the array to the left, it runs
+    (4.8)Build heap. Call insert(4.6) one by one. O(nlogn), but if we do it from right
+    to left: to call sink(4.5) from the halfway of the array to the left, it runs
     in O(2n) = O(n) time.The proof is in Introduction to Algorithms. This can convert
     an unordered array to a heap. 
     (4.9)Heap sort(ascending order): (http://algs4.cs.princeton.edu/24pq/Heap.java.html)
-        Build max heap(3.8)
+        Build max heap(4.8)
         while (N > 1) {
             swap(root, last element of the heap);
             N--  // Decrease the heap size by 1.
@@ -621,6 +624,31 @@ actual array index for each index of the key(another map). For typical heap PQ, 
 usually takes the array index directly so no mapping is needed. An useful applciation
 is also provided in the book: merging multiple sorted streams.
 Source code: http://algs4.cs.princeton.edu/24pq/IndexMinPQ.java.html
+Also note that if the input are known elements instead of streams, we can also use
+divide and conquer to merge them, and the time complexity is similar but the space
+complexity could be much lower. E.g. [Leetcode]merge k sorted lists.
+(6)Java Implementation: class java.util.PriorityQueue. Doesn't permit null values.
+It is essentially a min heap. Example usage:
+        //Two arguments passed are capacity and comparator. In the following case,
+        //the priority queue stores the elements of ListNode type, and one node is
+        //larger than the other when its value is larger than that of the other node.
+        //The following implementation of compare method is preferable to just return
+        //node1.val - node2.val since the latter could have overflow problem
+        PriorityQueue<ListNode> pq = new PriorityQueue<>(lists.length, new Comparator<ListNode>() {
+            public int compare(ListNode node1, ListNode node2) {
+                if (node1.val > node2.val) {
+                    return 1;
+                } else if (node1.val < node2.val) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+
+Problems:
+(1)[Leetcode]Merge K sorted lists(Algorithms*).
+(2)[Leetcode]Kth largest element in an array. (Algorithms of heap solutions*)
 
 
 
@@ -801,7 +829,11 @@ Binary Search problems:
     (6)[EPI]Search local minimum in partially sorted array(Algorithm).(7.3.6)
     Description is in CodingPractices/SearchLocalMinimum.java
     (7)[Leetcode]Median of two sorted arrays(Algorithm* and Implementation*).
-
+    (8)[Leetcode]Search a 2d Matrix. (7.3.1)
+    (9)[Leetcode]Search a 2d Matrix2.(Best algorithm*)
+Sorting problems:
+    (1)Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick
+    select)
 
 
 

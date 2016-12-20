@@ -152,6 +152,10 @@ public class Sortings {
 		if (start >= end) {
 			return start;
 		}
+
+		//This id must be either random or (start + end) / 2. If it is 
+		//equal to end, then the returned partition id could be end + 1, 
+		//which leads to a repetitive call.
 		int id = rand.nextInt(end - start + 1) + start;
 		int pivot = nums[id];
 		int i = start;
