@@ -835,6 +835,7 @@ Sorting problems:
     (1)[Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick
     select)
     (2)[Leetcode]Insert Interval(Algorithm* and Implementation*).
+    (3)[Leetcode]Merge Intervals(Algorithm)
 
 
 
