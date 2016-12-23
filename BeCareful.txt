@@ -133,3 +133,10 @@ complicate the implementation!
 (3)Same data structure, but different algorithms.
 
 34. Always think about if the divisor could be zero or not!
+
+35. Use iterator(ListIterator if you want to modify the list on the fly, or just
+for-each loop) to iterate the List interface instead of the accessor, because list.get
+(i) could take linear time if it is implemented with linked list. When using the
+iterator, avoid breaking the loop in the middle and then resume the iteration, becasue
+the position of iterator after breaking the loop is usually not easy to handle.
+Try putting all the logic in one loop instead. 

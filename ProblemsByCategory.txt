@@ -832,9 +832,9 @@ Binary Search problems:
     (8)[Leetcode]Search a 2d Matrix. (7.3.1)
     (9)[Leetcode]Search a 2d Matrix2.(Best algorithm*)
 Sorting problems:
-    (1)Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick
+    (1)[Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick
     select)
-
+    (2)[Leetcode]Insert Interval(Algorithm* and Implementation*).
 
 
 
@@ -987,6 +987,19 @@ Implementation Utils:
     (1) Java:
         boolean[] validCols = new boolean[n];
         Arrays.fill(validCols, true);
+
+18. Iterating and modifying a list:
+    (1) Java:
+        List<Integer> l1 = new ArrayList<>();
+        iter = l1.listIterator();
+        while (iter.hasNext()) {
+            int id = iter.nextIndex();
+            int cur = iter.next();
+            if (cur == 4) {
+                iter.remove();
+            }
+            System.out.println(id + ": " + cur);
+        }
 
 
 
