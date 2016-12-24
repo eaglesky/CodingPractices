@@ -10,6 +10,8 @@ public class Sortings {
 		for (int i = 1; i < nums.length; ++i) {
 			int cur = nums[i];
 			int j = i - 1;
+			//Comparisons can also be done from left to right,
+			//which is preferable when sorting a linked list
 			for (; j >= 0 && cur < nums[j]; --j) {
 				nums[j+1] = nums[j];
 			}

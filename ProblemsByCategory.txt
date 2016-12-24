@@ -106,7 +106,7 @@ Problems:
 3. Linked Lists
 
 Knowledge:
-(1)Java: LinkedList class -- double linked list, performance
+(1)Java: LinkedList class -- doubly linked list, performance
 (2)Two pointers technique is frequently used! The diff between any two given linked
 list can always be found in O(m+n) time.
 (3)Two pointers iteration on two linked lists(one on each of them):
@@ -162,6 +162,8 @@ case when there is only one node in a list).
 (7)Edge cases: (think normal case first), insert/remove the first/last node, one node
 linked list, null list.
 (8)Three approaches for reversing linked list and their implementation(see below).
+Use previous node pointer instead of the current node pointer if we want to move the
+current node around!
 
 Problems:
 (1)Node finding:
@@ -836,7 +838,11 @@ Sorting problems:
     select)
     (2)[Leetcode]Insert Interval(Algorithm* and Implementation*).
     (3)[Leetcode]Merge Intervals(Algorithm)
-
+    (4)[Leetcode]Sort Colors(Algorithm*)
+    (5)[Leetcode]Insertion Sort List(Best Implementation*)
+    (6)[Leetcode]Sort List(Implementation*). Bottom-up merge sort on linked list.
+    Very hard to write the code! Top-down approach is much easier and may probably
+    be enough.
 
 
 10. Bit Manipulation
