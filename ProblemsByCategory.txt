@@ -853,6 +853,23 @@ Problems:
 
 
 
+11. Math
+Knowledge:
+(1)Pay attention to the following cases(here overflow also refers to the underflow
+case):
+    * The sum/diff/product of two numeric variables could overflow.
+    * The divisor could be zero. The quotient could also overflow. 
+    * Powers of zero. Zero to the zero power equals ONE. Zero to any positive powers
+    equals ZERO. Zero to any negative powers is UNDEFINED.
+    * Negation could overflow if the variable is MIN_VALUE.
+
+
+Problems:
+(1)Pow(x, n). (Best algorithm* and Implementation). Remember the best algorithm
+
+
+
+
 
 
 Implementation Utils:
