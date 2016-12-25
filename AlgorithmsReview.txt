@@ -847,8 +847,46 @@ Sorting problems:
 
 10. Bit Manipulation
 
+Knowledge:
+(1)Arithmetic(Signed) shift vs Logical(Unsigned) shift. Java: >>, <<(arithmetic),
+>>>(logical). http://docs.oracle.com/javase/tutorial/java/nutsandbolts/op3.html
+There is no '<<<' in Java since arithmetic shift left works the same as logical shift
+left -- the bit next to MSB is left-shifted to replace MSB.
+https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
+(2)Implementation of several common bit operations(Java):
+    boolean get(int num, int i) {// i is the zero-based index from the right.
+        return ((num & (1 << i)) != 0);
+    }
+
+    int set(int num, int i) {//set the bit at index i in num to 1
+        return num | (1 << i);
+    }
+
+    int clear(int num, int i) {//set the bit at index i in num to 0
+        return num & (~(1 << i));
+    }
+
+    //Clear all bits from the most significant bit(leftmost bit) through i(inclusive):
+    int clearBitsMSBthroughI(int num, int i) {
+        return num & ((1 << i) - 1);
+    }
+
+    //Clear all bits from i through 0(inclusive)
+    //-1 is a sequence of all 1s in the binary represenation
+    int clearBitsithrough0(int num, int i) {
+        return num & ((-1 << (i + 1)));
+    }
+
+    //Update the bit value at index i to be the value corresponding bitisl
+    int updateBit(int num, int i, boolean bitisOne) {
+        return bitisOne ? set(num, i) : clear(num, i);
+    }
+(3)Exclusive or has commutativity and associativity.([Leetcode]Single Number)
+
 Problems:
 (1)[Leetcode]Gray Code(Algorithm*). Remember the algorithm.
+(2)[Leetcode]Single Number(Algorithm*). Clarification of the description: Every element
+appears twice except that one element appears only once. Remember the algorithm.
 
 
 
