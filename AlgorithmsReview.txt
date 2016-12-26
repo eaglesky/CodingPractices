@@ -882,11 +882,20 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
         return bitisOne ? set(num, i) : clear(num, i);
     }
 (3)Exclusive or has commutativity and associativity.([Leetcode]Single Number)
+(4)Negation of an integer is just to take the 2's complement -- invert all the bits
+and add one. This works for both positive and negative integer!
+(5)Subtract 1 from positive integer and negative integer work the same!
+(6)Find out the rightmost set bit: if diff = (10010)b, then diff & (-diff) is (00010)b,
+which is the same as diff & ~(diff - 1). ([Leetcode]Single Number III)
 
 Problems:
 (1)[Leetcode]Gray Code(Algorithm*). Remember the algorithm.
 (2)[Leetcode]Single Number(Algorithm*). Clarification of the description: Every element
 appears twice except that one element appears only once. Remember the algorithm.
+(3)[Leetcode]Single Number II(Algorithms*). Clarification of the description: Every element
+appears three times except that one element appears less than three times. Remember
+the algorithms. The algorithms can be extended.
+(4)[Leetcode]Single Number III(Algorithm*).
 
 
 
