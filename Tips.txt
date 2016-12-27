@@ -123,3 +123,8 @@ you can simply call that function with the swapped parameters. For iterative sol
 just going ahead without swapping may just require handling very few cases. Leetcode:
 Median of two sorted arrays.
 
+*28. To find out the maximum count of elements in each category, use a map to store
+the count for each category, and iterate the elements. The maximum can be updated
+in each iteration, which avoids iterating the map after the loop(could be very expensive
+ due to the size of map).
+

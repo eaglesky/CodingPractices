@@ -1,6 +1,7 @@
 Good habbit: 
 Before coding, try to come up with the algorithm than handle normal cases first. The
-code that handles the edge cases usually can be easily added later.
+code that handles the edge cases usually can be easily added later. Also naive solution
+first, and then improve it by methods like caching.
 After coding, re-check the problem description and walk through the code 
 for both normal and edge cases! Do not skip any lines of code. Think about each line
 of code you write(including the return value).

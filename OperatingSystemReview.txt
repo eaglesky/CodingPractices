@@ -3,3 +3,5 @@ OperatingSystemReview
 Questions:
 1. The advantage of multi-processing in Chrome browser over a single process with
 multiple threads?
+
+2. Exec, fork?
