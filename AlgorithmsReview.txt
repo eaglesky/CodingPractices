@@ -830,7 +830,7 @@ Binary Search problems:
     (5)[Leetcode]Find Minimum in Rotated Sorted Array I and II(Algorithm*). These
     problems return the min value rather than the id.(7.3.5)
     (6)[EPI]Search local minimum in partially sorted array(Algorithm).(7.3.6)
-    Description is in CodingPractices/SearchLocalMinimum.java
+    Description is in CodingPractices/EPI/SearchLocalMinimum.java
     (7)[Leetcode]Median of two sorted arrays(Algorithm* and Implementation*).
     (8)[Leetcode]Search a 2d Matrix. (7.3.1)
     (9)[Leetcode]Search a 2d Matrix2.(Best algorithm*)
@@ -942,6 +942,25 @@ Problems:
 (3)Divide Two Integers.(Algorithm* and Implementation*). Remember the algorithm.
 (4)Multiply Strings. (Best Algorithm*). 
 (5)Max Points on a Line. (Best Algorithm* and Implementation*). 
+
+
+
+
+12. Dynamic Programming and Memoization
+
+Knowledge:
+(1)Difference between DP and Memoization. DP is usually bottom-up while memoization
+is top-down. See more(including the advantages and disadvantages of each): 
+http://stackoverflow.com/questions/6184869/what-is-difference-between-memoization-and-dynamic-programming
+(2)
+
+
+
+13. Other Concepts
+(1)P, NP, NP-Complete, NP-Hard.
+http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
+
+
 
 
 Implementation Utils:
