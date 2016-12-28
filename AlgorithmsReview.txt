@@ -952,7 +952,28 @@ Knowledge:
 (1)Difference between DP and Memoization. DP is usually bottom-up while memoization
 is top-down. See more(including the advantages and disadvantages of each): 
 http://stackoverflow.com/questions/6184869/what-is-difference-between-memoization-and-dynamic-programming
-(2)
+(2)Memoization can run faster than DP when not all of the sub problems need to be
+computed. However as a sacrifice, it has higher memory usage due to the recursion
+stack, and the size of cache cannot be reduced like that of DP, which could be reduced
+to one dimension sometimes(like in the following Longest Common Subsequence problem).
+(3)When the path needs to be returned, we have following options:
+    * Cache the optimal path for each subproblem and return the result in O(1) time.
+    However the downside is it is very costly in space.
+    * If the cache for the optimal results is in 2D, we can reconstruct the path from
+    the final problem by iterating the cache, which can be done in linear time.
+    * If the cache for the optimal results is already reduced to 1D, then another
+    2D array should be created to store the index/direction of subproblems. Iterating
+    this new array like above can reconstruct the path in linear time too.
+   The above options also apply to memoization.
+(4)For sequence problems, it is often preferable to use length as index of cache rather
+than the index of sequences, since the starting elements in the cache ususally have
+length zero, and negative index of sequences. The index of cache should be non-negative.
+
+Problems:
+(1)[Lintcode]Longest Common Subsequence(Algorithms and Implementations*). Very good
+introductory problem.
+
+
 
 
 
