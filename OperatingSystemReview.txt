@@ -1,7 +1,24 @@
-OperatingSystemReview
+Operating System Review
+
+Operating System Concepts(9th Edition)
+
+1. Memory Management
+	1.1. Memory layouts
+	1.2. Segmentation and Paging
+
+2. Processes
+	2.1. General concept of process -- its definition. State, PCB, and context switch.
+	2.2. Operations on processes: fork(), wait(), exec()
+	2.3. Interprocess Communication -- shared memory and message passing. Motivations
+	and examples. 
+
+3. Threads.
+	3.1. 
+
+
 
 Questions:
 1. The advantage of multi-processing in Chrome browser over a single process with
 multiple threads?
 
-2. Exec, fork?
+2. Exec
