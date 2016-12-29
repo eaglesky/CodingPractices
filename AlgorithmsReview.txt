@@ -956,24 +956,57 @@ http://stackoverflow.com/questions/6184869/what-is-difference-between-memoizatio
 computed. However as a sacrifice, it has higher memory usage due to the recursion
 stack, and the size of cache cannot be reduced like that of DP, which could be reduced
 to one dimension sometimes(like in the following Longest Common Subsequence problem).
-(3)When the path needs to be returned, we have following options:
-    * Cache the optimal path for each subproblem and return the result in O(1) time.
-    However the downside is it is very costly in space.
-    * If the cache for the optimal results is in 2D, we can reconstruct the path from
-    the final problem by iterating the cache, which can be done in linear time.
-    * If the cache for the optimal results is already reduced to 1D, then another
-    2D array should be created to store the index/direction of subproblems. Iterating
-    this new array like above can reconstruct the path in linear time too.
-   The above options also apply to memoization.
-(4)For sequence problems, it is often preferable to use length as index of cache rather
-than the index of sequences, since the starting elements in the cache ususally have
-length zero, and negative index of sequences. The index of cache should be non-negative.
+(3)Thinking steps:
+    * If the problem want to find out the longest/maximum value, it is often a sign
+    of optimization problem which can potentially be tackle using DP/Memoization.
+    Greedy algorithm can solve them too, which is often hard to come up with and should
+    be used as a last resort.
+    * Break the original problem into subproblems and then create the recursive formulas.
+    DP/memoization works well when the subproblems overlap, otherwise simple recursion
+    works better. Sometimes instead of breaking the original problem, we can break
+    a variation of it whose solution can easily lead to the solution of the original
+    problem. Ways of breaking the problem:
+        ** For sequences, consider s[l-1] when solving the problem for s[l], which
+        stores the result of sequence with length l. (It is often preferable to
+        use length as index of cache rather than the index of sequences, since the
+        starting elements in the cache ususally have length zero, and negative index
+        of sequences. The index of cache should be non-negative.) -- [Leetcode]Longest
+        Common Subsequence.
+        ** For sequences, consider s[i-1] when solving the problem for s[i], which
+        contains the result of sequence starting or ending with element at index
+        i. -- [Leetcode]Maximum Subarray.
+        ** If the cache is multi-dimensional, like d[m][l], when coming up with the
+        recursive formula, try considering its relation with all possible subproblems,
+        like d[m-1][l], d[m][l-1], or a combination of them. -- [Lintcode]Maximum
+        Subarray II.
+    Don't forget to write down the range of valid indices of the recursive formulas
+    (and the target!).
+    * Implement the solution using DP/memoization. 
+        ** If using DP and the path needs not to be returned, consider reducing the
+        size of cache. For many problems the size can be reduced to 1D array or even
+        a few variables.
+        ** Think about the starting values carefully, especially those out of the
+        range of valid cache elements. Note that the recursive formulas assume that
+        the previous state is valid. So when coding be sure to check the cache values
+        that are next to the starting values. 
+        ** The max/min in the recursive formulas can often be computed on the fly
+        instead of using a separate loop.
+    * When the path needs to be returned, we have following options:
+        ** Cache the optimal path for each subproblem and return the result in O(1) time.
+        However the downside is it is very costly in space.
+        ** If the cache for the optimal results is in 2D, we can reconstruct the path from
+        the final problem by iterating the cache, which can be done in linear time.
+        ** If the cache for the optimal results is already reduced to 1D, then another
+        2D array should be created to store the index/direction of subproblems. Iterating
+        this new array like above can reconstruct the path in linear time too.
+    The above options also apply to memoization.
+(4)
 
 Problems:
 (1)[Lintcode]Longest Common Subsequence(Algorithms and Implementations*). Very good
 introductory problem.
-
-
+(2)[Leetcode]Maximum Subarray(Algorithms*)
+(3)[Lintcode]Maximum Subarray II(Algorithm* and Implementation*)
 
 
 

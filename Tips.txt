@@ -128,3 +128,7 @@ the count for each category, and iterate the elements. The maximum can be update
 in each iteration, which avoids iterating the map after the loop(could be very expensive
  due to the size of map).
 
+ 29. When using Divide and Conquer approach, the recursive function we create can
+ return multiple values, which could be used to compute the conquered result faster
+ than just returning a single value. -- [Leetcode]Maximum Subarray.
+
