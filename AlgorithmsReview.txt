@@ -960,7 +960,8 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
     * If the problem want to find out the longest/maximum value, it is often a sign
     of optimization problem which can potentially be tackle using DP/Memoization.
     Greedy algorithm can solve them too, which is often hard to come up with and should
-    be used as a last resort.
+    be used as a last resort. For some problems, divide and conquer can also be used
+    to solve them. -- [Leetcode]Maximum Subarray.
     * Break the original problem into subproblems and then create the recursive formulas.
     DP/memoization works well when the subproblems overlap, otherwise simple recursion
     works better. Sometimes instead of breaking the original problem, we can break
@@ -1007,7 +1008,8 @@ Problems:
 introductory problem.
 (2)[Leetcode]Maximum Subarray(Algorithms*)
 (3)[Lintcode]Maximum Subarray II(Algorithm* and Implementation*)
-
+(4)[Leetcode]Longest Increasing Subsequence(Best Algorithm*)
+(5)[Leetcode]Unique Paths I and II.
 
 
 13. Other Concepts
