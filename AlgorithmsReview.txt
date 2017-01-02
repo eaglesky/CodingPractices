@@ -232,6 +232,8 @@ Problems:
 types and Binary Numeric Promotion)
 (4)[Leetcode]Implement queue using stacks(Algorithm*)
 (5)[Leetcode]Implement stack using queues(Best Algorithm*)
+(6)[Leetcode]Longest Valid Parentheses(Algorithms*). Very good problem that demos
+two ways of handling parentheses related problems.
 
 
 5. Trees
