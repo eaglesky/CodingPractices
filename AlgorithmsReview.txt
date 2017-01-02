@@ -1010,7 +1010,8 @@ introductory problem.
 (2)[Leetcode]Maximum Subarray(Algorithms*)
 (3)[Lintcode]Maximum Subarray II(Algorithm* and Implementation*)
 (4)[Leetcode]Longest Increasing Subsequence(Best Algorithm*)
-(5)[Leetcode]Regular Expression Matching(Algorithm*). Very hard!
+(5)[Leetcode]Regular Expression Matching(Algorithm* and Implementation*). Very hard!
+Pay attention to the rolling arrays!
 (6)[Leetcode]Wildcard Matching(Algorithms*). Very hard!
 (7)[Leetcode]Unique Paths I and II.
 
