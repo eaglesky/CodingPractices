@@ -961,9 +961,11 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
 (3)Thinking steps:
     * If the problem want to find out the longest/maximum value, it is often a sign
     of optimization problem which can potentially be tackle using DP/Memoization.
-    Greedy algorithm can solve them too, which is often hard to come up with and should
-    be used as a last resort. For some problems, divide and conquer can also be used
-    to solve them. -- [Leetcode]Maximum Subarray.
+    Search algorithms like DFS/BFS can also be used, but sometimes the search space
+    could be extremely large, making them not preferable approaches. Greedy algorithm
+    can solve them too, which is often hard to come up with and should be used as
+    a last resort. For some problems, divide and conquer can also be used to solve
+    them. -- [Leetcode]Maximum Subarray.
     * Break the original problem into subproblems and then create the recursive formulas.
     DP/memoization works well when the subproblems overlap, otherwise simple recursion
     works better. Sometimes instead of breaking the original problem, we can break
@@ -973,8 +975,9 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         stores the result of sequence with length l. (It is often preferable to
         use length as index of cache rather than the index of sequences, since the
         starting elements in the cache ususally have length zero, and negative index
-        of sequences. The index of cache should be non-negative.) -- [Leetcode]Longest
-        Common Subsequence.
+        of sequences. The index of cache should be non-negative.) This way is commonly
+        used when the input has multiple sequences. --[Leetcode]Longest Common Subsequence,
+        [Leetcode]Edit Distance.
         ** For sequences, consider s[i-1] when solving the problem for s[i], which
         contains the result of sequence starting or ending with element at index
         i. -- [Leetcode]Maximum Subarray.
@@ -987,8 +990,11 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
     (and the target!).
     * Implement the solution using DP/memoization. 
         ** If using DP and the path needs not to be returned, consider reducing the
-        size of cache. For many problems the size can be reduced to 1D array or even
-        a few variables.
+        size of cache. For many problems the size can be reduced to one or two 1D
+        arrays or even a few variables. A swap of array pointers is often used at
+        the end of each iteration if two 1D arrays are used. Previous visited element
+        of the current array can be stored lazily to reduce two arrays to only one.--
+        [Leetcode]Edit Distance.
         ** Think about the starting values carefully, especially those out of the
         range of valid cache elements. Note that the recursive formulas assume that
         the previous state is valid. So when coding be sure to check the cache values
@@ -1015,7 +1021,9 @@ introductory problem.
 (5)[Leetcode]Regular Expression Matching(Algorithm* and Implementation*). Very hard!
 Pay attention to the rolling arrays!
 (6)[Leetcode]Wildcard Matching(Algorithms*). Very hard!
-(7)[Leetcode]Unique Paths I and II.
+(7)[Leetcode]Edit Distance(Algorithm*).
+(8)[Leetcode]Scramble String(Algorithms*).
+(9)[Leetcode]Unique Paths I and II.
 
 
 
