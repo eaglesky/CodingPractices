@@ -958,6 +958,7 @@ http://stackoverflow.com/questions/6184869/what-is-difference-between-memoizatio
 computed. However as a sacrifice, it has higher memory usage due to the recursion
 stack, and the size of cache cannot be reduced like that of DP, which could be reduced
 to one dimension sometimes(like in the following Longest Common Subsequence problem).
+-- [Leetcode]Scramble String, Interleaving String.
 (3)Thinking steps:
     * If the problem want to find out the longest/maximum value, it is often a sign
     of optimization problem which can potentially be tackle using DP/Memoization.
@@ -1001,6 +1002,8 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         that are next to the starting values. 
         ** The max/min in the recursive formulas can often be computed on the fly
         instead of using a separate loop.
+        ** Prefer using boolean expression to if-else statements to implement the
+        recursive formulas.--[Leetcode] Interleaving String.
     * When the path needs to be returned, we have following options:
         ** Cache the optimal path for each subproblem and return the result in O(1) time.
         However the downside is it is very costly in space.
@@ -1023,7 +1026,8 @@ Pay attention to the rolling arrays!
 (6)[Leetcode]Wildcard Matching(Algorithms*). Very hard!
 (7)[Leetcode]Edit Distance(Algorithm*).
 (8)[Leetcode]Scramble String(Algorithms*).
-(9)[Leetcode]Unique Paths I and II.
+(9)[Leetcode]Interleaving String(Algorithms*).
+(10)[Leetcode]Unique Paths I and II.
 
 
 
