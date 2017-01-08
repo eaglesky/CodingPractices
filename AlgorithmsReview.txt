@@ -61,15 +61,38 @@ Knowledge:
 of dynamic char array , and append(string) basically copy each character from input
 string to the end of existing char array. When deleting, it will shift the characters
 after those deleted forward. To remove the last element in the StringBuilder, just
-use sb.setLength(sb.length() - 1).
+use sb.setLength(sb.length() - 1). toString() method returns a copy of wrapped char
+array, wrapped by a newly created String.
 Also note that StringBuilder doesn't have isEmpty() method while String does.
 (2)Palindrome.
-    (2.1)Definition. Check if a string is palindrome can be easily done in O(n) time.
+    (2.1)Definition. A string that reads the same backward as forward, e.g., madam.
+    Checking if a string is a palindrome can be easily done in O(n) time.
     (2.2)Check if concatenation of two strings is a palindrome. The reverse of the
     second string has to be the 1)the prefix of the first string, and the rest of
     the first string is a palindrome, or 2)the first string is the prefix of the reverse
     of second string, and the rest of the reversed string is a palindrome. [Leetcode]Palindrome
     Pairs in the Trie part.
+    (2.3)Find out all the palindrome substrings. There are two ways to do this, which
+    are very useful when solving more complex palindrome related problems. Both ways
+    take O(n^2) time, n is the length of string s.
+        (2.3.1)Let f[i][j] indicate whether substring s[i...j] is a palindrome or
+        not. Iterate the string from right to left, for each character s[i], check
+        all substrings s[i..j], i <= j < s_length.
+        f[i][j] = (s[i] == s[j]) && (j - i < 2 || f[i+1][j-1])).
+        f[i][j] can be reduced to 1D if j starts from s_length - 1.
+        (2.3.2)Iterate the string from left to right. For each character s[i], check
+        the substrings that center at it of odd and even lengths.
+            for (int i = 0; i < s.length(); ++i) {
+                //Odd length.
+                for (int j = 0; i-j >= 0 && i+j < len && s.charAt(i-j) == s.charAt(i+j); ++j) {
+                    f[i-j][i+j] = true;
+                }
+                //Even length.
+                for (int j = 0; i-1-j >= 0 && i+j < len && s.charAt(i-1-j) == s.charAt(i+j); ++j) {
+                    f[i-1-j][i+j] = true;
+                }
+            }
+    Example: [Leetcode] Palindrom Partitioning II.
 (3)Don't forget the edge case when the string is empty! If this happens, for loop
 on the string won't happen!
 
@@ -960,13 +983,13 @@ stack, and the size of cache cannot be reduced like that of DP, which could be r
 to one dimension sometimes(like in the following Longest Common Subsequence problem).
 -- [Leetcode]Scramble String, Interleaving String.
 (3)Thinking steps:
-    * If the problem want to find out the longest/maximum value, it is often a sign
-    of optimization problem which can potentially be tackle using DP/Memoization.
-    Search algorithms like DFS/BFS can also be used, but sometimes the search space
-    could be extremely large, making them not preferable approaches. Greedy algorithm
-    can solve them too, which is often hard to come up with and should be used as
-    a last resort. For some problems, divide and conquer can also be used to solve
-    them. -- [Leetcode]Maximum Subarray.
+    * If the problem want to find out the longest/maximum value, or a searching result,
+    it is often a sign of optimization problem which can potentially be tackle using
+    DP/Memoization. Search algorithms like DFS/BFS can also be used, but sometimes
+    the search space could be extremely large, making them not preferable approaches.
+    Greedy algorithm can solve them too, which is often hard to come up with and should
+    be used as a last resort. For some problems, divide and conquer can also be used
+    to solve them. -- [Leetcode]Maximum Subarray.
     * Break the original problem into subproblems and then create the recursive formulas.
     DP/memoization works well when the subproblems overlap, otherwise simple recursion
     works better. Sometimes instead of breaking the original problem, we can break
@@ -986,6 +1009,9 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         recursive formula, try considering its relation with all possible subproblems,
         like d[m-1][l], d[m][l-1], or a combination of them. -- [Lintcode]Maximum
         Subarray II.
+        ** Sometimes multi-dimentional cache in the recursive formula can be reduced
+        to one-dimentional by fixing the other dimention. -- [Leetcode]Palindrome
+        Partitioning II.
     Think about the order of indices first before writing down the formulas.
     Don't forget to write down the range of valid indices of the recursive formulas
     (and the target!).
@@ -1027,7 +1053,15 @@ Pay attention to the rolling arrays!
 (7)[Leetcode]Edit Distance(Algorithm*).
 (8)[Leetcode]Scramble String(Algorithms*).
 (9)[Leetcode]Interleaving String(Algorithms*).
-(10)[Leetcode]Unique Paths I and II.
+(10)[Leetcode]Palindrome Partitioning II(Algorithms* and Implementations*).
+(11)[Leetcode]Word Break(Algorithms). Clarification: It is okay for the substring
+in s to appear multiple times in dict. E.g. wordDict("leetcodeleet", ["leet", "code"])
+should also returns true. The order in s doesn't matter.
+The solution can be further improved by using Trie, but it can be put aside for now.
+(12)[Leetcode]Word Break II(Implementation*). Good example of using DFS memoization/DP
+to return all solutions instead of just a value. If you have to copy array of strings,
+sometimes just store the concatenation of them makes writing the code much easier.
+(13)[Leetcode]Unique Paths I and II.
 
 
 
@@ -1132,8 +1166,8 @@ Implementation Utils:
             String message = String.join(" ", strings);
             //message returned is: "Java is cool"
             //This essentially iterate the input collection and append each element
-            to a string builder with delimiter in between. And at last convert the
-            string builder to string by calling sb.toString().
+            //to a string builder with delimiter in between. And at last convert the
+            //string builder to string by calling sb.toString().
 
 13. Initialization of multiple variables:
     (1) Java supports this, which can also be used in for-loop
@@ -1178,6 +1212,8 @@ Implementation Utils:
     (1) Java:
         boolean[] validCols = new boolean[n];
         Arrays.fill(validCols, true);
+        //Initialize array list with null values:
+        List<String> strs = new ArrayList<>(Collections.nCopies(10, null));
 
 18. Iterating and modifying a list:
     (1) Java:

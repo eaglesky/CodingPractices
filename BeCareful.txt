@@ -8,9 +8,7 @@ of code you write(including the return value).
 For recursive functions, pay more attention to the all possible return values, including
 the output parameters.
 Also remember to check if the index is out of boundary
-
 Think about a working solution first and then try optimizing it. 
-
 When there are multiple cases and decisions, write them down to figure out the logic!
 
 1. Be careful about the end value of iterator after the for loop!!
