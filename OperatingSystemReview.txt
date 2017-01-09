@@ -15,10 +15,9 @@ Operating System Concepts(9th Edition)
 3. Threads.
 	3.1. 
 
-
+4. Process Synchronization.
+	4.1. Race condition: A situation like this, where several processes access and manipulate the same data concurrently and the outcome of the execution depends on the particular order in which the access takes place, is called a race condition.
 
 Questions:
 1. The advantage of multi-processing in Chrome browser over a single process with
 multiple threads?
-
-2. Exec

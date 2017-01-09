@@ -142,3 +142,7 @@ for-each loop) to iterate the List interface instead of the accessor, because li
 iterator, avoid breaking the loop in the middle and then resume the iteration, becasue
 the position of iterator after breaking the loop is usually not easy to handle.
 Try putting all the logic in one loop instead. 
+
+36. If an iteration can be executed repeatedly in a for loop, be careful when modifing
+the value of a variable based on its original value, cause it might be called multiple
+times. --[Leetcode]Maximal Rectangle.

@@ -257,7 +257,8 @@ types and Binary Numeric Promotion)
 (5)[Leetcode]Implement stack using queues(Best Algorithm*)
 (6)[Leetcode]Longest Valid Parentheses(Algorithms*). Very good problem that demos
 two ways of handling parentheses related problems.
-
+(7)[Leetcode]Largest Rectangle in Histogram(Algorithm*).
+(8)[Leetcode]Maximal Rectangle(Algorithm)
 
 5. Trees
 
