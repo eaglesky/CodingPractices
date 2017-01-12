@@ -1006,6 +1006,10 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         ** For sequences, consider s[i-1] when solving the problem for s[i], which
         contains the result of sequence starting or ending with element at index
         i. -- [Leetcode]Maximum Subarray.
+        ** Sometimes it is good to have a final process to conquer the results of
+        all the subproblems, which could help design subproblems that are easier to
+        solve in less time. -- [Leetcode]Best Time to Buy And Sell Stock, generaliazation
+        DP solution.
         ** If the cache is multi-dimensional, like d[m][l], when coming up with the
         recursive formula, try considering its relation with all possible subproblems,
         like d[m-1][l], d[m][l-1], or a combination of them. -- [Lintcode]Maximum
@@ -1040,7 +1044,6 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         2D array should be created to store the index/direction of subproblems. Iterating
         this new array like above can reconstruct the path in linear time too.
     The above options also apply to memoization.
-(4)
 
 Problems:
 (1)[Lintcode]Longest Common Subsequence(Algorithms and Implementations*). Very good
@@ -1071,7 +1074,7 @@ sometimes just store the concatenation of them makes writing the code much easie
 http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
 (2)Best Time to Buy and Sell Stock problems:
 (2.1)[Leetcode]Best Time to Buy and Sell Stock I and II(Algorithms).
-
+(2.2)[Leetcode]Best Time to Buy and Sell Stock III(Multiple Algorithms*). 
 
 
 
