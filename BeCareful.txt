@@ -10,6 +10,7 @@ the output parameters.
 Also remember to check if the index is out of boundary
 Think about a working solution first and then try optimizing it. 
 When there are multiple cases and decisions, write them down to figure out the logic!
+Refactor the code after writing it.
 
 1. Be careful about the end value of iterator after the for loop!!
 

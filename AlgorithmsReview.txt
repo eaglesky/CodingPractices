@@ -1065,8 +1065,13 @@ The solution can be further improved by using Trie, but it can be put aside for 
 (12)[Leetcode]Word Break II(Implementation*). Good example of using DFS memoization/DP
 to return all solutions instead of just a value. If you have to copy array of strings,
 sometimes just store the concatenation of them makes writing the code much easier.
-(13)[Leetcode]Unique Paths I and II.
-
+(13)[Leetcode]Maximum Product Subarray(Algorithm*).
+(14)[Leetcode]Unique Paths I and II.
+(15)[Leetcode]Unique Binary Search Trees.
+(16)[Leetcode]Unique Binary Search Trees II.(Algorithms). Best algorithm I think is
+this one: https://discuss.leetcode.com/topic/6711/share-a-c-dp-solution-with-o-1-space
+This problem can also be solved by recursive approach with or without cache. Remember
+the first approach.
 
 
 13. Other Concepts and special problems
@@ -1077,6 +1082,14 @@ http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-n
     (2.2)[Leetcode]Best Time to Buy and Sell Stock III(Multiple Algorithms*). 
     (2.3)[Leetcode]Best Time to Buy and Sell Stock with Cooldown(Algorithm* and Implementation*)
 
+
+Summary of algorithms that are frequently used:
+1. Caching
+2. Recursive thinking. Break the original problem into sub-problems. Try solving with
+recursive approach first --- can be broken down into two random parts, or based on
+the result of first n-1 elements. If there are repetitions among sub-problems, consider
+caching and DP.
+3. Divide and Conquer.
 
 
 Implementation Utils:
