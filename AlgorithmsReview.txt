@@ -1072,6 +1072,9 @@ sometimes just store the concatenation of them makes writing the code much easie
 this one: https://discuss.leetcode.com/topic/6711/share-a-c-dp-solution-with-o-1-space
 This problem can also be solved by recursive approach with or without cache. Remember
 the first approach.
+(17)[Leetcode]Triangle(Best Algorithm*).
+
+
 
 
 13. Other Concepts and special problems
@@ -1083,6 +1086,8 @@ http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-n
     (2.3)[Leetcode]Best Time to Buy and Sell Stock with Cooldown(Algorithm* and Implementation*)
 
 
+
+
 Summary of algorithms that are frequently used:
 1. Caching
 2. Recursive thinking. Break the original problem into sub-problems. Try solving with
@@ -1090,6 +1095,13 @@ recursive approach first --- can be broken down into two random parts, or based 
 the result of first n-1 elements. If there are repetitions among sub-problems, consider
 caching and DP.
 3. Divide and Conquer.
+
+
+
+
+
+
+
 
 
 Implementation Utils:
