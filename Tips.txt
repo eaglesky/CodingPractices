@@ -132,3 +132,5 @@ in each iteration, which avoids iterating the map after the loop(could be very e
  return multiple values, which could be used to compute the conquered result faster
  than just returning a single value. -- [Leetcode]Maximum Subarray.
 
+30. Sometimes adding a inner loop is more efficient than putting everything in one
+loop. Consider it as a possible refinement. [Leetcode]first missing positive.

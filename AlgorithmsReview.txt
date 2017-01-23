@@ -1,17 +1,23 @@
 Reference Books:
-(1) Cracking the coding interview
-(2) Robert Sedgewick's Algorithms
-(3) Introduction to algorithms
-(4) Head first Java
-(5) Leetcode C++ solutions by Fangqin Dai(solutions)
-(6) Element of Programming Interviews(EPI)(solutions)
-(7) Leetcode OJ(problems and solutions)
+(1) Cracking the coding interview(outline and summary)
+(2) An ultimate guide to coding interview, on read.amazon.com. (outline, summay and
+problems)
+(3) Coding manual by Fangqin Dai(outline and problems)
+(4) Robert Sedgewick's Algorithms(algorithms reference)
+(5) Introduction to algorithms(algorithms reference)
+(6) Head first Java(language reference)
+(7) Leetcode C++ solutions by Fangqin Dai(solutions)
+(8) Element of Programming Interviews(EPI)(solutions)
+(9) Leetcode OJ(problems and solutions)
+
 
 1. Arrays and HashTables
 
 Knowledge:
 (1) Hash Tables -- implementation, performance, collision. Iteration each element
 in it usually requires iterate each bucket.
+Four ways of handling collisions: Chaining with linked lists, chaining with BST,
+Open Addressing with Linear Probing, Quadratic Probing and Double Hashing. (See CTCI)
 (2) Resizeable array
 	Implementation: Vector(C++), ArrayList(Java)
 	Performance: get, set is O(1), amortized time of add is O(1) and why. 
@@ -30,21 +36,27 @@ Problems:
     The two pointers process takes O(n) time. No extra space needed.
     b. Using a hash set of list of n elements to record the results and remove duplicates.
     Sort the input array first if K > 2. Cache the sums and their corresponding elements
-    while iterating the array. The result hash set has to be used to remove the duplicates!
+    while iterating the array. 
+    The result hash set has to be used to remove the duplicates for both approaches.
 
     No matter which approach to use, divide K into two parts first. Iterate the second part
     and hash or iterate using two pointers on the first part.
 
+    Time complexity of k Sum problems: omega(n^ceil(k/2)), O(n^(k-1)).
+    http://www.sigmainfy.com/blog/k-sum-problem-analysis-recursive-implementation-lower-bound.html
+
     (2.1) Two sum
         (2.1.1) Input array is random, find out one solution.
-            - [Leetcode] Two sum.
+            - [Leetcode] Two sum(Algorithm).
         (2.1.2) Input array is random, find out all unique solutions.
     (2.2) Three sum
         (2.1.1) Input array is random, find out all unique solutions.
-            - [Leetcode] Three sum.
-            - [Leetcode] Three sum closest.
+            - [Leetcode] Three sum(Algorithm).
+            - [Leetcode] Three sum closest(Algorithm).
+        (2.1.2) Find out the count of all triplets whose sum is less than the target:
+            - [Leetcode] Three Sum Smaller(Algorithm*)
     (2.3) Four sum(Random input array, find out all unique solutions)
-        -[Leetcode] Four sum.
+        -[Leetcode] Four sum(Algorithms*).
 (3) Remove duplicates(Maximum allowed duplicates == K). Two ways of checking duplicates!
     - [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
     - [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm*).
