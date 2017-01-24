@@ -60,11 +60,12 @@ Problems:
         -[Leetcode] Four Sum II(Algorithm)
 (3) Remove duplicates(Maximum allowed duplicates == K). Two ways of checking duplicates!
     - [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
-    - [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm*).
+    - [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm**). Best algorithm
+    is very tricky. Still need to master the common solution.
 (4) Inward two pointers:
     - [Leetcode] Previous three sum problems.
     - [Leetcode] Container with most water(Algorithm)
-    - [Leetcode] Trapping rain water(Multiple Algorithms* and implementation*)
+    - [Leetcode] Trapping rain water(Multiple Algorithms** and implementation*)
 
 
 2. Strings
@@ -1101,6 +1102,7 @@ http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-n
 (4)Initialize first and then fix one by one to satisfy certain conditions -- a typical
 greedy algorithm!
     (4.1)[Leetcode]Candy(Algorithms* and Implementation of best algorithm*)
+(5)Two pointers.(TBD)
 
 
 
