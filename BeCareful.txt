@@ -147,3 +147,6 @@ Try putting all the logic in one loop instead.
 36. If an iteration can be executed repeatedly in a for loop, be careful when modifing
 the value of a variable based on its original value, cause it might be called multiple
 times. --[Leetcode]Maximal Rectangle.
+
+37. When iterating a array of elements interval by interval, don't forget to handle
+the last one! --[Leetcode]  Longest Substring with At Least K Repeating Characters

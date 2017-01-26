@@ -137,6 +137,7 @@ Problems:
     Implementation),
     - [Leetcode]Longest Substring with At Most K Distinct Characters(Algorithm* and
     Implementation*)
+    - [Leetcode]Longest Substring with At Least K Repeating Characters(Multiple Algorithms*)
     - [Leetcode]Minimum Window Substring(Algorithm* and Implementation*)
     - [Leetcode]Substring with Concatenation of All Words(Algorithm* and Implementation*)
 
@@ -1112,11 +1113,10 @@ greedy algorithm!
 Summary of algorithms that are frequently used:
 1. Caching
 2. Recursive thinking. Break the original problem into sub-problems. Try solving with
-recursive approach first --- can be broken down into two random parts, or based on
+recursive approach first --- can be broken down into two or more parts, or based on
 the result of first n-1 elements. If there are repetitions among sub-problems, consider
-caching and DP.
-3. Divide and Conquer.
-4. Greedy thinking(TBD)
+caching and DP, otherwise, divide(two or more parts) and conquer.
+3. Greedy thinking(TBD)
 
 
 
