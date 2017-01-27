@@ -119,6 +119,8 @@ Problems:
     by moving the left pointer. The substring within the sliding window(before the
     right pointer) often satisfies a certain condition. And usually the substrings
     starting from the characters in between don't satisfy that condition.
+    We can also think of it checking each substring that ends with the character pointed
+    by the right pointer.
     * A map of character to position or character to count should be created at the
     beginning. Sometimes one may not be enough. Especially when there are multiple
     input strings.
@@ -138,8 +140,47 @@ Problems:
     - [Leetcode]Longest Substring with At Most K Distinct Characters(Algorithm* and
     Implementation*)
     - [Leetcode]Longest Substring with At Least K Repeating Characters(Multiple Algorithms*)
-    - [Leetcode]Minimum Window Substring(Algorithm* and Implementation*)
+    - [Leetcode]Minimum Window Substring(Algorithm* and Implementation*), returned
+    string must contain no less number of occurence of each character than that in
+    T.
     - [Leetcode]Substring with Concatenation of All Words(Algorithm* and Implementation*)
+
+    Two basic implementations for sliding window problems:
+    * Using one loop:
+        Declare a map of char to pos or counts -- myMap;
+        int maxOrMin;
+        for (int i = 0; i < s.length();) {
+            char c = s.charAt(i);
+            if (Satify some condition related with myMap) {
+                update myMap;
+                update maxOrMin;
+                update other auxilary variables related with above;
+                ++i;
+            } else {
+                char preChar = s.charAt(start);
+                update myMap;
+                start++;
+            }
+        }
+        return maxOrMin;
+
+    * Using one outer loop with one inner loop, can be used for most of the hard
+    problems.
+        Declare a map of char to pos or counts -- myMap;
+        int maxOrMin;
+        for (int i = 0; i < s.length(); ++i) {
+            char c = s.charAt(i);
+            update myMap;//Might not need to remove elements
+            update other auxilary variables related with above;
+            for(; satifying some condition; ++start) {
+                if the target is Min, may need to update maxOrMin here;
+                update myMap;
+                update other auxilary variables related with above;
+            }
+            if the target is Max, may need to update maxOrMin here;
+        }
+        return maxOrMin;
+
 
 
 3. Linked Lists
