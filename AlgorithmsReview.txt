@@ -135,16 +135,6 @@ Problems:
     in the map.
     * Return the max/min result. May need to do one more comparision.
 
-    - [Leetcode]Longest Substring Without Repeating Characters(Best Algorithm* and
-    Implementation),
-    - [Leetcode]Longest Substring with At Most K Distinct Characters(Algorithm* and
-    Implementation*)
-    - [Leetcode]Longest Substring with At Least K Repeating Characters(Multiple Algorithms*)
-    - [Leetcode]Minimum Window Substring(Algorithm* and Implementation*), returned
-    string must contain no less number of occurence of each character than that in
-    T.
-    - [Leetcode]Substring with Concatenation of All Words(Algorithm* and Implementation*)
-
     Two basic implementations for sliding window problems:
     * Using one loop:
         Declare a map of char to pos or counts -- myMap;
@@ -180,6 +170,19 @@ Problems:
             if the target is Max, may need to update maxOrMin here;
         }
         return maxOrMin;
+
+    - [Leetcode]Longest Substring Without Repeating Characters(Best Algorithm* and
+    Implementation),
+    - [Leetcode]Longest Substring with At Most K Distinct Characters(Algorithm* and
+    Implementation*)
+    - [Leetcode]Longest Substring with At Least K Repeating Characters(Multiple Algorithms*)
+    - [Leetcode]Minimum Window Substring(Algorithm* and Implementation*), returned
+    string must contain no less number of occurence of each character than that in
+    T.
+    - [Leetcode]Substring with Concatenation of All Words(Algorithm* and Implementation*,
+    very hard). In this question, word list can contain duplicate word, and the target
+    substring should contain exactly same number as appeared in the word list.
+
 
 
 
