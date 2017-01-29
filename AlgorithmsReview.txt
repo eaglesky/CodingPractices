@@ -84,8 +84,8 @@ Also note that StringBuilder doesn't have isEmpty() method while String does.
     (2.2)Check if concatenation of two strings is a palindrome. The reverse of the
     second string has to be the 1)the prefix of the first string, and the rest of
     the first string is a palindrome, or 2)the first string is the prefix of the reverse
-    of second string, and the rest of the reversed string is a palindrome. [Leetcode]Palindrome
-    Pairs in the Trie part.
+    of second string, and the rest of the reversed string is a palindrome.
+    [Leetcode]Palindrome Pairs.
     (2.3)Find out all the palindrome substrings. There are two ways to do this, which
     are very useful when solving more complex palindrome related problems. Both ways
     take O(n^2) time, n is the length of string s.
@@ -106,7 +106,13 @@ Also note that StringBuilder doesn't have isEmpty() method while String does.
                     f[i-1-j][i+j] = true;
                 }
             }
-    Example: [Leetcode] Palindrom Partitioning II.
+    Example: [Leetcode] Palindrome Partitioning II.
+    (2.4)Finding the longest palindrome starting from a certain letter in a string
+    can be solved in O(n) time and O(n) space using KMP pre-processing algorithm.
+    No need to know the implementation details, but need to know the time and space
+    complexities of KMP. The actual string matching part of KMP takes O(m) time, where
+    m is the length of the string being matched. So the totol time is O(m + n).
+    --- [Leetcode]Shortest Palindrome(Algorithm*, very hard!)
 (3)Don't forget the edge case when the string is empty! If this happens, for loop
 on the string won't happen!
 
