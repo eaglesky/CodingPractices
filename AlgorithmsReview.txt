@@ -115,6 +115,10 @@ Also note that StringBuilder doesn't have isEmpty() method while String does.
     --- [Leetcode]Shortest Palindrome(Algorithm*, very hard!)
 (3)Don't forget the edge case when the string is empty! If this happens, for loop
 on the string won't happen!
+(4)Anagram: a word, phrase, or name formed by rearranging the letters of another,
+such as cinema, formed from iceman. To check if two strings are anagrams, either use
+a hashmap to count the number of occurences for each character and compare them, or
+just sort the two strings and see if they are the same.
 
 Problems:
 (1)[Leetcode]Integer To Roman(Algorithm*)
@@ -188,7 +192,9 @@ Problems:
     - [Leetcode]Substring with Concatenation of All Words(Algorithm* and Implementation*,
     very hard). In this question, word list can contain duplicate word, and the target
     substring should contain exactly same number as appeared in the word list.
-
+(3)Palindrome related.
+(4)Anagram related.
+    - [Leetcode]Group Anagrams(Algorithm*)
 
 
 
@@ -294,6 +300,8 @@ Problems:
 	- [Leetcode]Copy List with Random Pointer(Algorithm*, two approaches)
 
 
+
+
 4. Stack and Queue
 
 Knowledge:
@@ -324,6 +332,9 @@ types and Binary Numeric Promotion)
 two ways of handling parentheses related problems.
 (7)[Leetcode]Largest Rectangle in Histogram(Algorithm*).
 (8)[Leetcode]Maximal Rectangle(Algorithm)
+
+
+
 
 5. Trees
 
