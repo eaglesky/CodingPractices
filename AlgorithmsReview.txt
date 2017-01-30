@@ -258,7 +258,7 @@ case when there is only one node in a list).
 linked list, null list.
 (8)Three approaches for reversing linked list and their implementation(see below).
 Use previous node pointer instead of the current node pointer if we want to move the
-current node around!
+current node around or remove a node. 
 
 Problems:
 (1)Node finding:
@@ -270,23 +270,25 @@ Problems:
     two pointers moving and edge case thinking)
     - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*)
     - Generalization of above to allow K duplicates -- Remove duplicates from sorted
-    list III.(Implementation* -- multiple cases)
+    list III.(Implementation* -- multiple cases). Not found in any OJ. I implemented
+    the test cases.
 (3)Reverse nodes: 
-	(3.1). Basic head insertion(Iterative and recursive) -- creating a new linked list,
+	(3.1)Basic head insertion(Iterative and recursive) -- creating a new linked list,
     original head pointer will become tail pointer, and the new head pointer keeps
     updating. No need for the dummy node.
 	   - [Leetcode] Reverse Linked List(Implementation, recursive algorithm*)
-	(3.2). Incremental head insertion -- This process includes node removing and node
-    insertion. Must add dummy node. Must start from the second node(cur node start
-    from curTail.next) and use a pointer pointing to the tail node(curTail is fixed!)
-    that other nodes are inserted before.
+	(3.2)Head insertion for reversing sublists -- This process includes node removing
+    and node insertion. Must add dummy node. The predecessor of the head of the original
+    sublist now becomes the predecessor of the tail of the reversed sublist. So the
+    predecessor of each sublist is enough to reverse the sublist and get the new head
+    and tail of the reversed sublist.
 	   - [Leetcode]Swap Nodes in Pairs(Implementation)
 	   - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
 	   - [Leetcode]Reverse Linked List II(Implementation*)
-	(3.3). Tail insertion. Inserting each node right after the original tail node. Need
+	(3.3)Tail insertion. Inserting each node right after the original tail node. Need
     to first aquire pointer to the tail node and then start from the first node. Original
-    tail node will become new head node. Pointer to the original head node need to
-    be stored or it will be lost.
+    tail node will become new head node. Pointer to the sucessor of the original tail
+    node need to be stored or it will be lost.
     - [Leetcode]Reverse Nodes in K-Group(Algorithm* and Implementation*)
 (4)Re-arrange nodes:
     Removing nodes first, and then either insert them into the original list or a
@@ -294,7 +296,7 @@ Problems:
     appending, more nodes than the former way but could be simpler. The former way
     need to deal with some special cases, like removing and inserting into the old
     place, which could affect the next position of the pointer.
-    - [Leetcode]Rotate List(Implementation, practice two pointers moving--two ways)
+    - [Leetcode]Rotate List(Algorithm*, practice two pointers moving--two ways)
     - [Leetcode]Partition List(Best algorithm*)
 (4)Copy linked list:
 	- [Leetcode]Copy List with Random Pointer(Algorithm*, two approaches)
