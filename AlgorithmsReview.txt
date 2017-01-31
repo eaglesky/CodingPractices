@@ -307,19 +307,19 @@ Problems:
 4. Stack and Queue
 
 Knowledge:
-(1)stack can be implemented as resizable array or linked list; queue can be implemented
-as cyclic array, double resizeable array or linked list.
+(1)A stack can be implemented with a resizable array or a linked list; A queue can
+be implemented with a cyclic array, double resizeable arrays or a linked list.
 (2)Java implemenation: 
 Interfact Deque<E>, push(E item), pop(), peek(). 
 Interface Queue<E>, offer(e), poll(), peek(). 
 Iteration using iterator and descendingItarator -- different results!
-Both of them can be implemented as class ArrayDeque<E>, which is very likely a double
-direction resizeable array. According to java doc, "This class is likely to be faster
-than Stack when used as a stack, and faster than LinkedList when used as a queue".
-The Deque interface usually doesn't allow null element, as peek() returns null when
-the deque is empty. peek() does not throw any exceptions. ArrayDeque doesn't permit
-null element while LinkedList does. Stack interface permits null element too. However
-try not to put null element in all cases.
+Both of them can be implemented as class ArrayDeque<E>, which is essentially a cyclic
+array implemented with a array. According to java doc, "This class is likely to
+be faster than Stack when used as a stack, and faster than LinkedList when used as
+a queue". The Deque interface usually doesn't allow null element, as peek() returns
+null when the deque is empty. peek() does not throw any exceptions. ArrayDeque doesn't
+permit null element while LinkedList does. Stack interface permits null element too.
+However try not to put null element in all cases.
 (3)In some design problems, sometimes it is good to call peek() first in pop()/poll
 ().
 
