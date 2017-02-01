@@ -1167,7 +1167,14 @@ http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-n
 greedy algorithm!
     (4.1)[Leetcode]Candy(Algorithms* and Implementation of best algorithm*)
 (5)Two pointers.(TBD)
-
+(6)Parentheses related problems. 
+    Two ways of thinking: 
+    * Using a stack and iterate a string, whenever you encounter a ')', check if the
+    top of the stack is '(', if so, pop it, otherwise push ')'. 
+    * Compare the numbers of '(' and ')' encountered so far and compare them. For
+    any valid parentheses, those number should be equal. Using counters of parentheses
+    can easily calculate the length of formed parentheses. 
+    (6.1)[Leetcode]Longest Valid Parentheses(see previous chapter).
 
 
 
