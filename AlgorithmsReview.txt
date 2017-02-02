@@ -384,7 +384,7 @@ Problems:
     - [Leetcode]Binary tree inorder traversal(Algorithms* and Implementation*)
     - [Leetcode]Binary tree preorder traversal(Algorithms* and implementation)
     - [Leetcode]Binary tree postorder traversal(Algorithms* and implementation), it
-    can be seen as a reverse of preorder traversal.
+    can be seen as a reverse of preorder traversal. Hardest among the three.
     - [Leetcode]Binary tree level order traversal I(Multiple algorithms* and best
     implementation of recursive solution*), II is just adding reverse to the end of
     the solution of I.
