@@ -357,7 +357,7 @@ are similar, since the right children are always traversed at last, and therefor
 after traversing back through the thread pointer there is no need to visit the left
 children again. However for postorder traversal, the parent node is traversed at last.
 So after traversing back through the thread pointer, the left children have to be
-visited reversely(only those nodes from the diret left child all the way down to the
+visited reversely(only those nodes from the direct left child all the way down to the
 right). It is also necessary to create a dummy node and(7) have its left child be the
 root.
 (7)Binary search tree:
@@ -385,13 +385,12 @@ Problems:
     - [Leetcode]Binary tree preorder traversal(Algorithms* and implementation)
     - [Leetcode]Binary tree postorder traversal(Algorithms* and implementation), it
     can be seen as a reverse of preorder traversal. Hardest among the three.
-    - [Leetcode]Binary tree level order traversal I(Multiple algorithms* and best
-    implementation of recursive solution*), II is just adding reverse to the end of
-    the solution of I.
-      [Leetcode]Zigzag level order traversal. Reverse the array for
+    - [Leetcode]Binary tree level order traversal I(Multiple algorithms*), II is
+    just adding reverse to the end of the solution of I.
+    - [Leetcode]Zigzag level order traversal. Reverse the array for
     that level every two levels(or assign the values reversely when creating the array
     for that level).
-      [Leetcode]Binary Tree right side view -- small variation of level order traversal.
+    - [Leetcode]Binary Tree right side view -- small variation of level order traversal.
     - [Leetcode]Symmetric Tree(Algorithm and Multiple Implementation*). Iterative
     solution using queue or stack can add the elements in any order.
     - [Leetcode]Balanced binary tree(Best Implementation*)
