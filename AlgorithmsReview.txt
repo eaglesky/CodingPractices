@@ -363,13 +363,14 @@ root.
 (7)Binary search tree:
     (7.1)Definition
     (7.2)Ascending order when doing inorder traversal on it
-    (7.3)Search, Minimum, Maximum, Successor, Predecessor operations all run in
-    O(h) time. h is the height of the BST. See the Leetcode practics for Successor
-    implementation.
+    (7.3)Search, Minimum, Maximum, (inorder)Successor, (inorder)Predecessor operations
+    all run in O(h) time. h is the height of the BST. See the Leetcode practices for
+    Successor implementation.
     (7.4)Insertion(easy) and Deletion(harder, see one example problem) can also run
     in O(h) time.
     (7.5)Selection and Rank. See Leetcode problem below.
-    (7.6)Range query. See Robert's Algorithms. O(n) time and O(h) space
+    (7.6)Range query -- finding all elements in a BST that have values within a given
+    range. See Robert's Algorithms. O(n) time and O(h) space
 (8)Trie(Prefix tree/radix tree/digital tree):
     (8.1)Refer to Robert's Algorithms. Think of the chars on the link instead of on
     the node.
@@ -413,8 +414,7 @@ Problems:
     - [Leetcode]Convert Sorted Array to Binary Search Tree(Algorithms and Iterative
     Implementation*)
     - [Leetcode]Convert Sorted List to Binary Search Tree(Best Algorithm* and Implementations*),
-    constructing tree from array can often be solved by bottom-up approach!
-    - [Leetcode]Delete Node in a BST(Algorithms* and Implementation)
+    constructing tree from array can also be solved by bottom-up approach!
     - [Leetcode]Inorder Successor in BST(Algorithm*). This algorithm uses the ascending
     order attribute of BST so that it can run in O(h) time not in O(n) time. Therefore
     this algorithm works only when the target is INORDER successor and there are no
@@ -426,12 +426,13 @@ Problems:
           10(returned node)
             10 (look-up node)    
     This algorithm can be easily extended to implement Ceiling and Floor methods.
+    - [Leetcode]Delete Node in a BST(Algorithms* and Implementation)
     - [Leetcode]Kth Smallest Element in a BST(Multiple Algorithms*)
 (4) Trie:
     - [Leetcode]Implement Trie (Prefix Tree)(Full Implementation*, recursive solution
     of delete?)
     - [Leetcode]Add and Search Word - Data structure design(Implementation)
-    - [Leetcode]Palindrome Pairs(Multiple Algorithms* and Implementations*).(Distinct
+    - [Leetcode]Palindrome Pairs(Multiple Algorithms** and Implementations**).(Distinct
     indices (i, j) just means that i != j) One way to improve the speed of not optimal
     algorithm is consider caching some values when building the trie. Remember the
     edge cases for the second approach.
