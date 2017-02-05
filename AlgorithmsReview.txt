@@ -399,6 +399,8 @@ Problems:
     - [Leetcode]Flatten binary tree to linked list(Multiple Algorithms*)
     - DFS for all the paths: [Leetcode]Path Sum I and II(Implementation). Current
     path needs to be copied first and then put into the result array.
+    - [Leetcode]Lowest Common Ancestor of a Binary Tree(Algorithms*). Building a map
+    of node to its parent node while traversing the tree could help solve some problems.
 (2) Recontruction of binary tree:
     - [Leetcode]Construct Binary Tree from Inorder and Postorder Traversal (Algorithm*
     and Implementation*), and Construct Binary Tree from Preorder and Inorder Traversal
@@ -428,6 +430,7 @@ Problems:
     This algorithm can be easily extended to implement Ceiling and Floor methods.
     - [Leetcode]Delete Node in a BST(Algorithms* and Implementation)
     - [Leetcode]Kth Smallest Element in a BST(Multiple Algorithms*)
+    - [Leetcode]Lowest Common Ancestor of a Binary Search Tree(Algorithm*)
 (4) Trie:
     - [Leetcode]Implement Trie (Prefix Tree)(Full Implementation*, recursive solution
     of delete?)
@@ -467,7 +470,7 @@ traversing to retrieve the paths.
                               //on the problem
         for (adjNode : node.adjNodes) {
             if (visited(adjNode) == false) {
-                DFS(node, visited)
+                DFS(adjNode, visited)
             }
         }
         Done;
@@ -496,6 +499,7 @@ traversing to retrieve the paths.
 
     * Finding all the paths between two states:
         main:
+            visited[node] = true;
             DFS(node, curPath, paths); //Initialize the capacity of curPath if possible!
             return paths;
 
@@ -519,7 +523,10 @@ traversing to retrieve the paths.
             Done;
 
     * Variation of above:
-        main is the same:
+        main:
+            DFS(node, curPath, paths); //Initialize the capacity of curPath if possible!
+            return paths;
+            
         DFS(node, curPath, paths):
             if node is end node:
                 paths.add(curPath.shallow_copy);
