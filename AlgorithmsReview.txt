@@ -551,13 +551,15 @@ traversing to retrieve the paths.
         Create queue q;
         q.enqueue(node);
         visited[node] = true; //Usually a hashmap. Flexible, can vary a bit depending
-                              //on the problem
+                              //on the problem. This must be set true before enqueuing
+                              //each element
         while (!q.isEmpty) {
             curNode = q.dequeue();
             visit(curNode);
             for (adjNode : curNode.adjNodes) {
                 if (visited(adjNode) == false) {
-                    visited(adjNode) = true;
+                    visited(adjNode) = true; // This must be set true before enqueuing
+                                             //each element
                     prev[adjNode] = curNode; //Record the predecessor, used when you
                                              //want the shorted path
                     q.enqueue(adjNode);
@@ -623,7 +625,7 @@ traversing to retrieve the paths.
         done;
 
         getPaths(endNode, prev, pathList, pathLists): //DFS finding all paths
-            prevNodes = pathList.get(endNode);
+            prevNodes = prev.get(endNode);
             if (prevNodes == null) { //There could be no path to endNode at all!
                 return;
             }
@@ -644,7 +646,7 @@ traversing to retrieve the paths.
     * Bidirectional BFS. See [Leetcode]Word Ladder for implementation.
 
 Problems:
-(1)[Leetcode]Clone Graph, good practice for BFS and DFS. (Algorithms* and Implementations*)
+(1)[Leetcode]Clone Graph, good practice for BFS and DFS. (Algorithms** and Implementations**)
 (2)[Leetcode]Surrounded Regions. (Algorithms and Implementations*). For DFS, sometimes
 we need to add some restrictions to prevent stack overflow.Remember BFS implementation
 to this kind of problems.
@@ -652,7 +654,8 @@ to this kind of problems.
 (4)[Leetcode]Word Search. (Algorithm*)
 (5)[Leetcode]Word Search II. (Algorithm and Best Implementation*)
 (6)[Leetcode]Word Ladder I(Algorithms and Implementations*). Remember the implementation
-of Bidirectional BFS.
+of Bidirectional BFS. endWord is counted as transformed word, so if it is not in the
+wordList, we should return 0.
 (7)[Leetcode]Word Ladder II(Algorithms and Implementations*). Remember the implementation
 of finding all shortest paths using BFS. 
 (8)[Leetcode]Restore IP Addresses(Implementation*). '012' is invalid while '0' is
@@ -702,15 +705,15 @@ concept, a binary heap is a complete binary tree. Each node in the tree is large
 than or equal to the keys in that node's two children. The heap operations require
 traversing not only down but also up, so in practice, heap is usually implemented
 as an array.
-(3)Attributions of Heap:
+(3)Attributions of Heap(max-root):
     (3.1)The largest key in a heap-ordered binary tree is found at the root.
     (3.2)The height of a complete binary tree of size N is ⎣lg N⎦ .
 (4)Operations on heap:
     (4.1)parent, leftChild, rightChild. Simple O(1) operations on the indices.
     (4.2)Size of array and size of heap is different!
     (4.3)exchange two nodes.
-    (4.4)Bottom-up reheapify (swim/sift-down). O(lg N)
-    (4.5)Top-down reheapify (sink/sift-up). O(lg N)
+    (4.4)Bottom-up reheapify (swim/sift-up). O(lg N)
+    (4.5)Top-down reheapify (sink/sift-down). O(lg N)
     (4.6)Insert. Add a new key, increase heap size, call 4.4. O(lg N)
     (4.7)Remove the maximum/minimum(root), and return the new root key. Exchange last
     key with the root key, decrease heap size, call 4.5 to sink the root key. O(lg
@@ -731,7 +734,7 @@ the keys directly, and compare the nodes based on the key(not the index!). What 
 swapped during reheapfiying is the content of the array(the indices). Therefore when
 implementing it using a heap, besides the heap array, we also need a map of index
 to the key, which is often implemented with another array since the index is usually
-an integer. The operation 3.7 for this case usually returns the index. And besides
+an integer. The operation 4.7 for this case usually returns the index. And besides
 the typical PQ operations, there are change(int k, Item item) method that change the
 key associated with index k to a new key, which requires a third array storing the
 actual array index for each index of the key(another map). For typical heap PQ, it
