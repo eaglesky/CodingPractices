@@ -651,7 +651,7 @@ Problems:
 we need to add some restrictions to prevent stack overflow.Remember BFS implementation
 to this kind of problems.
 (3)[Leetcode]Number of Islands. (Algorithms*)
-(4)[Leetcode]Word Search. (Algorithm*)
+(4)[Leetcode]Word Search. (Algorithm*) When the word is empty, returns true.
 (5)[Leetcode]Word Search II. (Algorithm and Best Implementation*)
 (6)[Leetcode]Word Ladder I(Algorithms and Implementations*). Remember the implementation
 of Bidirectional BFS. endWord is counted as transformed word, so if it is not in the
