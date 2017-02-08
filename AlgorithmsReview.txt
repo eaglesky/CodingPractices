@@ -510,6 +510,8 @@ traversing to retrieve the paths.
 
             for (adjNode : node.adjNodes) {
                 if (isValid(adjNode, visited)) { //Cut branches in isValid
+                        //Cutting branches can be added later as refactoring,
+                        //which might be better if the problem is very complex
                     curPath.add(adjNode);
                     visited[adjNode] = true;
                     DFS(adjNode, curPath, paths);
