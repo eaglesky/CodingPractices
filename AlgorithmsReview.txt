@@ -685,7 +685,8 @@ one. Combinations and Subsets problems can also be solved using BitSet, but not 
 as first trial.
 
 Problems:
-(1)[Leetcode]Permutations I and II (Multiple Algorithms*)
+(1)[Leetcode]Permutations I and II (Multiple Algorithms**). Need to be careful of the
+recursive solution for II.
 (2)[Leetcode]Permutation Sequence(Best Algorithm and Implementation*)
 (3)[Leetcode]Combinations(Algorithms*)
 (4)[Leetcode]Subsets I and II(Multiple Algorithms*)
@@ -1163,7 +1164,7 @@ this one: https://discuss.leetcode.com/topic/6711/share-a-c-dp-solution-with-o-1
 This problem can also be solved by recursive approach with or without cache. Remember
 the first approach.
 (17)[Leetcode]Triangle(Best Algorithm*).
-
+(18)[Leetcode]Combination Sum IV(Best Algorithm*)
 
 
 13. Other Concepts and special problems, including greedy problems.
