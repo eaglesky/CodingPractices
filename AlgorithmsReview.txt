@@ -509,8 +509,8 @@ traversing to retrieve the paths.
                 return;
 
             for (adjNode : node.adjNodes) {
-                if (isValid(adjNode, visited)) { //Cut branches in isValid
-                        //Cutting branches can be added later as refactoring,
+                if (isValid(adjNode, visited)) { //Pruning is in isValid
+                        //Pruning can be added later as refactoring,
                         //which might be better if the problem is very complex
                     curPath.add(adjNode);
                     visited[adjNode] = true;
@@ -1188,6 +1188,7 @@ greedy algorithm!
     any valid parentheses, those number should be equal. Using counters of parentheses
     can easily calculate the length of formed parentheses. 
     (6.1)[Leetcode]Longest Valid Parentheses(see previous chapter).
+    (6.2)[Leetcode]Generate Parentheses(see previous chapter)
 
 
 
