@@ -942,21 +942,21 @@ Binary Search problems:
     be the id of any of those elements.
     (2)[Leetcode]Search for a Range(Algorithms*). (7.3.2) and (7.3.3)
     (3)[Leetcode]Sqrt(x). (Algorithm*). (7.3.2). Be careful about overflow!
-    (4)[Leetcode]Search in rotated sorted array I and II(Algorithm*). (7.3.1)with
+    (4)[Leetcode]Search in rotated sorted array I and II(Algorithm**). (7.3.1)with
     changes. Remember the algorithm! (7.3.5)
-    (5)[Leetcode]Find Minimum in Rotated Sorted Array I and II(Algorithm*). These
+    (5)[Leetcode]Find Minimum in Rotated Sorted Array I and II(Algorithm**). These
     problems return the min value rather than the id.(7.3.5)
     (6)[EPI]Search local minimum in partially sorted array(Algorithm).(7.3.6)
     Description is in CodingPractices/EPI/SearchLocalMinimum.java
-    (7)[Leetcode]Median of two sorted arrays(Algorithm* and Implementation*).
+    (7)[Leetcode]Median of two sorted arrays(Algorithm** and Implementation*).
     (8)[Leetcode]Search a 2d Matrix. (7.3.1)
     (9)[Leetcode]Search a 2d Matrix2.(Best algorithm*)
 Sorting problems:
     (1)[Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick
     select)
-    (2)[Leetcode]Insert Interval(Algorithm* and Implementation*).
+    (2)[Leetcode]Insert Interval(Algorithm* and Implementation**).
     (3)[Leetcode]Merge Intervals(Algorithm)
-    (4)[Leetcode]Sort Colors(Algorithm*)
+    (4)[Leetcode]Sort Colors(Algorithm**)
     (5)[Leetcode]Insertion Sort List(Best Implementation*)
     (6)[Leetcode]Sort List(Implementation*). Bottom-up merge sort on linked list.
     Very hard to write the code! Top-down approach is much easier and may probably
@@ -1007,13 +1007,13 @@ and add one. This works for both positive and negative integer!
 which is the same as diff & ~(diff - 1). ([Leetcode]Single Number III)
 
 Problems:
-(1)[Leetcode]Gray Code(Algorithm*). Remember the algorithm.
+(1)[Leetcode]Gray Code(Algorithm**). Remember the algorithm.
 (2)[Leetcode]Single Number(Algorithm*). Clarification of the description: Every element
 appears twice except that one element appears only once. Remember the algorithm.
-(3)[Leetcode]Single Number II(Algorithms*). Clarification of the description: Every element
+(3)[Leetcode]Single Number II(Algorithms**). Clarification of the description: Every element
 appears three times except that one element appears less than three times. Remember
 the algorithms. The algorithms can be extended.
-(4)[Leetcode]Single Number III(Algorithm*).
+(4)[Leetcode]Single Number III(Algorithm**).
 
 
 
