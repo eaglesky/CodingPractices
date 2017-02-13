@@ -8,7 +8,8 @@ public class MaxSubarray2 {
     //DP solution, O(kn) time and O(n) space.
     //d[m][l] is the maximum sum of m subarrays in the first l elements,
     //and the mth subarray ends with the lth element.
-    //d[m][l] = max(d[m][l-1],    d[m-1][l-1], d[m-1][l-2] ... d[m-1][m-1]) + nums[l-1]
+    //d[m][l] = max(d[m][l-1], max(d[m-1][l-1], d[m-1][l-2] ... d[m-1][m-1])) + nums[l-1]
+    //Calculate the second max on the fly.
     //result = max({d[k][l]}), k <= l <= nums.size()
     public int maxTwoSubArrays(ArrayList<Integer> nums) {
         int[] prevSums = new int[nums.size() + 1];

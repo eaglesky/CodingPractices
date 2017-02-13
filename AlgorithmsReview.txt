@@ -1057,7 +1057,7 @@ Problems:
 (1)Pow(x, n). (Best algorithm* and Implementation). Remember the best algorithm
 (2)Add Two Numbers.(Implementation)
 (3)Divide Two Integers.(Algorithm* and Implementation*). Remember the algorithm.
-(4)Multiply Strings. (Best Algorithm*). 
+(4)Multiply Strings. (Best Algorithm**). 
 (5)Max Points on a Line. (Best Algorithm* and Implementation*). 
 
 
@@ -1106,11 +1106,14 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         like d[m-1][l], d[m][l-1], or a combination of them. -- [Lintcode]Maximum
         Subarray II.
         ** Sometimes multi-dimentional cache in the recursive formula can be reduced
-        to one-dimentional by fixing the other dimention. -- [Leetcode]Palindrome
-        Partitioning II.
+        to one-dimentional by fixing the other dimention(usually that requrires another
+        iteration to get the final result). -- [Leetcode]Palindrome Partitioning II,
+        Maximum Subarray II.
+
     Think about the order of indices first before writing down the formulas.
     Don't forget to write down the range of valid indices of the recursive formulas
     (and the target!).
+
     * Implement the solution using DP/memoization. 
         ** If using DP and the path needs not to be returned, consider reducing the
         size of cache. For many problems the size can be reduced to one or two 1D
@@ -1121,9 +1124,12 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         ** Think about the starting values carefully, especially those out of the
         range of valid cache elements. Note that the recursive formulas assume that
         the previous state is valid. So when coding be sure to check the cache values
-        that are next to the starting values. 
+        that are next to the starting values. Better to do this with a DP full matrix
+        and check the edge computed values that are adjacent to intialized values
+        carefully. They could need special handling sometimes!
         ** The max/min in the recursive formulas can often be computed on the fly
-        instead of using a separate loop.
+        instead of using a separate loop. This can often reduce the degree of time
+        complexity.
         ** Prefer using boolean expression to if-else statements to implement the
         recursive formulas.--[Leetcode] Interleaving String.
     * When the path needs to be returned, we have following options:
@@ -1140,7 +1146,7 @@ Problems:
 (1)[Lintcode]Longest Common Subsequence(Algorithms and Implementations*). Very good
 introductory problem.
 (2)[Leetcode]Maximum Subarray(Algorithms*)
-(3)[Lintcode]Maximum Subarray II(Algorithm* and Implementation*)
+(3)[Lintcode]Maximum Subarray II(Algorithm** and Implementation*)
 (4)[Leetcode]Longest Increasing Subsequence(Best Algorithm*)
 (5)[Leetcode]Regular Expression Matching(Algorithm* and Implementation*). Very hard!
 Pay attention to the rolling arrays!
