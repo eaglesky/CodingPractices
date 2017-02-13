@@ -1147,11 +1147,11 @@ Problems:
 introductory problem.
 (2)[Leetcode]Maximum Subarray(Algorithms*)
 (3)[Lintcode]Maximum Subarray II(Algorithm** and Implementation*)
-(4)[Leetcode]Longest Increasing Subsequence(Best Algorithm*)
-(5)[Leetcode]Regular Expression Matching(Algorithm* and Implementation*). Very hard!
+(4)[Leetcode]Longest Increasing Subsequence(Best Algorithm**)
+(5)[Leetcode]Regular Expression Matching(Algorithm* and Implementation*).
 Pay attention to the rolling arrays!
-(6)[Leetcode]Wildcard Matching(Algorithms*). Very hard!
-(7)[Leetcode]Edit Distance(Algorithm*).
+(6)[Leetcode]Wildcard Matching(Algorithms*).
+(7)[Leetcode]Edit Distance(Algorithm**).
 (8)[Leetcode]Scramble String(Algorithms*).
 (9)[Leetcode]Interleaving String(Algorithms*).
 (10)[Leetcode]Palindrome Partitioning II(Algorithms* and Implementations*).
