@@ -1,0 +1,45 @@
+Concepts.
+
+CS75 video:
+
+1. Web hosting service:
+A web hosting service is a type of Internet hosting service that allows individuals
+and organizations to make their website accessible via the World Wide Web. Web hosts
+are companies that provide space on a server owned or leased for use by clients, as
+well as providing Internet connectivity, typically in a data center.
+Example: Bluehost, Dreamhost, Go Daddy, Host Gator, pair Networks.
+
+2. Different types of web hosting service:
+Shared, dedicated, VPS, Cloud.
+https://hostingfacts.com/different-types-of-web-hosting/.
+
+3. Vertical scaling:
+Better hardware, like SSD.
+
+4. Horizontal scaling:
+
+5. Load balacing:
+The DNS server can return the ip of load balancer instead of a server, and let the
+load balancer decide which server the request should be sent to.
+Load balancing strategies:
+(1) Based on load of the server(how busy it is, the cpu usage).
+(2) Store different types of files on different servers, and use the suffix of url
+to discreminate them. 
+(3) Round robin. Example: BIND(the most widely used Domain Name System (DNS) software
+on the Internet) uses this strategy to resolve a host name --- same host name, but
+different ip each time. The drawback of this strategy is that one or few server could
+always receive requests that require most computation resource, making them much busier
+than the rest. Another thing that can show it is a bad strategy is DNS caching, which
+exists on the user's computer(maintained by the OS and browser). This caching is a
+map of host name and ip address that will expire(clear) after a certain amount of
+time(TTL). It is only used for speeding up the response time 
+(https://www.lifewire.com/introduction-to-domain-name-system-817512). So if an user
+keeps doing expensive work, it will always be done on the same server during TTL and
+that server will be always busy. Therefore instead of relying on the DNS server to
+do the load balancing, it is better to let the DNS server return the ip of the load
+balancer.
+
+Server-side sessions(http://stackoverflow.com/questions/3804209/what-are-sessions-how-do-they-work)
+could cause problems for load balancing, because one session for a user is only stored
+on one server. Solution: store all the sessions on a dedicated session server, or
+the load balancer itself, which can be accessed by all servers.

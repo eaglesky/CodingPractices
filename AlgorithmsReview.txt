@@ -495,7 +495,11 @@ traversing to retrieve the paths.
         Done;
 
     * Checking if the adjNode is valid can also be done inside the recursive function
-    --- at the beginning if the curNode is not valid, return.
+    --- at the beginning if the curNode is not valid, return. This is often used in
+    matrix searching where four direction need to be searched. If the adjacent values
+    need to be compared first before deciding whether to go to that direction or not,
+    we can add "preValue" to the DFS function arguments. 
+    E.g. [Leetcode]Pacific Atlantic Water Flow.
 
     * Finding all the paths between two states:
         main:
@@ -669,7 +673,8 @@ combination related problems!
 (12)[Leetcode]N Queens. (Algorithm*)
 (13)[Leetcode]Generate Parentheses. (Algorithm). DP solution?
 (14)[Leetcode]Sudoku Solver(Implementation). DFS with return boolean check.
-
+(15)[Leetcode]Pacific Atlantic Water Flow.(Algorithm* and Implementation*) BFS solution
+TBD.
 
 
 7. Permutations, Combinations and Subsets.
@@ -1199,6 +1204,7 @@ greedy algorithm!
     (6.2)[Leetcode]Generate Parentheses(see previous chapter)
 
 
+14. Data Structure Design.
 
 
 
