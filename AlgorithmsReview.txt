@@ -673,7 +673,32 @@ order if it is:
     before b, then natually a->b is the edge. This works well for both of the above
     solutions.
     Example: [Leetcode]Course Schedule I and II.
-
+(3.4)Given a sequence, does it satisfy the constraints? If so, is it the only sequence
+that can be contructed from the constraints? Example: [Leetcode]Sequence Reconstruction,
+not implemented yet.
+Solutions:
+    * Still use BFS solution above, but everytime before polling an element out from
+    the queue, check if there are already more than 1 element in the queue. If so,
+    then the result is not unique. Otherwise need to compare the polled element with
+    the next element in the given sequence to see if they are matched.
+    https://discuss.leetcode.com/topic/65948/java-solution-using-bfs-topological-sort/2
+    O(V+E) time and O(V+E) space, the code is quite long.
+    * A simpler and better algorithm is like this: 
+        * To see if the given sequence satisfies the constraints, we can first create
+        a map of sequnce element to its position, called pos, and check each constraints
+        (edges) and see if the two positions are indeed ascending. 
+        * To see if the given sequence is the only one, we need to make sure if there
+        is an edge between any consequtive elements in the given sequence. Otherwise
+        we can swap the two consequtive elements to create a new valid sequence. This
+        can be clearly seen and proved by visualizing the topological sorted sequence
+        with edges on it. This can be implemented while iterating the edges, if it
+        connects two consequtive elements in the given sequence, we mark the previous
+        element as true. After finish the iteration, if the number of marked elements
+        is equal to n - 1(n is the total number of element in the given sequence),
+        then it means that this condition is satisfied.
+    https://discuss.leetcode.com/topic/65633/very-short-solution-with-explanation
+    https://discuss.leetcode.com/topic/65961/simple-solution-one-pass-using-only-array-c-92ms-java-16ms
+    O(V+E) time and O(V) space, much shorter code!
 
 Problems:
 (1)[Leetcode]Clone Graph, good practice for BFS and DFS. (Algorithms** and Implementations**)
@@ -1237,7 +1262,8 @@ greedy algorithm!
 
 
 Summary of algorithms that are frequently used:
-1. Caching
+1. Caching. If there are multiple arrays involved, caching could be used on any one
+of them!
 2. Recursive thinking. Break the original problem into sub-problems. Try solving with
 recursive approach first --- can be broken down into two or more parts, or based on
 the result of first n-1 elements. If there are repetitions among sub-problems, consider
