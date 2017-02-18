@@ -449,7 +449,12 @@ Knowledge:
     graph, or V + 2E for undirected graph. This is usually the preferred representation.
     Works well when accessing the neighbors is frequent. For fast edge lookup, just
     use hashset of integers(instead of list) as the element of arrays in the Graph
-    class(Refer to the implementation of adjacency list in Robert's Algorithms)
+    class(Refer to the implementation of adjacency list in Robert's Algorithms).
+    The list can be implemented with a HashMap or ArrayList. The former works better
+    if the graph is sparse and  it doesn't require initializing each element. However
+    need to know that when creating the map, if the graph is directed, the node without
+    outbounding edges will not be inserted. So when getting the adjacent elements
+    of a node, first check if the corresponding adjacency list in the map is null!
     (2.2)Adjacency matrix. V*V space. Fast for edge lookup, easier to represent weights,
     but usually takes more space than adjacency list. And has no way to represent
     parallel edges.
@@ -549,7 +554,7 @@ traversing to retrieve the paths.
             curPath.removeLast;
             visited[node] = false;
             Done;
-
+        Example: [Leetcode]Course Schedule I and II.
 (2.2)BFS. Usually used for finding the shorted path(s) between two vertices. Implemented
     iteratively using queue, O(V + E) time. 
     * Algorithm of BFS(node)
@@ -651,6 +656,25 @@ traversing to retrieve the paths.
 
     * Bidirectional BFS. See [Leetcode]Word Ladder for implementation.
 
+(3)Topological sort.(Refer to Robert's algorithms)
+(3.1)Definition: Given a digraph, put the vertices in order such that all its directed
+edges point from a vertex earlier in the order to a vertex later in the order (or
+report that doing so is not possible).
+(3.2)A digraph has a topological order if and only if it is a DAG(directed acyclic
+graph, a digraph with no directed cycles). The topological order is not necessarily
+unique.
+(3.3)Algorithms that can detect if the given digraph is a DAG, and compute the topological
+order if it is: 
+    (3.3.1)BFS solution(Kahn's algorithm), refer to CTCI for description of the algorithm.
+    The queue stores the topological sorted sequence.
+    (3.3.2)DFS solution. Add the element to the stack right after each recursive function
+    call and the reverse of the elements in the stack is the topological sorted sequence.
+    The above solutions require to build a adjacency list first. If a has to be executed
+    before b, then natually a->b is the edge. This works well for both of the above
+    solutions.
+    Example: [Leetcode]Course Schedule I and II.
+
+
 Problems:
 (1)[Leetcode]Clone Graph, good practice for BFS and DFS. (Algorithms** and Implementations**)
 (2)[Leetcode]Surrounded Regions. (Algorithms and Implementations*). For DFS, sometimes
@@ -675,6 +699,10 @@ combination related problems!
 (14)[Leetcode]Sudoku Solver(Implementation). DFS with return boolean check.
 (15)[Leetcode]Pacific Atlantic Water Flow.(Algorithm* and Implementation*) BFS solution
 TBD.
+(16)Topological sort:
+    - [Leetcode]Course Schedule I and II(Algorithms* and Implementations*). Remember
+    all of them!
+
 
 
 7. Permutations, Combinations and Subsets.
