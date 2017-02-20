@@ -344,8 +344,9 @@ Knowledge:
 (1)Definition of tree, binary tree and binary search tree, and the differences between
 them. For BST, definition can vary slightly with respect to equality, if there could
 be duplicate values.
-(2)Balanced vs Unbalanced. Two common types of balanced trees are red-black tree and
-AVL tree. Usually the height of a balanced BST is O(log(N)).
+(2)Balanced vs Unbalanced. Two common types of balanced (binary search) tree are red-black
+tree and AVL tree. Usually the height of a balanced BST is O(log(N)). Search, insertion
+and deletion all take O(logN) time.
 (3)Definition of complete, full and perfect binary trees.
 (4)Number of nodes in perfect binary tree: n = 2^k - 1 (k is the number of levels)
 (5)Binary tree inorder, preorder and postorder traversal and their three implementations
@@ -360,7 +361,14 @@ So after traversing back through the thread pointer, the left children have to b
 visited reversely(only those nodes from the direct left child all the way down to the
 right). It is also necessary to create a dummy node and(7) have its left child be the
 root.
-(7)Binary search tree:
+(7)If the problem is about the height(distance from the leaf), consider to compute
+the height for each node recursively, based on that of its children.
+E.g. [Leetcode]Find leaves of binary tree. This solution can be applied to finding
+all the nodes with different height at each level with minor changes(max -> min).
+Note that the code of finding the minimum height/depth is more complex than finding
+the maximum! For the minimum, usually need to check if both children are not null,
+else if one of them is null, else both are null.
+(8)Binary search tree:
     (7.1)Definition
     (7.2)Ascending order when doing inorder traversal on it
     (7.3)Search, Minimum, Maximum, (inorder)Successor, (inorder)Predecessor operations
@@ -371,7 +379,7 @@ root.
     (7.5)Selection and Rank. See Leetcode problem below.
     (7.6)Range query -- finding all elements in a BST that have values within a given
     range. See Robert's Algorithms. O(n) time and O(h) space
-(8)Trie(Prefix tree/radix tree/digital tree):
+(9)Trie(Prefix tree/radix tree/digital tree):
     (8.1)Refer to Robert's Algorithms. Think of the chars on the link instead of on
     the node.
     (8.2)The map in each node can be implemented with hashmap or array.
@@ -401,6 +409,10 @@ Problems:
     path needs to be copied first and then put into the result array.
     - [Leetcode]Lowest Common Ancestor of a Binary Tree(Algorithms*). Building a map
     of node to its parent node while traversing the tree could help solve some problems.
+    - [Leetcode]Find leaves of binary tree(Algorithm* and Implementation). When requiring
+    return a list of nodes that does not follow the order of basic traversal, consider
+    storing the element directly to the corresponding location in the output array.
+
 (2) Recontruction of binary tree:
     - [Leetcode]Construct Binary Tree from Inorder and Postorder Traversal (Algorithm*
     and Implementation*), and Construct Binary Tree from Preorder and Inorder Traversal
@@ -699,6 +711,13 @@ Solutions:
     https://discuss.leetcode.com/topic/65633/very-short-solution-with-explanation
     https://discuss.leetcode.com/topic/65961/simple-solution-one-pass-using-only-array-c-92ms-java-16ms
     O(V+E) time and O(V) space, much shorter code!
+(3.5)Compute all topological sorts. The solution should always run in O(N!) time.
+One way is to check if each possible solution is topological sort in linear time.
+https://www.quora.com/Given-a-graph-how-to-compute-all-of-the-possible-topological-sort-outcomes
+Another way is to do DFS traversal, starting from each node with 0 incoming degree,
+which is hard to implement:
+http://www.geeksforgeeks.org/all-topological-sorts-of-a-directed-acyclic-graph/
+
 (4)Eulerian path.
 (4.1)Definition: In graph theory, an Eulerian trail (or Eulerian path) is a trail
 in a graph which visits every edge exactly once. Similarly, an Eulerian circuit or
@@ -1273,6 +1292,23 @@ greedy algorithm!
 
 
 14. Data Structure Design.
+Kownledge:
+(1)If multiple lists are involved in the data structure to be designed, make sure
+they are synced if there are removal operations. One typical way is to maintain pointer
+from each node to the corresponding one. If the removal operation could happen on
+both lists, then the pointers must be from two directions.
+
+Problems
+(1)Max Stack. Implement a Max Stack that supports peekMax() and popMax(), both of
+which should run in O(1) time.
+My solution: Maintain two double-linked lists, one is sorted, the other serves as
+a stack. The corresponding nodes in two lists have pointers pointing to each other,
+so that when popMax is called on the sorted list, the corresponding one in the stack
+is removed, and when pop is called on the stack, the corresponding one in the sorted
+list is removed. And since the two lists are double-linked list, the pop operations
+run in O(1) time. peekMax is also O(1). For push, one element is inserted in the stack,
+and a copy of it is inserted in the sorted array in O(n) time.
+
 
 
 
@@ -1306,7 +1342,7 @@ Implementation Utils:
                     return a1.name.compareTo(a2.name);
                 }
               });
-              
+
 * Copying an array to a new array:
     (1) Java:
         (1.1)System.arraycopy():
