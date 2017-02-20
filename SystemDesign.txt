@@ -42,4 +42,64 @@ balancer.
 Server-side sessions(http://stackoverflow.com/questions/3804209/what-are-sessions-how-do-they-work)
 could cause problems for load balancing, because one session for a user is only stored
 on one server. Solution: store all the sessions on a dedicated session server, or
-the load balancer itself, which can be accessed by all servers.
+the load balancer itself, which can be accessed by all servers. However what if the
+server is down?
+We could try using RAID to achieve data redundancy to some degree, but this is still
+not a good solution, as it is possible that the whole server is down. A better way
+to deal with it is to use multiple servers, which requires some syncing process.
+Sticky session can also be a solution here, which can be implemented by storing an
+id on the user's cookie and let LB to remember the mapping of that id to the ip of
+the server the session belongs to.
+
+Load Balancer choices:
+Software:
+ELB(AWS Elastic Load Balancing), HAProxy, LVS(Linux Virtual Server, http://www.linuxvirtualserver.org/whatis.html)
+Hardware:
+Barracuda, Cisco, Citrix, F5..
+
+
+6. Caching.
+(1) File based caching. Storeing a new file(html file) when new data is entered, like
+what is done by Craigslist. The upside of this approach is that the html file doesn't
+have to be regenerated everytime it's visited. The downside of it is due to the redundancy,
+it is hard to change the common style of the pages. And it could use too much space.
+
+
+Knowledge:
+* Computer Protocols- TCP/IP, POP, SMTP, HTTP, FTP and More
+http://vlaurie.com/computers2/Articles/protocol.htm
+
+
+* TCP vs UDP
+https://www.howtogeek.com/190014/htg-explains-what-is-the-difference-between-tcp-and-udp/
+UDP is less reliable but much faster, so it is preferable for transmitting time-critical
+data, like live video stream and online game data.
+
+
+* Cookies: Http Cookies and third-party cookies.
+Drawbacks of cookies:https://en.wikipedia.org/wiki/HTTP_cookie#Drawbacks_of_cookies
+
+
+* Three ways of managing sessions:
+https://www.youtube.com/watch?v=32UGARg8AzU
+Cookies
+URL rewriting, Hidden fields
+https://www.youtube.com/watch?v=xGAVFsLfn2w
+https://www.youtube.com/watch?v=Pv3FST7OcvQ
+
+
+* RAID(Redundant array of inexpensive disks):
+It is a data storage virtualization technology that combines multiple physical disk
+drive components into a single logical unit for the purposes of data redundancy,
+performance improvement, or both.
+
+RAID0: Uses data striping(technique of segmenting logically sequential data, such
+as a file, so that consecutive segments are stored on different physical storage
+devices) to perform concurrent read and write, so that the performance could be improved
+by the number of disks. No data redundancy involved.
+
+RAID1: Uses data mirroring to implement redundancy. Typically two idendical hard drives.
+Write throughput is always slower because every drive must be updated, and the slowest
+drive limits the write performance. 
+
+RAID10: A combination of above.
