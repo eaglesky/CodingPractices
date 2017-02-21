@@ -48,7 +48,7 @@ We could try using RAID to achieve data redundancy to some degree, but this is s
 not a good solution, as it is possible that the whole server is down. A better way
 to deal with it is to use multiple servers, which requires some syncing process.
 Sticky session can also be a solution here, which can be implemented by storing an
-id on the user's cookie and let LB to remember the mapping of that id to the ip of
+id in the user's cookie and let LB to remember the mapping of that id to the ip of
 the server the session belongs to.
 
 Load Balancer choices:
@@ -63,7 +63,39 @@ Barracuda, Cisco, Citrix, F5..
 what is done by Craigslist. The upside of this approach is that the html file doesn't
 have to be regenerated everytime it's visited. The downside of it is due to the redundancy,
 it is hard to change the common style of the pages. And it could use too much space.
+(2) MySQL caching.
+query_cache_type = 1 is enough to enable it. Used for cache the query result.
+(3) Memcached
+Cache data and objects in the RAM. Use LRU to purge old data when it is full.
 
+7. Database replication
+(1)Master-slave.
+As the master-slave replication is a one-way replication (from master to slave),only
+the master database is used for the write operations, while read operations may
+be spread on multiple slave databases(and the master too).
+Upside: data replication due to the several backup slaves. Load balancing read to
+the slaves so that it can process large amount of traffic and scale out easily.
+Downside: single-point-failure of the master db.
+(2)Master-master.
+Upside: 
+* If one master fails, other masters continue to update the database.
+* Masters can be located in several physical sites, i.e. distributed across the network.
+Downside:
+Very hard to preserve absolute consistency. 
+http://stackoverflow.com/questions/21196000/mysql-master-master-data-replication-consistency
+
+8. Example 1: Load Balancing + Replication
+(1)Load Balancer and MySQL master are the single points of failures.
+Multiple load balancers: active - active or active - passive.
+One needs to send its heartbeats(packages) every period of time to another.
+
+9. Example 2: with partitioning.
+
+10. Security.
+Open tcp port 80(http) and tcp port 443(https) for the traffic coming into the LBs.
+Opening tcp port 80 for the inside traffic after first layer of LB can save putting
+SSL certificate on all of the web servers.
+Open tcp port 3306(MySQL db server default)
 
 Knowledge:
 * Computer Protocols- TCP/IP, POP, SMTP, HTTP, FTP and More
@@ -103,3 +135,9 @@ Write throughput is always slower because every drive must be updated, and the s
 drive limits the write performance. 
 
 RAID10: A combination of above.
+
+* Database storage engine:
+A database engine (or storage engine) is the underlying software component that
+a database management system (DBMS) uses to create, read, update and delete (CRUD)
+data from a database. E.g., MyISAM, InnoDB, Memory, Archive, NDB..
+MyISAM vs InnoDB:http://blog.danyll.com/myisam-vs-innodb/

@@ -54,7 +54,8 @@ Problems:
             - [Leetcode] Three sum(Algorithm).
             - [Leetcode] Three sum closest(Algorithm).
         (2.1.2) Find out the count of all triplets whose sum is less than the target:
-            - [Leetcode] Three Sum Smaller(Algorithm*)
+            - [Leetcode] Three Sum Smaller(Algorithm*) Using two pointers to find
+            out the count efficiently in linear time.
     (2.3) Four sum(Random input array, find out all unique solutions)
         -[Leetcode] Four sum(Algorithms*).
         -[Leetcode] Four Sum II(Algorithm)
@@ -1321,6 +1322,9 @@ the result of first n-1 elements. If there are repetitions among sub-problems, c
 caching and DP, otherwise, divide(two or more parts) and conquer.
 3. Greedy thinking(TBD)
 
+* Sometimes when getting stuck, rethink what the problem asks and try coming up with
+a different idea.
+* Don't stop persuing a thought too quickly!
 
 
 
