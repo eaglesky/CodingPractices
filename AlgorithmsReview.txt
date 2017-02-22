@@ -122,9 +122,13 @@ a hashmap to count the number of occurences for each character and compare them,
 just sort the two strings and see if they are the same.
 
 Problems:
-(1)[Leetcode]Integer To Roman(Algorithm*)
-(2)[Leetcode]Roman To Integer(Algorithm*)
-(3)Sliding window approach for substring problems:
+(1)Numbers related
+    - [Leetcode]Integer To Roman(Algorithm*)
+    - [Leetcode]Roman To Integer(Algorithm*)
+    - [Leetcode]Basic Calculator II(Best Algorithm* and Implementation). Remember
+    the best solution(very fundamental!). Also remember the way how to get integers
+    formed by a substring without using Integer.parseInt(string). 
+(2)Sliding window approach for substring problems:
     * Think about why sliding window approach would work first. It basically considers
     each substring that starts with the character at the left pointer and skip some
     by moving the left pointer. The substring within the sliding window(before the
