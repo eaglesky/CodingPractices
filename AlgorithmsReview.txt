@@ -1206,6 +1206,9 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         to one-dimentional by fixing the other dimention(usually that requrires another
         iteration to get the final result). -- [Leetcode]Palindrome Partitioning II,
         Maximum Subarray II.
+        ** Sometimes need to maintain multiple db arrays, e.g. Let d[i][1] denote
+        select the current element and d[i][0] denote not select.
+        -- [Leetcode]Maximum product subarray, house robber I.
 
     Think about the order of indices first before writing down the formulas.
     Don't forget to write down the range of valid indices of the recursive formulas
@@ -1270,6 +1273,11 @@ This problem can also be solved by recursive approach with or without cache. Rem
 the first approach.
 (17)[Leetcode]Triangle(Best Algorithm*).
 (18)[Leetcode]Combination Sum IV(Best Algorithm*)
+(19)[Leetcode]House Robber(Multiple Algorithms*). Compare the solution with the one
+for "Best Time to Buy and Sell Stock with Cooldown". Remember how to deal with max
+{d[j], 0 <= j < i - k} where i is the current index.
+
+
 
 
 13. Other Concepts and special problems, including greedy problems.
