@@ -84,10 +84,13 @@ Downside:
 Very hard to preserve absolute consistency. 
 http://stackoverflow.com/questions/21196000/mysql-master-master-data-replication-consistency
 
+How to do the failover?? What does the consistency here mean?
+
 8. Example 1: Load Balancing + Replication
 (1)Load Balancer and MySQL master are the single points of failures.
 Multiple load balancers: active - active or active - passive.
 One needs to send its heartbeats(packages) every period of time to another.
+http://serverfault.com/questions/388543/load-balancing-active-active-config-and-dynamic-server-addition
 
 9. Example 2: with partitioning.
 
@@ -141,3 +144,14 @@ A database engine (or storage engine) is the underlying software component that
 a database management system (DBMS) uses to create, read, update and delete (CRUD)
 data from a database. E.g., MyISAM, InnoDB, Memory, Archive, NDB..
 MyISAM vs InnoDB:http://blog.danyll.com/myisam-vs-innodb/
+
+* CAP theorem:
+It is impossible for a distributed computer system to simultaneously provide more
+than two out of three of the following guarantees:
+Consistency, Availability, Partition Tolerance.
+CAP is frequently misunderstood as if one had to choose to abandon one of the three
+guarantees at all times. In fact, the choice is really between consistency and availability
+for when a partition happens only; at all other times, no trade-off has to be made.
+https://en.wikipedia.org/wiki/CAP_theorem
+
+
