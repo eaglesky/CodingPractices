@@ -139,6 +139,12 @@ drive limits the write performance.
 
 RAID10: A combination of above.
 
+* DBMS types:
+https://www.youtube.com/watch?v=jSXxrTNZwXA
+Relational, Use SQL: MySQL
+Object-oriented, Use OQL: ObjectDB.
+NoSQL:
+
 * Database storage engine:
 A database engine (or storage engine) is the underlying software component that
 a database management system (DBMS) uses to create, read, update and delete (CRUD)
