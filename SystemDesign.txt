@@ -144,12 +144,57 @@ https://www.youtube.com/watch?v=jSXxrTNZwXA
 Relational, Use SQL: MySQL
 Object-oriented, Use OQL: ObjectDB.
 NoSQL:
+Good introduction video: https://www.youtube.com/watch?v=qI_g07C_Q5I
+Hard to define, usually has characteristics:
+Non-relational, cluster-friendly, schema-less, open-source.
+Types:
+Key-value: Redis, Memcached, Oracle NoSQL database.
+Document: MongoDB
+Column: Cassandra, HBase
+Graph: Neo4j
+
+	** Redis
+	Introduction: https://redis.io/topics/introduction
+	Persistence: https://redis.io/topics/persistence
+				 http://oldblog.antirez.com/post/redis-persistence-demystified.html
+	Cluster and sharding: https://redis.io/topics/partitioning
+			 https://redis.io/topics/cluster-tutorial
+	vs Memcached, and why use Redis:
+	http://stackoverflow.com/questions/7888880/what-is-redis-and-what-do-i-use-it-for
+
+	** MongoDB
+	Introduction: https://www.youtube.com/watch?v=pWbMrx5rVBE
+	Sharding: https://docs.mongodb.com/manual/sharding/
+	Architecture: https://www.mongodb.com/presentations/webinar-everything-you-need-know-about-sharding?jmp=docs&_ga=1.78388884.1635526347.1487659117
+
+
 
 * Database storage engine:
 A database engine (or storage engine) is the underlying software component that
 a database management system (DBMS) uses to create, read, update and delete (CRUD)
 data from a database. E.g., MyISAM, InnoDB, Memory, Archive, NDB..
-MyISAM vs InnoDB:http://blog.danyll.com/myisam-vs-innodb/
+MyISAM vs InnoDB(default):http://blog.danyll.com/myisam-vs-innodb/
+Comparison of all: http://zetcode.com/databases/mysqltutorial/storageengines/
+Database engines are responsible for indexing, according to Wikipedia.
+
+* Database index:
+http://www.programmerinterview.com/index.php/database-sql/what-is-an-index/
+Typically database index is a datastructure like B tree(non-binary self-balancing
+tree)
+
+* Database normalization and denormalization:
+https://www.essentialsql.com/get-ready-to-learn-sql-database-normalization-explained-in-simple-english/
+http://www.vertabelo.com/blog/technical-articles/denormalization-when-why-and-how
+
+* Ways of improving database query performance:
+1. Optimizing the query itself, add caching.
+2. Indexing.
+3. Denormalization.
+
+* Database partitioning.
+https://en.wikipedia.org/wiki/Partition_(database)
+Horizontal partitioning, or sharding in the distributed setting.
+Vertical partitioning
 
 * CAP theorem:
 It is impossible for a distributed computer system to simultaneously provide more
