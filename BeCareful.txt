@@ -4,7 +4,8 @@ code that handles the edge cases usually can be easily added later. Also naive s
 first, and then improve it by methods like caching.
 After coding, re-check the problem description and walk through the code 
 for both normal and edge cases! Do not skip any lines of code. Think about each line
-of code you write(including the return value).
+of code you write(including the return value) and check if they really represent your
+thought!
 For recursive functions, pay more attention to the all possible return values, including
 the output parameters.
 Also remember to check if the index is out of boundary

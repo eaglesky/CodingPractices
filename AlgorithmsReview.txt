@@ -449,6 +449,8 @@ Problems:
     - [Leetcode]Delete Node in a BST(Algorithms* and Implementation)
     - [Leetcode]Kth Smallest Element in a BST(Multiple Algorithms*)
     - [Leetcode]Lowest Common Ancestor of a Binary Search Tree(Algorithm*)
+    - [Leetcode]Serialize and Deserialize BST(Algorithm* and implementation). Remember
+    the algorithm and implementation. Be careful about the integer pointer!
 (4) Trie:
     - [Leetcode]Implement Trie (Prefix Tree)(Full Implementation*, recursive solution
     of delete?)
@@ -1510,5 +1512,12 @@ Implementation Utils:
             System.out.println(id + ": " + cur);
         }
 
+* Convert list to array:
+    (1) Java:
+        List<String> stockList = new ArrayList<String>();
+        stockList.add("stock1");
+        stockList.add("stock2");
+
+        String[] stockArr = stockList.toArray(new String[0]);
 
 
