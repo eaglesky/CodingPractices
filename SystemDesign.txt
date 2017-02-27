@@ -101,6 +101,7 @@ SSL certificate on all of the web servers.
 Open tcp port 3306(MySQL db server default)
 
 Knowledge:
+
 * Computer Protocols- TCP/IP, POP, SMTP, HTTP, FTP and More
 http://vlaurie.com/computers2/Articles/protocol.htm
 
@@ -139,43 +140,47 @@ drive limits the write performance.
 
 RAID10: A combination of above.
 
-* DBMS types:
-https://www.youtube.com/watch?v=jSXxrTNZwXA
-Relational, Use SQL: MySQL
-Object-oriented, Use OQL: ObjectDB.
-NoSQL:
-Good introduction video: https://www.youtube.com/watch?v=qI_g07C_Q5I
-Hard to define, usually has characteristics:
-Non-relational, cluster-friendly, schema-less, open-source.
-Types:
-Key-value: Redis, Memcached, Oracle NoSQL database.
-Document: MongoDB
-Column: Cassandra, HBase
-Graph: Neo4j
+* CAP theorem:
+It is impossible for a distributed computer system to simultaneously provide more
+than two out of three of the following guarantees:
+Consistency, Availability, Partition Tolerance.
+CAP is frequently misunderstood as if one had to choose to abandon one of the three
+guarantees at all times. In fact, the choice is really between consistency and availability
+for when a partition happens only; at all other times, no trade-off has to be made.
+https://en.wikipedia.org/wiki/CAP_theorem
+Strictly, most of the systems are not CAP-available if P happens. What this theorem
+really says is that when P happens, you need to make a trade-off between C and A.
+But you can never achieve 100% for both. E.g., if master-slaves is used for each shard,
+and if read and write are performed on master, then strong consistency can be guaranteed,
+but the level of availability is low when P happens between the router and the master.
+We can change it by allowing read on slaves, which makes it no longer CAP-consistent
+and increases the level of availability, but it is still not 100% available since
+the write request could fail in such case.
+https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html
 
-	** Redis
-	Introduction: https://redis.io/topics/introduction
-	Persistence: https://redis.io/topics/persistence
-				 http://oldblog.antirez.com/post/redis-persistence-demystified.html
-	Cluster and sharding: https://redis.io/topics/partitioning
-			 https://redis.io/topics/cluster-tutorial
-	vs Memcached, and why use Redis:
-	http://stackoverflow.com/questions/7888880/what-is-redis-and-what-do-i-use-it-for
+* Eventual Consistency, Strong Eventual Consistency, Strong Consistency
+http://stackoverflow.com/questions/29381442/eventual-consistency-vs-strong-eventual-consistency-vs-strong-consistency
+Another good article on eventual consistency and strong consistency:
+https://cloud.google.com/datastore/docs/articles/balancing-strong-and-eventual-consistency-with-google-cloud-datastore/#h.w3kz4fze562t
+As I understand it, strong eventual consistency uses CRDT to avoid conficts and thus
+the data could be consistent after some time without resolving conficts before propagating
+the update.
+Tradeoff between consistency and latency:
+http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf
+Saved as CAP_tradeoff.pdf
 
-	** MongoDB
-	Introduction: https://www.youtube.com/watch?v=pWbMrx5rVBE
-	Sharding: https://docs.mongodb.com/manual/sharding/
-	Architecture: https://www.mongodb.com/presentations/webinar-everything-you-need-know-about-sharding?jmp=docs&_ga=1.78388884.1635526347.1487659117
+* ACID transaction:
+Atomicity. In a transaction involving two or more discrete pieces of information,
+either all of the pieces are committed or none are.
 
+Consistency. A transaction either creates a new and valid state of data, or, if
+any failure occurs, returns all data to its state before the transaction was started.
 
+Isolation. A transaction in process and not yet committed must remain isolated
+from any other transaction.
 
-* Database storage engine:
-A database engine (or storage engine) is the underlying software component that
-a database management system (DBMS) uses to create, read, update and delete (CRUD)
-data from a database. E.g., MyISAM, InnoDB, Memory, Archive, NDB..
-MyISAM vs InnoDB(default):http://blog.danyll.com/myisam-vs-innodb/
-Comparison of all: http://zetcode.com/databases/mysqltutorial/storageengines/
-Database engines are responsible for indexing, according to Wikipedia.
+Durability. Committed data is saved by the system such that, even in the event of
+a failure and system restart, the data is available in its correct state.
 
 * Database index:
 http://www.programmerinterview.com/index.php/database-sql/what-is-an-index/
@@ -196,13 +201,59 @@ https://en.wikipedia.org/wiki/Partition_(database)
 Horizontal partitioning, or sharding in the distributed setting.
 Vertical partitioning
 
-* CAP theorem:
-It is impossible for a distributed computer system to simultaneously provide more
-than two out of three of the following guarantees:
-Consistency, Availability, Partition Tolerance.
-CAP is frequently misunderstood as if one had to choose to abandon one of the three
-guarantees at all times. In fact, the choice is really between consistency and availability
-for when a partition happens only; at all other times, no trade-off has to be made.
-https://en.wikipedia.org/wiki/CAP_theorem
+
+* DBMS types:
+https://www.youtube.com/watch?v=jSXxrTNZwXA
+Relational, Use SQL: MySQL
+Object-oriented, Use OQL: ObjectDB.
+NoSQL:
+Good introduction video: https://www.youtube.com/watch?v=qI_g07C_Q5I
+Hard to define, usually has characteristics:
+Non-relational, cluster-friendly, schema-less, open-source.
+Types:
+Key-value: Redis(CP?), Memcached, Oracle NoSQL database.
+Document: MongoDB(CP)
+Column: HBase(CP), Cassandra(AP)
+Graph: Neo4j(CP)
+
+	** Redis
+	Introduction and Data Model: https://redis.io/topics/introduction
+	Persistence: https://redis.io/topics/persistence
+				 http://oldblog.antirez.com/post/redis-persistence-demystified.html
+	Cluster and sharding: https://redis.io/topics/partitioning
+			 https://redis.io/topics/cluster-tutorial
+	vs Memcached, and why use Redis:
+	http://stackoverflow.com/questions/7888880/what-is-redis-and-what-do-i-use-it-for
+
+	** MongoDB
+	Introduction and Data Model: https://www.youtube.com/watch?v=pWbMrx5rVBE
+	Sharding: https://docs.mongodb.com/manual/sharding/
+	Architecture: https://www.mongodb.com/presentations/webinar-everything-you-need-know-about-sharding?jmp=docs&_ga=1.78388884.1635526347.1487659117
+
+	** HBase
+	Introduction and Data Model: http://hbase.apache.org/0.94/book/datamodel.html
+	Data Model and Architecture:  https://www.edureka.co/blog/hbase-architecture/
+
+* SQL vs NoSQL
+1. Consistency: 
+SQL: Strong Consistency
+NoSQL: Trade consistency for availability and partition tolerance, usually eventual
+consistency. But still can achieve strong consistency.
+
+
+
+* Database storage engine:
+A database engine (or storage engine) is the underlying software component that
+a database management system (DBMS) uses to create, read, update and delete (CRUD)
+data from a database. E.g., MyISAM, InnoDB, Memory, Archive, NDB..
+MyISAM vs InnoDB(default):http://blog.danyll.com/myisam-vs-innodb/
+Comparison of all: http://zetcode.com/databases/mysqltutorial/storageengines/
+Database engines are responsible for indexing, according to Wikipedia.
+
+
+
+
+
+
 
 
