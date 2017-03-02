@@ -140,6 +140,7 @@ drive limits the write performance.
 
 RAID10: A combination of above.
 
+
 * CAP theorem:
 It is impossible for a distributed computer system to simultaneously provide more
 than two out of three of the following guarantees:
@@ -300,9 +301,16 @@ Comparison of all: http://zetcode.com/databases/mysqltutorial/storageengines/
 Database engines are responsible for indexing, according to Wikipedia.
 
 
+* Database caching?
+caching query result vs caching the objects(?)
+http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache
 
-
-
+* Asynchronism
+http://www.lecloud.net/post/9699762917/scalability-for-dummies-part-4-asynchronism
+1. Use cronjobs to convert dynamic content to static content(more info: https://vwo.com/knowledge/dynamic/).
+This is essentially a file-based caching and might be also done using document-based
+NoSQL databases with in-memory caching.
+2. Asynchronously process the expensive tasks.
 
 
 
