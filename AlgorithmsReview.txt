@@ -67,7 +67,8 @@ Problems:
     - [Leetcode] Previous three sum problems.
     - [Leetcode] Container with most water(Algorithm)
     - [Leetcode] Trapping rain water(Multiple Algorithms** and implementation*)
-    - [Leetcode] Intersection of Two Arrays(Algorithm when the arrays are sorted*).
+    - [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are
+    sorted*). Remember the algorithm for sorted arrays.
 
 2. Strings
 
@@ -938,24 +939,26 @@ outperforms heap sort most of the time.
     other in-place sorting algorithms. 
     https://www.quora.com/If-Radix-sort-has-a-better-time-complexity-why-is-quick-sort-preferred-both-in-APIs-and-in-terms-of-interviews
     Overall, radix sort is a stable sort.
-(7)Binary search. 
-    (7.1)The goal is to find a certain element(or the largest element that is smaller
+(7)External sort to deal with big data and small memory.
+http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSortEX2.htm
+(8)Binary search. 
+    (8.1)The goal is to find a certain element(or the largest element that is smaller
     than it, or the smallest element that is larger than it, etc)in a sorted array.
-    (7.2)Cases to consider:
+    (8.2)Cases to consider:
         * Valid case, including when the target element is on the edge.
         * Target element is within the range of the array but not contained in the array
         * Target element is out of the range of the array, either smaller than the
         minimum element in the array or greater than the maximum element in the array.
         * For above cases, don't forget the case when the input array has no or only
         one element.
-    (7.3)Type of search problems and its implementations. General idea is to start
+    (8.3)Type of search problems and its implementations. General idea is to start
     with initial range of candidates [low, high], compare target with a[mid](or a
     [low], a[high] if necessary), then narrow down the candidates by half and search
     in the new range. Pay attention to how mid value is calculated since we want the
     range to keep shrinking to 1. For problems that the range can not be cut down
     to half(time is more than O(logn)), low or high can be increased or decreased
     gradually.
-        (7.3.1)Traditional problem -- return the index of the element if found, otherwise
+        (8.3.1)Traditional problem -- return the index of the element if found, otherwise
         return -1:
             int binarySearch(int[] a, int target) {
                 int low = 0;
@@ -986,7 +989,7 @@ outperforms heap sort most of the time.
                     return mid;
                 }
             }
-        (7.3.2)Returns the index of first element that is greater than or equal to
+        (8.3.2)Returns the index of first element that is greater than or equal to
         the target element. Returns n if all elements in the array of n are less than
         the target element.
                 int firstGreaterEqual(int[] nums, int target) {
@@ -1002,7 +1005,7 @@ outperforms heap sort most of the time.
                     }
                     return low;
                 }
-        (7.3.3)Returns the index of last element that is less than or equal to the
+        (8.3.3)Returns the index of last element that is less than or equal to the
         target element. Returns -1 if all elements in the array are greater than the
         target element.
                 int lastLessEqual(int[] nums, int target) {
@@ -1021,11 +1024,11 @@ outperforms heap sort most of the time.
         When the target is within the range of the input array, returning low or high
         are all fine since they will be equal in the end, however when the target
         is not within the range, the end value of low is not equal to high!
-        (7.3.4)Another way to deal with the above two problems is to intialize a variable
+        (8.3.4)Another way to deal with the above two problems is to intialize a variable
         at the begining to record the index of last found candidate. The rest is similar
         to the basic binary search and after the loop finishes, that variable should
         contain the final result. See EPI for the solutions to above problems.
-        (7.3.5)Search in rotated sorted array. To search for the minium value, comparing
+        (8.3.5)Search in rotated sorted array. To search for the minium value, comparing
         the mid element with the highest element in the array is simpler than comparing
         it with the lowest one. Break the loop until low == high and return the final
         index. The minimum element always exists as long as the array is not empty.
@@ -1035,7 +1038,7 @@ outperforms heap sort most of the time.
         to compare with the highest too to be consistent. Then compare the target
         with the edge element according to different situations. The code is similar
         to 7.3.1.
-        (7.3.6)Search a certain element that satisfies some condition. No explicit
+        (8.3.6)Search a certain element that satisfies some condition. No explicit
         target value. The algorithm is usually to first check the middle value for
         a certain condition and use that condition to determine whether the next step
         is to go to the left half or the right half. The key is to determine what
