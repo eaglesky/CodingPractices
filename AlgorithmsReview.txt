@@ -63,11 +63,11 @@ Problems:
     - [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
     - [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm**). Best algorithm
     is very tricky. Still need to master the common solution.
-(4) Inward two pointers:
+(4) Two pointers:
     - [Leetcode] Previous three sum problems.
     - [Leetcode] Container with most water(Algorithm)
     - [Leetcode] Trapping rain water(Multiple Algorithms** and implementation*)
-
+    - [Leetcode] Intersection of Two Arrays(Algorithm when the arrays are sorted*).
 
 2. Strings
 
