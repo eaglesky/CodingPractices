@@ -102,6 +102,23 @@ Open tcp port 3306(MySQL db server default)
 
 Knowledge:
 
+* System analysis
+	** DAU: Daily Active User.
+	   MAU: Monthly Active User
+	   For games, DAU/MAU of ~20-30% is considered to be pretty good.
+	   For social apps, like a messenger app, a successful one would have a DAU/MAU closer
+	   to 50%. E.g. For Twitter, MAU = 320M, DAU = 150M(or 200M, 100M for the average)
+       In general most apps struggle to get to DAU/MAU of 20% or more.
+    ** Concurrent user number = DAU * session_seconds_per_user / 86400
+       Peak_concurrent_user_number = concurrent_user_number * 3
+       For Twitter, concurrent_user_number ~ 100K, peak ~ 300K
+    ** For Twitter, Read QPS ~ 300K, write QPS ~ 6K.
+       This might be estimated by doing:
+       Read QPS ~ peak_concurrent_user_number
+       Write QPS ~ peak_concurrent_user_number / session_seconds_per_user.
+       Assuming there is 1 read per user each second, and 1 write per user at the
+       begining of each session.
+
 * Computer Protocols- TCP/IP, POP, SMTP, HTTP, FTP and More
 http://vlaurie.com/computers2/Articles/protocol.htm
 
