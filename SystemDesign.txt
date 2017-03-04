@@ -214,11 +214,47 @@ http://www.vertabelo.com/blog/technical-articles/denormalization-when-why-and-ho
 2. Indexing.
 3. Denormalization.
 
+* Caching:
+	* Cache could be in memory or on the disk, client side or server side.
+	* Local cache and distributed cache:
+	1. Local cache: A cache could be local to an application instance and stored in-memory.
+	It is private and so different application instances could each have a copy of the
+	same cached data. This data could quickly become inconsistent between caches(because
+	after one write request sent to an application server, the server will update the
+	data and update/invalidate the corresponding one in the associated cache, making
+	it differ from the rest), so it may be necessary to expire data held in a private
+	cache and refresh it more frequently. In these scenarios it may be appropriate
+	to investigate the use of a shared or a distributed caching mechanism.
+	2. Distributed cache: A distributed cache may span multiple servers so that it can
+	grow in size and in transactional capacity.
+	http://stackoverflow.com/questions/15457910/what-is-a-distributed-cache
+	3. Comparison of the two:
+	https://dzone.com/articles/process-caching-vs-distributed
+	* Cache-aside pattern:
+	https://blog.cdemi.io/design-patterns-cache-aside-pattern/
+	Example: Memcached + MySQL
+	Memcached is just a cache, not a database!
+	* Cache-through pattern:
+	Cache handles the requests from the web server and persisit the data to the backed
+	databased. E.g. Redis.
+	4. Caching query result vs caching the objects(?)
+	http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache
+
 * Database partitioning.
 https://en.wikipedia.org/wiki/Partition_(database)
 Horizontal partitioning, or sharding in the distributed setting.
-Vertical partitioning
-
+Vertical partitioning. Downside: need to do join when pulling data from multiple tables.
+Upside is that some rarely-used columns are separated out, and when the machines that
+have the columns are down, the impact is small.
+	* Consistent hashing:
+	Sharding requires hashing the key and find the machine the data should be sent to.
+	Simple hashing like key % n could lead to difficulties of moving the data when adding
+	a new machine. To make it easier, consistent hashing is used instead.
+		* Consistent hashing I:
+		http://blog.csdn.net/jmspan/article/details/51740066
+		(How to deal with deleting a machine?)
+		Problem: Too many reads in a short time on 1 ~ 2 machines.
+		* Consistent hashing II:
 
 * DBMS types:
 https://www.youtube.com/watch?v=jSXxrTNZwXA
@@ -317,10 +353,6 @@ MyISAM vs InnoDB(default):http://blog.danyll.com/myisam-vs-innodb/
 Comparison of all: http://zetcode.com/databases/mysqltutorial/storageengines/
 Database engines are responsible for indexing, according to Wikipedia.
 
-
-* Database caching?
-caching query result vs caching the objects(?)
-http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache
 
 * Asynchronism
 http://www.lecloud.net/post/9699762917/scalability-for-dummies-part-4-asynchronism
