@@ -70,21 +70,41 @@ Cache data and objects in the RAM. Use LRU to purge old data when it is full.
 
 7. Database replication
 (1)Master-slave.
-As the master-slave replication is a one-way replication (from master to slave),only
-the master database is used for the write operations, while read operations may
-be spread on multiple slave databases(and the master too).
+Master has a WAL(Write Ahead Log) to record every updates. Whenever an update happens,
+it will notify all the slaves to read the log and apply the updates to their local
+database.
+As the master-slave replication is a one-way replication (from master to
+slave),only the master database is used for the write operations, while read operations
+may be spread on multiple slave databases(and the master too).
 Upside: data replication due to the several backup slaves. Load balancing read to
 the slaves so that it can process large amount of traffic and scale out easily.
-Downside: single-point-failure of the master db.
-(2)Master-master.
+Downside: 
+1. Eventual consistency for reads to the slaves.(Might be acceptable)
+2. Single-point-failure of the master db(short time, not able to receive any writes
+during that time), though it could be replaced by a promoted slave, the data could
+be lost if the newly written data hasn't been read, or the data on the slaves could
+be inconsistent if not all the slaves get the newly written data before the master
+is down.
+3. Too many writes could go to the same master. May not be a big issue if one master
+only handles a shard. But still not the best choice when the traffic is write-heavy.
+(2)Peer to peer.
 Upside: 
-* If one master fails, other masters continue to update the database.
+* If one master fails, other masters continue to update the database. Faster failover.
+Good for write-heavy traffic.
 * Masters can be located in several physical sites, i.e. distributed across the network.
 Downside:
-Very hard to preserve absolute consistency. 
+Very hard to preserve absolute consistency(like write-write). 
 http://stackoverflow.com/questions/21196000/mysql-master-master-data-replication-consistency
 
 How to do the failover?? What does the consistency here mean?
+
+Solutions to the eventual consistency:
+1. Send critical read requests to the master so that they would always return the
+most up-to-date data;
+2. Cache the data that has been written on the client side(for a period of time) so
+that you would not need to read the data you have just written.
+3. Minize the replication lag to reduce the chance of stale data being read
+from stale slaves.
 
 8. Example 1: Load Balancing + Replication
 (1)Load Balancer and MySQL master are the single points of failures.
@@ -251,10 +271,17 @@ have the columns are down, the impact is small.
 	Simple hashing like key % n could lead to difficulties of moving the data when adding
 	a new machine. To make it easier, consistent hashing is used instead.
 		* Consistent hashing I:
-		http://blog.csdn.net/jmspan/article/details/51740066
+		Implementation: http://blog.csdn.net/jmspan/article/details/51740066
 		(How to deal with deleting a machine?)
-		Problem: Too many reads in a short time on 1 ~ 2 machines.
-		* Consistent hashing II:
+		Problem: 
+		1. Too many reads in a short time on 1 ~ 2 machines.
+		2. The data is not evenly distributed.
+		* Consistent hashing II(solve the above problems):
+		Algorithm:
+		http://afghl.github.io/2016/07/04/consistent-hashing.html
+		https://loveforprogramming.quora.com/Distributed-Systems-Part-1-A-peek-into-consistent-hashing
+		Implementation:
+		http://blog.csdn.net/jmspan/article/details/51749521
 
 * DBMS types:
 https://www.youtube.com/watch?v=jSXxrTNZwXA
@@ -361,5 +388,7 @@ This is essentially a file-based caching and might be also done using document-b
 NoSQL databases with in-memory caching.
 2. Asynchronously process the expensive tasks.
 
+* Questions:
+1. In url shortening design, how to do sharding for the custom urls?
 
 

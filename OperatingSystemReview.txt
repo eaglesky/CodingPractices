@@ -18,6 +18,16 @@ Operating System Concepts(9th Edition)
 4. Process Synchronization.
 	4.1. Race condition: A situation like this, where several processes access and manipulate the same data concurrently and the outcome of the execution depends on the particular order in which the access takes place, is called a race condition.
 
+* More threads do not mean better performance:
+1. Context switch.
+2. Memory usage of stacks. This also limits the number of threads you can have. In
+Java, the stack size for each thread is specified by -XX:ThreadStackSize.
+https://dzone.com/articles/java-what-limit-number-threads
+3. Network bandwidth could be the network after you add too many threads. Current
+max network bandwidth = 10 Gbps
+More: http://etherealmind.com/basics-difference-bandwidth-speed/
+
+
 Questions:
 1. The advantage of multi-processing in Chrome browser over a single process with
 multiple threads?
