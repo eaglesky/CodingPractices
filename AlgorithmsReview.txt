@@ -69,6 +69,11 @@ Problems:
     - [Leetcode] Trapping rain water(Multiple Algorithms** and implementation*)
     - [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are
     sorted*). Remember the algorithm for sorted arrays.
+    - [Leetcode] Minimum Size Subarray Sum(Algorithms*). This subarray question can
+    often be handled by either using DP or two pointers.
+    Binary search can also be used by first creating cumulative sum array and then
+    look at the diff between any two elements in this array.
+
 
 2. Strings
 
@@ -424,6 +429,9 @@ Problems:
     return a list of nodes that does not follow the order of basic traversal, consider
     storing the element directly to the corresponding location in the output array.
     - [Leetcode]House Robber III(Algorithm)
+    - [Leetcode]Binary Tree Vertical Order Traversal(Algorithm*). When implementing
+    level order traversal, sometimes it is easier to handle the current node directly
+    instead of handle the left and right node respectively.
 (2) Recontruction of binary tree:
     - [Leetcode]Construct Binary Tree from Inorder and Postorder Traversal (Algorithm*
     and Implementation*), and Construct Binary Tree from Preorder and Inorder Traversal
