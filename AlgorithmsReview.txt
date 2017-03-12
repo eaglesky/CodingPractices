@@ -69,10 +69,14 @@ Problems:
     - [Leetcode] Trapping rain water(Multiple Algorithms** and implementation*)
     - [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are
     sorted*). Remember the algorithm for sorted arrays.
+(5) Subarray sums:
     - [Leetcode] Minimum Size Subarray Sum(Algorithms*). This subarray question can
     often be handled by either using DP or two pointers.
     Binary search can also be used by first creating cumulative sum array and then
     look at the diff between any two elements in this array.
+    - [Leetcode] Maximum Size Subarray Sum Equals k(Algorithm*). Use the third approach.
+    - [Lintcode] Subarray Sum Closest(Algorithms*). Remember the algorithm that find
+    out the closest two elements in an unsorted array in O(nlogn) time.
 
 
 2. Strings
@@ -1355,6 +1359,13 @@ caching and DP, otherwise, divide(two or more parts) and conquer.
 * Don't always try finding the breaking point in O(1) time. It might be easier to
 find it in O(n) time first(top-down approach).
 3. Greedy thinking(TBD)
+4. If the problem has the time complexity of (nlogn), consider the following possible
+cases:
+    (1)Sorting
+    (2)Binary search, either recursively and then iterate, or doing it in each iteration.
+    (3)Constructing/using a balanced BST(like Java TreeMap) in each iteration.
+    (4)Constructing/using a heap in each iteration.
+
 
 * Sometimes when getting stuck, rethink what the problem asks and try coming up with
 a different idea.
@@ -1371,6 +1382,16 @@ Implementation Utils:
     (1) Java:
             int[] nums;
             Arrays.sort(nums);//In place, stable, O(nlogn) time.
+
+            //Sort 2d array:
+            //sumAndIds = {{5, 8}, {1, 2, 4}, {4, 5}}
+            //After sorted: {{1, 2, 4}, {4, 5}, {5, 8}}
+            Arrays.sort(sumAndIds, new Comparator<int[]>() {
+                    @Override
+                    public int compare(int[] o1, int[] o2) {
+                        return Integer.compare(o1[0], o2[0]);
+                    }
+            });
 
 * Sorting an list:
     (1) Java: List<Airport> dests = new ArrayList<>();
