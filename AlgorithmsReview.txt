@@ -77,9 +77,10 @@ Problems:
     - [Leetcode] Maximum Size Subarray Sum Equals k(Algorithm*). Use the third approach.
     - [Lintcode] Subarray Sum Closest(Algorithms*). Remember the algorithm that find
     out the closest two elements in an unsorted array in O(nlogn) time.
-    - [Lintcode] Submatrix Sum(Algorithm*). Remember how to enumerate all the sub
+    - [Lintcode] Submatrix Sum(Algorithms*). Remember how to enumerate all the sub
     rectangles in a 2D matrix. Remember the trick to add padding zeros.
-
+    - [Leetcode] Max Sum of Rectangle No Larger Than K(Algorithm*). Extension of above.
+    Remember the best solution.
 
 
 2. Strings
