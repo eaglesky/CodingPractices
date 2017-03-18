@@ -81,7 +81,7 @@ Problems:
     rectangles in a 2D matrix. Remember the trick to add padding zeros.
     - [Leetcode] Max Sum of Rectangle No Larger Than K(Algorithm*). Extension of above.
     Remember the best solution.
-
+(6)[Others] Task schedule with cool down.(Algorithm and implementation*).
 
 2. Strings
 
