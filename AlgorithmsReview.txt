@@ -216,7 +216,6 @@ Problems:
     - [Leetcode]Group Anagrams(Algorithm*)
 
 
-
 3. Linked Lists
 
 Knowledge:
@@ -888,11 +887,16 @@ It is essentially a min heap. Example usage:
         });
         //Use the following to create max heap:
         PriorityQueue<Integer> queue = new PriorityQueue<>(10, Collections.reverseOrder());
+        //Collection.reverseOrder() returns a ReverseComparator that has a compare
+        () method that returns the negation of the compareTo method result of the
+        object.
 
 Problems:
 (1)[Leetcode]Merge K sorted lists(Algorithms*).
 (2)[Leetcode]Kth largest element in an array. (Algorithms of heap solutions*)
-
+(3)[Leetcode]Rearrange String k Distance Apart(Algorithms* and Implementations*).
+The naive algorithm and greedy algorithm should all be mastered! Don't know how to
+prove the correctness of greed algorithm yet. 
 
 
 9. Sorting and Searching
