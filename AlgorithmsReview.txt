@@ -82,17 +82,30 @@ Problems:
     - [Leetcode] Max Sum of Rectangle No Larger Than K(Algorithm*). Extension of above.
     Remember the best solution.
 (6)[Others] Task schedule with cool down.(Algorithm and implementation*).
+(7)[Leetcode] Count and Say. Clarification: The question is to find the nth string
+in the given string sequence starting with "1". For example, n = 1, return "1"; n
+= 2, return "11"; ... n = 5, return "111221".
+
 
 2. Strings
 
 Knowledge:
-(1)JAVA: String, StringBuilder and char[]. StringBuilder is essentially a wrapper
-of dynamic char array , and append(string) basically copy each character from input
-string to the end of existing char array. When deleting, it will shift the characters
-after those deleted forward. To remove the last element in the StringBuilder, just
-use sb.setLength(sb.length() - 1). toString() method returns a copy of wrapped char
-array, wrapped by a newly created String.
+(1)JAVA: String, StringBuilder and char[]. 
+StringBuilder is essentially a wrapper of dynamic char array , and append(string)
+basically copy each character from input string to the end of existing char array.
+When deleting, it will shift the characters after those deleted forward. To remove
+the last element in the StringBuilder, just use sb.setLength(sb.length() - 1). toString
+() method returns a copy of wrapped char array, wrapped by a newly created String.
+setCharAt(index, char) is also an useful method to update a certain char in the StringBuilder.
 Also note that StringBuilder doesn't have isEmpty() method while String does.
+char[] array usually has a better performance than StringBuilder since it is simpler.
+But when dynamiccally adding new elements to it, usually another variable charLen
+is needed to record the current length(number of filled elements in the array). Creating
+a string from it is simply using new String(char[] value, int offset, int count).
+char[] can make backtracking easier since you can just override the old elements when
+searching a new branch. But StringBuilder is also usefully and saves you from maintaining
+the length of the array.
+
 (2)Palindrome.
     (2.1)Definition. A string that reads the same backward as forward, e.g., madam.
     Checking if a string is a palindrome can be easily done in O(n) time.
@@ -137,11 +150,14 @@ just sort the two strings and see if they are the same.
 
 Problems:
 (1)Numbers related
+    Pay attention to how to handle substrings starting with 0, like '0001'.
     - [Leetcode]Integer To Roman(Algorithm*)
     - [Leetcode]Roman To Integer(Algorithm*)
     - [Leetcode]Basic Calculator II(Best Algorithm* and Implementation). Remember
     the best solution(very fundamental!). Also remember the way how to get integers
     formed by a substring without using Integer.parseInt(string). 
+    - [Leetcode]Expression Add Operators(Algorithm* and Implementation*). Remember
+    the best backtracking logic and implementation.
 (2)Sliding window approach for substring problems:
     * Think about why sliding window approach would work first. It basically considers
     each substring that starts with the character at the left pointer and skip some

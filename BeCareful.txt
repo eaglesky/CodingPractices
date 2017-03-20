@@ -1,17 +1,27 @@
 Good habbit: 
-Before coding, try to come up with the algorithm than handle normal cases first. The
-code that handles the edge cases usually can be easily added later. Also naive solution
-first, and then improve it by methods like caching.
-After coding, re-check the problem description and walk through the code 
-for both normal and edge cases! Do not skip any lines of code. Think about each line
-of code you write(including the return value) and check if they really represent your
-thought!
 For recursive functions, pay more attention to the all possible return values, including
 the output parameters.
-Also remember to check if the index is out of boundary
-Think about a working solution first and then try optimizing it. 
+Also remember to check if the index is out of boundary 
 When there are multiple cases and decisions, write them down to figure out the logic!
 Refactor the code after writing it.
+
+Good workflow when tackling a interview question:
+* Ask clarification questions, especially about the case which could give unsure result.
+  Think about a naive way to solve it and then think of better way only when the interviewer
+  says it exist. Usually the algorithm may not be correct at first,  and this needs
+  to be found out by trying more test cases.For some problems you need to draw some
+  graphs to visualize it, and you need to make sure that they can cover enough cases,
+  and you may need to extend it to see more cases. You may also need to show a few
+  test cases you need!
+* After you and your interviewer agree that this algorithm works, and the interviewer
+agrees that you can move on to write the code, start it immediately! Pay attention
+to your handwriting as best as you can. 
+* After you are done writing the code, explain the code while checking it. Check the
+code line by line so that you can find out some typos or minor bugs. While doing this,
+it is better to also walk through a normal test case in your mind to see if there
+is anything missing. After changing the code, this process might need to be repeated
+until you are sure that it can handle all test cases correctly.
+* Review the AlgorithmsReview about possible corner cases for each type of problem!
 
 1. Be careful about the end value of iterator after the for loop!!
 
