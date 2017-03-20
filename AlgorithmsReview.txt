@@ -354,6 +354,9 @@ a queue". The Deque interface usually doesn't allow null element, as peek() retu
 null when the deque is empty. peek() does not throw any exceptions. ArrayDeque doesn't
 permit null element while LinkedList does. Stack interface permits null element too.
 However try not to put null element in all cases.
+Java ArrayDeque can be used to implement monotonic queue(see [Leetcode]Sliding Window
+Maximum). Note that peek(), poll(), push() and pop() are all performed on the head
+of the queue. offer(), peekLast(), pollLast() are performed on the tail.
 (3)In some design problems, sometimes it is good to call peek() first in pop()/poll
 ().
 
@@ -368,7 +371,7 @@ types and Binary Numeric Promotion)
 two ways of handling parentheses related problems.
 (7)[Leetcode]Largest Rectangle in Histogram(Algorithm*).
 (8)[Leetcode]Maximal Rectangle(Algorithm)
-
+(9)[Leetcode]Sliding Window Maximum(Algorithm* and Implementation*)
 
 
 
