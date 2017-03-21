@@ -1372,7 +1372,7 @@ is removed, and when pop is called on the stack, the corresponding one in the so
 list is removed. And since the two lists are double-linked list, the pop operations
 run in O(1) time. peekMax is also O(1). For push, one element is inserted in the stack,
 and a copy of it is inserted in the sorted array in O(n) time.
-
+(2)[Leetcode]Find Median from Data Stream(Algorithm*).
 
 
 

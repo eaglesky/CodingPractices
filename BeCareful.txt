@@ -22,6 +22,12 @@ it is better to also walk through a normal test case in your mind to see if ther
 is anything missing. After changing the code, this process might need to be repeated
 until you are sure that it can handle all test cases correctly.
 * Review the AlgorithmsReview about possible corner cases for each type of problem!
+	1. When the string has numbers, consider how numbers starting with '0' like '001'
+	should be treated. 
+	2. For math related problems, remember to check overflow!
+	3. For heap related problems, remember the case when the heap is empty, especially
+	when peek is used!
+
 
 1. Be careful about the end value of iterator after the for loop!!
 
