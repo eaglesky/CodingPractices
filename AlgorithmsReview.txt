@@ -383,7 +383,8 @@ them. For BST, definition can vary slightly with respect to equality, if there c
 be duplicate values.
 (2)Balanced vs Unbalanced. Two common types of balanced (binary search) tree are red-black
 tree and AVL tree. Usually the height of a balanced BST is O(log(N)). Search, insertion
-and deletion all take O(logN) time.
+and deletion all take O(logN) time. Java implementation: TreeMap, based on red-black
+tree.
 (3)Definition of complete, full and perfect binary trees.
 (4)Number of nodes in perfect binary tree: n = 2^k - 1 (k is the number of levels)
 (5)Binary tree inorder, preorder and postorder traversal and their three implementations
@@ -1361,6 +1362,9 @@ Kownledge:
 they are synced if there are removal operations. One typical way is to maintain pointer
 from each node to the corresponding one. If the removal operation could happen on
 both lists, then the pointers must be from two directions.
+(2)Balanced BST and heap have similar performance. Always consider both of them together!
+Note: removal in balanced BST takes O(logn) while in heap is O(n).
+Getting the max/min in balanced BST takes O(logn) while in heap is O(1).
 
 Problems
 (1)Max Stack. Implement a Max Stack that supports peekMax() and popMax(), both of
@@ -1372,8 +1376,9 @@ is removed, and when pop is called on the stack, the corresponding one in the so
 list is removed. And since the two lists are double-linked list, the pop operations
 run in O(1) time. peekMax is also O(1). For push, one element is inserted in the stack,
 and a copy of it is inserted in the sorted array in O(n) time.
-(2)[Leetcode]Find Median from Data Stream(Algorithm*).
-
+(2)[Leetcode]Find Median from Data Stream(Algorithm* and Best Implementation*).
+(3)[Leetcode]Sliding Window Median(Algorithms* and Best Implementation*). Remember
+two ways of implementing multi-sets!
 
 
 Summary of algorithms that are frequently used:

@@ -24,7 +24,8 @@ until you are sure that it can handle all test cases correctly.
 * Review the AlgorithmsReview about possible corner cases for each type of problem!
 	1. When the string has numbers, consider how numbers starting with '0' like '001'
 	should be treated. 
-	2. For math related problems, remember to check overflow!
+	2. For math related problems(as long as there is some arithmetic operations involved),
+	remember to check overflow!
 	3. For heap related problems, remember the case when the heap is empty, especially
 	when peek is used!
 
