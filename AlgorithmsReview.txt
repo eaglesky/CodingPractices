@@ -1355,7 +1355,10 @@ greedy algorithm!
     (6.1)[Leetcode]Longest Valid Parentheses(see previous chapter).
     (6.2)[Leetcode]Generate Parentheses(see previous chapter)
 (7)File related.
-    (7.1)Read N Characters Given Read4(Algorithm)
+    (7.1)Read N Characters Given Read4 I(Algorithm) and II(Implementation*)
+
+
+
 
 14. Data Structure Design.
 Kownledge:
