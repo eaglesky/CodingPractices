@@ -69,6 +69,8 @@ Problems:
     - [Leetcode] Trapping rain water(Multiple Algorithms** and implementation*)
     - [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are
     sorted*). Remember the algorithm for sorted arrays.
+    - [Leetcode] Move Zeros(Algorithms*). Remember both algorithms and how to prove
+    them!
 (5) Subarray sums:
     - [Leetcode] Minimum Size Subarray Sum(Algorithms*). This subarray question can
     often be handled by either using DP or two pointers.
