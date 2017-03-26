@@ -537,8 +537,10 @@ when considering the algorithm -- like what parameters to use in the recursive
 functions and what they do in each recursion.
 (2.1)DFS. Can be used for counting the number of connected components in
 a graph, check if two vertices are connected, etc. Implemented recursively. Iterative
-solution usually uses a stack. And a map of node to its parent can be created while
-traversing to retrieve the paths.
+solution usually uses a stack(of actual element or iterator of lists of elements.
+Often used as step-by-step backtracking and implementing iterators. E.g. [Leetcode]Flatten
+Nested List Iterator). And a map of node to its parent can be created while traversing
+to retrieve the paths.
     * Algorithm of DFS(node, visited)
         if node is null, return; //Can be omitted sometimes
         visit(node)
@@ -1378,8 +1380,15 @@ both lists, then the pointers must be from two directions.
 (2)Balanced BST and heap have similar performance. Always consider both of them together!
 Note: removal in balanced BST takes O(logn) while in heap is O(n).
 Getting the max/min in balanced BST takes O(logn) while in heap is O(1).
+(3)About iterator. hasNext() returns true if next() would return an emement. The correct
+usage is always calling hasNext() before next(), however the implementation should
+not use this as an assumption! hasNext() should never change the state of the iterator,
+and next() should always return a valid next element even if it is called without
+calling hasNext() first. It could throw an exception if there is no more element.
+Ideally the iterator should not have a copy of all the elements being iterated on.
+It should mainly rely on other existing iterators to do the work.
 
-Problems
+Problems:
 (1)Max Stack. Implement a Max Stack that supports peekMax() and popMax(), both of
 which should run in O(1) time.
 My solution: Maintain two double-linked lists, one is sorted, the other serves as
@@ -1392,6 +1401,8 @@ and a copy of it is inserted in the sorted array in O(n) time.
 (2)[Leetcode]Find Median from Data Stream(Algorithm* and Best Implementation*).
 (3)[Leetcode]Sliding Window Median(Algorithms* and Best Implementation*). Remember
 two ways of implementing multi-sets!
+(4)Iterator related:
+    - [Leetcode]Flatten Nested List Iterator(Algorithms*)
 
 
 Summary of algorithms that are frequently used:
