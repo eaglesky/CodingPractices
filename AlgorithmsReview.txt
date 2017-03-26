@@ -149,6 +149,9 @@ on the string won't happen!
 such as cinema, formed from iceman. To check if two strings are anagrams, either use
 a hashmap to count the number of occurences for each character and compare them, or
 just sort the two strings and see if they are the same.
+(5)Note that the whitespace in a string may not be ' ', could be '\t' or even '\n'.
+(6)For string parsing problems, try coming up with a working solution first and don't
+consider any performance related issues at first. 
 
 Problems:
 (1)Numbers related
@@ -232,6 +235,10 @@ Problems:
 (3)Palindrome related.
 (4)Anagram related.
     - [Leetcode]Group Anagrams(Algorithm*)
+(5)Parsing.
+    - [InterviewBit]Pretty Json(Best Algorithm* and Best Implementation*). Remember
+    the best logic.
+
 
 
 3. Linked Lists
