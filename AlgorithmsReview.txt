@@ -1363,8 +1363,9 @@ greedy algorithm!
     * Compare the numbers of '(' and ')' encountered so far and compare them. For
     any valid parentheses, those number should be equal. Using counters of parentheses
     can easily calculate the length of formed parentheses. 
-    (6.1)[Leetcode]Longest Valid Parentheses(see previous chapter).
-    (6.2)[Leetcode]Generate Parentheses(see previous chapter)
+    (6.1)[Leetcode]Valid Parentheses.
+    (6.2)[Leetcode]Longest Valid Parentheses(see previous chapter).
+    (6.3)[Leetcode]Generate Parentheses(see previous chapter)
 (7)File related.
     (7.1)Read N Characters Given Read4 I(Algorithm) and II(Implementation*)
 
@@ -1387,6 +1388,9 @@ and next() should always return a valid next element even if it is called withou
 calling hasNext() first. It could throw an exception if there is no more element.
 Ideally the iterator should not have a copy of all the elements being iterated on.
 It should mainly rely on other existing iterators to do the work.
+(4)If the problem uses some existing data structures, be sure to understand what they
+essencially are first! Some existing data structures are like graphs, which indicate
+a dfs/bfs could be used in the problem
 
 Problems:
 (1)Max Stack. Implement a Max Stack that supports peekMax() and popMax(), both of
@@ -1507,6 +1511,12 @@ Implementation Utils:
 * Reverse a list:
     (1) Java: in place.
         java.util.Collections.reverse(List<?> list).
+
+* Reverse a string:
+    (1) Java: 
+        //In place reverse!
+        String reversed = new StringBuilder(original).reverse().toString()
+
 
 * Convert String to Int:
     (1) Java:
