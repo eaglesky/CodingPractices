@@ -821,6 +821,9 @@ TBD.
     - [Leetcode]Reconstruct Itinerary(Algorithms* and Implementations*). Remember
     the naive algorithm and implementation. I don't get how the better algorithm works
     yet, though its implementation is much simpler.
+(18)[Leetcode]Remove Invalid Parentheses(Algorithms*). Remember the new way of DFS
+and BFS using top-down approach. 
+
 
 
 7. Permutations, Combinations and Subsets.
@@ -1366,6 +1369,9 @@ greedy algorithm!
     (6.1)[Leetcode]Valid Parentheses.
     (6.2)[Leetcode]Longest Valid Parentheses(see previous chapter).
     (6.3)[Leetcode]Generate Parentheses(see previous chapter)
+    (6.4)[Leetcode]Remove Invalid Parentheses(see previous chapter). One pass iteration
+    we can get the minimum number of parenthese we should remove to make it valid.
+    If just need to return one solution, two passes + stack is enough.
 (7)File related.
     (7.1)Read N Characters Given Read4 I(Algorithm) and II(Implementation*)
 
