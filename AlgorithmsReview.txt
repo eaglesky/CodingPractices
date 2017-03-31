@@ -501,6 +501,9 @@ Problems:
     - [Leetcode]Lowest Common Ancestor of a Binary Search Tree(Algorithm*)
     - [Leetcode]Serialize and Deserialize BST(Algorithm* and implementation). Remember
     the algorithm and implementation. Be careful about the integer pointer!
+    - [Leetcode]Skyline Problem(Algorithms* and implementations*). Remember the two
+    ways of implementing BST multi-map/set. They are equivelent in logic, so don't
+    hesitate to use them exchangely.
 (4) Trie:
     - [Leetcode]Implement Trie (Prefix Tree)(Full Implementation*, recursive solution
     of delete?)
@@ -1428,15 +1431,19 @@ find it in O(n) time first(top-down approach).
 4. If the problem has the time complexity of (nlogn), consider the following possible
 cases:
     (1)Sorting
-    (2)Binary search, either recursively and then iterate, or doing it in each iteration.
+    (2)Binary search, either recursively and then iterate(divide and conquer), or
+    doing it in each iteration.
     (3)Constructing/using a balanced BST(like Java TreeMap) in each iteration.
     (4)Constructing/using a heap in each iteration.
+
 
 
 * Sometimes when getting stuck, rethink what the problem asks and try coming up with
 a different idea.
 * Don't stop persuing a thought too quickly!
-
+* Sometimes not understanding a concept/representation well is the cause of getting
+stuck.
+* Try guessing the possible time complexity could sometimes give a hint(like nlogn).
 
 
 
