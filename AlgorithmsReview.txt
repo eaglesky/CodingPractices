@@ -266,13 +266,18 @@ list can always be found in O(m+n) time.
             p = p.next;
             q = q.next;
         }
-        while (p != null) {
+        /*while (p != null) {
             operation on p.
             p = p.next;
         }
         while (q != null) {
             operation on q.
             q = q.next;
+        }*/
+        //another way
+        v = p != null ? p : q;
+        while (v != null) {
+            ...
         }
         This approach is preferable if we can skip iterating the non-null list after
         the loop breaks. E.g. merge two sorted linked lists.
@@ -503,7 +508,8 @@ Problems:
     the algorithm and implementation. Be careful about the integer pointer!
     - [Leetcode]Skyline Problem(Algorithms* and implementations*). Remember the two
     ways of implementing BST multi-map/set. They are equivelent in logic, so don't
-    hesitate to use them exchangely.
+    hesitate to use them exchangely. The implementation logics of both solutions are
+    pretty hard to come up with!
 (4) Trie:
     - [Leetcode]Implement Trie (Prefix Tree)(Full Implementation*, recursive solution
     of delete?)
@@ -1439,10 +1445,11 @@ cases:
 
 
 * Sometimes when getting stuck, rethink what the problem asks and try coming up with
-a different idea.
-* Don't stop persuing a thought too quickly!
+a different idea. Be sure to think clearly what exactly gets stuck and can explain
+it.
 * Sometimes not understanding a concept/representation well is the cause of getting
 stuck.
+* Don't stop persuing a thought too quickly!
 * Try guessing the possible time complexity could sometimes give a hint(like nlogn).
 
 
