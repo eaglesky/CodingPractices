@@ -1111,20 +1111,22 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 
 Problems:
 Binary Search problems:
-    (1)[Leetcode]Search Insert Position(Algorithms*). (7.3.2). If the
+    (1)[Leetcode]Search Insert Position(Algorithms*). (8.3.2). If the
     target is in the array and there are more than one, then the returned index could
     be the id of any of those elements.
-    (2)[Leetcode]Search for a Range(Algorithms*). (7.3.2) and (7.3.3)
-    (3)[Leetcode]Sqrt(x). (Algorithm*). (7.3.2). Be careful about overflow!
-    (4)[Leetcode]Search in rotated sorted array I and II(Algorithm**). (7.3.1)with
-    changes. Remember the algorithm! (7.3.5)
+    (2)[Leetcode]Search for a Range(Algorithms*). (8.3.2) and (8.3.3)
+    (3)[Leetcode]Sqrt(x). (Algorithm*). (8.3.2). Be careful about overflow!
+    (4)[Leetcode]Search in rotated sorted array I and II(Algorithm**). (8.3.1)with
+    changes. Remember the algorithm! (8.3.5)
     (5)[Leetcode]Find Minimum in Rotated Sorted Array I and II(Algorithm**). These
-    problems return the min value rather than the id.(7.3.5)
-    (6)[EPI]Search local minimum in partially sorted array(Algorithm).(7.3.6)
+    problems return the min value rather than the id.(8.3.5)
+    (6)[EPI]Search local minimum in partially sorted array(Algorithm).(8.3.6)
     Description is in CodingPractices/EPI/SearchLocalMinimum.java
     (7)[Leetcode]Median of two sorted arrays(Algorithm** and Implementation*).
-    (8)[Leetcode]Search a 2d Matrix. (7.3.1)
+    (8)[Leetcode]Search a 2d Matrix. (8.3.1)
     (9)[Leetcode]Search a 2d Matrix2.(Best algorithm*)
+    (10)[Leetcode]First bad version(Implementation). (8.3.2 with slight change). When
+    all of the versions are good, return whatever(0 works).
 Sorting problems:
     (1)[Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick
     select)
