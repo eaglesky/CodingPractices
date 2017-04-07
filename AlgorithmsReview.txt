@@ -372,7 +372,8 @@ permit null element while LinkedList does. Stack interface permits null element 
 However try not to put null element in all cases.
 Java ArrayDeque can be used to implement monotonic queue(see [Leetcode]Sliding Window
 Maximum). Note that peek(), poll(), push() and pop() are all performed on the head
-of the queue. offer(), peekLast(), pollLast() are performed on the tail.
+of the queue. offer(), peekLast(), pollLast() are performed on the tail. Also poll
+() does not throw an exception if the queue is empty.
 (3)In some design problems, sometimes it is good to call peek() first in pop()/poll
 ().
 
@@ -1137,7 +1138,9 @@ Sorting problems:
     (6)[Leetcode]Sort List(Implementation*). Bottom-up merge sort on linked list.
     Very hard to write the code! Top-down approach is much easier and may probably
     be enough.
-
+    (7)[Leetcode]Meeting rooms. Clarification: if [s1, e1], [s2, e2], (e1 == s2),
+    then return true.
+    (8)[Leetcode]Meeting rooms II(Algorithms*).
 
 10. Bit Manipulation
 
@@ -1398,6 +1401,19 @@ greedy algorithm!
     (8.4)[Leetcode]Different Ways to Add Parentheses(Algorithm*, see previous).Remember
     the way of enumerating different order of calculating an arithmetic expression.
     (8.5)Basic calculator when the operators have * and / ?
+(9)Interval related.
+    * How to check if two intervals overlap each other
+    * Activities selection problems. Greedy algorithm to find out the maximum set
+    of compatible activities: sort the activities by ending times and keep selecting
+    the earliest ending activity. (Introduction to Algorithms, Greedy algorithms.)
+    * Greedy algorithm to schedule the activities. The miniumum number of rooms is
+    equals to the maximum number of overlapping activities. [Leetcode]Meeting rooms
+    II.
+    (9.1)[Leetcode]Merge Intervals(see previous).
+    (9.2)[Leetcode]Insert Intervals(see previous).
+    (9.3)[Leetcode]Meeting rooms(see previous).
+    (9.4)[Leetcode]Meeting rooms II(Algorithms*, see previous).
+
 
 
 14. Data Structure Design.
@@ -1437,6 +1453,9 @@ two ways of implementing multi-sets!
     - [Leetcode]Flatten Nested List Iterator(Algorithms*)
 
 
+
+
+
 Summary of algorithms that are frequently used:
 1. Caching. If there are multiple arrays involved, caching could be used on any one
 of them!
@@ -1449,7 +1468,8 @@ find it in O(n) time first(top-down approach).
 3. Greedy thinking(TBD)
 4. If the problem has the time complexity of (nlogn), consider the following possible
 cases:
-    (1)Sorting
+    (1)Sorting(sorting first and then sweep can be a great improvement of using BST/heap
+    in each iteration, see [Leetcode]Meeting rooms II, the best greedy solution)
     (2)Binary search, either recursively and then iterate(divide and conquer), or
     doing it in each iteration.
     (3)Constructing/using a balanced BST(like Java TreeMap) in each iteration.
