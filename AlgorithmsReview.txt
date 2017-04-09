@@ -152,6 +152,12 @@ just sort the two strings and see if they are the same.
 (5)Note that the whitespace in a string may not be ' ', could be '\t' or even '\n'.
 (6)For string parsing problems, try coming up with a working solution first and don't
 consider any performance related issues at first. 
+(7)String matching algorithms. Find all occurrences of pattern string P in the text
+string T.
+* Brute force. O(lp*lt) time.
+* KMP. O(lp + lt) time.
+No need to know how to implement KMP and other advanced algorithms. I think it's enough
+to know the time complexities of them.
 
 Problems:
 (1)Numbers related
@@ -790,7 +796,6 @@ https://www.quora.com/Given-a-graph-how-to-compute-all-of-the-possible-topologic
 Another way is to do DFS traversal, starting from each node with 0 incoming degree,
 which is hard to implement:
 http://www.geeksforgeeks.org/all-topological-sorts-of-a-directed-acyclic-graph/
-
 (4)Eulerian path.
 (4.1)Definition: In graph theory, an Eulerian trail (or Eulerian path) is a trail
 in a graph which visits every edge exactly once. Similarly, an Eulerian circuit or
@@ -800,6 +805,31 @@ Eulerian cycle is an Eulerian trail which starts and ends on the same vertex.
 − (out-degree) = 1(finishing point), every other vertex has equal in-degree and out-degree,
 and all of its vertices with nonzero degree belong to a single connected component
 of the underlying undirected graph.
+(5)Union find(may not be useful..). Refer to Robert's algorithms for details.
+The problem: how to quickly determine if there is a path connecting two given nodes
+in a graph?
+Solution: we can use disjoint sets as the data structure, implementing find, union
+and connected APIs. Two possible implementations(second one is better):
+* Quick find: use an array to store the elements, a map to store the mapping of each
+element to the representative of its set. Find takes O(1) time, and Union takes O
+(n) time. Note that we could also use linked lists to store the elements, but that
+would be more complicated to implement and doesn't change the time complexity.
+* Weighted quick union: represent each disjoint set as a tree, and its root is the
+representative. Also maintain a map of representative of component to its size. Union
+simply change the parent of the representative of smaller component to that of the
+larger component. It takes much less time, but find time takes slightly longer than
+O(1) time. The actual time find takes is O(logN).
+An improvement to this, known as "path compression": just add another to find and
+sets each node along the way to link directly to the root. This makes the amortized
+time of find and union to be close to a small constant.
+Note that there exists no algorithm that can guarantee to perform each union-find
+operation in amortized constant time (under the very general “cell probe” model
+of computation). Weighted quick-union with path compression is very close to the
+best that we can do for this problem.
+
+Union find can also be used to find connected component, but is more suitable for
+dynamic graph -- graph that has new edges being added. For static graph, DFS is faster.
+http://stackoverflow.com/questions/28398101/union-find-or-dfs-which-one-is-better-to-find-connected-component
 
 
 Problems:
