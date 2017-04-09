@@ -865,7 +865,7 @@ TBD.
     yet, though its implementation is much simpler.
 (18)[Leetcode]Remove Invalid Parentheses(Algorithms*). Remember the new way of DFS
 and BFS using top-down approach. 
-
+(19)[Other]Union Contacts. (Algorithm*)
 
 
 7. Permutations, Combinations and Subsets.
@@ -1678,8 +1678,8 @@ Implementation Utils:
 * Fastest way to return a list view of any number of elements:
     (1) Java:
          List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");
-         Note that the returned list is backed by the original array, not a copy,
-         so modifying the original array will change the list!
+         //Note that the returned list is backed by the original array, not a copy,
+         //so modifying the original array will change the list!
 
 * Initialize elements of an array with same values:
     (1) Java:
