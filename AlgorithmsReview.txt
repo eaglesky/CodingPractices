@@ -1392,7 +1392,67 @@ for "Best Time to Buy and Sell Stock with Cooldown". Remember how to deal with m
 (21)[Leetcode]Decode ways(Algorithm*). Be careful about the intial value!
 
 
-13. Other Concepts and special problems, including greedy problems.
+
+13. Randomized algorithms
+Knowledge:
+(1)Reservoir sampling. It is used for randomly choosing a sample of k items from a
+list S containing n items, where n is either a very large or unknown number. Typically
+n is large enough that the list doesn't fit into main memory.
+Sampling alogorithms must ensure that all the items get selected with equal probability,
+which is k/n(= C(n-1, k-1)/C(n,k)).
+One simple way of doing this is one by one randomly select an item from the input
+array. It is important to check if the selected item has been previously selected,
+which makes this algorithm not O(k). If we use array to store the input items and
+reservoir items, the time complexity is between O(k^2) to O(kn). This doesn't reduce
+even if we use hashset to store them instead. However we can still consider using
+this algorithm if the input items can fit into memory and k is relatively smaller
+than n.
+The correct way of doing this is using reservoir sampling algorithm(O(n) time):
+//S has items to sample, R will contain the result
+ReservoirSample(S[1..n], R[1..k])
+  // fill the reservoir array
+  for i = 1 to k
+      R[i] := S[i]
+
+  // replace elements with gradually decreasing probability
+  for i = k+1 to n
+    j := random(1, i)   // important: inclusive range
+    if j <= k
+        R[j] := S[i]
+
+Proof:
+* For the first k items, each of them gets selected with the probability of:
+[k/(k+1)] x [(k+1)/(k+2)] x [(k+2)/(k+3)] x … x [(n-1)/n] = k/n
+* For the remaining n-k items, let's consider probability of the ith item from the
+last being selected:
+[k/(n-i)] x [(n-i)/(n-i+1)] x [(n-i+1)/(n-i+2)] x ... x [(n-1)/n] = k/n
+So all the items get selected with the probability of k/n using this algorithm.
+
+References: http://www.geeksforgeeks.org/reservoir-sampling/.
+
+(2)The modern version of the Fisher–Yates shuffling algorithm:
+-- To shuffle an array a of n elements (indices 0..n-1):
+for i from n−1 downto 1 do
+     j ← random integer such that 0 ≤ j ≤ i
+     exchange a[j] and a[i]
+
+The inside-out algorithm, suitable when n is unknown.
+To initialize an array a of n elements to a randomly shuffled copy of source, both 0-based:
+  for i from 0 to n − 1 do
+      j ← random integer such that 0 ≤ j ≤ i
+      if j ≠ i
+          a[i] ← a[j]
+      a[j] ← source[i]
+How to prove them? Why not use swap in the inside-out algorithm?
+
+Problems:
+(1)[Leetcode]Random Pick Index(Algorithm).
+
+
+
+
+
+14. Other Concepts and special problems, including greedy problems.
 (1)P, NP, NP-Complete, NP-Hard.
 http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
 (2)Best Time to Buy and Sell Stock problems:
@@ -1446,7 +1506,7 @@ greedy algorithm!
 
 
 
-14. Data Structure Design.
+15. Data Structure Design.
 Kownledge:
 (1)If multiple lists are involved in the data structure to be designed, make sure
 they are synced if there are removal operations. One typical way is to maintain pointer
