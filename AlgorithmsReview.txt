@@ -1444,6 +1444,7 @@ To initialize an array a of n elements to a randomly shuffled copy of source, bo
           a[i] ← a[j]
       a[j] ← source[i]
 How to prove them? Why not use swap in the inside-out algorithm?
+References:http://www.geeksforgeeks.org/shuffle-a-given-array/
 
 Problems:
 (1)[Leetcode]Random Pick Index(Algorithm).
@@ -1541,7 +1542,7 @@ and a copy of it is inserted in the sorted array in O(n) time.
 two ways of implementing multi-sets!
 (4)Iterator related:
     - [Leetcode]Flatten Nested List Iterator(Algorithms*)
-
+    - [Leetcode]Binary Search Tree Iterator(Algorithms).
 
 
 
