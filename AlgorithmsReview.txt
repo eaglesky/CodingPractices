@@ -87,7 +87,7 @@ Problems:
 (7)[Leetcode] Count and Say. Clarification: The question is to find the nth string
 in the given string sequence starting with "1". For example, n = 1, return "1"; n
 = 2, return "11"; ... n = 5, return "111221".
-
+(8)[Leetcode]Product of Array Except Self(Algorithm*).
 
 2. Strings
 
