@@ -973,6 +973,19 @@ Problems:
 (3)[Leetcode]Rearrange String k Distance Apart(Algorithms* and Implementations*).
 The naive algorithm and greedy algorithm should all be mastered! Don't know how to
 prove the correctness of greed algorithm yet. 
+(4) Given n 2D points, find k closest points to the origin. k << n. 
+Solution: Using similar algorithms to (2) -- max heap(O(nlogk)) or quick select. Usually
+the former way is enough. The possible follow-up is, how to speed up the computation
+of distances? We can certainly store them along with the point coordinates in the
+heap, and further more, we can compute the distance(d) of the corner point of the
+smallest square that wraps the furthest circle, and compare the Manhanttan distance
+of each point d_m with d, instead of using Euclidean distances. If d_m < d, we then
+compute and compare the Euclidean distances(x^2 + y^2). Note that if the coordinates
+are Integers, we need to use Long to store the Euclidean distances, which is big enough
+even if x and y equal to Integer.MAX_VALUE.
+References: http://www.weiming.info/zhuti/JobHunting/32078455/
+
+
 
 
 9. Sorting and Searching
@@ -1223,7 +1236,7 @@ appears twice except that one element appears only once. Remember the algorithm.
 appears three times except that one element appears less than three times. Remember
 the algorithms. The algorithms can be extended.
 (4)[Leetcode]Single Number III(Algorithm**).
-
+(5)[Leetcode]Number of 1 bits.
 
 
 
