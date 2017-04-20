@@ -8,11 +8,13 @@ Refactor the code after writing it.
 Good workflow when tackling a interview question:
 * Ask clarification questions, especially about the case which could give unsure result.
   Think about a naive way to solve it and then think of better way only when the interviewer
-  says it exist. Usually the algorithm may not be correct at first,  and this needs
-  to be found out by trying more test cases.For some problems you need to draw some
-  graphs to visualize it, and you need to make sure that they can cover enough cases,
-  and you may need to extend it to see more cases. You may also need to show a few
-  test cases you need!
+  says it exist(good thing about this, you can know the time complexity of worst approach,
+  and guess the possible time complexity of the best approach, which can be a very
+  useful hint). Only go with the best algorithm if you have seen it before. Usually
+  the algorithm may not be correct at first, and this needs to be found out by trying
+  more test cases. For some problems you need to draw some graphs to visualize it,
+  and you need to make sure that they can cover enough cases, and you may need to
+  extend it to see more cases. You may also need to show a few test cases you need!
 * After you and your interviewer agree that this algorithm works, and the interviewer
 agrees that you can move on to write the code, start it immediately! Pay attention
 to your handwriting as best as you can. 
@@ -28,6 +30,11 @@ until you are sure that it can handle all test cases correctly.
 	remember to check overflow!
 	3. For heap related problems, remember the case when the heap is empty, especially
 	when peek is used!
+	4. For sequence related problems, there could be duplicates. This matters if the
+	solution uses hashmap.
+
+
+
 
 
 1. Be careful about the end value of iterator after the for loop!!

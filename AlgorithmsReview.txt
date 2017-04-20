@@ -1414,7 +1414,7 @@ for "Best Time to Buy and Sell Stock with Cooldown". Remember how to deal with m
 {d[j], 0 <= j < i - k} where i is the current index.
 (20)[Leetcode]House Robber II(Algorithm*)
 (21)[Leetcode]Decode ways(Algorithm*). Be careful about the intial value!
-
+(22)[InterviewBit]Longest Arithmetic Progression(Algorithm*)
 
 
 13. Randomized algorithms
