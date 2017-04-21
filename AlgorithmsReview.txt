@@ -1414,7 +1414,14 @@ for "Best Time to Buy and Sell Stock with Cooldown". Remember how to deal with m
 {d[j], 0 <= j < i - k} where i is the current index.
 (20)[Leetcode]House Robber II(Algorithm*)
 (21)[Leetcode]Decode ways(Algorithm*). Be careful about the intial value!
-(22)[InterviewBit]Longest Arithmetic Progression(Algorithm*)
+(22)[InterviewBit]Longest Arithmetic Progression(Algorithm*). Need to clarify if the
+order of the arithmetic progression is the same as the given sequence. In this question
+they must be the same -- no reordering allowed.
+(23)[GeeksForGeeks]Longest Arithmetic Progression, sorted array(Algorithm*). Very
+tricky DP solution!
+
+
+
 
 
 13. Randomized algorithms
