@@ -17,7 +17,8 @@ Good workflow when tackling a interview question:
   extend it to see more cases. You may also need to show a few test cases you need!
 * After you and your interviewer agree that this algorithm works, and the interviewer
 agrees that you can move on to write the code, start it immediately! Pay attention
-to your handwriting as best as you can. 
+to your handwriting as best as you can. Don't spend too much time thinking about how
+to best implement it, just choose a robust way first and then refactor it later.
 * After you are done writing the code, explain the code while checking it. Check the
 code line by line so that you can find out some typos or minor bugs. While doing this,
 it is better to also walk through a normal test case in your mind to see if there

@@ -43,6 +43,9 @@ class LongestArithmeticProgressionSorted {
         return len;
     }
     
+    //It can also be solved using the solution in LongestArithmeticProgression
+    //(unsorted case), however the space complexity is slightly higher.
+   
 	public static void main (String[] args) {
 		Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();

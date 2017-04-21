@@ -1345,6 +1345,9 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         ** Sometimes need to maintain multiple db arrays, e.g. Let d[i][1] denote
         select the current element and d[i][0] denote not select.
         -- [Leetcode]Maximum product subarray, house robber I.
+        ** The recursive relation may not necessarily involve adjacent indices. Sometimes
+        we need to come up with it by observing the pattern/attribute from the problem.
+        -- [GeeksForGeeks]Longest Arithmetic Progression, sorted array.
 
     Think about the order of indices first before writing down the formulas.
     Don't forget to write down the range of valid indices of the recursive formulas
@@ -1417,8 +1420,10 @@ for "Best Time to Buy and Sell Stock with Cooldown". Remember how to deal with m
 (22)[InterviewBit]Longest Arithmetic Progression(Algorithm*). Need to clarify if the
 order of the arithmetic progression is the same as the given sequence. In this question
 they must be the same -- no reordering allowed.
-(23)[GeeksForGeeks]Longest Arithmetic Progression, sorted array(Algorithm*). Very
-tricky DP solution!
+(23)[GeeksForGeeks]Longest Arithmetic Progression, sorted array(Algorithm*). The recursive
+relation is hard to come up with. Remember the two pointer logic and how to prove
+the correctness(very useful!).
+
 
 
 
