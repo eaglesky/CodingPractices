@@ -393,9 +393,8 @@ types and Binary Numeric Promotion)
 (6)[Leetcode]Longest Valid Parentheses(Algorithms*). Very good problem that demos
 two ways of handling parentheses related problems.
 (7)[Leetcode]Largest Rectangle in Histogram(Algorithm*).
-(8)[Leetcode]Maximal Rectangle(Algorithm)
-(9)[Leetcode]Sliding Window Maximum(Algorithm* and Implementation*)
-(10)[Leetcode]Basic Calculator(Algorithms* and Implementations*)
+(8)[Leetcode]Sliding Window Maximum(Algorithm* and Implementation*)
+(9)[Leetcode]Basic Calculator(Algorithms* and Implementations*)
 
 
 5. Trees
@@ -1325,8 +1324,11 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         use length as index of cache rather than the index of sequences, since the
         starting elements in the cache ususally have length zero, and negative index
         of sequences. The index of cache should be non-negative.) This way is commonly
-        used when the input has multiple sequences. --[Leetcode]Longest Common Subsequence,
-        [Leetcode]Edit Distance.
+        used when the input has multiple sequences(the cache is multi-dimentional).
+        --[Leetcode]Longest Common Subsequence, [Leetcode]Edit Distance.
+        However if both iteration directions(left to right and right to left) exists
+        in the DP loop, it is better not to use length representation. --[Leetcode]Maximal
+        Rectangle.
         ** For sequences, consider s[i-1] when solving the problem for s[i], which
         contains the result of sequence starting or ending with element at index
         i. -- [Leetcode]Maximum Subarray.
@@ -1338,7 +1340,7 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         recursive formula, try considering its relation with all possible subproblems,
         like d[m-1][l], d[m][l-1], or a combination of them. -- [Lintcode]Maximum
         Subarray II.
-        ** Sometimes multi-dimentional cache in the recursive formula can be reduced
+        ** Sometimes multi-dimensional cache in the recursive formula can be reduced
         to one-dimentional by fixing the other dimention(usually that requrires another
         iteration to get the final result). -- [Leetcode]Palindrome Partitioning II,
         Maximum Subarray II.
@@ -1357,15 +1359,42 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         ** If using DP and the path needs not to be returned, consider reducing the
         size of cache. For many problems the size can be reduced to one or two 1D
         arrays or even a few variables. A swap of array pointers is often used at
-        the end of each iteration if two 1D arrays are used. Previous visited element
-        of the current array can be stored lazily to reduce two arrays to only one.--
-        [Leetcode]Edit Distance.
+        the end of each iteration if two 1D arrays are used. 
+            *** Previous visited element of the current array can be stored lazily
+            to reduce two arrays to only one.-- [Leetcode]Edit Distance. 
+                     a_i
+                      |
+            b_i-1 <- b_i, if b_i is computed from b_i-1 and a_i, then one array is
+            enough to store them, if iterating from left to right.
+
+            *** If only elements in previous row are used to compute the one in the
+            current row, consider doing the iteration from right to left:
+             a_i-1 a_i
+                \   |
+                   b_i, if b_i is computed from a_i-1 and a_i, then one array is enough
+            to store them, if iterating from right to left.
+
+            *** If the computing the current element requires elements from the current
+            row and previous row, more variables need to be mainained to store the
+            previous elements in the previous row:
+            a_i-k, a_i-k+1 .. a_i-1     a_i
+                 \     \        \        |
+                              b_i-1 <-  b_i
+            If k is a constant, then we need k variables p_i-k, p_i-k+1, ... p_i-1
+            to store a_i-k ... a_i-1. Use variable temp to store a_i, and after computing
+            and storing the new values(b_i) to the array, shift the values in p to
+            the left : p_i-k = p_i-k+1, p_i-k+1 = p_i-k+2 ... p_i-1 = temp.
+            -- [Leetcode]Maximal Square.
+
         ** Think about the starting values carefully, especially those out of the
         range of valid cache elements. Note that the recursive formulas assume that
         the previous state is valid. So when coding be sure to check the cache values
         that are next to the starting values. Better to do this with a DP full matrix
-        and check the edge computed values that are adjacent to intialized values
-        carefully. They could need special handling sometimes!
+        and check the edge computed values that are adjacent to initialized values
+        carefully. They could need special handling sometimes! Be careful when using
+        a seperate for-loop to handle the edge elements, which could repeat some logic
+        and is error-prone since some repeated logic(like update of certain variable)
+        could be missing.
         ** The max/min in the recursive formulas can often be computed on the fly
         instead of using a separate loop. This can often reduce the degree of time
         complexity.
@@ -1423,7 +1452,18 @@ they must be the same -- no reordering allowed.
 (23)[GeeksForGeeks]Longest Arithmetic Progression, sorted array(Algorithm*). The recursive
 relation is hard to come up with. Remember the two pointer logic and how to prove
 the correctness(very useful!).
-
+(24)[Leetcode]Maximal Rectangle(DP Algorithm* and implementation of DP solution*).
+Prefer the histogram solution. Remember the dp algorithm also, and be careful about
+the dp relation(very error prone).
+(25)[Leetcode]Maximal Square(Best algorithm* and implementation*). This kind of problem
+(like maximal rectangle), can be solved in two ways:
+    * Using the general algorithm that iterate each local maximal rectangle, which
+    must include local maximal squres. 
+    * Using dedicated algorithm, which iterate each local maximal square with a bottom-right
+    point at (i, j). Using DP algorithm based on the relation between three subsquares
+    and the entire local maximal square. Note that this algorithm only works when
+    we are looking for square. It won't work for finding rectangles, no matter how
+    to change it.
 
 
 
