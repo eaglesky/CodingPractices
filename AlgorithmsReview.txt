@@ -1538,6 +1538,9 @@ http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-n
     (2.3)[Leetcode]Best Time to Buy and Sell Stock with Cooldown(Algorithm** and Implementation**)
 (3)Use graphs to see the essence!
     (3.1)[Leetcode]Gas Station(Best Algorithm* and Implementation*).
+    (3.2)[Leetcode]Find the Celebrity(Best Algorithm*). If the input nodes are in
+    an array, we can often find better algorithm by putting them in the same line
+    in the graph. And sometimes changing the direction of arrow helps too.
 (4)Initialize first and then fix one by one to satisfy certain conditions -- a typical
 greedy algorithm!
     (4.1)[Leetcode]Candy(Algorithms* and Implementation of best algorithm**)
