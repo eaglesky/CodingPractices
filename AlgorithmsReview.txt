@@ -1195,6 +1195,8 @@ Sorting problems:
     then return true.
     (8)[Leetcode]Meeting rooms II(Algorithms*).
 
+
+
 10. Bit Manipulation
 
 Knowledge:
@@ -1237,6 +1239,35 @@ and add one. This works for both positive and negative integer!
 (5)Subtract 1 from positive integer and negative integer work the same!
 (6)Find out the rightmost set bit: if diff = (10010)b, then diff & (-diff) is (00010)b,
 which is the same as diff & ~(diff - 1). ([Leetcode]Single Number III)
+(7)Endianness. 
+Big-endian: the most significant byte is put at the lowest address
+Little-endian: the least significant byte is put at the lowest address.
+Usually the unit is byte. So we don't consider the order of bits within a byte.
+Example: the IBM z/Architecture mainframes use big-endian while the Intel x86 processors
+use little-endian. 
+Note that the compiler always produces the binary code that uses the same format as
+the CPU by default, since when parsing the source code file, the digits are sent to
+the CPU to calculate the number, which uses the endianness of the CPU. However some
+compilers allow converting the endianness.
+See more in the Wikipedia: https://en.wikipedia.org/wiki/Endianness
+
+JVM uses big-endian for all multibyte data, including operand. To know what the underlying
+endian used by the processor is, just check java.nio.ByteOrder.nativeOrder().toString
+(), to see if it is "BIG_ENDIAN" or "LITTLE_ENDIAN".
+http://stackoverflow.com/questions/981549/javas-virtual-machines-endianness
+
+How to change the endiness:
+
+uint32_t ChangeEndianness(uint32_t value)
+{
+    uint32_t result = 0;
+    result |= (value & 0x000000FF) << 24; //Can be done in java too
+    result |= (value & 0x0000FF00) << 8;
+    result |= (value & 0x00FF0000) >> 8;
+    result |= (value & 0xFF000000) >> 24;
+    return result;
+}
+
 
 Problems:
 (1)[Leetcode]Gray Code(Algorithm**). Remember the algorithm.
