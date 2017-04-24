@@ -1605,6 +1605,7 @@ It should mainly rely on other existing iterators to do the work.
 (4)If the problem uses some existing data structures, be sure to understand what they
 essencially are first! Some existing data structures are like graphs, which indicate
 a dfs/bfs could be used in the problem
+(5)How to test the code? See Problem (5).
 
 Problems:
 (1)Max Stack. Implement a Max Stack that supports peekMax() and popMax(), both of
@@ -1622,6 +1623,16 @@ two ways of implementing multi-sets!
 (4)Iterator related:
     - [Leetcode]Flatten Nested List Iterator(Algorithms*)
     - [Leetcode]Binary Search Tree Iterator(Algorithms).
+(5)[Others]Circular queue. There are two possible implementations:
+    * Using start index, end index and count(optional).
+    * Using start index and count. This is easier to implement than the first one,
+    but the offer method could be costly if modulus is always calculated(modulus is
+    as expensive as division).
+    http://tutorials.jenkov.com/java-performance/ring-buffer.html#ring-buffers-are-fast
+    When testing the code, think about if offer/poll/isEmpty/size() can be done correctly
+    when the array is empty, partially occupied, and fully occupied.
+    During the interview, use the second implementation first, and if not allowed,
+    change it to the first one.
 
 
 
