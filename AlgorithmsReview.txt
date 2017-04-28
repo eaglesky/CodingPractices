@@ -492,6 +492,12 @@ Problems:
     (Algorithm and implementation).
     - [Others]Find in-order successor of node in binary tree without using parent
     pointer.(Implementation of recursive solution)
+    - [Leetcode]Boundary of Binary Tree(Algorithm*). Clarification: Root node can
+    be counted as left or right boundary node. When root.left != null, the path from
+    the root to the left-most node is the left boundary, otherwise there is no other
+    left boundary node. Similar for the right boundary nodes, which only have more
+    than one node when root.right != null.
+    For this kind of reverse traversal problem, remember try some post-order approach.
 (2) Recontruction of binary tree:
     - [Leetcode]Construct Binary Tree from Inorder and Postorder Traversal (Algorithm*
     and Implementation*), and Construct Binary Tree from Preorder and Inorder Traversal
@@ -1174,6 +1180,7 @@ Binary Search problems:
     changes. Remember the algorithm! (8.3.5)
     (5)[Leetcode]Find Minimum in Rotated Sorted Array I and II(Algorithm**). These
     problems return the min value rather than the id.(8.3.5)
+    Similar to: http://practice.geeksforgeeks.org/problems/maximum-value-in-a-bitonic-array/0
     (6)[EPI]Search local minimum in partially sorted array(Algorithm).(8.3.6)
     Description is in CodingPractices/EPI/SearchLocalMinimum.java
     (7)[Leetcode]Median of two sorted arrays(Algorithm** and Implementation*).
