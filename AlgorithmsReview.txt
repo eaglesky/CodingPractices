@@ -164,6 +164,7 @@ Problems:
     Pay attention to how to handle substrings starting with 0, like '0001'.
     - [Leetcode]Integer To Roman(Algorithm*)
     - [Leetcode]Roman To Integer(Algorithm*)
+    - [Leetcode]Integer to English Words(Algorithm* and Implementation*)
     - [Leetcode]Basic Calculator II(Best Algorithm* and Implementation). Remember
     the best solution(very fundamental!). Also remember the way how to get integers
     formed by a substring without using Integer.parseInt(string). 
