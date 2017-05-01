@@ -88,6 +88,9 @@ Problems:
 in the given string sequence starting with "1". For example, n = 1, return "1"; n
 = 2, return "11"; ... n = 5, return "111221".
 (8)[Leetcode]Product of Array Except Self(Algorithm*).
+(9)[Leetcode]Increasing Triplet Subsequence(Algorithm*).
+
+
 
 2. Strings
 
@@ -1482,43 +1485,44 @@ introductory problem.
 (5)[Leetcode]Regular Expression Matching(Algorithm* and Implementation*).
 Pay attention to the rolling arrays!
 (6)[Leetcode]Wildcard Matching(Algorithms*).
-(7)[Leetcode]Edit Distance(Algorithm**).
-(8)[Leetcode]Scramble String(Algorithms*).
-(9)[Leetcode]Interleaving String(Algorithms*).
-(10)[Leetcode]Palindrome Partitioning II(Algorithms** and Implementations*).
-(11)[Leetcode]Word Break(Algorithms). Clarification: It is okay for the substring
+(7)[Leetcode]One Edit Distance(Algorithm*). Remember the algorithm and its proof.
+(8)[Leetcode]Edit Distance(Algorithm**).
+(9)[Leetcode]Scramble String(Algorithms*).
+(10)[Leetcode]Interleaving String(Algorithms*).
+(11)[Leetcode]Palindrome Partitioning II(Algorithms** and Implementations*).
+(12)[Leetcode]Word Break(Algorithms). Clarification: It is okay for the substring
 in s to appear multiple times in dict. E.g. wordDict("leetcodeleet", ["leet", "code"])
 should also returns true. The order in s doesn't matter. and "leetleet" should return
 true too.
 The solution can be further improved by using Trie, but it can be put aside for now.
-(12)[Leetcode]Word Break II(Implementation**). Good example of using DFS memoization/DP
+(13)[Leetcode]Word Break II(Implementation**). Good example of using DFS memoization/DP
 to return all solutions instead of just a value. If you have to copy array of strings,
 sometimes just store the concatenation of them makes writing the code much easier.
 Remember this implementation.
-(13)[Leetcode]Maximum Product Subarray(Algorithm*).
-(14)[Leetcode]Unique Paths I and II.
-(15)[Leetcode]Unique Binary Search Trees.
-(16)[Leetcode]Unique Binary Search Trees II.(Algorithms). Best algorithm I think is
+(14)[Leetcode]Maximum Product Subarray(Algorithm*).
+(15)[Leetcode]Unique Paths I and II.
+(16)[Leetcode]Unique Binary Search Trees.
+(17)[Leetcode]Unique Binary Search Trees II.(Algorithms). Best algorithm I think is
 this one: https://discuss.leetcode.com/topic/6711/share-a-c-dp-solution-with-o-1-space
 This problem can also be solved by recursive approach with or without cache. Remember
 the first approach.
-(17)[Leetcode]Triangle(Best Algorithm*).
-(18)[Leetcode]Combination Sum IV(Best Algorithm*)
-(19)[Leetcode]House Robber(Multiple Algorithms*). Compare the solution with the one
+(18)[Leetcode]Triangle(Best Algorithm*).
+(19)[Leetcode]Combination Sum IV(Best Algorithm*)
+(20)[Leetcode]House Robber(Multiple Algorithms*). Compare the solution with the one
 for "Best Time to Buy and Sell Stock with Cooldown". Remember how to deal with max
 {d[j], 0 <= j < i - k} where i is the current index.
-(20)[Leetcode]House Robber II(Algorithm*)
-(21)[Leetcode]Decode ways(Algorithm*). Be careful about the intial value!
-(22)[InterviewBit]Longest Arithmetic Progression(Algorithm*). Need to clarify if the
+(21)[Leetcode]House Robber II(Algorithm*)
+(22)[Leetcode]Decode ways(Algorithm*). Be careful about the intial value!
+(23)[InterviewBit]Longest Arithmetic Progression(Algorithm*). Need to clarify if the
 order of the arithmetic progression is the same as the given sequence. In this question
 they must be the same -- no reordering allowed.
-(23)[GeeksForGeeks]Longest Arithmetic Progression, sorted array(Algorithm*). The recursive
+(24)[GeeksForGeeks]Longest Arithmetic Progression, sorted array(Algorithm*). The recursive
 relation is hard to come up with. Remember the two pointer logic and how to prove
 the correctness(very useful!).
-(24)[Leetcode]Maximal Rectangle(DP Algorithm* and implementation of DP solution*).
+(25)[Leetcode]Maximal Rectangle(DP Algorithm* and implementation of DP solution*).
 Prefer the histogram solution. Remember the dp algorithm also, and be careful about
 the dp relation(very error prone).
-(25)[Leetcode]Maximal Square(Best algorithm* and implementation*). This kind of problem
+(26)[Leetcode]Maximal Square(Best algorithm* and implementation*). This kind of problem
 (like maximal rectangle), can be solved in two ways:
     * Using the general algorithm that iterate each local maximal rectangle, which
     must include local maximal squres. 
@@ -1706,7 +1710,8 @@ of them!
 2. Recursive thinking. Break the original problem into sub-problems. Try solving with
 recursive approach first --- can be broken down into two or more parts, or based on
 the result of first n-1 elements. If there are repetitions among sub-problems, consider
-caching and DP, otherwise, divide(two or more parts) and conquer.
+caching and DP, otherwise, divide(two or more parts) and conquer. DP solution can
+be improved to use O(1) space only for many array related problems.
 * Don't always try finding the breaking point in O(1) time. It might be easier to
 find it in O(n) time first(top-down approach).
 3. Greedy thinking(TBD)
