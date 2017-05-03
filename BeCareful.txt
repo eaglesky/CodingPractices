@@ -10,7 +10,8 @@ Good workflow when tackling a interview question:
   Think about a naive way to solve it and then think of better way only when the interviewer
   says it exist(good thing about this, you can know the time complexity of worst approach,
   and guess the possible time complexity of the best approach, which can be a very
-  useful hint). Only go with the best algorithm if you have seen it before. Usually
+  useful hint). Or to deal with the naive case first, like when there are no dulicates
+  in a list. Go with the best algorithm only if you have seen it before. Usually
   the algorithm may not be correct at first, and this needs to be found out by trying
   more test cases. For some problems you need to draw some graphs to visualize it,
   and you need to make sure that they can cover enough cases, and you may need to

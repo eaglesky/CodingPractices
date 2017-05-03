@@ -1239,6 +1239,7 @@ Sorting problems:
     (7)[Leetcode]Meeting rooms. Clarification: if [s1, e1], [s2, e2], (e1 == s2),
     then return true.
     (8)[Leetcode]Meeting rooms II(Algorithms*).
+    (9)[Others]Find Elements from Black Box(Algorithm*).
 
 
 
