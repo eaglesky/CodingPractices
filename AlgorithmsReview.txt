@@ -1363,12 +1363,13 @@ E.g. [Leetcode]Max Points on a Line.
 (5) In y = kx + b, k is called 'slope', and b is called 'y-intercept'.
 
 Problems:
-(1)Pow(x, n). (Best algorithm* and Implementation). Remember the best algorithm
-(2)Add Two Numbers.(Implementation)
-(3)Divide Two Integers.(Algorithm* and Implementation*). Remember the algorithm.
-(4)Multiply Strings. (Best Algorithm**). 
-(5)Max Points on a Line. (Best Algorithm* and Implementation*). 
-
+(1)[Leetcode]Pow(x, n). (Best algorithm* and Implementation). Remember the best algorithm
+(2)[Leetcode]Add Two Numbers.(Implementation)
+(3)[Leetcode]Divide Two Integers.(Algorithm* and Implementation*). Remember the algorithm.
+(4)[Leetcode]Multiply Strings. (Best Algorithm**). 
+(5)[Leetcode]Max Points on a Line. (Best Algorithm* and Implementation*). 
+(6)[Leetcode]Sparse Matrix Multiplication(Best Algorithm*). Clarification: Don't consider
+overflow for this problem. Remember the new way of doing matrix multiplication.
 
 
 
