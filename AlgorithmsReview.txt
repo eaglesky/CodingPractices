@@ -496,6 +496,8 @@ Problems:
     (Algorithm and implementation).
     - [Others]Find in-order successor of node in binary tree without using parent
     pointer.(Implementation of recursive solution)
+    - [Leetcode]Binary Tree Paths(Implementation). Remember the worst case and time
+    complexity analysis of this kind of problem.
     - [Leetcode]Boundary of Binary Tree(Algorithm*). Clarification: Root node can
     be counted as left or right boundary node. When root.left != null, the path from
     the root to the left-most node is the left boundary, otherwise there is no other
