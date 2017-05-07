@@ -18,7 +18,23 @@ Knowledge:
 is average O(1), and we usually see them as O(1) in interview as we assume that the
 chance of collision is low.
 https://discuss.leetcode.com/topic/53193/are-hash-tables-ok-here-they-re-not-really-o-1-are-they/2
-Iteration each element in it usually requires iterate each bucket.
+Iterating each element in it usually requires iterating each bucket, so the iteration
+time is proportional to the "capacity" of the HashMap instance (the number of buckets)
+plus its size (the number of key-value mappings). Since the load factor is a constant,
+iterating n elements take O(n) time, and therefore the amortized time for iterate
+each element is O(1)(not strictly O(1) even if no collision.Iterator() method also
+needs to advance the next pointer to the next element, which could check multiple
+empty buckets before it). 
+LinkedHashMap is faster at iteration and has the same time complexity for the basic
+operations(put, get and remove) as HashMap. Internally it uses a linked node which
+has before and after pointers in addition to <key, val> and next pointer used by HashMap.Node.
+The linked nodes are linked together in insertion order, and this doubly-linked list
+is used for iteration. Therefore, iteration over the collection-views of a LinkedHashMap
+requires time proportional to the size of the map, regardless of its capacit, and
+iterating each element takes O(1)(including getting the iterator and return the first
+element). We can also specifiy access order in the constructor so that merely querying
+the map with get can change the iteration order too.
+
 Four ways of handling collisions: Chaining with linked lists, chaining with BST,
 Open Addressing with Linear Probing, Quadratic Probing and Double Hashing. (See CTCI)
 (2) Resizeable array
@@ -1696,6 +1712,23 @@ It should mainly rely on other existing iterators to do the work.
 essencially are first! Some existing data structures are like graphs, which indicate
 a dfs/bfs could be used in the problem
 (5)How to test the code? See Problem (5).
+(6)Basic data structures that are often used:
+    * Array(fixed size or dynmaic).
+    * Linked list.
+    * Hash map/set.
+    * Linked hash map/set.
+    * Tree map(balanced BST).
+    * Stack.
+    * Queue.
+    * Heap.
+    * Trie.
+    * Graph.
+(7)Thought process:
+    * Try to come up with data structures that satisfy as many constraints as possible.
+    * For those methods that have time complexities not being satisfied, try to add
+    pointers and see if it helps.
+    * Make sure the contents in all the data structures are valid after each possible
+    intermediate states.
 
 Problems:
 (1)Max Stack. Implement a Max Stack that supports peekMax() and popMax(), both of
@@ -1725,7 +1758,9 @@ two ways of implementing multi-sets!
     change it to the first one.
 (6)[Leetcode]Insert Delete GetRandom O(1)(Algorithm* and implementation*). ArrayList
 can support O(1) randome remove, but at the expense of changing the order.
-
+(7)[Leetcode]Insert Delete GetRandom O(1) - Duplicates allowed(Algorithms* and implementation
+of second approach*). Maintaining the pointer using an element in a pair is an useful
+trick!
 
 
 Summary of algorithms that are frequently used:
