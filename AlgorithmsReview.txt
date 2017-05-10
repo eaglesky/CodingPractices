@@ -1408,7 +1408,13 @@ http://stackoverflow.com/questions/6184869/what-is-difference-between-memoizatio
 computed. However as a sacrifice, it has higher memory usage due to the recursion
 stack, and the size of cache cannot be reduced like that of DP, which could be reduced
 to one dimension sometimes(like in the following Longest Common Subsequence problem).
--- [Leetcode]Scramble String, Interleaving String.
+---[Leetcode]Scramble String, Interleaving String.
+When using memoization, first think carefully about what variables determine a sub-problem,
+before deciding how to implement the cache. Usually they are the same as the parameters
+of the recursive function(not including the cache itself). And the cache usually stores
+the same type of data as the return value of the recursive function.
+---[Leetcode]Target Sum.
+
 (3)Thinking steps:
     * If the problem want to find out the longest/maximum value, or a searching result,
     it is often a sign of optimization problem which can potentially be tackle using
@@ -1448,8 +1454,10 @@ to one dimension sometimes(like in the following Longest Common Subsequence prob
         iteration to get the final result). -- [Leetcode]Palindrome Partitioning II,
         Maximum Subarray II.
         ** Sometimes need to maintain multiple db arrays, e.g. Let d[i][1] denote
-        select the current element and d[i][0] denote not select.
-        -- [Leetcode]Maximum product subarray, house robber I.
+        select the current element and d[i][0] denote not select. Or d[i][k] denote
+        including the current element, and d[i][t] denote not including. This is often
+        used for problems similar to 0-1 knapsack problem.
+        -- [Leetcode]Maximum product subarray, house robber I, Target Sum.
         ** The recursive relation may not necessarily involve adjacent indices. Sometimes
         we need to come up with it by observing the pattern/attribute from the problem.
         -- [GeeksForGeeks]Longest Arithmetic Progression, sorted array.
@@ -1544,7 +1552,9 @@ this one: https://discuss.leetcode.com/topic/6711/share-a-c-dp-solution-with-o-1
 This problem can also be solved by recursive approach with or without cache. Remember
 the first approach.
 (18)[Leetcode]Triangle(Best Algorithm*).
-(19)[Leetcode]Combination Sum IV(Best Algorithm*)
+(19)Find the number of subsets that have sum equals to s(elements and s are positive):
+    - [Leetcode]Combination Sum IV(Best Algorithm*)
+    - [Leetcode]Target Sum(Algorithms*)
 (20)[Leetcode]House Robber(Multiple Algorithms*). Compare the solution with the one
 for "Best Time to Buy and Sell Stock with Cooldown". Remember how to deal with max
 {d[j], 0 <= j < i - k} where i is the current index.
@@ -1769,8 +1779,9 @@ of them!
 2. Recursive thinking. Break the original problem into sub-problems. Try solving with
 recursive approach first --- can be broken down into two or more parts, or based on
 the result of first n-1 elements. If there are repetitions among sub-problems, consider
-caching and DP, otherwise, divide(two or more parts) and conquer. DP solution can
-be improved to use O(1) space only for many array related problems.
+caching and DP, otherwise, consider simple backtracking with pruning or divide(two
+or more parts) and conquer. DP solution can be improved to use O(1) space only for
+many array related problems.
 * Don't always try finding the breaking point in O(1) time. It might be easier to
 find it in O(n) time first(top-down approach).
 3. Greedy thinking(TBD)
