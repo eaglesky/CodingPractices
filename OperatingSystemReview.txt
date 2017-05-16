@@ -18,6 +18,12 @@ Operating System Concepts(9th Edition)
 4. Process Synchronization.
 	4.1. Race condition: A situation like this, where several processes access and manipulate the same data concurrently and the outcome of the execution depends on the particular order in which the access takes place, is called a race condition.
 
+5. File System(Refer to Maurice Bach's The Design of UNIX Operating System)
+	5.1. Free disk blocks lay out --- linked list of disk blocks that contain free block
+	numbers. The blocks that store free block numbers can be used for storing actual
+	data, so although initially there are many blocks used for storing free block numbers,
+	they don't really reduce the data capacity.
+	
 * More threads do not mean better performance:
 1. Context switch.
 2. Memory usage of stacks. This also limits the number of threads you can have. In
