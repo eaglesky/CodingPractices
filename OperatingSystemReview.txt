@@ -23,7 +23,10 @@ Operating System Concepts(9th Edition)
 	numbers. The blocks that store free block numbers can be used for storing actual
 	data, so although initially there are many blocks used for storing free block numbers,
 	they don't really reduce the data capacity.
-	
+	5.2. The maximum number of inodes is set for many UNIX systems when the file system
+	is first created. If the free inodes are in the form of linked list, they might be
+	able to use the data blocks so that there won't be limit on inode number.
+
 * More threads do not mean better performance:
 1. Context switch.
 2. Memory usage of stacks. This also limits the number of threads you can have. In
