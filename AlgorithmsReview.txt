@@ -631,6 +631,7 @@ solution usually uses a stack(of actual element or iterator of lists of elements
 Often used as step-by-step backtracking and implementing iterators. E.g. [Leetcode]Flatten
 Nested List Iterator). And a map of node to its parent can be created while traversing
 to retrieve the paths.
+
     * Algorithm of DFS(node, visited)
         if node is null, return; //Can be omitted sometimes
         visit(node)
@@ -714,7 +715,7 @@ to retrieve the paths.
                     DFS(adjNode, curPath, paths);
                 }
             }
-            curPath.removeLast;
+            curPath.removeLast;     //Very easy to forget this!!!
             visited[node] = false;
             Done;
         Example: [Leetcode]Course Schedule I and II.
@@ -932,6 +933,7 @@ TBD.
 (16)Topological sort:
     - [Leetcode]Course Schedule I and II(Algorithms* and Implementations*). Remember
     all of them!
+    - [Leetcode]Alien Dictionary(Implementation*).
 (17)Eulerian path:
     - [Leetcode]Reconstruct Itinerary(Algorithms* and Implementations*). Remember
     the naive algorithm and implementation. I don't get how the better algorithm works

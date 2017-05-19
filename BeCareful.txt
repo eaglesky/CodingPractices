@@ -179,3 +179,6 @@ times. --[Leetcode]Maximal Rectangle.
 
 37. When iterating a array of elements interval by interval, don't forget to handle
 the last one! --[Leetcode]  Longest Substring with At Least K Repeating Characters
+
+38. When comparing adjacent elements in a for loop, if we store prev element in a
+separate variable, don't forget to update it at the end of each iteration.
