@@ -817,6 +817,12 @@ to retrieve the paths.
             pathList.removeLastNode();
             done;
 
+    * Multi-source BFS. If there are multiple end nodes -- {e1, e2, ... en}, 
+    For each node s, find min{dis(s, e1), dis(s, e2), ... dis(s, en)}. If there is
+    only one start node, we can use standard BFS and start with s. However if there
+    are multiple start nodes, we might be better off using multi-source BFS and start
+    with the end nodes.
+    -- [Leetcode]Walls and Gates.
 
     * Bidirectional BFS. See [Leetcode]Word Ladder for implementation.
 
@@ -947,7 +953,7 @@ two leaves. To get them, use Kahn's algorithm to remove the leaves in each itera
 Each time the leaves are removed, all of the paths between two leaves decrease by
 2. And finally the one or two vertices left are the middle vertices we want.
 (21)[Leetcode]Graph Valid Tree(Algorithm*).
-
+(22)[Leetcoce]Walls and Gates(Algorithm*). Remember the multi-source BFS algorithm!
 
 7. Permutations, Combinations and Subsets.
 Knowledge:
