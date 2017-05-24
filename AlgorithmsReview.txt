@@ -1273,7 +1273,7 @@ Sorting problems:
     then return true.
     (8)[Leetcode]Meeting rooms II(Algorithms*).
     (9)[Others]Find Elements from Black Box(Algorithm*).
-
+    (10)[Leetcode]H-Index.(Best algorithm* and implementation*)
 
 
 10. Bit Manipulation
