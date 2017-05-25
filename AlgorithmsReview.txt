@@ -136,7 +136,9 @@ the length of the array.
 
 (2)Palindrome.
     (2.1)Definition. A string that reads the same backward as forward, e.g., madam.
-    Checking if a string is a palindrome can be easily done in O(n) time.
+    Checking if a string is a palindrome can be easily done in O(n) time. And so is
+    checking if a linked list a palindrome, which can also be done using O(1) space
+    if reversing the first/second half of the original list is allowed.
     (2.2)Check if concatenation of two strings is a palindrome. The reverse of the
     second string has to be the 1)the prefix of the first string, and the rest of
     the first string is a palindrome, or 2)the first string is the prefix of the reverse
@@ -359,7 +361,8 @@ Problems:
 	(3.1)Basic head insertion(Iterative and recursive) -- creating a new linked list,
     original head pointer will become tail pointer, and the new head pointer keeps
     updating. No need for the dummy node.
-	   - [Leetcode] Reverse Linked List(Implementation, recursive algorithm*)
+	   - [Leetcode]Reverse Linked List(Implementation, recursive algorithm*)
+       - [Leetcode]Palindrome Linked List(Algorithm). 
 	(3.2)Head insertion for reversing sublists -- This process includes node removing
     and node insertion. Must add dummy node. The predecessor of the head of the original
     sublist now becomes the predecessor of the tail of the reversed sublist. So the
