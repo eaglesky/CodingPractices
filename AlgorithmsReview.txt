@@ -127,12 +127,15 @@ the last element in the StringBuilder, just use sb.setLength(sb.length() - 1). t
 setCharAt(index, char) is also an useful method to update a certain char in the StringBuilder.
 Also note that StringBuilder doesn't have isEmpty() method while String does.
 char[] array usually has a better performance than StringBuilder since it is simpler.
-But when dynamiccally adding new elements to it, usually another variable charLen
+But when dynamically adding new elements to it, usually another variable charLen
 is needed to record the current length(number of filled elements in the array). Creating
 a string from it is simply using new String(char[] value, int offset, int count).
 char[] can make backtracking easier since you can just override the old elements when
-searching a new branch. But StringBuilder is also usefully and saves you from maintaining
+searching a new branch. But StringBuilder is also useful and saves you from maintaining
 the length of the array.
+* If we have to keep inserting strings/chars to the front, there is a better way --
+append the strings/chars to the end and at last call StringBuilder.reverse(). This
+can make the code run in O(n) time instead of O(n^2) time.
 
 (2)Palindrome.
     (2.1)Definition. A string that reads the same backward as forward, e.g., madam.
@@ -1400,6 +1403,28 @@ other.
 E.g. [Leetcode]Max Points on a Line.
 
 (5) In y = kx + b, k is called 'slope', and b is called 'y-intercept'.
+(6) Base conversion.
+Suppose a number num = (a_n-1 a_n-2 ... a_0)b and the base is b. 
+* Convert the number from any base to base 10 decimal:
+    Since num = a_n-1 * b^(n-1) + a_n-2 * b^(n-2) + ... + a_1 * b + a_0
+              = (...(a_n-1 * b + a_n-2) * b + a_n-3) ...) * b + a_1) * b + a_0
+    So we can implement this iteratively. Initally a = 0, then times b and plus a_n-1,
+    then times b and plus a_n-2 in the next iteration, and so on, until we times b
+    and plus a_0.
+    This is essentially like keep shifting the digits to the left until all of them
+    show up.
+    Remember this algorithm and how to prove it. Always think about the expression
+    first before implementing it. 
+* Convert a decimal to another base:
+    String result;//Better to use StringBuilder in JAVA.
+    for(; num > 0; num /= base) {
+        result = (num % base) + result;
+    }
+    return result;
+    Always think about the expression to base 10 number first. Then you'll know why
+    and how to convert a decimal to another base. Sometimes you need to do some pre-processing
+    of num before getting the remainder.
+
 
 Problems:
 (1)[Leetcode]Pow(x, n). (Best algorithm* and Implementation). Remember the best algorithm
@@ -1409,6 +1434,9 @@ Problems:
 (5)[Leetcode]Max Points on a Line. (Best Algorithm* and Implementation*). 
 (6)[Leetcode]Sparse Matrix Multiplication(Best Algorithm*). Clarification: Don't consider
 overflow for this problem. Remember the new way of doing matrix multiplication.
+(7)Base conversion.
+    - [Leetcode]Excel Sheet Column Number.
+    - [Leetcode]Excel Sheet Column Title(Algorithm*)
 
 
 
