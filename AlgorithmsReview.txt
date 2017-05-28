@@ -1059,7 +1059,9 @@ It is essentially a min heap. Example usage:
 
 Problems:
 (1)[Leetcode]Merge K sorted lists(Algorithms*).
-(2)[Leetcode]Kth largest element in an array. (Algorithms of heap solutions*)
+(2)[Leetcode]Kth largest element in an array. (Algorithms of heap solutions*). This
+can be simluated using an array of variables, when k is small and known, which is
+a very useful subroutine in many problems(like [Leetcode]Paint House II).
 (3)[Leetcode]Rearrange String k Distance Apart(Algorithms* and Implementations*).
 The naive algorithm and greedy algorithm should all be mastered! Don't know how to
 prove the correctness of greed algorithm yet. 
@@ -1262,6 +1264,7 @@ Binary Search problems:
     (9)[Leetcode]Search a 2d Matrix2.(Best algorithm*)
     (10)[Leetcode]First bad version(Implementation). (8.3.2 with slight change). When
     all of the versions are good, return whatever(0 works).
+    (11)[Leetcode]H-Index II.(Algorithm and implementation). Similar to (8.3.3).
 Sorting problems:
     (1)[Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick
     select)
@@ -1467,8 +1470,9 @@ the same type of data as the return value of the recursive function.
         ** Sometimes need to maintain multiple db arrays, e.g. Let d[i][1] denote
         select the current element and d[i][0] denote not select. Or d[i][k] denote
         including the current element, and d[i][t] denote not including. This is often
-        used for problems similar to 0-1 knapsack problem.
-        -- [Leetcode]Maximum product subarray, house robber I, Target Sum.
+        used for problems similar to 0-1 knapsack problem. This kind of problem can
+        also be visualized, like in [Leetcode]Pain House II.
+        -- [Leetcode]Maximum product subarray, house robber I, Target Sum, Paint House.
         ** The recursive relation may not necessarily involve adjacent indices. Sometimes
         we need to come up with it by observing the pattern/attribute from the problem.
         -- [GeeksForGeeks]Longest Arithmetic Progression, sorted array.
@@ -1589,8 +1593,11 @@ the dp relation(very error prone).
     and the entire local maximal square. Note that this algorithm only works when
     we are looking for square. It won't work for finding rectangles, no matter how
     to change it.
-
-
+(27)[Leetcode]Paint House(Algorithm).
+(28)[Leetcode]Paint House II(Best algorithm* and implementation*). Remember how
+to visualize this kind of problem. Also remember how to find few smallest/largest
+elements with their ids(just simulate a heap with array of variables). When finding
+the smallest, need to note the case when there is MAX_VALUE elements.
 
 
 
