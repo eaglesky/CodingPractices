@@ -1437,7 +1437,7 @@ overflow for this problem. Remember the new way of doing matrix multiplication.
 (7)Base conversion.
     - [Leetcode]Excel Sheet Column Number.
     - [Leetcode]Excel Sheet Column Title(Algorithm*)
-
+    - [Leetcode]Encode and Decode TinyURL.
 
 
 12. Dynamic Programming and Memoization
