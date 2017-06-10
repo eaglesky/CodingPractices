@@ -1789,6 +1789,7 @@ a dfs/bfs could be used in the problem
     pointers and see if it helps.
     * Make sure the contents in all the data structures are valid after each possible
     intermediate states.
+(8)Be careful with null element, especially when using the element as a flag!
 
 Problems:
 (1)Max Stack. Implement a Max Stack that supports peekMax() and popMax(), both of
@@ -1808,6 +1809,7 @@ two ways of implementing multi-sets!
     - [Leetcode]Binary Search Tree Iterator(Algorithms).
     - [Leetcode]Zigzag Iterator(Implementation). Remember the clever way of cyclic
     iteration with conditional removal.
+    - [Leetcode]Peeking Iterator(Algorithm*). There is one trap in it!
 (5)[Others]Circular queue. There are two possible implementations:
     * Using start index, end index and count(optional).
     * Using start index and count. This is easier to implement than the first one,
