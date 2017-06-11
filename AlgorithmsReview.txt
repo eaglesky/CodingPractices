@@ -42,6 +42,12 @@ the map with get can change the iteration order too.
 Note that TreeNode extends LinkedHashMap Node, so each bucket can also be turned
 into a BST, while keeping the insertion/access order through LinkedHashMap Node pointers.
 
+Iteration on them often requires gettign a collection view first(like calling entrySet
+()/values()/keySet()), which just return internal references(they are all lazy-intialization,
+so initial value of entrySet, values and keySet fields are null) and do not copy any
+data. Then we can use for-each or iterator to do the iteration, which are essentially
+the same. https://stackoverflow.com/questions/2923856/is-the-order-guaranteed-for-the-return-of-keys-and-values-from-a-linkedhashmap-o/2924143#2924143
+
 Four ways of handling collisions: Chaining with linked lists, chaining with BST,
 Open Addressing with Linear Probing, Quadratic Probing and Double Hashing. (See CTCI)
 (2) Resizeable array
@@ -1781,7 +1787,7 @@ a dfs/bfs could be used in the problem
 (5)How to test the code? See Problem (5).
 (6)Basic data structures that are often used:
     * Array(fixed size or dynmaic).
-    * Linked list.
+    * (Doubly)Linked list.
     * Hash map/set.
     * Linked hash map/set.
     * Tree map(balanced BST).
@@ -1832,6 +1838,7 @@ can support O(1) randome remove, but at the expense of changing the order.
 (7)[Leetcode]Insert Delete GetRandom O(1) - Duplicates allowed(Algorithms* and implementation
 of second approach*). Maintaining the pointer using an element in a pair is an useful
 trick!
+(8)[Leetcode]LFU Cache(Algorithm* and Implementation*). 
 
 
 Summary of algorithms that are frequently used:
