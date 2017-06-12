@@ -34,6 +34,8 @@ until you are sure that it can handle all test cases correctly.
 	when peek is used!
 	4. For sequence related problems, there could be duplicates. This matters if the
 	solution uses hashmap.
+  5. When iterating over a collection and the end condition involves multiple variables,
+  put the id check at first!
 * For implementation problems with a lot of corner cases, pay more attention to writing
 robust code with good style than performance! Refactor the code to improve the performance
 after you have a working solution!

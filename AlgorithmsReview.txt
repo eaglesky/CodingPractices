@@ -1775,10 +1775,10 @@ Note: removal in balanced BST takes O(logn) while in heap is O(n).
 Getting the max/min in balanced BST takes O(logn) while in heap is O(1).
 
 (3)About iterator. 
-* It should contain minimum data. Try not maintaining a pointer to the entire list
-of original data, unless there is no other option(such as the iterator of ArrayList).
-Try using existing iterators. So familiarize the usage of common iterator and listIterator
-in JAVA!
+* It should not contain a copy of the original data. Iterator should always operate
+on the original data. The additional space it uses should be constant compared to
+the original data size. Try using existing iterators. So familiarize the usage of
+common iterator and listIterator in JAVA!
 * It has a hasNext() method to check if there is more element to be iterated. And
 this method should NOT change the state of the iterator. This is so in the iterators
 of many built-in Java data structures. 
@@ -1839,6 +1839,8 @@ two ways of implementing multi-sets!
     - [Leetcode]Zigzag Iterator(Implementation). Remember the clever way of cyclic
     iteration with conditional removal.
     - [Leetcode]Peeking Iterator(Algorithm*). There is one trap in it!
+    - [Leetcode]Design Compressed String Iterator(Implementation*). The caching thought
+    is similar to Peeking Iterator!
 (5)[Others]Circular queue. There are two possible implementations:
     * Using start index, end index and count(optional).
     * Using start index and count. This is easier to implement than the first one,
@@ -1846,7 +1848,9 @@ two ways of implementing multi-sets!
     as expensive as division).
     http://tutorials.jenkov.com/java-performance/ring-buffer.html#ring-buffers-are-fast
     When testing the code, think about if offer/poll/isEmpty/size() can behave correctly
-    when the array is empty, partially occupied, and fully occupied.
+    when the array is empty, partially occupied, and fully occupied. Think about the
+    edge cases for each method seperately, and try using one or as few as possible
+    example input to test them.
     During the interview, use the second implementation first, and if not allowed,
     change it to the first one.
 (6)[Leetcode]Insert Delete GetRandom O(1)(Algorithm* and implementation*). ArrayList
