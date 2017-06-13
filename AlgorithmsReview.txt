@@ -1780,19 +1780,24 @@ on the original data. The additional space it uses should be constant compared t
 the original data size. Try using existing iterators. So familiarize the usage of
 common iterator and listIterator in JAVA!
 * It has a hasNext() method to check if there is more element to be iterated. And
-this method should NOT change the state of the iterator. This is so in the iterators
-of many built-in Java data structures. 
+this method should be better off not change the state of the iterator. Some does like
+http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/java/util/Spliterators.java#l679,
+but that would make it necessary to have a "valueReady" field.
 * It has a next() method to return the next element. If there is no next element,
 the correct behavior is to throw NoSuchElementException. And this must
-be done when the iterator class implements Java Iterator interface. The correct usage
-of next() is to call it after hasNext(), but this should not be an assumption. next
-() should always return a valid next element when there is one, even if it is called without hasNext() before it. 
+be done when the iterator class implements Java Iterator interface. A typcial implementation
+is to call hasNext at the beginning of next() and if it is false, throw NoSuchElementException.
+If hasNext does not change the state, then the code would be simple. Another implementation
+I came up with is to add try...catch and rethrow a NoSuchElementException if any exception
+is caught. However I don't see this being used by any official code.
+The correct usage of next() is to call it after hasNext(), but this should not be
+an assumption. next() should always return a valid next element when there is one,
+even if it is called without hasNext() before it. 
+
 My code for [Leetcode]Flatten 2D Vector shows a good example of how to dealing with
 the above. Basically add a private helper method("advance.." or "moveToNextAvailable")
 to advance the iterators to next available elements, which is called at the end of
-constructor and next(). Also in next() we just need to make sure it works correctly
-when there is next element, and then add try...catch to throw NoSuchElementException
-() if there is not. hasNext() simply checks the related variables to return true if
+constructor and next(). hasNext() simply checks the related variables to return true if
 there is next element. 
 
 (4)If the problem uses some existing data structures, be sure to understand what they
@@ -1861,6 +1866,9 @@ trick!
 (8)[Leetcode]LFU Cache(Algorithm* and Implementation*). Clarification: put(key, value)
 will set the value to replace the old value if the key is present, or insert the value
 if otherwise.
+(9)[Leetcode]Moving Average from Data Stream
+
+
 
 Summary of algorithms that are frequently used:
 1. Caching. If there are multiple arrays involved, caching could be used on any one
