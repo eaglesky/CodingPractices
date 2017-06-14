@@ -125,7 +125,8 @@ in the given string sequence starting with "1". For example, n = 1, return "1"; 
 = 2, return "11"; ... n = 5, return "111221".
 (8)[Leetcode]Product of Array Except Self(Algorithm*).
 (9)[Leetcode]Increasing Triplet Subsequence(Algorithm*).
-
+(10)[Leetcode]Shortest Word Distance(Algorithm*). It looks similar to another problem,
+but I forgot which one.
 
 
 2. Strings
