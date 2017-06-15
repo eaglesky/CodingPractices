@@ -137,6 +137,10 @@ in the given string sequence starting with "1". For example, n = 1, return "1"; 
 (9)[Leetcode]Increasing Triplet Subsequence(Algorithm*).
 (10)[Leetcode]Shortest Word Distance(Algorithm*). It looks similar to another problem,
 but I forgot which one.
+(11)[Leetcode]Shortest Word Distance III(Algorithm*). A follow-up of above. Easy to
+make mistake here!
+
+
 
 
 2. Strings

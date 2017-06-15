@@ -13,9 +13,10 @@ Good workflow when tackling a interview question:
   useful hint). Or to deal with the naive case first, like when there are no dulicates
   in a list. Go with the best algorithm only if you have seen it before. Usually
   the algorithm may not be correct at first, and this needs to be found out by trying
-  more test cases. For some problems you need to draw some graphs to visualize it,
-  and you need to make sure that they can cover enough cases, and you may need to
-  extend it to see more cases. You may also need to show a few test cases you need!
+  more test cases(sometimes may need to walk through an example). For some
+  problems you need to draw some graphs to visualize it, and you need to make sure
+  that they can cover enough cases, and you may need to extend it to see more cases.
+  You may also need to show a few test cases you need!
 * After you and your interviewer agree that this algorithm works, and the interviewer
 agrees that you can move on to write the code, start it immediately! Pay attention
 to your handwriting as best as you can. Don't spend too much time thinking about how
