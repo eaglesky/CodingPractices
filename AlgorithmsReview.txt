@@ -62,6 +62,10 @@ Open Addressing with Linear Probing, Quadratic Probing and Double Hashing. (See 
 calling the clone method, since List interface does not have clone method.
 (5) Implementation of equals and hashCode methods in Java(See <<Effective Java>>,
 http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html)
+* Note that when two objects are equal, their hash codes must be the same; but if
+two objects have the same hash codes, they don't have to be equal.
+* The hash code of Pair or unordered collection is usually implemented as sum of the
+hash codes of all elements.
 
 Problems:
 (1)[Leetcode]First Missing Positive(Algorithm and Implementation*)
@@ -99,12 +103,18 @@ Problems:
     - [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
     - [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm**). Best algorithm
     is very tricky. Still need to master the common solution.
-(4) Two pointers:
+(4) Two pointers: 
+    * The two pointer schemes in LinkedList chapter may be used, if they run in the
+    same direction. Need to think carefully about the end condition in order to know
+    which one to use!
     - [Leetcode] Previous three sum problems.
     - [Leetcode] Container with most water(Algorithm)
     - [Leetcode] Trapping rain water(Multiple Algorithms** and implementation*)
     - [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are
     sorted*). Remember the algorithm for sorted arrays.
+    - [Leetcode] Shortest Word Distance II(Implementation*). O(1) get solution will
+    TLE due to the lone pre-processing time. Remember the acceptable two pointer solution,
+    and its proof.
     - [Leetcode] Move Zeros(Algorithms*). Remember both algorithms and how to prove
     them!
 (5) Subarray sums:
@@ -1823,6 +1833,12 @@ a dfs/bfs could be used in the problem
     * Make sure the contents in all the data structures are valid after each possible
     intermediate states.
 (8)Be careful with null element, especially when using the element as a flag!
+(9)Some problems can be speeded up by using pre-processing, which typically is done
+in the constructor. The get() method could be called once or multiple times. And balancing
+the time of pre-processing and get() is often a trade-off, depending on how many times get
+() will be called. If pre-processing time takes too long and the get() is not called
+too many times, consider using a more balanced algorithm, and cache the result to
+speed up. Example: [Leetcode]Shortest Word Distance II(See previous)
 
 Problems:
 (1)Max Stack. Implement a Max Stack that supports peekMax() and popMax(), both of
@@ -2096,4 +2112,18 @@ Implementation Utils:
 
         String[] stockArr = stockList.toArray(new String[0]);
 
+* Get a value from a map, if absent, create one and add it to the map:
+    (1) Java:
+        Map<K, V> map = new HashMap<>();
+        if (map.get(key) == null) {
+            V newValue = mappingFunction.apply(key);
+            if (newValue != null)
+                map.put(key, newValue);
+        }
+        //The above can be simplified by the following in Java 8:
+        V newValue = map.computeIfAbsent(key, k -> new Value(f(k)))
+        //newValue is either existing value corresponding to key,
+        //or the newly computed one. 
+        //And if it is a collection, we can do this to add an element to it.
+        map.computeIfAbsent(key, k -> new HashSet<V>()).add(v);
 
