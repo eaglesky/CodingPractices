@@ -1881,14 +1881,17 @@ two ways of implementing multi-sets!
     During the interview, use the second implementation first, and if not allowed,
     change it to the first one.
 (6)[Leetcode]Insert Delete GetRandom O(1)(Algorithm* and implementation*). ArrayList
-can support O(1) randome remove, but at the expense of changing the order.
+can support O(1) random remove, but at the expense of changing the order.
 (7)[Leetcode]Insert Delete GetRandom O(1) - Duplicates allowed(Algorithms* and implementation
 of second approach*). Maintaining the pointer using an element in a pair is an useful
 trick!
 (8)[Leetcode]LFU Cache(Algorithm* and Implementation*). Clarification: put(key, value)
 will set the value to replace the old value if the key is present, or insert the value
 if otherwise.
-(9)[Leetcode]Moving Average from Data Stream
+(9)[Leetcode]All O`one Data Structure(Algorithm*). Similar solution to LFU Cache.
+Note that in this problem we can not do similar simplification in LFU to maintain
+min/max value. Because the new min/max is unknown.
+(10)[Leetcode]Moving Average from Data Stream
 
 
 
