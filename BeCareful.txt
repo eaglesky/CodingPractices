@@ -32,12 +32,13 @@ until you are sure that it can handle all test cases correctly.
 	should be treated. 
 	2. For math related problems(as long as there is some arithmetic operations involved),
 	remember to check overflow!
-	3. For heap related problems, remember the case when the heap is empty, especially
-	when peek is used!
+	3. For heap/stack/queue related problems, remember the case when the structure is
+ empty, especially when peek is used!
 	4. For sequence related problems, there could be duplicates. This matters if the
 	solution uses hashmap.
   5. When iterating over a collection and the end condition involves multiple variables,
-  put the id check at first!
+  put the id check at first! Also make sure there is no out-of-boundary or null-pointer
+  exception in the end condition!
 * For implementation problems with a lot of corner cases, pay more attention to writing
 robust code with good style than performance! Refactor the code to improve the performance
 after you have a working solution!
@@ -186,3 +187,6 @@ the last one! --[Leetcode]  Longest Substring with At Least K Repeating Characte
 
 38. When comparing adjacent elements in a for loop, if we store prev element in a
 separate variable, don't forget to update it at the end of each iteration.
+
+39. Always think about if an object could be null before calling a method of it, especially
+in chaining calls.
