@@ -1901,6 +1901,13 @@ min/max value. Because the new min/max is unknown.
 (10)[Leetcode]Moving Average from Data Stream
 (11)[Leetcode]Design Hit Counter(Algorithms*). Very good example for sliding-window
 related design problems! Thread-safe implementation is TBD.
+(12)[Leetcode]Unique Word Abbreviation(Best algorithm*). The description is very confusing.
+See my Java solution comments at the beginning for clarification.
+
+
+
+
+
 
 
 Summary of algorithms that are frequently used:
