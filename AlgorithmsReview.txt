@@ -1903,7 +1903,7 @@ min/max value. Because the new min/max is unknown.
 related design problems! Thread-safe implementation is TBD.
 (12)[Leetcode]Unique Word Abbreviation(Best algorithm*). The description is very confusing.
 See my Java solution comments at the beginning for clarification.
-
+(13)[Leetcode]Design Tic-Tac-Toe(Algorithm). Also remember the API design.
 
 
 
