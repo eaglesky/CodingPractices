@@ -1913,7 +1913,8 @@ data eviction can often be done asynchronously by a seperate thread.
 algorithm*). The description is very confusing.
 See my Java solution comments at the beginning for clarification.
 (14)[Leetcode]Design Tic-Tac-Toe(Algorithm). Also remember the API design.
-
+(15)[Leetcode]Design Phone Directory. Very simple. Even if we want to return a random
+phone number, we can use similar solution in "[Leetcode]Insert Delete GetRandom O(1)".
 
 
 
