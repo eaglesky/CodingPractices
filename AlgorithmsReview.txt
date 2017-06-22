@@ -1838,12 +1838,15 @@ a dfs/bfs could be used in the problem
     methods are called? In what order? Single thread or multithread? -- Usually consider
     single thread usage first(the client calling all those methods in a single thread)
     and then try making it thread-safe if asked.
-    * Try to come up with data structures that satisfy as many constraints as possible.
+    * Try to come up with data structures that satisfy as many constraints as possible.Usually
+    time constraints are explicity. However also keep in mind that the space usage
+    should make sense(must not growing too quickly!).
     * For those methods that have time complexities not being satisfied, try to add
     pointers and see if it helps.
     * Make sure the contents in all the data structures are valid after each possible
     intermediate states. Do consider the edge cases like some of the sub-data structures
     are empty.
+    * Refactor if asked -- try reducing time/space usage.
 (8)Be careful with null element, especially when using the element as a flag!
 (9)Some problems can be speeded up by using pre-processing, which typically is done
 in the constructor. The get() method could be called once or multiple times. And balancing
@@ -1901,9 +1904,15 @@ min/max value. Because the new min/max is unknown.
 (10)[Leetcode]Moving Average from Data Stream
 (11)[Leetcode]Design Hit Counter(Algorithms*). Very good example for sliding-window
 related design problems! Thread-safe implementation is TBD.
-(12)[Leetcode]Unique Word Abbreviation(Best algorithm*). The description is very confusing.
+(12)[Leetcode]Logger Rate Limiter(Best algorithm*). Implicit sliding-window design
+problem since we should use data eviction to control the memory usage. Remember to
+consider this for all similar problems! Note that besides using a queue for data eviction,
+we can also use the LinkedHashMap's removeEldestEntry! No matter which way to use,
+data eviction can often be done asynchronously by a seperate thread.
+(13)[Leetcode]Unique Word Abbreviation(Best
+algorithm*). The description is very confusing.
 See my Java solution comments at the beginning for clarification.
-(13)[Leetcode]Design Tic-Tac-Toe(Algorithm). Also remember the API design.
+(14)[Leetcode]Design Tic-Tac-Toe(Algorithm). Also remember the API design.
 
 
 
