@@ -22,6 +22,8 @@ agrees that you can move on to write the code, start it immediately! Pay attenti
 to your handwriting as best as you can. Don't spend too much time thinking about how
 to best implement it, just choose a robust way first and then refactor it later. And
 don't think too much about handling edge cases first. That can be done later too.
+Also don't think too much about whether using a separate helper function. Just do
+it in one place first.
 * After you are done writing the code, explain the code while checking it. Check the
 code line by line so that you can find out some typos or minor bugs. While doing this,
 it is better to also walk through a normal test case in your mind to see if there

@@ -37,8 +37,10 @@ The linked nodes are linked together in insertion order, and this doubly-linked 
 is used for iteration. Therefore, iteration over the collection-views of a LinkedHashMap
 requires time proportional to the size of the map, regardless of its capacity, and
 iterating each element takes O(1)(including getting the iterator and return the first
-element). We can also specifiy access order in the constructor so that merely querying
-the map with get can change the iteration order too.
+element). However it doesn't support getting the last element in O(1) time. One workround
+could be caching the last element, like in "[Leetcode]Snake Game". We can also specifiy
+access order in the constructor so that merely querying the map with get can change
+the iteration order too.
 Note that TreeNode extends LinkedHashMap Node, so each bucket can also be turned
 into a BST, while keeping the insertion/access order through LinkedHashMap Node pointers.
 
@@ -1839,13 +1841,13 @@ a dfs/bfs could be used in the problem
     single thread usage first(the client calling all those methods in a single thread)
     and then try making it thread-safe if asked.
     * Try to come up with data structures that satisfy as many constraints as possible.Usually
-    time constraints are explicity. However also keep in mind that the space usage
+    time constraints are explicit. However also keep in mind that the space usage
     should make sense(must not growing too quickly!).
     * For those methods that have time complexities not being satisfied, try to add
     pointers and see if it helps.
-    * Make sure the contents in all the data structures are valid after each possible
-    intermediate states. Do consider the edge cases like some of the sub-data structures
-    are empty.
+    * Make sure the contents in all the data structures are valid/consistent after
+    each possible intermediate states(or each method call). Do consider the edge cases
+    like some of the sub-data structures are empty.
     * Refactor if asked -- try reducing time/space usage.
 (8)Be careful with null element, especially when using the element as a flag!
 (9)Some problems can be speeded up by using pre-processing, which typically is done
@@ -1915,7 +1917,9 @@ See my Java solution comments at the beginning for clarification.
 (14)[Leetcode]Design Tic-Tac-Toe(Algorithm). Also remember the API design.
 (15)[Leetcode]Design Phone Directory. Very simple. Even if we want to return a random
 phone number, we can use similar solution in "[Leetcode]Insert Delete GetRandom O(1)".
-
+(16)[Leetcode]Design Snake Game(Implementation*). How do we generate new food position
+randomly and guarantee that it won't overlap the snake? One way I can think of is
+to utilize the idea in "Insert Delete GetRandom O(1)". See my post for more.
 
 
 
