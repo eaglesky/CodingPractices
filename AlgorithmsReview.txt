@@ -1839,7 +1839,7 @@ a dfs/bfs could be used in the problem
     * Think about use cases of the data structure to be designed first. How those
     methods are called? In what order? Single thread or multithread? -- Usually consider
     single thread usage first(the client calling all those methods in a single thread)
-    and then try making it thread-safe if asked.
+    and then try making it thread-safe if asked. Better write them down with graphs!
     * Try to come up with data structures that satisfy as many constraints as possible.Usually
     time constraints are explicit. However also keep in mind that the space usage
     should make sense(must not growing too quickly!).
@@ -1920,7 +1920,16 @@ phone number, we can use similar solution in "[Leetcode]Insert Delete GetRandom 
 (16)[Leetcode]Design Snake Game(Implementation*). How do we generate new food position
 randomly and guarantee that it won't overlap the snake? One way I can think of is
 to utilize the idea in "Insert Delete GetRandom O(1)". See my post for more.
-
+(17)[Leetcode]Design In-Memory File System(Implementations). Note that under same directory,
+there must be NO same names, even if they are of different type(like one is a
+directory while the other is a file). This is true for Linux FS too!  
+There are two approaches to solve it:
+* Simply using a hash map of absolute file path and its content, which could be either
+a TreeSet if it is a directory, or a StringBuilder if it is a file. 
+* Represent the files and directories as a tree. 
+The first approach is good for in-memory file system, but for on-disk file system,
+it might use too much memory since it has to maintain that hash map in the memory,
+while for the second approach, it only needs to load the necessary nodes. 
 
 
 
@@ -1984,6 +1993,7 @@ Implementation Utils:
                     return a1.name.compareTo(a2.name);
                 }
               });
+              //Same as Collections.sort, in place
 
 * Copying an array to a new array:
     (1) Java:
