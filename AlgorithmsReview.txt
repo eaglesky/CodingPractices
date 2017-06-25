@@ -995,6 +995,8 @@ Each time the leaves are removed, all of the paths between two leaves decrease b
 (21)[Leetcode]Graph Valid Tree(Algorithm*).
 (22)[Leetcoce]Walls and Gates(Algorithm*). Remember the multi-source BFS algorithm!
 
+
+
 7. Permutations, Combinations and Subsets.
 Knowledge:
 (1)Factorial representation of Permutation: P(n,k) = n! / (n-k)! 
@@ -1178,6 +1180,9 @@ outperforms heap sort most of the time.
     https://www.quora.com/If-Radix-sort-has-a-better-time-complexity-why-is-quick-sort-preferred-both-in-APIs-and-in-terms-of-interviews
     Overall, radix sort is a stable sort.
 (7)External sort to deal with big data and small memory.
+Divide the original data into several parts, sort each part in memory and save it
+back to a file, and finally use k-way merge sort to merge k files.
+https://en.wikipedia.org/wiki/External_sorting
 http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSortEX2.htm
 (8)Binary search. 
     (8.1)The goal is to find a certain element(or the largest element that is smaller
