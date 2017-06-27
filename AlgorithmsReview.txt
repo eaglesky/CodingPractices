@@ -55,8 +55,8 @@ Open Addressing with Linear Probing, Quadratic Probing and Double Hashing. (See 
 (2) Resizeable array
 	Implementation: Vector(C++), ArrayList(Java)
 	Performance: get, set is O(1), amortized time of add is O(1) and why. Remove an element
-    at some position is typically O(n), but could be O(1) by moving the last element
-    to the one to be deleted and remove the last element. In Java, ArrayList.remove
+    at some position is typically O(n), but could be O(1) by switching the last element
+    with the one to be deleted and then remove the last element. In Java, ArrayList.remove
     (int id) does it, and if id is the last position, it simply decrease the size
     counter and doesn't copy any element.
 (3) Basic language syntax for array(fixed and dynamic), hash map and hash set.
@@ -64,7 +64,7 @@ Open Addressing with Linear Probing, Quadratic Probing and Double Hashing. (See 
 calling the clone method, since List interface does not have clone method.
 (5) Implementation of equals and hashCode methods in Java(See <<Effective Java>>,
 http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html)
-* Note that when two objects are equal, their hash codes must be the same; but if
+* Note that if two objects are equal, their hash codes must be the same; but if
 two objects have the same hash codes, they don't have to be equal.
 * The hash code of Pair or unordered collection is usually implemented as sum of the
 hash codes of all elements.
