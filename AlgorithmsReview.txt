@@ -90,7 +90,8 @@ Problems:
     (2.1) Two sum
         (2.1.1) Input array is random, find out one solution.
             - [Leetcode] Two sum(Algorithm).
-        (2.1.2) Input array is random, find out all unique solutions.
+        (2.1.2) Input array is random, find out all unique solutions(Algorithm*).
+        Unique: if a + b = sum, then (a, b) and (b, a) are duplicate pairs.
         (2.1.3) [Leetcode]Two Sum III -- Data structure design.
     (2.2) Three sum
         (2.1.1) Input array is random, find out all unique solutions.
