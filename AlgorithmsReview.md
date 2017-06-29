@@ -40,5 +40,12 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
     Remember the clever way of removing duplicate pairs!
     - [Leetcode] Two sum II -- Input array is sorted.
       - find out all unique solutions using no additional space.
-      - find out all id pairs in which the first id is smaller than the second one?
+      - find out all id pairs in which the first id is smaller than the second one? The hard part is when a + b = sum, we don't know how to move the two pointers. We can move both pointers until there are no duplicates, say ia --> ia', ib --> ib', and put all pairs formed by elements between num[ia] and num[ia'] and elments between num[ib] and num[ib'] into result list.
     - [Leetcode] Two Sum III -- Data structure design.
+* Three sum
+  * Input array is random, find out all unique solutions.
+    - [Leetcode] Three sum(Algorithm).
+    - [Leetcode] Three sum closest(Algorithm).
+  * Find out the count of all triplets whose sum is less than the target:
+    - [Leetcode] Three Sum Smaller(Algorithm**) Using two pointers to find out the count efficiently in linear time. Finding number of distinct triplets -- e.g. (1, 2, 3) and (1, 3, 2) are not distinct, would be harder and the runtime would be O(n^3).  
+    https://discuss.leetcode.com/topic/27075/what-if-the-question-is-to-find-the-number-of-triplets-instead-of-index
