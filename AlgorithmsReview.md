@@ -32,20 +32,30 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 
 ### Problems
 * [Leetcode] First Missing Positive(Algorithm and Implementation**). Think about the O(n) space solution first and then the O(1) space solution.
-* Two sum
-  * Input array is random, find out one solution.
-    - [Leetcode] Two sum(Algorithm).
-    - Input array is random, find out all unique solutions(Algorithm*).  
-    Unique: if a + b = sum, then (a, b) and (b, a) are duplicate pairs.  
-    Remember the clever way of removing duplicate pairs!
-    - [Leetcode] Two sum II -- Input array is sorted.
-      - find out all unique solutions using no additional space.
-      - find out all id pairs in which the first id is smaller than the second one? The hard part is when a + b = sum, we don't know how to move the two pointers. We can move both pointers until there are no duplicates, say ia --> ia', ib --> ib', and put all pairs formed by elements between num[ia] and num[ia'] and elments between num[ib] and num[ib'] into result list.
-    - [Leetcode] Two Sum III -- Data structure design.
-* Three sum
-  * Input array is random, find out all unique solutions.
-    - [Leetcode] Three sum(Algorithm).
-    - [Leetcode] Three sum closest(Algorithm).
-  * Find out the count of all triplets whose sum is less than the target:
-    - [Leetcode] Three Sum Smaller(Algorithm**) Using two pointers to find out the count efficiently in linear time. Finding number of distinct triplets -- e.g. (1, 2, 3) and (1, 3, 2) are not distinct, would be harder and the runtime would be O(n^3).  
-    https://discuss.leetcode.com/topic/27075/what-if-the-question-is-to-find-the-number-of-triplets-instead-of-index
+*  K Sum problems. Can be solved using two approaches:
+  * Sort the input array first. Then using two pointers starting from the beginning and the end of the array, moving one of them towards the other each time based on the comparison of the sum of the two elements and target, until they meet. The two pointers process takes O(n) time. No extra space needed, assuming sort is in place. For K > 2, always move the leftmost/rightmost pointer, and do it recursively, until the innermost two pointers which use the two pointer approach instead. Using this approach, it is easy to return unique combinations, but hard to return complete combinations.
+  * Using a hash set of combinations to record the results and remove duplicates. Sort the input array first if K > 2(this is optional and can make de-duple faster and easier to implement). Divide K into two parts first. Iterate the second part and solve the subproblem for the first part. Cache the sums and their corresponding elements at the end of each iteration. Using this approach, it is easy to return complete combinations, and also not very hard to return unique combinations, with additional space.
+  
+  Time complexity of k Sum problems: omega(n^ceil(k/2)), O(n^(k-1)).
+  http://www.sigmainfy.com/blogk-sum-problem-analysis-recursive-implementation-lower-bound.html
+
+  - Two sum
+    - Input array is random, find out one solution.
+      + [Leetcode] Two sum(Algorithm).
+      + Input array is random, find out all unique solutions(Algorithm*).  
+      Unique: if a + b = sum, then (a, b) and (b, a) are duplicate pairs.  
+      Remember the clever way of removing duplicate pairs!
+      + [Leetcode] Two sum II -- Input array is sorted.
+        + find out all unique solutions using no additional space.
+        + find out all id pairs in which the first id is smaller than the second one? The hard part is when a + b = sum, we don't know how to move the two pointers. We can move both pointers until there are no duplicates, say ia --> ia', ib --> ib', and put all pairs formed by elements between num[ia] and num[ia'] and elments between num[ib] and num[ib'] into result list.
+      + [Leetcode] Two Sum III -- Data structure design.
+  - Three sum
+    - Input array is random, find out all unique solutions.
+      + [Leetcode] Three sum(Algorithm).
+      + [Leetcode] Three sum closest(Algorithm).
+    - Find out the count of all triplets whose sum is less than the target:
+      + [Leetcode] Three Sum Smaller(Algorithm**) Using two pointers to find out the count efficiently in linear time. Finding number of distinct triplets -- e.g. (1, 2, 3) and (1, 3, 2) are not distinct, would be harder and the runtime would be O(n^3).  
+      https://discuss.leetcode.com/topic/27075/what-if-the-question-is-to-find-the-number-of-triplets-instead-of-index
+  - Four sum(Random input array, find out all unique solutions)
+    + [Leetcode] Four sum(Algorithms*).
+    + [Leetcode] Four Sum II(Algorithm)
