@@ -32,13 +32,12 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 
 ### Problems
 * [Leetcode] First Missing Positive(Algorithm and Implementation**). Think about the O(n) space solution first and then the O(1) space solution.
-*  K Sum problems. Can be solved using two approaches:
+* K Sum problems. Can be solved using two approaches:
   * Sort the input array first. Then using two pointers starting from the beginning and the end of the array, moving one of them towards the other each time based on the comparison of the sum of the two elements and target, until they meet. The two pointers process takes O(n) time. No extra space needed, assuming sort is in place. For K > 2, always move the leftmost/rightmost pointer, and do it recursively, until the innermost two pointers which use the two pointer approach instead. Using this approach, it is easy to return unique combinations, but hard to return complete combinations.
-  * Using a hash set of combinations to record the results and remove duplicates. Sort the input array first if K > 2(this is optional and can make de-duple faster and easier to implement). Divide K into two parts first. Iterate the second part and solve the subproblem for the first part. Cache the sums and their corresponding elements at the end of each iteration. Using this approach, it is easy to return complete combinations, and also not very hard to return unique combinations, with additional space.
+  * Using a hash set of combinations to record the results and remove duplicates. Sort the input array first if K > 2(this is optional and can make de-duple faster and easier to implement). Divide K into two parts first. Iterate the second part and solve the subproblem for the first part. Cache the sums and their corresponding elements at the end of each iteration. Using this approach, it is easy to return complete combinations, and also not very hard to return unique combinations, with additional space.  
   
   Time complexity of k Sum problems: omega(n^ceil(k/2)), O(n^(k-1)).
   http://www.sigmainfy.com/blogk-sum-problem-analysis-recursive-implementation-lower-bound.html
-
   - Two sum
     - Input array is random, find out one solution.
       + [Leetcode] Two sum(Algorithm).
