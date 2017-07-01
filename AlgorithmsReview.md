@@ -33,8 +33,8 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 ### Problems
 * [Leetcode] First Missing Positive(Algorithm and Implementation**). Think about the O(n) space solution first and then the O(1) space solution.
 * K Sum problems. Can be solved using two approaches:
-  * Sort the input array first. Then using two pointers starting from the beginning and the end of the array, moving one of them towards the other each time based on the comparison of the sum of the two elements and target, until they meet. The two pointers process takes O(n) time. No extra space needed, assuming sort is in place. For K > 2, always move the leftmost/rightmost pointer, and do it recursively, until the innermost two pointers which use the two pointer approach instead. Using this approach, it is easy to return unique combinations, but hard to return complete combinations.
-  * Using a hash set of combinations to record the results and remove duplicates. Sort the input array first if K > 2(this is optional and can make de-duple faster and easier to implement). Divide K into two parts first. Iterate the second part and solve the subproblem for the first part. Cache the sums and their corresponding elements at the end of each iteration. Using this approach, it is easy to return complete combinations, and also not very hard to return unique combinations, with additional space.  
+  * Sort the input array first. Then using two pointers starting from the beginning and the end of the array, moving one of them towards the other each time based on the comparison of the sum of the two elements and target, until they meet. The two pointers process takes O(n) time. No extra space needed, assuming sort is in place. For K > 2, always move the leftmost/rightmost pointer, and do it recursively, until the innermost two pointers which use the two pointer approach instead. Using this approach, it is easy to return unique combinations, easy but not effienct to return one solution, and hard to return complete combinations.
+  * Using a hash set of combinations to record the results and remove duplicates. Sort the input array first if K > 2(this is optional and can make de-duple faster and easier to implement). Divide K into two parts first. Iterate the second part and solve the subproblem for the first part. Cache the sums and their corresponding elements at the end of each iteration. Using this approach, it is easy to return complete combinations, efficient to return one solution,  and also not very hard to return unique combinations, with additional space.  
   
   Time complexity of k Sum problems: omega(n^ceil(k/2)), O(n^(k-1)).
   http://www.sigmainfy.com/blogk-sum-problem-analysis-recursive-implementation-lower-bound.html
@@ -58,3 +58,15 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
   - Four sum(Random input array, find out all unique solutions)
     + [Leetcode] Four sum(Algorithms*).
     + [Leetcode] Four Sum II(Algorithm)
+* Remove duplicates(Maximum allowed duplicates == K). Two ways of checking duplicates!
+  - [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
+  - [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm**). Remember the prooves for solutions to both problems.
+* Two pointers:  
+  The two pointer schemes in LinkedList chapter may be used, if they run in the
+  same direction. Need to think carefully about the end condition in order to know which one to use!
+  * [Leetcode] Previous three sum problems.
+  * [Leetcode] Container with most water(Algorithm)
+  * [Leetcode] Trapping rain water(Multiple Algorithms** and implementation*)
+  * [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are sorted*). Remember the algorithm for sorted arrays.
+  * [Leetcode] Shortest Word Distance II(Implementation*). O(1) get solution will TLE due to the lone pre-processing time. Remember the acceptable two pointer solution, and its proof.
+  * [Leetcode] Move Zeros(Algorithms*). Remember both algorithms and how to prove them!
