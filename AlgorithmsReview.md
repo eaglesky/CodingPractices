@@ -56,7 +56,7 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
       + [Leetcode] Three Sum Smaller(Algorithm**) Using two pointers to find out the count efficiently in linear time. Finding number of distinct triplets -- e.g. (1, 2, 3) and (1, 3, 2) are not distinct, would be harder and the runtime would be O(n^3).  
       https://discuss.leetcode.com/topic/27075/what-if-the-question-is-to-find-the-number-of-triplets-instead-of-index
   - Four sum(Random input array, find out all unique solutions)
-    + [Leetcode] Four sum(Algorithms*).
+    + [Leetcode] Four Sum(Algorithms*).
     + [Leetcode] Four Sum II(Algorithm)
 * Remove duplicates(Maximum allowed duplicates == K). Two ways of checking duplicates!
   - [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
@@ -64,9 +64,11 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 * Two pointers:  
   The two pointer schemes in LinkedList chapter may be used, if they run in the
   same direction. Need to think carefully about the end condition in order to know which one to use!
-  * [Leetcode] Previous three sum problems.
-  * [Leetcode] Container with most water(Algorithm)
-  * [Leetcode] Trapping rain water(Multiple Algorithms** and implementation*)
-  * [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are sorted*). Remember the algorithm for sorted arrays.
+  * Pointers moving in the opposite direction.  
+    This can often reduce runtime from O(n^2) to O(n). It basically tries to check the two elements pointed by the pointers against some condition and moves left pointer to the right or right pointer to the left accordingly, to skip some unnecessary comparisons and narrow down the search range. Optionally we can skip duplicate elements at the beginning of each iteration.
+    - [Leetcode] Previous three sum problems.
+    - [Leetcode] Container With Most Water(Algorithm)
+    - [Leetcode] Trapping Rain Water(Multiple Algorithms** and implementation of best solution*)
+  * [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are sorted*). Remember the proof.
   * [Leetcode] Shortest Word Distance II(Implementation*). O(1) get solution will TLE due to the lone pre-processing time. Remember the acceptable two pointer solution, and its proof.
   * [Leetcode] Move Zeros(Algorithms*). Remember both algorithms and how to prove them!
