@@ -58,9 +58,6 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
   - Four sum(Random input array, find out all unique solutions)
     + [Leetcode] Four Sum(Algorithms*).
     + [Leetcode] Four Sum II(Algorithm)
-* Remove duplicates(Maximum allowed duplicates == K). Two ways of checking duplicates!
-  - [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
-  - [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm**). Remember the prooves for solutions to both problems.
 * Two pointers:  
   The two pointer schemes in LinkedList chapter may be used, if they run in the
   same direction. Need to think carefully about the end condition in order to know which one to use!
@@ -69,6 +66,15 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
     - [Leetcode] Previous three sum problems.
     - [Leetcode] Container With Most Water(Algorithm)
     - [Leetcode] Trapping Rain Water(Multiple Algorithms** and implementation of best solution*)
-  * [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are sorted*). Remember the proof.
-  * [Leetcode] Shortest Word Distance II(Implementation*). O(1) get solution will TLE due to the lone pre-processing time. Remember the acceptable two pointer solution, and its proof.
-  * [Leetcode] Move Zeros(Algorithms*). Remember both algorithms and how to prove them!
+  * Pointers moving in the same direction, on different lists.  
+    Same as previous, this essentially skips unnecessary comparisons and narrow down the range of comparison. 
+    - [Leetcode] Intersection of Two Arrays I and II(Algorithm when the arrays are sorted*). Remember the proof.
+    - [Leetcode] Shortest Word Distance II(Algorithm*). O(1) get solution will TLE due to the lone pre-processing time. Remember the acceptable two pointer solution, and its proof.
+  * Pointers moving in the same direction, on the same list.  
+    Works as if the faster pointer is copying data to another list. Need to know why it is not affected by overriding.
+    - Remove duplicates(Maximum allowed duplicates == K). Two ways of checking duplicates!
+      * [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
+      * [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm**). Remember the prooves for solutions to both problems.
+    - [Leetcode] Move Zeros(Algorithms*). Remember both algorithms and how to prove them!
+* [Leetcode] Shortest Word Distance(Algorithm*). It looks similar to another problem, but I forgot which one.
+* [Leetcode] Shortest Word Distance III(Algorithm*). A follow-up of above. Easy to make mistake here!
