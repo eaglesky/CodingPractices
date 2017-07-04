@@ -133,7 +133,7 @@ Problems:
     - [Leetcode] Maximum Size Subarray Sum Equals k(Algorithm*). Use the third approach.
     - [Lintcode] Subarray Sum Closest(Algorithms*). Remember the algorithm that find
     out the closest two elements in an unsorted array in O(nlogn) time.
-    - [Lintcode] Submatrix Sum(Algorithms*). Remember how to enumerate all the sub
+    - [Lintcode] Submatrix Sum(Algorithms**). Remember how to enumerate all the sub
     rectangles in a 2D matrix. Remember the trick to add padding zeros.
     - [Leetcode] Max Sum of Rectangle No Larger Than K(Algorithm*). Extension of above.
     Remember the best solution.
@@ -1503,12 +1503,12 @@ the same type of data as the return value of the recursive function.
 
 (3)Thinking steps:
     * If the problem want to find out the longest/maximum value, or a searching result,
-    it is often a sign of optimization problem which can potentially be tackle using
-    DP/Memoization. Search algorithms like DFS/BFS can also be used, but sometimes
-    the search space could be extremely large, making them not preferable approaches.
-    Greedy algorithm can solve them too, which is often hard to come up with and should
-    be used as a last resort. For some problems, divide and conquer can also be used
-    to solve them. -- [Leetcode]Maximum Subarray.
+    without any other constraint, it is often a sign of optimization problem which
+    can potentially be tackle using DP/Memoization. Search algorithms like DFS/BFS
+    can also be used, but sometimes the search space could be extremely large, making
+    them not preferable approaches. Greedy algorithm can solve them too, which is
+    often hard to come up with and should be used as a last resort. For some problems,
+    divide and conquer can also be used to solve them. -- [Leetcode]Maximum Subarray.
     * Break the original problem into subproblems and then create the recursive formulas.
     DP/memoization works well when the subproblems overlap, otherwise simple recursion
     works better. Sometimes instead of breaking the original problem, we can break
@@ -1951,7 +1951,8 @@ recursive approach first --- can be broken down into two or more parts, or based
 the result of first n-1 elements. If there are repetitions among sub-problems, consider
 caching and DP, otherwise, consider simple backtracking with pruning or divide(two
 or more parts) and conquer. DP solution can be improved to use O(1) space only for
-many array related problems.
+many array related problems. Don't think about DP solution at first, unless you met
+the problem before and it has strong sign of using DP solution.
 * Don't always try finding the breaking point in O(1) time. It might be easier to
 find it in O(n) time first(top-down approach).
 3. Greedy thinking(TBD)

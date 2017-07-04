@@ -76,5 +76,19 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
       * [Leetcode] Remove Duplicates from Sorted Array(Best Algorithm*).
       * [Leetcode] Remove Duplicates from Sorted Array2(Best Algorithm**). Remember the prooves for solutions to both problems.
     - [Leetcode] Move Zeros(Algorithms*). Remember both algorithms and how to prove them!
+  * Pointers moving in the same direction on the same list, all elements in between are considered.  
+    The main loop moves the faster pointer, and for each iteration, keep moving the slower pointer until some condition is met. Usually needs to maintain a max/min value and return it.
+    This essentially skips some unnecessary checks of elements between certain pairs of pointers, which is mainly done by the inner loop -- elements starting with the slower pointer is skipped, and we only need to compare the elements between the slower pointer and the faster pointer, not all elements before the faster pointer. 
+    - [Leetcode] Minimum Size Subarray Sum(Algorithms* and implementation of two pointer solution*). Sometimes the max/min value should be initialized failure value, not Integer.MAX_VALUE or Integer.MIN_VALUE, because it is likely those values are confused with some valid max/min values. The code is not that complicated for the update part -- one line is enough.  
+    Note that the assuption of positive nums are important! Otherwise this two-pointer solution must be modified, and the runing time will has to be O(n^2) at best(proof?). And because of this assumption, the question makes sense asking the "minimum" size, not the "maximum" size. And similar questions like "finding maximum size subarray whose size is no larger than k" can also be solved similarly.
 * [Leetcode] Shortest Word Distance(Algorithm*). It looks similar to another problem, but I forgot which one.
 * [Leetcode] Shortest Word Distance III(Algorithm*). A follow-up of above. Easy to make mistake here!
+* Subarray sum problems. Three approaches:
+  * DP. If the problem asks for max/min sum and there is no more constraint on it.
+  * Two pointers. 
+    - [Leetcode] Minimum Size Subarray Sum(See previous).
+  * Get accumulative sums first. This could be sorted in some cases. But usually we need to iterate on it while maintaining some kinds of maps. If order won't be changed, accumulative sums can be calculated on the fly instead of using additional array to store them.
+    - [Leetcode] Maximum Size Subarray Sum Equals k(Algorithm*). Question could ask for minium size instead, which can also be handled similarly.
+    - [Lintcode] Subarray Sum Closest(Algorithms**). Remember both solutions. Also note how useful a treemap is when getting the closest key instead of an exact key. If the questions asks for the minium length of subarray that has sum closest to k, it can still be solved with a few modifications.
+    - [Lintcode] Submatrix Sum(Algorithms**). Remember how to enumerate all the sub rectangles in a 2D matrix. Remember the trick to add padding zeros. Hard to come up with the trick to reduce the 2D space usage to 1D!
+    - [Leetcode] Max Sum of Rectangle No Larger Than K(Algorithm*). Extension of above.
