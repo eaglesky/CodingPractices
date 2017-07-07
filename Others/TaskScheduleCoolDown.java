@@ -16,7 +16,7 @@ import java.util.*;
 public class TaskScheduleCoolDown {
 
 	//O(n) time and O(n) space
-	public static int totalTime(String tasks, int k) {
+	public static int totalTime0(String tasks, int k) {
 		int elaspsedTime = 0;
 		Map<Character, Integer> taskToTime = new HashMap<>();
 		for (int i = 0; i < tasks.length(); ++i) {
@@ -26,6 +26,23 @@ public class TaskScheduleCoolDown {
 				elaspsedTime = Math.max(elaspsedTime, prevTime + k + 1);
 			}
 			taskToTime.put(task, elaspsedTime++);
+		}
+		return elaspsedTime;
+	}
+
+	//Another implementation
+	public static int totalTime(String tasks, int k) {
+		int elaspsedTime = 0;
+		Map<Character, Integer> taskToTime = new HashMap<>();
+		for (int i = 0; i < tasks.length(); ++i) {
+			char task = tasks.charAt(i);
+			Integer prevTime = taskToTime.get(task);
+			if (prevTime != null) {
+				elaspsedTime = Math.max(elaspsedTime + 1, prevTime + k + 2);
+			} else {
+				elaspsedTime++;
+			}
+			taskToTime.put(task, elaspsedTime - 1);
 		}
 		return elaspsedTime;
 	}
