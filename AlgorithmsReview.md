@@ -105,3 +105,45 @@ When finding max/min element, we can either use reference type variable instead 
   * StringBuilder is essentially a wrapper of dynamic char array , and append(string) basically copy each character from input string to the end of existing char array. When deleting, it will shift the characters after those deleted forward. To remove the last element in the StringBuilder, just use sb.setLength(sb.length() - 1). toString () method returns a copy of wrapped char array, wrapped by a newly created String. setCharAt(index, char) is also an useful method to update a certain char in the StringBuilder. Also note that StringBuilder doesn't have isEmpty() method while String does.
   * char[] array usually has a better performance than StringBuilder since it is simpler. But when dynamically adding new elements to it, usually another variable charLen is needed to record the current length(number of filled elements in the array). Creating a string from it is simply using new String(char[] value, int offset, int count). char[] can make backtracking easier since you can just override the old elements when searching a new branch. But StringBuilder is also useful and saves you from maintaining the length of the array.
   * If we have to keep inserting strings/chars to the front, there is a better way -- append the strings/chars to the end and at last call StringBuilder.reverse(). This can make the code run in O(n) time instead of O(n^2) time.
+* Palindrome.
+  * Definition. A string that reads the same backward as forward, e.g., madam.
+  Checking if a string is a palindrome can be easily done in O(n) time. And so is checking if a linked list a palindrome, which can also be done using O(1) space if reversing the first/second half of the original list is allowed.
+  * Check if concatenation of two strings is a palindrome. The reverse of the
+  second string has to be the 1)the prefix of the first string, and the rest of
+  the first string is a palindrome, or 2)the first string is the prefix of the reverse of second string, and the rest of the reversed string is a palindrome. [Leetcode]Palindrome Pairs.
+  * Find out all the palindrome substrings. There are two ways to do this, which are very useful when solving more complex palindrome related problems. Both ways take O(n^2) time, n is the length of string s.
+    * Search all the substrings and check if each of them is palindrome. Has to use addition space.  
+    Let f[i][j] indicate whether substring s[i...j] is a palindrome or
+    not. Iterate the string from right to left, for each character s[i], check
+    all substrings s[i..j], i <= j < s_length. `f[i][j] = (s[i] == s[j]) && (j - i < 2 || f[i+1][j-1]))`. f[i][j] can be reduced to 1D if j starts from s_length - 1. Remember!
+    * Search the substrings with each possible center. Doesn't check all substrings but just those that are likely to be a palindrome. If we only want to iterate all palindrome substrings but not store them, this approach uses O(1) space. So this is more efficient in both time and space.   
+    Iterate the string from left to right. For each character s[i], check
+    the substrings that center at it of odd and even lengths.
+    ```java
+      for (int i = 0; i < s.length(); ++i) {
+          //Odd length.
+          for (int j = 0; i-j >= 0 && i+j < len && s.charAt(i-j) == s.charAt(i+j); ++j) {
+              f[i-j][i+j] = true;
+          }
+          //Even length.
+          for (int j = 0; i-1-j >= 0 && i+j < len && s.charAt(i-1-j) == s.charAt(i+j); ++j) {
+              f[i-1-j][i+j] = true;
+          }
+      }
+    ```
+    Example: [Leetcode] Palindrome Partitioning II.
+  * Finding the longest palindrome starting from a certain letter in a string
+  can be solved in O(n) time and O(n) space using KMP pre-processing algorithm(after appending a non-existent character and the reverse of original string to it). No need to know the implementation details, but need to know the time and space complexities of KMP. The actual string matching part of KMP takes O(m) time, where m is the length of the string being matched. So the totol time is O(m + n). --- [Leetcode]Shortest Palindrome.
+    * KMP algorithm has two parts --- pre-computing part and actual string matching part. Inputs are two strings, text string(T of length n) and pattern string(P of length m). The pre-computing part takes only the pattern string and output an array &pi; of same size.
+    &pi;[i] is the length of longest prefix of P that is also the suffix of P[0..i].  
+    No need to know how to implement KMP and other advanced algorithms. I think it's enough to know the time complexities of them. See more in *Introduction to Algorithms*
+* Anagram: a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman. To check if two strings are anagrams, either use a hashmap to count the number of occurences for each character and compare them, or just sort the two strings and see if they are the same.
+* Don't forget the edge case when the string is empty! If this happens, for loop on the string won't happen!
+* Note that the whitespace in a string may not be ' ', could be '\t' or even '\n'.
+
+### Problems
+* Numbers related  
+  Pay attention to how to handle substrings starting with 0, like '0001'.
+
+* Palindrome related:
+  - [Leetcode] Shortest Palindrome(Algorithm*, very hard!)
