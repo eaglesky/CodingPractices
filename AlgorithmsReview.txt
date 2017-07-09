@@ -1769,10 +1769,10 @@ greedy algorithm!
     Remember the best solution(very fundamental!). Also remember the implemenation
     logic of getting each integers from the string without using Integer.parseInt
     (string). 
-    (8.2)[Leetcode]Expression Add Operators(Algorithm* and Implementation*, see previous).
+    (8.2)[Leetcode]Expression Add Operators(Algorithm* and Implementation*).
     Remember the best backtracking logic and implementation.
-    (8.3)[Leetcode]Basic Calculator I(Algorithms* and Implementations*, see previous).
-    (8.4)[Leetcode]Different Ways to Add Parentheses(Algorithm*, see previous).Remember
+    (8.3)[Leetcode]Basic Calculator I(Algorithms* and Implementations*).
+    (8.4)[Leetcode]Different Ways to Add Parentheses(Algorithm*).Remember
     the way of enumerating different order of calculating an arithmetic expression.
     (8.5)Basic calculator when the operators have * and / ?
 (9)Interval related.

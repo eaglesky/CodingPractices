@@ -144,6 +144,11 @@ When finding max/min element, we can either use reference type variable instead 
 ### Problems
 * Numbers related  
   Pay attention to how to handle substrings starting with 0, like '0001'.
+  - [Leetcode]Integer To Roman(Algorithm*)
+  - [Leetcode]Roman To Integer(Algorithm*)
+  - [Leetcode]Integer to English Words(Algorithm* and Implementation)
+  - [Leetcode]Basic Calculator II(Best Algorithm* and Implementation). Remember
+    the best algorithm, which can be applied to many other problems. Also remember the way how to get integersformed by a substring without using Integer.parseInt(string).
 
 * Palindrome related:
   - [Leetcode] Shortest Palindrome(Algorithm*, very hard!)
