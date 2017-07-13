@@ -213,7 +213,7 @@ This approach is preferable if we can skip iterating the non-null list after the
   ```
 The above implementations can also be appied to two pointers iteration on arrays or strings. E.g. The merge function of Merge Sort. 
 * Sometimes we can use the input pointers to reduce the number of pointers created. It is possible to delete a node only by using that pointer if that node is not the head or tail --- by shifting the contents of the following nodes toward it and remove the last one.
-* Adding dummy node to the front a linked list can be convenient for iterating over the list using two pointers, especially if we want to remove the first node, or insert in front of the first node. It also helps when there is cycle in the linked list and the cycle starting point if the head of linked list. Think carefully about edge cases involving the head node if we do not want to add the dummy node(for node finding problems, think about the case when there is only one node in a list).
+* Adding dummy node to the front a linked list can be convenient for iterating over the list using two pointers, especially if we want to remove the first node, or insert in front of the first node. It also helps when there is cycle in the linked list and the cycle starting point if the head of linked list. New head is always dummy.next, not neccessary the original head! Think carefully about edge cases involving the head node if we do not want to add the dummy node(for node finding problems, think about the case when there is only one node in a list).
 * Edge cases: (think normal case first), insert/remove the first/last node, one node linked list, null list.
 * Three approaches for reversing linked list and their implementation(see below). Use previous node pointer instead of the current node pointer if we want to move the current node around or remove a node. 
 
@@ -221,3 +221,7 @@ The above implementations can also be appied to two pointers iteration on arrays
 * Node finding.
   - [Leetcode] Intersection Of Two Linked Lists(Best Algorithm* and Best Implementation*). Remember this algorithm(including the first trial) and the edge case when one linked list is null.
   - [Leetcode] Linked List Cycle II(Algorithm** and Implementation*). Remember the test cases too.
+* Remove nodes: 
+  - [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node, two pointers moving and edge case thinking)
+  - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*).
+  - Generalization of I to allow K duplicates -- Remove duplicates from sorted list III.(Best Implementation**). Not found in any OJ. I implemented the test cases.

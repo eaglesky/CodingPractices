@@ -392,7 +392,7 @@ Problems:
 (2)Remove nodes: 
     - [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node,
     two pointers moving and edge case thinking)
-    - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*)
+    - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*).
     - Generalization of above to allow K duplicates -- Remove duplicates from sorted
     list III.(Implementation* -- multiple cases). Not found in any OJ. I implemented
     the test cases.
