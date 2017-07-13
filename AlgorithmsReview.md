@@ -155,3 +155,69 @@ When finding max/min element, we can either use reference type variable instead 
 
 * Palindrome related:
   - [Leetcode] Shortest Palindrome(Algorithm*, very hard!)
+
+
+## Linked List
+
+### Knowledge
+* Java: LinkedList class -- doubly linked list, performance
+* Two pointers technique is frequently used! The diff between any two given linked list can always be found in O(m+n) time.  
+Two pointers iteration on two linked lists(one on each of them):  
+  ```java
+  while (p != null || q != null) {
+    if (p == null) {
+        operation on q;
+        q = q.next;
+    } else if (q == null) {
+        operation on p;
+        p = p.next;
+    } else {
+        operation on both p and q(might have more branches here)
+        p = p.next;
+        q = q.next;
+    }
+  }
+  ```
+  ```java
+    while (p != null && q != null) {
+        operation on both p and q.(might have more branches here)
+        p = p.next;
+        q = q.next;
+    }
+    /*while (p != null) {
+        operation on p.
+        p = p.next;
+    }
+    while (q != null) {
+        operation on q.
+        q = q.next;
+    }*/
+    //another way
+    v = p != null ? p : q;
+    while (v != null) {
+        ...
+    }
+  ```
+This approach is preferable if we can skip iterating the non-null list after the loop breaks. E.g. merge two sorted linked lists.
+(probably best):
+  ```
+  while(p != null || q != null) {
+      if (p != null && (q == null || condition_of_iterate_p)) {
+          operation on p.
+          p = p.next;
+      } else {
+          operation on q.
+          q = q.next
+      }
+  }
+  ```
+The above implementations can also be appied to two pointers iteration on arrays or strings. E.g. The merge function of Merge Sort. 
+* Sometimes we can use the input pointers to reduce the number of pointers created. It is possible to delete a node only by using that pointer if that node is not the head or tail --- by shifting the contents of the following nodes toward it and remove the last one.
+* Adding dummy node to the front a linked list can be convenient for iterating over the list using two pointers, especially if we want to remove the first node, or insert in front of the first node. It also helps when there is cycle in the linked list and the cycle starting point if the head of linked list. Think carefully about edge cases involving the head node if we do not want to add the dummy node(for node finding problems, think about the case when there is only one node in a list).
+* Edge cases: (think normal case first), insert/remove the first/last node, one node linked list, null list.
+* Three approaches for reversing linked list and their implementation(see below). Use previous node pointer instead of the current node pointer if we want to move the current node around or remove a node. 
+
+### Problems
+* Node finding.
+  - [Leetcode] Intersection Of Two Linked Lists(Best Algorithm* and Best Implementation*). Remember this algorithm(including the first trial) and the edge case when one linked list is null.
+  - [Leetcode] Linked List Cycle II(Algorithm** and Implementation*). Remember the test cases too.
