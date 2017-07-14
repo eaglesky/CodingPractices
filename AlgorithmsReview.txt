@@ -421,10 +421,10 @@ Problems:
     appending, more nodes than the former way but could be simpler. The former way
     need to deal with some special cases, like removing and inserting into the old
     place, which could affect the next position of the pointer.
-    - [Leetcode]Rotate List(Algorithm*, practice two pointers moving--two ways)
-    - [Leetcode]Partition List(Best algorithm*)
+    - [Leetcode] Rotate List(Algorithm*, practice two pointers moving--two ways)
+    - [Leetcode] Partition List(Best algorithm*)
 (4)Copy linked list:
-	- [Leetcode]Copy List with Random Pointer(Algorithm*, two approaches)
+	- [Leetcode] Copy List with Random Pointer(Algorithm*, two approaches)
 
 
 

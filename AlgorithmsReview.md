@@ -161,7 +161,7 @@ When finding max/min element, we can either use reference type variable instead 
 
 ### Knowledge
 * Java: LinkedList class -- doubly linked list, performance
-* Two pointers technique is frequently used! The diff between any two given linked list can always be found in O(m+n) time.  
+* Two pointers technique is frequently used! The diff between any two given linked list can always be found in O(m+n) time. Also we can use two pointers to find the middle node, or the last node of first half, by using one slow and one faster pointer, without dummy head. Remember the implementation.  
 Two pointers iteration on two linked lists(one on each of them):  
   ```java
   while (p != null || q != null) {
@@ -222,6 +222,22 @@ The above implementations can also be appied to two pointers iteration on arrays
   - [Leetcode] Intersection Of Two Linked Lists(Best Algorithm* and Best Implementation*). Remember this algorithm(including the first trial) and the edge case when one linked list is null.
   - [Leetcode] Linked List Cycle II(Algorithm** and Implementation*). Remember the test cases too.
 * Remove nodes: 
-  - [Leetcode]Remove Nth Node From End of List(Implementation, practice dummy node, two pointers moving and edge case thinking)
-  - [Leetcode]Remove duplicates from sorted list I(easy) and II(Implementation*).
+  - [Leetcode] Remove Nth Node From End of List(Implementation, practice dummy node, two pointers moving and edge case thinking)
+  - [Leetcode] Remove duplicates from sorted list I(easy) and II(Implementation*).
   - Generalization of I to allow K duplicates -- Remove duplicates from sorted list III.(Best Implementation**). Not found in any OJ. I implemented the test cases.
+* Reverse nodes:
+  * Basic head insertion(Iterative and recursive) -- creating a new linked list, original head pointer will become tail pointer, and the new head pointer keeps updating. No need for the dummy node.
+    - [Leetcode] Reverse Linked List(Implementation, recursive algorithm*)
+    - [Leetcode] Palindrome Linked List(Algorithm). 
+  * Head insertion for reversing sublists -- This process includes node removing and node insertion. Must add dummy node. The predecessor of the head of the original sublist now becomes the predecessor of the tail of the reversed sublist. So the predecessor of each sublist is enough to reverse the sublist and get the new head and tail of the reversed sublist. Note that we can either insert each node to the original list, or insert them into a temporary sublist and then insert it back. The former way requires more than 1 node in each sublist, but the latter way doesn't require that. See solution for 'Reverse Linked List II'.
+    - [Leetcode] Swap Nodes in Pairs(Implementation)
+    - [Leetcode] Reverse Nodes in K-Group(Algorithm* and Implementation*)
+    - [Leetcode] Reverse Linked List II(Implementation*)
+  * Tail insertion(can be skipped). Inserting each node right after the original tail node. Need to first aquire pointer to the tail node and then start from the first node. Original tail node will become new head node. Pointer to the sucessor of the original tail node need to be stored or it will be lost.
+    - [Leetcode] Reverse Nodes in K-Group(Algorithm* and Implementation*)
+* Re-arrange nodes:  
+  Removing nodes first, and then either insert them into the original list or a new list. The latter way requires creating a new dummy node and tail node for appending, more nodes than the former way but could be simpler. The former way need to deal with some special cases, like removing and inserting into the old place, which could affect the next position of the pointer.
+  - [Leetcode] Rotate List(Algorithm**, practice two pointers moving--two ways)
+  - [Leetcode] Partition List(Best algorithm*)
+* Copy linked list:
+  - [Leetcode] Copy List with Random Pointer(Algorithm*, two approaches)
