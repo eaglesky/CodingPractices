@@ -103,7 +103,7 @@ When finding max/min element, we can either use reference type variable instead 
 
 ## Strings
 
-### Kowledge
+### Knowledge
 * JAVA: String, StringBuilder and char[]. 
   * StringBuilder is essentially a wrapper of dynamic char array , and append(string) basically copy each character from input string to the end of existing char array. When deleting, it will shift the characters after those deleted forward. To remove the last element in the StringBuilder, just use sb.setLength(sb.length() - 1). toString () method returns a copy of wrapped char array, wrapped by a newly created String. setCharAt(index, char) is also an useful method to update a certain char in the StringBuilder. Also note that StringBuilder doesn't have isEmpty() method while String does.
   * char[] array usually has a better performance than StringBuilder since it is simpler. But when dynamically adding new elements to it, usually another variable charLen is needed to record the current length(number of filled elements in the array). Creating a string from it is simply using new String(char[] value, int offset, int count). char[] can make backtracking easier since you can just override the old elements when searching a new branch. But StringBuilder is also useful and saves you from maintaining the length of the array.
@@ -241,3 +241,22 @@ The above implementations can also be appied to two pointers iteration on arrays
   - [Leetcode] Partition List(Best algorithm*)
 * Copy linked list:
   - [Leetcode] Copy List with Random Pointer(Algorithm*, two approaches)
+
+
+## Stack and Queue
+
+### Knowledge
+* A stack can be implemented with a resizable array or a linked list; A queue can be implemented with a cyclic array, double resizeable arrays or a linked list.
+* Java implemenation:  
+Interfact Deque<E>, push(E item), pop(), peek().   
+Interface Queue<E>, offer(e), poll(), peek().   
+Iteration using iterator and Deque.descendingItarator -- same usage, but opposite iterating order.  
+Both of them can be implemented as class ArrayDeque<E>, which is essentially a cyclic array implemented with a resizable array. According to java doc, "This class is likely to be faster than Stack when used as a stack, and faster than LinkedList when used as a queue". The Deque interface usually doesn't allow null element, as peek() returns null when the deque is empty, not throwing any exceptions. However LinkedList does allow null element. Stack interface permits null element too. However try not to put null element in any case.  
+Java ArrayDeque can be used to implement monotonic queue(see [Leetcode]Sliding Window Maximum). Note that peek(), poll(), push() and pop() are all performed on the head of the queue. offer(), peekLast(), pollLast() are performed on the tail.
+* In some design problems, sometimes it is good to call peek() first in pop()/poll().
+* Queue can be used to implement cyclic iteration with conditional removal. -- [Leetcode]Zigzag Iterator. If there is no removal, this can be done simply by using a index, or a iterator.
+
+### Problems
+* [Leetcode] Simplify path(Implementation*)
+* [Leetcode] Evaluate reverse polish notation(Implementation)
+* [Leetcode] Min stack(Multiple algorithms*, one stack solution is not really good).
