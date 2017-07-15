@@ -254,9 +254,12 @@ Iteration using iterator and Deque.descendingItarator -- same usage, but opposit
 Both of them can be implemented as class ArrayDeque<E>, which is essentially a cyclic array implemented with a resizable array. According to java doc, "This class is likely to be faster than Stack when used as a stack, and faster than LinkedList when used as a queue". The Deque interface usually doesn't allow null element, as peek() returns null when the deque is empty, not throwing any exceptions. However LinkedList does allow null element. Stack interface permits null element too. However try not to put null element in any case.  
 Java ArrayDeque can be used to implement monotonic queue(see [Leetcode]Sliding Window Maximum). Note that peek(), poll(), push() and pop() are all performed on the head of the queue. offer(), peekLast(), pollLast() are performed on the tail.
 * In some design problems, sometimes it is good to call peek() first in pop()/poll().
-* Queue can be used to implement cyclic iteration with conditional removal. -- [Leetcode]Zigzag Iterator. If there is no removal, this can be done simply by using a index, or a iterator.
+* Queue can be used to implement cyclic iteration with conditional removal. -- [Leetcode] Zigzag Iterator. If there is no removal, this can be done simply by using a index, or a iterator.
 
 ### Problems
 * [Leetcode] Simplify path(Implementation*)
 * [Leetcode] Evaluate reverse polish notation(Implementation)
 * [Leetcode] Min stack(Multiple algorithms*, one stack solution is not really good).
+* [Leetcode] Implement queue using stacks(Algorithm)
+* [Leetcode] Implement stack using queues(Best Algorithm**)
+* [Leetcode] Largest Rectangle in Histogram(Algorithm** and implementation*). Remember the progression and think of loop invarient to prove the correctness.
