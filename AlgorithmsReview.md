@@ -263,3 +263,38 @@ Java ArrayDeque can be used to implement monotonic queue(see [Leetcode]Sliding W
 * [Leetcode] Implement queue using stacks(Algorithm)
 * [Leetcode] Implement stack using queues(Best Algorithm**)
 * [Leetcode] Largest Rectangle in Histogram(Algorithm** and implementation*). Remember the progression and think of loop invarient to prove the correctness.
+
+## Tree
+### Knowledge
+* Definition of tree, binary tree and binary search tree, and the differences between them. For BST, definition can vary slightly with respect to equality, if there could be duplicate values.
+* Balanced vs Unbalanced. Two common types of balanced (binary search) tree are red-black tree and AVL tree. Usually the height of a balanced BST is O(log(N)). Search, insertion and deletion all take O(logN) time. Java implementation: TreeMap, based on red-black tree.
+* Definition of complete, full and perfect binary trees.
+* Number of nodes in perfect binary tree: n = 2^k - 1 (k is the number of levels)
+* Binary tree inorder, preorder and postorder traversal and their three implementations (see related problems below, remember the implementation of them except Morris). --N-ary trees?  
+Also finding the predecessor and successor is easy when the tree node has parent pointer. If not, then we have to use traversal and save the current visited node. Make sure you know how to do it both iteratively(easier) and recursively(know how to pass previous visited node to the recursive function and how to return correctly).  
+Example: [Others]InorderSuccessorBinaryTreeWithParent and without.
+* About Morris traversal: the basic idea is to use null right child of some nodes to store the succedents beforehand and delete them afterhand. Preorder and inorder are similar, since the right children are always traversed at last, and therefore after traversing back through the thread pointer there is no need to visit the left children again. However for postorder traversal, the parent node is traversed at last. So after traversing back through the thread pointer, the left children have to be visited reversely(only those nodes from the direct left child all the way down to the right). It is also necessary to create a dummy node and(7) have its left child be the root.
+* If the problem is about the height(distance from the leaf), consider to compute the height for each node recursively, based on that of its children.
+E.g. [Leetcode]Find leaves of binary tree. This solution can be applied to finding all the nodes with different height at each level with minor changes(max -> min). Note that the code of finding the minimum height/depth is more complex than finding the maximum! For the minimum, usually need to check if both children are not null, else if one of them is null, else both are null.
+When finding the max depth, consider treating null as depth -1. This is usually the preferred approach if some kind of pre-validation need to be done.
+Besides traditional top-down approach, max-depth problem can also be solved by removing the leaf nodes in each iteration until the tree is empty.
+E.g. [Others]Find Depth.
+* Binary search tree:
+  * Definition
+  * Ascending order when doing inorder traversal on it
+  * Search, Minimum, Maximum, (inorder)Successor, (inorder)Predecessor  operations all run in O(h) time. h is the height of the BST. See the Leetcode practices for Successor implementation.
+  * Insertion(easy) and Deletion(harder, see one example problem) can also run in O(h) time.
+  * Selection and Rank. See Leetcode problem below.
+  * Range query -- finding all elements in a BST that have values within a given range. See Robert's Algorithms. O(n) time and O(h) space
+* Trie(Prefix tree/radix tree/digital tree):
+  * Refer to Robert's Algorithms. Think of the chars on the link instead of on the node.
+  * The map in each node can be implemented with hashmap or array.
+  * See the first two leetcode problems for complete implementation of trie methods.
+  * The value of each node can be boolean, integer, or even a String -- representation of the word from the root to the node. And this value can change and be used for de-duplication. E.g. [Leetcode] Word Search II.
+
+### Problems
+* Traversal  
+  Can be proved inductively -- properties of each subtree are maintained and passed to the parent tree. See solutions of postorder traversal.
+  - [Leetcode] Binary tree inorder traversal(Algorithms* and Implementation*). Recursive solution, typical iterative solution using a stack, Morris Traversal(rarely used).
+  - [Leetcode] Binary tree preorder traversal(Algorithms* and implementation*). Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
+  - [Leetcode] Binary tree postorder traversal(Algorithms** and implementation**), it can be seen as a reverse of preorder traversal. Hardest among the three. Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
