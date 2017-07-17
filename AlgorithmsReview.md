@@ -274,11 +274,10 @@ Java ArrayDeque can be used to implement monotonic queue(see [Leetcode]Sliding W
 Also finding the predecessor and successor is easy when the tree node has parent pointer. If not, then we have to use traversal and save the current visited node. Make sure you know how to do it both iteratively(easier) and recursively(know how to pass previous visited node to the recursive function and how to return correctly).  
 Example: [Others]InorderSuccessorBinaryTreeWithParent and without.
 * About Morris traversal: the basic idea is to use null right child of some nodes to store the succedents beforehand and delete them afterhand. Preorder and inorder are similar, since the right children are always traversed at last, and therefore after traversing back through the thread pointer there is no need to visit the left children again. However for postorder traversal, the parent node is traversed at last. So after traversing back through the thread pointer, the left children have to be visited reversely(only those nodes from the direct left child all the way down to the right). It is also necessary to create a dummy node and(7) have its left child be the root.
-* If the problem is about the height(distance from the leaf), consider to compute the height for each node recursively, based on that of its children.
-E.g. [Leetcode]Find leaves of binary tree. This solution can be applied to finding all the nodes with different height at each level with minor changes(max -> min). Note that the code of finding the minimum height/depth is more complex than finding the maximum! For the minimum, usually need to check if both children are not null, else if one of them is null, else both are null.
-When finding the max depth, consider treating null as depth -1. This is usually the preferred approach if some kind of pre-validation need to be done.
-Besides traditional top-down approach, max-depth problem can also be solved by removing the leaf nodes in each iteration until the tree is empty.
-E.g. [Others]Find Depth.
+* If the problem is about the height(distance from the furthest leaf to the current node), consider to compute the height for each node recursively, based on that of its children(this is essentially bottom-up recursion). Consider treating null as height -1. E.g. [Leetcode]Find leaves of binary tree. This solution can be applied to finding height of all the nodes.  
+For depth(distance from the root to the current node) related problems, if the problem asks for depth of each node, then we have to use top-down recursion. If it asks for max/min depth of a binary tree(max/min distance from the root node to a leaf), then the problem can be converted into finding max/min height of root node, and it's better to use bottom-up recursion than top-down recursion since the latter would require passing a global variable to the recursive function). However if using iterative solution, top-down is easier to implement than bottom-up.  
+Note that the bottom-up recursion code of finding the minimum height/depth is more complex than finding the maximum(technically they should not be called at height/depth)! For the minimum, usually if one of them is null, we take the height/depth of the other, otherwise we use the minium one plus 1. E.g. [Leetcode] Minimum Depth of Binary Tree  
+Besides traditional resursive approach, max-depth problem can also be solved by removing the leaf nodes in each iteration until the tree is empty. E.g. [Others]Find Depth.
 * Binary search tree:
   * Definition
   * Ascending order when doing inorder traversal on it
@@ -294,7 +293,14 @@ E.g. [Others]Find Depth.
 
 ### Problems
 * Traversal  
-  Can be proved inductively -- properties of each subtree are maintained and passed to the parent tree. See solutions of postorder traversal.
+  Make sure to understand the process of three basic traversals.  
+  Code usually can be proved inductively -- properties of each subtree are maintained and passed to the parent tree. See solutions of postorder traversal.
   - [Leetcode] Binary tree inorder traversal(Algorithms* and Implementation*). Recursive solution, typical iterative solution using a stack, Morris Traversal(rarely used).
   - [Leetcode] Binary tree preorder traversal(Algorithms* and implementation*). Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
   - [Leetcode] Binary tree postorder traversal(Algorithms** and implementation**), it can be seen as a reverse of preorder traversal. Hardest among the three. Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
+  - [Others] Find in-order successor of node in binary tree using parent pointer(Algorithm and implementation).
+  - [Others] Find in-order successor of node in binary tree without using parent pointer.(Implementation of recursive solution)
+  - [Leetcode] Find leaves of binary tree(Algorithm** and Implementation). When requiring return a list of nodes that does not follow the order of basic traversal, consider storing the element directly to the corresponding location in the output array.
+  - [Leetcode] Minimum Depth of Binary Tree(Algorithms and Implementation)
+* Others
+  - [Others] Find Depth. (Algorithms* and implementations*).
