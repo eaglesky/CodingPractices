@@ -267,7 +267,14 @@ Java ArrayDeque can be used to implement monotonic queue(see [Leetcode]Sliding W
 ## Tree
 ### Knowledge
 * Definition of tree, binary tree and binary search tree, and the differences between them. For BST, definition can vary slightly with respect to equality, if there could be duplicate values.
-* Balanced vs Unbalanced. Two common types of balanced (binary search) tree are red-black tree and AVL tree. Usually the height of a balanced BST is O(log(N)). Search, insertion and deletion all take O(logN) time. Java implementation: TreeMap, based on red-black tree.
+* Balanced vs Unbalanced. 
+  * Definition of balanced binary tree:  
+    An empty tree is height-balanced. A non-empty binary tree T is balanced if:
+      * Left subtree of T is balanced
+      * Right subtree of T is balanced
+      * The difference between heights of left subtree and right subtree is not more than 1.
+    E.g. [Leetcode]Balanced Binary Tree.
+  * Two common types of balanced (binary search) tree are red-black tree and AVL tree. Usually the height of a balanced BST is O(log(N)). Search, insertion and deletion all take O(logN) time. Java implementation: TreeMap, based on red-black tree.
 * Definition of complete, full and perfect binary trees.
 * Number of nodes in perfect binary tree: n = 2^k - 1 (k is the number of levels)
 * Binary tree inorder, preorder and postorder traversal and their three implementations (see related problems below, remember the implementation of them except Morris). --N-ary trees?  
@@ -302,5 +309,6 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   - [Others] Find in-order successor of node in binary tree without using parent pointer.(Implementation of recursive solution)
   - [Leetcode] Find leaves of binary tree(Algorithm** and Implementation). When requiring return a list of nodes that does not follow the order of basic traversal, consider storing the element directly to the corresponding location in the output array.
   - [Leetcode] Minimum Depth of Binary Tree(Algorithms and Implementation)
+  - [Leetcode] Balanced Binary Tree(Best Algorithm*)
 * Others
   - [Others] Find Depth. (Algorithms* and implementations*).
