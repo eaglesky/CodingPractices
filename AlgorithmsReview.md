@@ -286,8 +286,8 @@ For depth(distance from the root to the current node) related problems, if the p
 Note that the bottom-up recursion code of finding the minimum height/depth is more complex than finding the maximum(technically they should not be called at height/depth)! For the minimum, usually if one of them is null, we take the height/depth of the other, otherwise we use the minium one plus 1. E.g. [Leetcode] Minimum Depth of Binary Tree  
 Besides traditional resursive approach, max-depth problem can also be solved by removing the leaf nodes in each iteration until the tree is empty. E.g. [Others]Find Depth.
 * Binary search tree:
-  * Definition
-  * Ascending order when doing inorder traversal on it
+  * Definition: A binary search tree (BST) is a binary tree where each node has a Comparable key (and an associated value) and satisfies the restriction that the key in any node is larger than the keys in all nodes in that node’s left subtree and smaller than the keys in all nodes in that node’s right subtree.
+  * Ascending order when doing inorder traversal on it.
   * Search, Minimum, Maximum, (inorder)Successor, (inorder)Predecessor  operations all run in O(h) time. h is the height of the BST. See the Leetcode practices for Successor implementation.
   * Insertion(easy) and Deletion(harder, see one example problem) can also run in O(h) time.
   * Selection and Rank. See Leetcode problem below.
@@ -310,5 +310,16 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   - [Leetcode] Find leaves of binary tree(Algorithm** and Implementation). When requiring return a list of nodes that does not follow the order of basic traversal, consider storing the element directly to the corresponding location in the output array.
   - [Leetcode] Minimum Depth of Binary Tree(Algorithms and Implementation)
   - [Leetcode] Balanced Binary Tree(Best Algorithm*)
+* Binary Search Tree:
+  - [Leetcode]Validate Binary Search Tree(Multiple algorithms* and Implementations*) -- this reveals an important attribute of BST when traversing it!
+  - [Leetcode]Inorder Successor in BST(Algorithm*). This algorithm uses the ascending order attribute of BST so that it can run in O(h) time not in O(n) time. Therefore this algorithm works only when the target is INORDER successor and there are no duplicates in the tree. If duplicates are allowed, this algorithm can not gurantee that the node returned is INORDER successor. Example:
+      ```
+            13 (actual returned node)
+          10
+        9
+          10 (look-up node)
+            10 (expected returned node)
+      ```
+    This algorithm can be easily extended to implement Ceiling and Floor methods. Remember the inductive proof from the root.
 * Others
   - [Others] Find Depth. (Algorithms* and implementations*).

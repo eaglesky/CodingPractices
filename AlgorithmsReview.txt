@@ -594,11 +594,11 @@ Problems:
     this algorithm works only when the target is INORDER successor and there are no
     duplicates in the tree. If duplicates are allowed, this algorithm can not gurantee
     that the node returned is INORDER successor. Example:
-            13
+            13 (actual returned node)
           10
         9
-          10(returned node)
-            10 (look-up node)    
+          10 (look-up node)
+            10 (expected returned node)
     This algorithm can be easily extended to implement Ceiling and Floor methods.
     - [Leetcode]Delete Node in a BST(Algorithms* and Implementation)
     - [Leetcode]Kth Smallest Element in a BST(Multiple Algorithms*)
