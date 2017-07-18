@@ -323,3 +323,13 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     This algorithm can be easily extended to implement Ceiling and Floor methods. Remember the inductive proof from the root.
 * Others
   - [Others] Find Depth. (Algorithms* and implementations*).
+
+## Graph
+### Knowledge(to be completed)
+* Representations(Refer to CTCI)
+  * Adjacency list. V(number of Vertices) + E(number of edges) space for directed graph, or V + 2E for undirected graph. This is usually the preferred representation. Works well when accessing the neighbors is frequent. For fast edge lookup, just use hashset of integers(instead of list) as the element of arrays in the Graph class(Refer to the implementation of adjacency list in Robert's Algorithms). The list can be implemented with a HashMap or ArrayList. The former works better if the graph is sparse and  it doesn't require initializing each element. However
+  need to know that when creating the map, if the graph is directed, the node without outbounding edges will not be inserted. So when getting the adjacent elements of a node, first check if the corresponding adjacency list in the map is null!
+  * Adjacency matrix. V*V space. Fast for edge lookup, easier to represent weights, but usually takes more space than adjacency list. And has no way to represent parallel edges.
+* Traversal. Don't forget null input node and loops! Also note that the following pseudocode only implements traversing from one node. If the graph is not connected, then DFS and BFS below must be called for each node!  
+The following template is just used for implementation. Think about the problem itself when considering the algorithm -- like what parameters to use in the recursive functions and what they do in each recursion.
+  * DFS. Can be used for counting the number of connected components in a graph, check if two vertices are connected, etc. Implemented recursively. Iterative solution usually uses a stack(of actual element or iterator of lists of elements. Often used as step-by-step backtracking and implementing iterators. E.g. [Leetcode]Flatten Nested List Iterator). And a map of node to its parent can be created while traversing to retrieve the paths.
