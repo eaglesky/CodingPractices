@@ -332,4 +332,130 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   * Adjacency matrix. V*V space. Fast for edge lookup, easier to represent weights, but usually takes more space than adjacency list. And has no way to represent parallel edges.
 * Traversal. Don't forget null input node and loops! Also note that the following pseudocode only implements traversing from one node. If the graph is not connected, then DFS and BFS below must be called for each node!  
 The following template is just used for implementation. Think about the problem itself when considering the algorithm -- like what parameters to use in the recursive functions and what they do in each recursion.
-  * DFS. Can be used for counting the number of connected components in a graph, check if two vertices are connected, etc. Implemented recursively. Iterative solution usually uses a stack(of actual element or iterator of lists of elements. Often used as step-by-step backtracking and implementing iterators. E.g. [Leetcode]Flatten Nested List Iterator). And a map of node to its parent can be created while traversing to retrieve the paths.
+  * DFS. Can be used for counting the number of connected components in a graph, check if two vertices are connected, etc. Implemented recursively. Iterative solution usually uses a stack(of actual element or iterator of lists of elements. Often used as step-by-step backtracking and implementing iterators. E.g. [Leetcode]Flatten Nested List Iterator). And a map of node to its parent can be created while traversing to retrieve the paths. 
+    - Search all nodes in a graph. DFS will search all the nodes and only once for each one, because in each iteration/recursion all the possible neighbors are checked and we only go to the unvisited node in the next iteration/recursion.
+      + Implementation 1:
+        ```
+        DFS_Recursive_Main(node):
+          if node is null, return;
+          visit(node);
+          visited[node] = true;
+          DFS(node, visited);
+          Done;
+
+        DFS(node, visited):
+          for (adjNode : node.adjNodes) {
+              if (visited(adjNode) == false) {
+                  visited[adjNode] = true;
+                  visit(adjNode);
+                  DFS(adjNode, visited);
+              }
+          }
+          Done;
+        ```
+      + More popular implementation, very suitable for grid related problems:
+        ```
+        DFS_Recursive_Main(node):
+          DFS(node, visited);
+          Done;
+
+        DFS(node, visited):
+          if (node is visited or not valid) {
+              return;
+          }
+          visited[node] = true;
+          for (adjNode : node.adjNodes) {
+              DFS(adjNode, visited);
+          }
+          Done;
+        ```
+    - Finding all the paths between two states(backtracking).
+      + Basic Implementation
+        ```
+          main:
+            //Initialize the capacity of curPath if possible!
+            DFS(node, 0, curPath, paths);
+            return paths;
+            
+          DFS(node, startId, curPath, paths):
+            if node is end node {
+                paths.add(curPath.shallow_copy);
+                return;
+            }
+            //Check validity after checking end node because usually
+            //the condition here is more complex than the end node 
+            //condition
+            if node is not valid {
+                return;
+            }
+            visited[node] = true;
+            for (adjNode : node.adjNodes) {
+                curPath.add(adjNode); //To be corrected
+                //Be careful about newStartId!
+                DFS(adjNode, newStartId, curPath, paths);
+                curPath.removeLast;
+            }
+            visited[node] = false;
+            Done;
+        ```
+  * BFS. Besides traversal, it is also often used to find the shorted path(s) and its length between two vertices. It cannot find all the path between two states as DFS, since BFS proceeds level by level and many paths are not able to searched in this way. Implemented iteratively using queue, O(V + E) time.
+    * Standard implementation:
+      ```
+        BFS(node):
+          If node is null, return; //queue usually doesn't allow null value
+          Create queue q;
+          q.enqueue(node);
+
+          //Usually a hashmap. Flexible, can vary a bit depending on the
+          //problem. This must be set true before enqueuing each element
+          visited[node] = true; 
+
+          while (!q.isEmpty) {
+              curNode = q.dequeue();
+              visit(curNode);
+              for (adjNode : curNode.adjNodes) {
+                  if (visited(adjNode) == false) {
+                      // This must be set true before enqueuing each element.
+                      // visited == true when the node is already in the queue
+                      // or visited.
+                      visited(adjNode) = true; 
+
+                      //Record the predecessor, used when you want the 
+                      //shortest path
+                      prev[adjNode] = curNode;
+                      q.enqueue(adjNode);
+                  }
+              }
+          }
+          print(prev) // Print out the shortest path recursively, optional
+          done;
+      ```
+    * Algorithm of level BFS(node), which can give the distance from the node being traversed to the source node.
+      ```
+        BFS(node):
+          If node is null, return; //queue usually doesn't allow null value
+          Create queue q;
+          q.enqueue(node);
+          visited[node] = true; //Usually a hashmap. Flexible, can vary a bit depending
+                                //on the problem
+          for (level = 0; !q.isEmpty; ++level) {
+              size = q.size();
+              for (i = 0; i < size; ++i) {
+                  curNode = q.dequeue();
+                  visit(curNode);
+                  for (adjNode : curNode.adjNodes) {
+                      if (visited(adjNode) == false) {
+                          visited[adjNode] = true;
+                          prev[adjNode] = curNode;  //optional
+                          q.enqueue(adjNode);
+                      }
+                  }          
+              }
+          }
+          print(prev)  //optional
+          done;
+      ```
+
+### Problems
+* [Leetcode] Clone Graph(Implementations*). Shows a special implementation of BFS and DFS. This kinds of problem need to maintain a lot of variables in each recursion/iteration, which is easier by thinking the traversal and cloning processes separately.
+* [Leetcode] Surrounded Regions. (Algorithms and Implementations*). For DFS, sometimes we need to add some restrictions to prevent stack overflow. Remember BFS implementation to this kind of problems.
