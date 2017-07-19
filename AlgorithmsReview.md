@@ -459,3 +459,4 @@ The following template is just used for implementation. Think about the problem 
 ### Problems
 * [Leetcode] Clone Graph(Implementations*). Shows a special implementation of BFS and DFS. This kinds of problem need to maintain a lot of variables in each recursion/iteration, which is easier by thinking the traversal and cloning processes separately.
 * [Leetcode] Surrounded Regions. (Algorithms and Implementations*). For DFS, sometimes we need to add some restrictions to prevent stack overflow. Remember BFS implementation to this kind of problems.
+* [Leetcode] Restore IP Addresses(Implementation*). '012' is invalid while '0' is valid.
