@@ -472,8 +472,11 @@ The following template is just used for implementation. Think about the problem 
 * `(1 + X)^n = Sum(C(n,k) * X^k), 0 <= k <= n`
 * `C(n,k) = C(n-1, k-1) + C(n-1, k)`
 * Permutations, Combinations and Subsets can all be solved by standard DFS or iterative solution based on induction. To remove duplicates, we can either use a hashtable or sort the original array first and then compare the current number with the previous one. Combinations and Subsets problems can also be solved using BitSet, but not recommended as first trial.
+* Proof -- think about in the result why there is no duplicate element, and then why there is no missing element.
 
 ### Problems
-* [Leetcode]Permutations I and II (Multiple Algorithms**). Need to be careful of the recursive solution for II.
-* [Leetcode]Permutation Sequence(Best Algorithm and Implementation**)
-* [Leetcode]Combinations(Algorithms*)
+* [Leetcode] Permutations I and II (Multiple Algorithms**). Need to be careful of the recursive solution for II.
+* [Leetcode] Permutation Sequence(Best Algorithm and Implementation**)
+* [Leetcode] Combinations(Algorithms*)
+* [Leetcode] Subsets I and II(Multiple Algorithms**). The best iterative algorithm is different from the one in Combinations!
+* [Leetcode] Letter combinations of a phone number(Iterative Algorithms*). Remember the iterative algorithms!
