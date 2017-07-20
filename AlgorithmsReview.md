@@ -376,19 +376,22 @@ The following template is just used for implementation. Think about the problem 
             //Initialize the capacity of curPath if possible!
             DFS(node, 0, curPath, paths);
             return paths;
-            
+          
+          //curPath store previous visited nodes
           DFS(node, startId, curPath, paths):
-            if node is end node {
+            if end state {
                 paths.add(curPath.shallow_copy);
                 return;
             }
             //Check validity after checking end node because usually
             //the condition here is more complex than the end node 
             //condition
-            if node is not valid {
+            if current state is not valid {
                 return;
             }
             visited[node] = true;
+            //Can do some pruning here to remove unnecessary adjNode 
+            //to be iterated below
             for (adjNode : node.adjNodes) {
                 curPath.add(adjNode); //To be corrected
                 //Be careful about newStartId!
@@ -459,4 +462,18 @@ The following template is just used for implementation. Think about the problem 
 ### Problems
 * [Leetcode] Clone Graph(Implementations*). Shows a special implementation of BFS and DFS. This kinds of problem need to maintain a lot of variables in each recursion/iteration, which is easier by thinking the traversal and cloning processes separately.
 * [Leetcode] Surrounded Regions. (Algorithms and Implementations*). For DFS, sometimes we need to add some restrictions to prevent stack overflow. Remember BFS implementation to this kind of problems.
-* [Leetcode] Restore IP Addresses(Implementation*). '012' is invalid while '0' is valid.
+* [Leetcode] Restore IP Addresses(Implementation**). '012' is invalid while '0' is valid.
+
+
+## Permutations, Combinations and Subsets.
+### Knowledge
+* Factorial representation of Permutation: `P(n,k) = n! / (n-k)!` 
+* Factorial representation of Combination: `C(n,k) = n! / (k! * (n-k)!)`
+* `(1 + X)^n = Sum(C(n,k) * X^k), 0 <= k <= n`
+* `C(n,k) = C(n-1, k-1) + C(n-1, k)`
+* Permutations, Combinations and Subsets can all be solved by standard DFS or iterative solution based on induction. To remove duplicates, we can either use a hashtable or sort the original array first and then compare the current number with the previous one. Combinations and Subsets problems can also be solved using BitSet, but not recommended as first trial.
+
+### Problems
+* [Leetcode]Permutations I and II (Multiple Algorithms**). Need to be careful of the recursive solution for II.
+* [Leetcode]Permutation Sequence(Best Algorithm and Implementation**)
+* [Leetcode]Combinations(Algorithms*)

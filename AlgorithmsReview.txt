@@ -1006,7 +1006,7 @@ Each time the leaves are removed, all of the paths between two leaves decrease b
 Knowledge:
 (1)Factorial representation of Permutation: P(n,k) = n! / (n-k)! 
 (2)Factorial representation of Combination: C(n,k) = n! / (k! * (n-k)!)
-(3)(1 + X)^n = Sum(Cn,k * X^k), 0 <= k <= n
+(3)(1 + X)^n = Sum(C(n,k) * X^k), 0 <= k <= n
 (4)C(n,k) = C(n-1, k-1) + C(n-1, k)
 (5)Permutations, Combinations and Subsets can all be solved by standard DFS or iterative
 solution based on induction. To remove duplicates, we can either use a hashtable or
