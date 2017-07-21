@@ -480,3 +480,66 @@ The following template is just used for implementation. Think about the problem 
 * [Leetcode] Combinations(Algorithms*)
 * [Leetcode] Subsets I and II(Multiple Algorithms**). The best iterative algorithm is different from the one in Combinations!
 * [Leetcode] Letter combinations of a phone number(Iterative Algorithms*). Remember the iterative algorithms!
+
+
+## Heap
+### Knowledge(Refer to Robert's Algorithms)
+* Priority queue is a abstract data type, like an interface in Java, that can be implemented with different concrete data structures -- unordered array, ordered array, linked list or heap. The performance of the basic operations like max and insert varies in all those implmentations(See Robert's Algorithms for the comparison chart).
+* Heap is a concrete data structure that is typically used to implement priority queue. Usually heap refers to binary heap, but could also refer to d-ary heaps. In concept, a binary heap is a complete binary tree. Each node in the tree is larger than or equal to the keys in that node's two children if it is a max heap. The heap operations require traversing not only down but also up, so in practice, heap is usually implemented as an array.
+* Properties of Heap(max-root)
+  1. The largest key in a heap-ordered binary tree is found at the root.
+  2. The height of a complete binary tree of size N is ⎣lg N⎦ .
+* Operations on heap:
+  1. Parent, leftChild, rightChild. Simple O(1) operations on the indices.
+  2. Size of array and size of heap is different!
+  3. Exchange two nodes.
+  4. Bottom-up reheapify (swim/sift-up). O(lg N)
+  5. Top-down reheapify (sink/sift-down). O(lg N)
+  6. Insert. Add a new key, increase heap size, call 4. O(lg N)
+  7. Remove the maximum/minimum(root), and return the new root key. Exchange last key with the root key, decrease heap size, call 5 to sink the root key. O(lgN).
+  8. Build heap. Call insert(6) one by one. O(nlogn), but if we do it from right to left and call sink(5) from the halfway of the array to the left, it runs in O(2n) = O(n) time.The proof is in Introduction to Algorithms. This can convert an unordered array to a heap. 
+  9. Heap sort(ascending order): (http://algs4.cs.princeton.edu/24pq/Heap.java.html)
+    ```
+      Build max heap(8)
+      while (N > 1) {
+          swap(root, last element of the heap);
+          N--  // Decrease the heap size by 1.
+          sink(root);
+      }
+    ```
+* Indexed priority queue(Robert's Algorithms). Puting indices into a PQ insead of the keys directly, and compare the nodes based on the key(not the index!). What is swapped during reheapfiying is the content of the array(the indices). Therefore when implementing it using a heap, besides the heap array, we also need a map of index to the key, which is often implemented with another array since the index is usually an integer. The operation 7 for this case usually returns the index. And besides the typical PQ operations, there are change(int k, Item item) method that change the key associated with index k to a new key, which requires a third array storing the actual array index for each index of the key(another map). For typical heap PQ, it usually takes the array index directly so no mapping is needed. An useful applciation is also provided in the book: merging multiple sorted streams. Source code: http://algs4.cs.princeton.edu/24pq/IndexMinPQ.java.html Also note that if the input are known elements instead of streams and it is fine to load all elements into the memory, we can also use divide and conquer to merge them, and the time complexity is similar but the space complexity could be much lower. E.g. [Leetcode]merge k sorted lists.
+* Java Implementation: class java.util.PriorityQueue. Doesn't permit null values. It is essentially a min heap, implementing Queue<E> interface. The queue retrieval operations poll, remove, peek, and element access the element at the head of the queue, which is the least one by default.
+Example usage:  
+```java
+//Two arguments passed are capacity and comparator. In the following case,
+//the priority queue stores the elements of ListNode type, and one node is
+//larger than the other when its value is larger than that of the other 
+//node.
+//The following implementation of compare method is preferable to just 
+//return node1.val - node2.val since the latter could have overflow problem
+PriorityQueue<ListNode> pq = new PriorityQueue<>(
+  lists.length, new Comparator<ListNode>() {
+    public int compare(ListNode node1, ListNode node2) {
+        return Integer.compare(node1.val, node2.val);
+    }
+});
+
+//Use the following to create max heap:
+PriorityQueue<Integer> queue = new PriorityQueue<>(10,
+  Collections.reverseOrder());
+//Collection.reverseOrder() returns a ReverseComparator that has a 
+//compare() method that returns the negation of the compareTo method 
+//result of the object.
+```
+
+### Problems
+* [Leetcode] Merge K sorted lists(Algorithms*).
+* [Leetcode] Kth largest element in an array. (Algorithms of heap solutions*). Remember the proof of best heap solution using loop invarient. This can be simulated using an array of variables, when k is small and known, which is a very useful subroutine in many problems(like [Leetcode]Paint House II)? Remember the general idea of Quick Select algorithm and its time complexity.
+* Given n 2D points, find k closest points to the origin. k << n. 
+Solution: Using similar algorithms to (2) -- max heap(O(nlogk)) or quick select. Usually the former way is enough. The possible follow-up is, how to speed up the computation of distances? We can certainly store them along with the point coordinates in the heap, and further more, we can compute the distance(d) of the corner point of the smallest square that wraps the furthest circle, and compare the Manhanttan distance of each point d_m with d(Manhanttan distance between (p1,p2) and (q1, q2) is `|p1 - q1| + |p2 - q2|`), instead of using Euclidean distances. If d_m < d, we then compute and compare the Euclidean distances(x^2 + y^2). Several things should be noted:
+  * For any point p, d_m(p, q) >= d_e(p, q).
+  * If d_m(p1, q) < d_m(p2, q), than d_e(p1, q) < d_e(p2, q).
+  * For points having the same d_m, their d_e could differ greatly.
+  * If the coordinates are Integers, we need to use Long to store the Euclidean distances, which is big enough even if x and y equal to Integer.MAX_VALUE.
+  * References: http://www.weiming.info/zhuti/JobHunting/32078455/
+
