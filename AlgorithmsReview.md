@@ -543,3 +543,31 @@ Solution: Using similar algorithms to (2) -- max heap(O(nlogk)) or quick select.
   * If the coordinates are Integers, we need to use Long to store the Euclidean distances, which is big enough even if x and y equal to Integer.MAX_VALUE.
   * References: http://www.weiming.info/zhuti/JobHunting/32078455/
 
+
+## Sorting and Searching
+### Knowledge(Refer to Coding Manual and Robert's Algorithms)
+* Source code for sortings is in Sortings.java.
+* Insertion sort, bubble sort and selection sort. Although all of them run in O(n^2) time using O(1) space, insertion sort is usually the most efficient(fastest, even faster than other O(nlogn) sorting algorithms when the array is small), while bubble sort is the least efficient. This can be seen from the source code, the number of basic operations in each loop of bubble sort is simly larger than the other two. When the input array is mostly or fully sorted, insertion sort can perform much less operations, while selection sort still performs almost as many as usual. Selection sort generally performs more comparisons than insertion sort, but less writes. Also note that the first two algorithms are stable, while the selection sort is not. Example: for [9, 3, 2, 9, 1], the first 9 will be swapped with 1, leading to a change of relative order of the two 9s. Swapping two elements that are not necessarily adjacent
+is usually the cause of unstability.
+* Merge sort. O(nlogn) time. Needs auxiliary space. Can be implemented using top-down or bottom-up approaches. The space usage can be reduced a bit by adding more array copy operations and do in-place changes instead of returning a new array. The speed can be further improved by using insertion sort instead of merge sort when the subarray is small.
+* Quick sort. Worst case O(n^2) time and on average O(nlogn) time. To make sure it runs in O(nlogn), either the pivot is choosen randomly or the array is shuffled before partitioning. Two partition schemes exist -- Lomuto(used in Introduction to Algorithms) and Hoare(similiar to my implementation, which seems to be more popular, but not easy to understand.??).  
+As per Robert's Algorithms, the average performance of quick sort is usually better than the other O(nlogn) sorting algorithms, due to fewer data movements and comparisons. The speed can be further improved by using insertion sort instead of quick sort when the subarray is small.
+* Heap sort. The algorithm is in Heap chapter. O(nlogn) time and O(1) space, unstable. The number of comparisons is simliar to quick sort, but the cache misses are much larger than the other sorting algorithms, because the array entries are rarely compared with nearby array entries(locality of reference is lower). Cache is always loaded in blocks and each block contains data that are adjacent to each other. Thus quick sort still outperforms heap sort most of the time.
+* Linear time sorts.
+  * Counting sort. It tries to put each input element directly to the destination according to the number of elements that are no greater than it, which is computed beforehand. *Introduction to Algorithms*
+    - Counting sort is efficient if the range of input data is not significantly greater than the number of objects to be sorted. Consider the situation where the input sequence is between range 1 to 10K and the data is 10, 5, 10K, 5K.
+    - It works as long as the input elements can be mapped to a range of integers. So even if the input elements are negative or characters, it could still work.
+    - Counting sort is stable. Thus it can be used as a subroutine in radix sort.
+  * Radix sort. This is useful when each of the input elements consists of several(preferably known and fixed) columns. In such case, this algorithm uses stable sort to sort from the least significant to the most significant column. E.g, if the input elements are d-digit integers:
+    ```
+    Radix-sort(A, d):
+        for i = 1 to d {
+            stable_sort(like counting sort) A on digit i;
+        }
+    ```
+    If we do stable sort for each digit using linear sorts like counting sort, the radix sort runs in O(d(n+k)) time, or O(dn) since k is less than 10. However in practice radix can be easily outperformed by other sorting algorithms when d is larger than logn. Also radix sort requires more space and less flexible than the other in-place sorting algorithms. 
+    https://www.quora.com/If-Radix-sort-has-a-better-time-complexity-why-is-quick-sort-preferred-both-in-APIs-and-in-terms-of-interviews
+    Overall, radix sort is a stable sort.
+* External sort to deal with big data and small memory. Divide the original data into several parts, sort each part in memory and save it back to a file, and finally use k-way merge sort to merge k files.  
+https://en.wikipedia.org/wiki/External_sorting  
+http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSortEX2.htm
