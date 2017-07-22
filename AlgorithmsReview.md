@@ -559,15 +559,102 @@ As per Robert's Algorithms, the average performance of quick sort is usually bet
     - It works as long as the input elements can be mapped to a range of integers. So even if the input elements are negative or characters, it could still work.
     - Counting sort is stable. Thus it can be used as a subroutine in radix sort.
   * Radix sort. This is useful when each of the input elements consists of several(preferably known and fixed) columns. In such case, this algorithm uses stable sort to sort from the least significant to the most significant column. E.g, if the input elements are d-digit integers:
-    ```
-    Radix-sort(A, d):
-        for i = 1 to d {
-            stable_sort(like counting sort) A on digit i;
-        }
-    ```
-    If we do stable sort for each digit using linear sorts like counting sort, the radix sort runs in O(d(n+k)) time, or O(dn) since k is less than 10. However in practice radix can be easily outperformed by other sorting algorithms when d is larger than logn. Also radix sort requires more space and less flexible than the other in-place sorting algorithms. 
-    https://www.quora.com/If-Radix-sort-has-a-better-time-complexity-why-is-quick-sort-preferred-both-in-APIs-and-in-terms-of-interviews
-    Overall, radix sort is a stable sort.
+  ```
+  Radix-sort(A, d):
+      for i = 1 to d {
+          stable_sort(like counting sort) A on digit i;
+      }
+  ```
+  If we do stable sort for each digit using linear sorts like counting sort, the radix sort runs in O(d(n+k)) time, or O(dn) since k is less than 10. However in practice radix can be easily outperformed by other sorting algorithms when d is larger than logn. Also radix sort requires more space and less flexible than the other in-place sorting algorithms. 
+  https://www.quora.com/If-Radix-sort-has-a-better-time-complexity-why-is-quick-sort-preferred-both-in-APIs-and-in-terms-of-interviews
+  Overall, radix sort is a stable sort.
 * External sort to deal with big data and small memory. Divide the original data into several parts, sort each part in memory and save it back to a file, and finally use k-way merge sort to merge k files.  
 https://en.wikipedia.org/wiki/External_sorting  
 http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSortEX2.htm
+* Binary search. 
+  * The goal is to find a certain element(or the largest element that is smaller than it, or the smallest element that is larger than it, etc)in a sorted array.
+  * Cases to consider:
+    - Valid case, including when the target element is on the edge.
+    - Target element is within the range of the array but not contained in the array
+    - Target element is out of the range of the array, either smaller than the minimum element in the array or greater than the maximum element in the array.
+    - For above cases, don't forget the case when the input array has no or only one element.
+  * Type of search problems and its implementations. General idea is to start
+    with initial range of candidates [low, high], compare target with a[mid](or a[low], a[high] if necessary), then narrow down the candidates by half and search in the new range. Pay attention to how mid value is calculated since we want the range to keep shrinking to 1. For problems that the range can not be cut down to half(time is more than O(logn)), low or high can be increased or decreased gradually.
+    1. Traditional problem -- return the index of the element if found, otherwise return -1. [low, high] keeps shrinking and the size will always become 2 or 1 eventually, which is the range of possible ids. Each iteration makes sure that any id that lies out side this range is not possible to be the result(or has been considered). Therefore if target exists, it will eventually lies in a window of size 1 and target == a[mid] will always happen.
+    ```java
+      int binarySearch(int[] a, int target) {
+          int low = 0;
+          int high = a.length - 1;
+          int mid;
+          while (low <= high) {
+              //Avoid potential overflow, can also written as:
+              //low + ((high - low) >> 1)
+              //The parenthesis must be there!
+              mid = low + (high - low)/ 2; 
+
+              if (target > a[mid]) {
+                  low = mid + 1;
+              } else if (target < a[mid]) {
+                  high = mid - 1;
+              } else {
+                  return mid;
+              }
+          }
+          return -1; // Error
+      }
+
+      int binarySearchRecursive(int[] a, int target, int low, int high) {
+          if (low > high) return -1;// Error
+          int mid = low + (high - low) / 2;
+          if (target > a[mid]) {
+              return binarySearchRecursive(a, target, mid+ 1, high);
+          } else if (target < a[mid]) {
+              return binarySearchRecursive(a, target, low, mid - 1);
+          } else {
+              return mid;
+          }
+      }
+    ```
+    2. Returns the index of first element that is greater than or equal to the target element. Returns n if all elements in the array of size n are less than the target element. Loop invarient is that the result id is always in
+    [low, high], which is always shrinking, and low <= high always holds. mid is always between low and high and smaller than high, so mid is always valid. In the case when target is greater than any element in nums, the returned value must be n. In other cases, there must be a valid id and it is always eaqual to the returned value.
+    ```java
+      int firstGreaterEqual(int[] nums, int target) {
+        int low = 0;
+        int high = nums.length;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            if (target > nums[mid]) {
+                low = mid + 1;
+            } else {
+                //When target == nums[mid], we need to search the left part
+                //to make sure the result is the FIRST element that is greater
+                //than or eaual to the target
+                high = mid;
+            }
+        }
+        return low;
+      }
+    ```
+    3. Returns the index of last element that is less than or equal to the
+    target element. Returns -1 if all elements in the array are greater than the target element. Proof is similar to the previous case.
+    ```java
+      int lastLessEqual(int[] nums, int target) {
+          int low = -1;
+          int high = nums.length - 1;
+          while (low < high) {
+              int mid = high - (high - low) / 2;
+              if (target < nums[mid]) {
+                  high = mid - 1;
+              } else {
+                  low = mid;
+              }
+          }
+          return high;
+      }
+    ```
+    4. Another way to deal with the above two problems is to intialize a variable at the begining to record the index of last found candidate. The rest is similar to the basic binary search and after the loop finishes, that variable should contain the final result. See EPI for the solutions to above problems.
+
+### Problems
+* Binary Search Problems.
+  - [Leetcode] Search Insert Position(Algorithms*). Type 2.
+  - [Leetcode] Search for a Range(Algorithms*). Type 4.

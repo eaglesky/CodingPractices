@@ -1212,9 +1212,11 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
                 int high = a.length - 1;
                 int mid;
                 while (low <= high) {
-                    mid = low + (high - low)/ 2; //Avoid potential overflow,
-                                                 //can also written as:
-                                                 //low + ((high - low) >> 1)
+
+                    //Avoid potential overflow, can also written as:
+                    //low + ((high - low) >> 1)
+                    mid = low + (high - low)/ 2; 
+
                     if (target > a[mid]) {
                         low = mid + 1;
                     } else if (target < a[mid]) {
@@ -1222,6 +1224,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
                     } else {
                         return mid;
                     }
+                }
                 return -1; // Error
             }
 
@@ -1237,8 +1240,12 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
                 }
             }
         (8.3.2)Returns the index of first element that is greater than or equal to
-        the target element. Returns n if all elements in the array of n are less than
-        the target element.
+        the target element. Returns n if all elements in the array of size n are less
+        than the target element. Loop invarient is that the result id is always in
+        [low, high], which is always shrinking. mid is always between low and high
+        and smaller than high, so mid is always valid. In the case when target is
+        greater than any element in nums, the returned value must be n. In other cases,
+        there must be a valid id and it is always eaqual to the returned value.
                 int firstGreaterEqual(int[] nums, int target) {
                     int low = 0;
                     int high = nums.length;
@@ -1270,7 +1277,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
                 }
         When the target is within the range of the input array, returning low or high
         are all fine since they will be equal in the end, however when the target
-        is not within the range, the end value of low is not equal to high!
+        is not within the range, the end value of low is not equal to high!???
         (8.3.4)Another way to deal with the above two problems is to intialize a variable
         at the begining to record the index of last found candidate. The rest is similar
         to the basic binary search and after the loop finishes, that variable should
