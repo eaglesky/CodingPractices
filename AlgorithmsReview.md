@@ -658,3 +658,5 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 * Binary Search Problems.
   - [Leetcode] Search Insert Position(Algorithms*). Type 2.
   - [Leetcode] Search for a Range(Algorithms*). Type 4.
+  - [Leetcode] Sqrt(x). (Algorithm**).  Type 3.
+  - [Leetcode] Search in rotated sorted array I and II(Algorithm**). Type 1 with changes. Remember the algorithm!
