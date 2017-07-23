@@ -653,6 +653,10 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
       }
     ```
     4. Another way to deal with the above two problems is to intialize a variable at the begining to record the index of last found candidate. The rest is similar to the basic binary search and after the loop finishes, that variable should contain the final result. See EPI for the solutions to above problems.
+    5. Search a certain element that satisfies some condition. No explicit
+    target value. The algorithm is usually to first check the middle value for
+    a certain condition and use that condition to determine whether the next step is to go to the left half or the right half. The key is to determine what condition to use.
+
 
 ### Problems
 * Binary Search Problems.
@@ -660,3 +664,8 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Search for a Range(Algorithms*). Type 4.
   - [Leetcode] Sqrt(x). (Algorithm**).  Type 3.
   - [Leetcode] Search in rotated sorted array I and II(Algorithm**). Type 1 with changes. Remember the algorithm!
+  - [Leetcode] Find Minimum in Rotated Sorted Array I and II(Algorithm**). These problems return the min value rather than the id. Similar to http://practice.geeksforgeeks.org/problems/maximum-value-in-a-bitonic-array/0
+  - [EPI] Search local minimum in partially sorted array(Algorithm). Type 6. Description is in CodingPractices/EPI/SearchLocalMinimum.java
+* Sorting Problems.
+  - [Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick select?)
+  - [Leetcode]Sort Colors(Algorithm**). Two-passes constanct-space solution is actually better than the one-pass solution.

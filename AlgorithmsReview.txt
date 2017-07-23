@@ -1308,7 +1308,7 @@ Binary Search problems:
     (4)[Leetcode]Search in rotated sorted array I and II(Algorithm**). (8.3.1)with
     changes. Remember the algorithm! (8.3.5)
     (5)[Leetcode]Find Minimum in Rotated Sorted Array I and II(Algorithm**). These
-    problems return the min value rather than the id.(8.3.5)
+    problems return the min value rather than the id.
     Similar to: http://practice.geeksforgeeks.org/problems/maximum-value-in-a-bitonic-array/0
     (6)[EPI]Search local minimum in partially sorted array(Algorithm).(8.3.6)
     Description is in CodingPractices/EPI/SearchLocalMinimum.java
