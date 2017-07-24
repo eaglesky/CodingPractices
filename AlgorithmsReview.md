@@ -728,3 +728,4 @@ When using memoization, first think carefully about what variables determine a s
   - Otherwise, the contiguous subarray must not be empty!
 * [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
 * [Lintcode] Maximum Subarray III(Algorithm**). 
+* [Leetcode] Maximum Product Subarray(Algorithm*).
