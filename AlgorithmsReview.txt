@@ -1529,7 +1529,7 @@ the same type of data as the return value of the recursive function.
         of sequences. The index of cache should be non-negative.) This way is commonly
         used when the input has multiple sequences(the cache is multi-dimentional).
         --[Leetcode]Longest Common Subsequence, [Leetcode]Edit Distance.
-        However if both iteration directions(left to right and right to left) exists
+        However if both iteration directions(left to right and right to left) exist
         in the DP loop, it is better not to use length representation. --[Leetcode]Maximal
         Rectangle.
         ** For sequences, consider s[i-1] when solving the problem for s[i], which
@@ -1595,7 +1595,7 @@ the same type of data as the return value of the recursive function.
         ** Think about the starting values carefully, especially those out of the
         range of valid cache elements. Note that the recursive formulas assume that
         the previous state is valid. So when coding be sure to check the cache values
-        that are next to the starting values. Better to do this with a DP full matrix
+        that are next to the starting values. Better to do this with a full DP matrix
         and check the edge computed values that are adjacent to initialized values
         carefully. They could need special handling sometimes! Be careful when using
         a seperate for-loop to handle the edge elements, which could repeat some logic

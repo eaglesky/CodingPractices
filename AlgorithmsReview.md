@@ -669,3 +669,60 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 * Sorting Problems.
   - [Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick select?)
   - [Leetcode]Sort Colors(Algorithm**). Two-passes constanct-space solution is actually better than the one-pass solution.
+
+
+## Dynamic Programming and Memoization
+### Knowledge
+* Difference between DP and Memoization. DP is usually bottom-up while memoization is top-down. See more(including the advantages and disadvantages of each):  
+http://stackoverflow.com/questions/6184869/what-is-difference-between-memoization-and-dynamic-programming
+* Memoization can run faster than DP when not all of the sub problems need to be computed. However as a sacrifice, it has higher memory usage due to the recursion stack, and the size of cache cannot be reduced like that of DP, which could be reduced to one dimension sometimes(like in the following Longest Common Subsequence problem). ---[Leetcode]Scramble String, Interleaving String.  
+When using memoization, first think carefully about what variables determine a sub-problem, before deciding how to implement the cache. Usually they are the same as the parameters of the recursive function(not including the cache itself). And the cache usually stores the same type of data as the return value of the recursive function. ---[Leetcode]Target Sum.
+* Thinking steps.
+  1. If the problem want to find out the longest/maximum value, or a searching result, without any other constraint, it is often a sign of optimization problem which can potentially be tackled using DP/Memoization. Search algorithms like DFS/BFS can also be used, but sometimes the search space could be extremely large, making them not preferable approaches. Greedy algorithm can solve them too, which is often hard to come up with and should be used as a last resort. For some problems, divide and conquer can also be used to solve them. -- [Leetcode]Maximum Subarray.
+  2. Break the original problem into subproblems and then create the recursive formulas. DP/memoization works well when the subproblems overlap, otherwise simple recursion works better. Sometimes instead of breaking the original problem, we can break a variation of it whose solution can easily lead to the solution of the original problem. Think about the order of indices first before writing down the formulas. Don't forget to write down the range of valid indices of the recursive formulas (and the target!).
+  Ways of breaking the problem:
+      - For sequences, consider s[l-1] when solving the problem for s[l], which stores the result of sequence with length l. (It is often preferable to use length as index of cache rather than the index of sequences, since the starting elements in the cache ususally have length zero, and negative index of sequences. The index of cache should be non-negative. And the initial state for zero index cache value is usally harder to determine than zero length cache value) This way is commonly used when the input has multiple sequences(the cache is multi-dimentional). --[Leetcode]Longest Common Subsequence, [Leetcode]Edit Distance. However if both iteration directions(left to right and right to left) exist in the DP loop, it is better not to use length representation. --[Leetcode]Maximal Rectangle.
+      - For sequences, consider s[i-1] when solving the problem for s[i], which contains the result of sequence starting or ending with element at index i. -- [Leetcode]Maximum Subarray.
+      - Sometimes it is good to have a final process to conquer the results of all the subproblems, which could help design subproblems that are easier to solve in less time. -- [Leetcode]Best Time to Buy And Sell Stock, generaliazation DP solution.
+      - If the cache is multi-dimensional, like d[m][l], when coming up with the recursive formula, try considering its relation with all possible subproblems, like d[m-1][l], d[m][l-1], or a combination of them. -- [Lintcode]Maximum Subarray II.
+      - Sometimes multi-dimensional cache in the recursive formula can be reduced to one-dimentional by fixing the other dimention(usually that requrires another iteration to get the final result). -- [Leetcode]Palindrome Partitioning II, Maximum Subarray II.
+      - Sometimes need to maintain multiple db arrays, e.g. Let d[i][1] denote select the current element and d[i][0] denote not select. Or d[i][k] denote including the current element, and d[i][t] denote not including. This is often used for problems similar to 0-1 knapsack problem. This kind of problem can also be visualized, like in [Leetcode]Pain House II. [Leetcode]Maximum product subarray, house robber I, Target Sum, Paint House.
+      - The recursive relation may not necessarily involve adjacent indices. Sometimes we need to come up with it by observing the pattern/attribute from the problem. -- [GeeksForGeeks]Longest Arithmetic Progression, sorted array.
+  3. Implement the solution using DP/memoization. 
+    * If using DP and the path needs not to be returned, consider reducing the size of cache. For many problems the size can be reduced to one or two 1D arrays or even a few variables. A swap of array pointers is often used at the end of each iteration if two 1D arrays are used. 
+      - Previous visited element of the current array can be stored lazily to reduce two arrays to only one.-- [Leetcode]Edit Distance. 
+      ```
+               a_i
+                |
+      b_i-1 <- b_i
+      ```
+      if b_i is computed from b_i-1 and a_i, then one array is enough to store them, if iterating from left to right.
+      - If only elements in previous row are used to compute the one in the current row, consider doing the iteration from right to left:
+      ```
+       a_i-1 a_i
+          \   |
+             b_i
+      ```
+      if b_i is computed from a_i-1 and a_i, then one array is enough to store them, if iterating from right to left.
+      - If the computing the current element requires elements from the current row and previous row, more variables need to be mainained to store the previous elements in the previous row:
+      ```
+      a_i-k, a_i-k+1 .. a_i-1     a_i
+           \     \        \        |
+                        b_i-1 <-  b_i
+      ```
+      If k is a constant, then we need k variables p_i-k, p_i-k+1, ... p_i-1 to store a_i-k ... a_i-1. Use variable temp to store a_i, and after computing and storing the new values(b_i) to the array, shift the values in p to the left : p_i-k = p_i-k+1, p_i-k+1 = p_i-k+2 ... p_i-1 = temp. -- [Leetcode]Maximal Square.
+    * Think about the starting values carefully, especially those out of the range of valid cache elements. Note that the recursive formulas assume that the previous state is valid. So when coding be sure to check the cache values that are next to the starting values. Better to do this with a full DP matrix and check the edge computed values that are adjacent to initialized values carefully. They could need special handling sometimes! Be careful when using a seperate for-loop to handle the edge elements, which could repeat some logic and is error-prone since some repeated logic(like update of certain variable) could be missing.
+    * The max/min in the recursive formulas can often be computed on the fly instead of using a separate loop. This can often reduce the degree of time complexity.
+    * Prefer using boolean expression to if-else statements to implement the recursive formulas.--[Leetcode] Interleaving String.
+  4. When the path needs to be returned, we have following options:
+      - Cache the optimal path for each subproblem and return the result in O(1) time. However the downside is it is very costly in space.
+      - If the cache for the optimal results is in 2D, we can reconstruct the path from the final problem by iterating the cache, which can be done in linear time.
+      - If the cache for the optimal results is already reduced to 1D, then another 2D array should be created to store the index/direction of subproblems. Iterating this new array like above can reconstruct the path in linear time too.
+      The above options also apply to memoization.
+
+### Problems
+* [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
+* [Leetcode] Maximum Subarray(Algorithm*). Note two edge cases: 
+  - The input array is null or zero length. Expected 0.
+  - Otherwise, the contiguous subarray must not be empty!
+* [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
