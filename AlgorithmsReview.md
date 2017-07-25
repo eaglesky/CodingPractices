@@ -734,3 +734,5 @@ When using memoization, first think carefully about what variables determine a s
 * [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
 * [Lintcode] Maximum Subarray III(Algorithm**). 
 * [Leetcode] Maximum Product Subarray(Algorithm*).
+* Find the number of subsets that have sum equals to s(elements and s are positive):
+  - [Leetcode] Combination Sum IV(Best Algorithm**). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
