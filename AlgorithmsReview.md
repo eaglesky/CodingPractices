@@ -737,3 +737,8 @@ When using memoization, first think carefully about what variables determine a s
 * Find the number of subsets that have sum equals to s(elements and s are positive):
   - [Leetcode] Combination Sum IV(Best Algorithm**). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
   - [Leetcode] Target Sum(Best Algorithm**).
+
+
+## Other Concepts and special problems, including greedy problems.
+* Best Time to Buy and Sell Stock problems
+  - [Leetcode]Best Time to Buy and Sell Stock I and II(Algorithms).
