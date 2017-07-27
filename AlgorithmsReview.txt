@@ -1441,10 +1441,16 @@ case):
 them is smaller than some value. The value of Double could be NaN(like the 0.0/0.0),
 POSITIVE_INFINITY, NEGATIVE_INFNITY, +0, -0, which are not equal to each other(especially
 +0 is not evaluated as equal to -0, for both equals() and compareTo()).
+The reason for that is that Double/Float usually cannot represent the precise value
+of a decimal number, if it is some integer of large abosolute value, or most of the
+floating numbers.
 
-Another way of comparing them is to use BigDecimal, which might be more costly.
+Another way of comparing them is to use BigDecimal, which can represent exact value
+of a decimal number but can be more costly.
 http://stackoverflow.com/questions/28972497/java-double-comparing-vs-string-comparing
 http://blog.csdn.net/wcxiaoych/article/details/42806313.
+Good tutorial: 
+http://www.opentaps.org/docs/index.php/How_to_Use_Java_BigDecimal:_A_Tutorial
 
 The default implementation using equals, compareTo or just comparator have some rounding
 errors, which could still work if the floating numbers are not that closed to each

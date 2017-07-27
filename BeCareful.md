@@ -14,6 +14,14 @@ Also don't think too much about whether using a separate helper function. Just d
 * For implementation problems with a lot of corner cases, pay more attention to writing robust code with good style than performance! Refactor the code to improve the performance after you have a working solution!
 * Refactor the code if the code is correct. This could be done earlier before checking the correctness of the code if the code needs obvious refactoring.
 
+## Online coding interview preparation
+* Be sure to get used to the code pad beforehand, including how to run the code and see the results in the console(scrolling and reset).
+* Get familar with adding a main function to the Solution class and other nitty-gritty on Java. This will save the compling time.
+* Prepare pens and paper if it is a phone interview.
+* Check the headphone and microphone if it is phone interview.
+* Before debugging, first do a visual check. Don't let any unsure places go -- correct it even if you are unsure why it leads to the incorrect result.
+
+
 1. Be careful about the end value of iterator after the for loop!!
 
 2. When adding/multiply two numbers digits by digits, consider the following cases:
