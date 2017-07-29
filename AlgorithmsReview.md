@@ -741,4 +741,10 @@ When using memoization, first think carefully about what variables determine a s
 
 ## Other Concepts and special problems, including greedy problems.
 * Best Time to Buy and Sell Stock problems
-  - [Leetcode]Best Time to Buy and Sell Stock I and II(Algorithms).
+  - [Leetcode] Best Time to Buy and Sell Stock I and II(Algorithms).
+* Parentheses related problems.  
+  Two ways of thinking: 
+  1. Using a stack and iterate a string, whenever you encounter a ')', check if the top of the stack is '(', if so, pop it, otherwise push ')'. For any substring representing valid parenthese, if you scan from left to right, each time a ')' comes in, there must be a '(' matching it, which is always the closest unmatched '(' to it. Similarly case if you scan from right to left.
+  2. Compare the numbers of '(' and ')' encountered so far and compare them. For any valid parentheses, those number should be equal. Using counters of parentheses can easily calculate the length of formed parentheses. 
+  - [Leetcode] Valid Parentheses(Algorithm)
+  - [Leetcode] Longest Valid Parentheses(Algorithms** and implementation* of constanct space solution). 
