@@ -152,9 +152,10 @@ When finding max/min element, we can either use reference type variable instead 
   - [Leetcode] Integer to English Words(Algorithm* and Implementation)
   - [Leetcode] Basic Calculator II(Best Algorithm* and Implementation). Remember the best algorithm, which can be applied to many other problems. Also remember the way how to get integersformed by a substring without using Integer.parseInt(string).
   - [Leetcode] Valid Number(Algorithm* and Implementation*). The decription is vague, so refer to the comments in my Java solution for detailed requirements.
-
 * Palindrome related:
   - [Leetcode] Shortest Palindrome(Algorithm*, very hard!)
+* Anagram related.
+  - [Leetcode] Group Anagrams(Algorithms*). The key is to find out how to uniquely represent the anagrams. The robust way is to use the sorted string, but in some cases the counting array, or even the product of prime numbers could work too.
 
 
 ## Linked List
