@@ -750,3 +750,6 @@ When using memoization, first think carefully about what variables determine a s
   2. Compare the numbers of '(' and ')' encountered so far and compare them. For any valid parentheses, those number should be equal. Using counters of parentheses can easily calculate the length of formed parentheses. 
   - [Leetcode] Valid Parentheses(Algorithm)
   - [Leetcode] Longest Valid Parentheses(Algorithms** and implementation* of constanct space solution). 
+* Arithmetic expression evaluation.
+  - [Leetcode] Basic Calculator II(See previous).
+  - [Leetcode] Basic Calculator I(Algorithms* and Implementations*). Might be better to deal with the digits first in each iteration. How to solve it when the operators have * and / ??
