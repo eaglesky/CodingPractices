@@ -754,3 +754,4 @@ When using memoization, first think carefully about what variables determine a s
 * Arithmetic expression evaluation.
   - [Leetcode] Basic Calculator II(See previous).
   - [Leetcode] Basic Calculator I(Algorithms* and Implementations*). Might be better to deal with the digits first in each iteration. How to solve it when the operators have * and / ??
+  - [Leetcode] Different Ways to Add Parentheses(Algorithm**).Remember the way of enumerating different order of calculating an arithmetic expression.
