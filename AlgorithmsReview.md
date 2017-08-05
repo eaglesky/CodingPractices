@@ -399,7 +399,9 @@ The following template is just used for implementation. Think about the problem 
                 curPath.add(adjNode); //To be corrected
                 //Be careful about newStartId!
                 DFS(adjNode, newStartId, curPath, paths);
-                curPath.removeLast;
+                //If using Java StringBuilder, try sb.setLength(originalLen)
+                //or sb.setCharAt(id, newChar) to change directly
+                curPath.removeLast; 
             }
             visited[node] = false;
             Done;
@@ -755,3 +757,4 @@ When using memoization, first think carefully about what variables determine a s
   - [Leetcode] Basic Calculator II(See previous).
   - [Leetcode] Basic Calculator I(Algorithms* and Implementations*). Might be better to deal with the digits first in each iteration. How to solve it when the operators have * and / ??
   - [Leetcode] Different Ways to Add Parentheses(Algorithm**).Remember the way of enumerating different order of calculating an arithmetic expression.
+  - [Leetcode] Expression Add Operators(Algorithm** and Implementation*). Remember the best backtracking logic and implementation. Note that "00" is not valid number. Also the overflowed values should not be counted.
