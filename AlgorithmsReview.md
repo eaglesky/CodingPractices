@@ -163,7 +163,8 @@ When finding max/min element, we can either use reference type variable instead 
   Processing substring using an inner loop is usually a robust way. If this is done for certain characters only, consider doing it when only that condition is satisfied. An alternative way is do this for any case and break out when the condition is not satisfied and then continue handling other cases in the same iteration. The latter way might be simpler but requires more thought and could be less robust if different cases require different handling. So try the former way to be on the safe side.
   - [InterviewBit] Pretty Json(Best Algorithm** and Best Implementation**). Remember the best implementation logic. Also the edge case when '}' or ']' is followed by ','. For this recursive-like parsing problems, stack is often needed if the previous context value cannot be restored. But for this problem the previous value can easily be restored so using just a variable to store the current context value is enough.  
   The Json value could be a string, number, null, another json object, or an array object. The Json object is comprised of key-value pairs, while the array object is comprised of values. This problem just involves four cases as is shown in the code.  
-
+  - [Leetcode] Text Justification(Implementation**). We can assume the words are non-empty since they are usually the output of split on the original text string. Pay attention to the case when there is only one word in the line, and the last line.  
+  To deal with each group of elements in an array, one good implementation is to use a inner loop to iterate the elements of each group. This makes it cleaner to do pre-processing and post-processing of each group.
 
 ## Linked List
 
