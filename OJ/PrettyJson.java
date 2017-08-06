@@ -144,7 +144,7 @@ public class PrettyJson {
 	}
 
 	//Similar to above logic, but create array list directly like the first try
-	public ArrayList<String> prettyJSON(String a) {
+	public ArrayList<String> prettyJSON2(String a) {
 	    ArrayList<String> result = new ArrayList<>();
 	    StringBuilder sb = new StringBuilder();
 	    int curIndentNum = 0;
@@ -181,6 +181,51 @@ public class PrettyJson {
 	    }
 	    if (sb.length() > 0) {
 	    	result.add(sb.toString());
+	    }
+	    return result;
+	}
+
+	//Better implementation logic
+	//Returning arraylist makes more sense than returning a string,
+	//since the latter way could overflow but the former does not.
+	public ArrayList<String> prettyJSON(String a) {
+	    ArrayList<String> result = new ArrayList<>();
+	    if (a == null || a.isEmpty()) {
+	        return result;
+	    }
+	    StringBuilder shift = new StringBuilder();
+	    Set<Character> stopChars = new HashSet<>(
+	        Arrays.asList(',', '{', '}', '[', ']'));
+	    for (int i = 0; i < a.length(); ++i) {
+	        char c = a.charAt(i);
+	        if (Character.isWhitespace(c)) {
+    	        continue;
+	        }
+            if (c == '{' || c == '[') {
+                StringBuilder sb = new StringBuilder()
+                                        .append(shift)
+                                        .append(c);
+                result.add(sb.toString());
+                shift.append('\t');
+            } else if (c == '}' || c == ']') {
+                shift.setLength(shift.length() - 1);
+                StringBuilder sb = new StringBuilder()
+                                        .append(shift)
+                                        .append(c);
+                result.add(sb.toString());
+            } else if (c == ',') {
+                if (!result.isEmpty()) {
+                    String lastStr = result.get(result.size() - 1);
+                    result.set(result.size()-1, lastStr + c);
+                }
+            } else {
+                StringBuilder sb = new StringBuilder().append(shift);
+                for (; i < a.length() && !stopChars.contains(a.charAt(i)); ++i) {
+                    sb.append(a.charAt(i));
+                }
+                --i;
+                result.add(sb.toString());
+            }
 	    }
 	    return result;
 	}

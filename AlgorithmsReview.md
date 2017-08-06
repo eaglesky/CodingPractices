@@ -81,9 +81,11 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
     This essentially skips some unnecessary checks of elements between certain pairs of pointers, which is mainly done by the inner loop -- subarrays/substrings starting with the slower pointer is skipped, and we only need to compare the subarrays/substrings between the slower pointer and the faster pointer, not all elements before the faster pointer. So the loop invarient at the beginning of each iteration is usually the subarrays/substrings ending with elements before current fast pointer are all checked, and subsequent checks do not need to compare subarrays/substrings starting with elements before slow pointer -- (slow pointer, fast pointer) is the first subarray/substring that is valid ending with fast pointer.
     - [Leetcode] Minimum Size Subarray Sum(Algorithms* and implementation of two pointer solution*). Sometimes the max/min value should be initialized failure value, not Integer.MAX_VALUE or Integer.MIN_VALUE, because it is likely those values are confused with some valid max/min values. The code is not that complicated for the update part -- one line is enough.  
     Note that the assuption of positive nums are important! Otherwise this two-pointer solution must be modified, and the runing time will has to be O(n^2) at best(proof?). And because of this assumption, the question makes sense asking the "minimum" size, not the "maximum" size. And similar questions like "finding maximum size subarray whose size is no larger than k" can also be solved similarly.
-    - [Leetcode]Longest Substring Without Repeating Characters(Implementation*)
-    - [Leetcode]Longest Substring with At Most K Distinct Characters(Algorithm*)
-    - [Leetcode]Longest Substring with At Least K Repeating Characters(Multiple Algorithms*, one of them is two pointer**)
+    - [Leetcode] Longest Substring Without Repeating Characters(Implementation*)
+    - [Leetcode] Longest Substring with At Most K Distinct Characters(Algorithm*)
+    - [Leetcode] Longest Substring with At Least K Repeating Characters(Multiple Algorithms*, one of them is two pointer**)
+    - [Leetcode] Minimum Window Substring(Algorithm* and best implementation*). Remember the one map implementation. Also recording the indices is better than recording the substring.
+    - [Leetcode] Substring with Concatenation of All Words(Algorithm* and Implementation*, very hard). In this question, word list can contain duplicate word, and the target substring should contain exactly same number as appeared in the word list. Might be easier to implement if before each scan, do a pre-processing and get list of words.
 * [Leetcode] Shortest Word Distance(Algorithm*). It looks similar to another problem, but I forgot which one.
 * [Leetcode] Shortest Word Distance III(Algorithm*). A follow-up of above. Easy to make mistake here!
 * Subarray sum problems. Three approaches:
@@ -143,6 +145,7 @@ When finding max/min element, we can either use reference type variable instead 
 * Anagram: a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman. To check if two strings are anagrams, either use a hashmap to count the number of occurences for each character and compare them, or just sort the two strings and see if they are the same.
 * Don't forget the edge case when the string is empty! If this happens, for loop on the string won't happen!
 * Note that the whitespace in a string may not be ' ', could be '\t' or even '\n'.
+* Terminology: '{' --- brace, '[' --- bracket, '(' --- parenthesis.
 
 ### Problems
 * Numbers related  
@@ -156,6 +159,10 @@ When finding max/min element, we can either use reference type variable instead 
   - [Leetcode] Shortest Palindrome(Algorithm*, very hard!)
 * Anagram related.
   - [Leetcode] Group Anagrams(Algorithms*). The key is to find out how to uniquely represent the anagrams. The robust way is to use the sorted string, but in some cases the counting array, or even the product of prime numbers could work too.
+* Parsing.
+  Processing substring using an inner loop is usually a robust way. If this is done for certain characters only, consider doing it when only that condition is satisfied. An alternative way is do this for any case and break out when the condition is not satisfied and then continue handling other cases in the same iteration. The latter way might be simpler but requires more thought and could be less robust if different cases require different handling. So try the former way to be on the safe side.
+  - [InterviewBit] Pretty Json(Best Algorithm** and Best Implementation**). Remember the best implementation logic. Also the edge case when '}' or ']' is followed by ','. For this recursive-like parsing problems, stack is often needed if the previous context value cannot be restored. But for this problem the previous value can easily be restored so using just a variable to store the current context value is enough.  
+  The Json value could be a string, number, null, another json object, or an array object. The Json object is comprised of key-value pairs, while the array object is comprised of values. This problem just involves four cases as is shown in the code.  
 
 
 ## Linked List
