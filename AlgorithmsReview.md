@@ -318,6 +318,8 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   - [Leetcode] Binary tree postorder traversal(Algorithms** and implementation**), it can be seen as a reverse of preorder traversal. Hardest among the three. Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
   - [Others] Find in-order successor of node in binary tree using parent pointer(Algorithm and implementation).
   - [Others] Find in-order successor of node in binary tree without using parent pointer.(Implementation of recursive solution)
+  - [Leetcode] Binary tree level order traversal I(Multiple algorithms*), II is just adding reverse to the end of the solution of I. The recursive algorithm can be applied to some other problems.
+  - [Leetcode] Zigzag level order traversal. Reverse the array for that level every two levels(or assign the values reversely when creating the array for that level).
   - [Leetcode] Find leaves of binary tree(Algorithm** and Implementation). When requiring return a list of nodes that does not follow the order of basic traversal, consider storing the element directly to the corresponding location in the output array.
   - [Leetcode] Minimum Depth of Binary Tree(Algorithms and Implementation)
   - [Leetcode] Balanced Binary Tree(Best Algorithm*)
