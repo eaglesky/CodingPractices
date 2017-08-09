@@ -313,16 +313,21 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
 * Traversal  
   Make sure to understand the process of three basic traversals.  
   Code usually can be proved inductively -- properties of each subtree are maintained and passed to the parent tree. See solutions of postorder traversal.
-  - [Leetcode] Binary tree inorder traversal(Algorithms* and Implementation*). Recursive solution, typical iterative solution using a stack, Morris Traversal(rarely used).
-  - [Leetcode] Binary tree preorder traversal(Algorithms* and implementation*). Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
-  - [Leetcode] Binary tree postorder traversal(Algorithms** and implementation**), it can be seen as a reverse of preorder traversal. Hardest among the three. Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
-  - [Others] Find in-order successor of node in binary tree using parent pointer(Algorithm and implementation).
-  - [Others] Find in-order successor of node in binary tree without using parent pointer.(Implementation of recursive solution)
-  - [Leetcode] Binary tree level order traversal I(Multiple algorithms*), II is just adding reverse to the end of the solution of I. The recursive algorithm can be applied to some other problems.
-  - [Leetcode] Zigzag level order traversal. Reverse the array for that level every two levels(or assign the values reversely when creating the array for that level).
-  - [Leetcode] Find leaves of binary tree(Algorithm** and Implementation). When requiring return a list of nodes that does not follow the order of basic traversal, consider storing the element directly to the corresponding location in the output array.
-  - [Leetcode] Minimum Depth of Binary Tree(Algorithms and Implementation)
-  - [Leetcode] Balanced Binary Tree(Best Algorithm*)
+  - Basic Traversals.
+    + [Leetcode] Binary tree inorder traversal(Algorithms* and Implementation*). Recursive solution, typical iterative solution using a stack, Morris Traversal(rarely used).
+    + [Leetcode] Binary tree preorder traversal(Algorithms* and implementation*). Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
+    + [Leetcode] Binary tree postorder traversal(Algorithms** and implementation**), it can be seen as a reverse of preorder traversal. Hardest among the three. Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
+    + [Others] Find in-order successor of node in binary tree using parent pointer(Algorithm and implementation).
+    + [Others] Find in-order successor of node in binary tree without using parent pointer.(Implementation of recursive solution)
+  - Level order traversal related.
+    + [Leetcode] Binary tree level order traversal I(Multiple algorithms*), II is just adding reverse to the end of the solution of I. The recursive algorithm can be applied to some other problems.
+    + [Leetcode] Zigzag level order traversal. Reverse the array for that level every two levels(or assign the values reversely when creating the array for that level).
+    + [Leetcode] Binary Tree right side view -- small variation of level order traversal.
+    + [Leetcode] Symmetric Tree(Algorithm and Multiple Implementation*). Iterative solution using queue or stack can add the elements in any order.
+  - Depth/height related.
+    + [Leetcode] Find leaves of binary tree(Algorithm** and Implementation). When requiring return a list of nodes that does not follow the order of basic traversal, consider storing the element directly to the corresponding location in the output array.
+    + [Leetcode] Minimum Depth of Binary Tree(Algorithms and Implementation)
+    + [Leetcode] Balanced Binary Tree(Best Algorithm*)
 * Binary Search Tree:
   - [Leetcode]Validate Binary Search Tree(Multiple algorithms* and Implementations*) -- this reveals an important attribute of BST when traversing it!
   - [Leetcode]Inorder Successor in BST(Algorithm*). This algorithm uses the ascending order attribute of BST so that it can run in O(h) time not in O(n) time. Therefore this algorithm works only when the target is INORDER successor and there are no duplicates in the tree. If duplicates are allowed, this algorithm can not gurantee that the node returned is INORDER successor. Example:
