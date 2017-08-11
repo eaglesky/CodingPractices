@@ -294,7 +294,7 @@ Example: [Others]InorderSuccessorBinaryTreeWithParent and without.
 * About Morris traversal: the basic idea is to use null right child of some nodes to store the succedents beforehand and delete them afterhand. Preorder and inorder are similar, since the right children are always traversed at last, and therefore after traversing back through the thread pointer there is no need to visit the left children again. However for postorder traversal, the parent node is traversed at last. So after traversing back through the thread pointer, the left children have to be visited reversely(only those nodes from the direct left child all the way down to the right). It is also necessary to create a dummy node and(7) have its left child be the root.
 * If the problem is about the height(distance from the furthest leaf to the current node), consider to compute the height for each node recursively, based on that of its children(this is essentially bottom-up recursion). Consider treating null as height -1. E.g. [Leetcode]Find leaves of binary tree. This solution can be applied to finding height of all the nodes.  
 For depth(distance from the root to the current node) related problems, if the problem asks for depth of each node, then we have to use top-down recursion. If it asks for max/min depth of a binary tree(max/min distance from the root node to a leaf), then the problem can be converted into finding max/min height of root node, and it's better to use bottom-up recursion than top-down recursion since the latter would require passing a global variable to the recursive function). However if using iterative solution, top-down is easier to implement than bottom-up.  
-Note that the bottom-up recursion code of finding the minimum height/depth is more complex than finding the maximum(technically they should not be called at height/depth)! For the minimum, usually if one of them is null, we take the height/depth of the other, otherwise we use the minium one plus 1. E.g. [Leetcode] Minimum Depth of Binary Tree  
+Note that the bottom-up recursion code of finding the minimum height/depth is more complex than finding the maximum(technically they should not be called at height/depth)! For the minimum, usually if one of them is null, we take the height/depth of the other, otherwise we use the minium one plus 1. E.g. [Leetcode]Minimum Depth of Binary Tree  
 Besides traditional resursive approach, max-depth problem can also be solved by removing the leaf nodes in each iteration until the tree is empty. E.g. [Others]Find Depth.
 * Binary search tree:
   * Definition: A binary search tree (BST) is a binary tree where each node has a Comparable key (and an associated value) and satisfies the restriction that the key in any node is larger than the keys in all nodes in that node’s left subtree and smaller than the keys in all nodes in that node’s right subtree.
@@ -313,6 +313,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
 * Traversal  
   Make sure to understand the process of three basic traversals.  
   Code usually can be proved inductively -- properties of each subtree are maintained and passed to the parent tree. See solutions of postorder traversal.
+  Tree problems can often be solved by recursion. DP rarely works. The recursion could be either top-down or bottom-up, or both.
   - Basic Traversals.
     + [Leetcode] Binary tree inorder traversal(Algorithms* and Implementation*). Recursive solution, typical iterative solution using a stack, Morris Traversal(rarely used).
     + [Leetcode] Binary tree preorder traversal(Algorithms* and implementation*). Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
@@ -322,6 +323,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     + [Leetcode] Flatten binary tree to linked list(Multiple Algorithms**)
     + [Leetcode] Path Sum I(Implementation). Problems with target sum that requires recursion can often pass remaining sum as a parameter instead of target sum and current sum. This trick can be applied to many other problems with target sum!
     + [Leetcode] Path Sum II.
+    + [Leetcode] Path Sum III(Algorithm**). Remember the top-down way of enumerating all the path with target sum! Passing the total count as a parameter may be easier to think of, which can be improved to change to the return value of the recursive function, if the count is used in post-order way.
   - Level order traversal related.
     + [Leetcode] Binary tree level order traversal I(Multiple algorithms*), II is just adding reverse to the end of the solution of I. The recursive algorithm can be applied to some other problems.
     + [Leetcode] Zigzag level order traversal. Reverse the array for that level every two levels(or assign the values reversely when creating the array for that level).
