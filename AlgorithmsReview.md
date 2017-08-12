@@ -317,19 +317,25 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   - Basic Traversals.
     + [Leetcode] Binary tree inorder traversal(Algorithms* and Implementation*). Recursive solution, typical iterative solution using a stack, Morris Traversal(rarely used).
     + [Leetcode] Binary tree preorder traversal(Algorithms* and implementation*). Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
-    + [Leetcode] Binary tree postorder traversal(Algorithms** and implementation**), it can be seen as a reverse of preorder traversal. Hardest among the three. Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
+    + [Leetcode] Binary tree postorder traversal(Algorithms** and implementation**), it can be seen as a reverse of preorder traversal. Hardest among the three. Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).  
+    The recursive solutions to many other problems can be converted into iterative one by storing the computed result for left and right child of the current node, usually in a map. After storing the computed result for the current node, the results for its children can be discarded.
     + [Others] Find in-order successor of node in binary tree using parent pointer(Algorithm and implementation).
     + [Others] Find in-order successor of node in binary tree without using parent pointer.(Implementation of recursive solution)
     + [Leetcode] Flatten binary tree to linked list(Multiple Algorithms**)
     + [Leetcode] Path Sum I(Implementation). Problems with target sum that requires recursion can often pass remaining sum as a parameter instead of target sum and current sum. This trick can be applied to many other problems with target sum!
     + [Leetcode] Path Sum II.
     + [Leetcode] Path Sum III(Algorithm**). Remember the top-down way of enumerating all the path with target sum! Passing the total count as a parameter may be easier to think of, which can be improved to change to the return value of the recursive function, if the count is used in post-order way.
+    + [Leetcode] Lowest Common Ancestor of a Binary Tree(Algorithms*). If the question asks to return special value when not both of the input nodes exist in the tree, then the recursive function should return not only a node, but also the number of found nodes.   
+    Building a map of node to its parent node while traversing the tree is a great trick that can be applied to some other tree problems.
+    + [Others] Lowest commmon ancestor of deepest nodes(Best algorithm* and best implementation*). Remember the recursive thinking of LCA algorithms.
+    + [Leetcode] House Robber III(Algorithm*)
   - Level order traversal related.
     + [Leetcode] Binary tree level order traversal I(Multiple algorithms*), II is just adding reverse to the end of the solution of I. The recursive algorithm can be applied to some other problems.
     + [Leetcode] Zigzag level order traversal. Reverse the array for that level every two levels(or assign the values reversely when creating the array for that level).
     + [Leetcode] Binary Tree right side view -- small variation of level order traversal.
     + [Leetcode] Symmetric Tree(Algorithm and Multiple Implementation*). Iterative solution using queue or stack can add the elements in any order.
     + [Leetcode] Populating next right pointers in each node I and II(Implementation**). Remember the branching logic.
+    + [Leetcode] Binary Tree Vertical Order Traversal(Algorithm*). When implementing level order traversal, sometimes it is easier to handle the current node directly instead of handle the left and right node respectively. Also remember the trick to iterate keys in sorted order without using sorted map/set in linear time.
   - Depth/height related.
     + [Leetcode] Find leaves of binary tree(Algorithm** and Implementation). When requiring return a list of nodes that does not follow the order of basic traversal, consider storing the element directly to the corresponding location in the output array.
     + [Leetcode] Minimum Depth of Binary Tree(Algorithms and Implementation)
