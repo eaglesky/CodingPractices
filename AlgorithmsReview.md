@@ -100,7 +100,7 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 * [Others] Task schedule with cool down(Algorithm and implementation**).
 * [Leetcode] Product of Array Except Self(Algorithm**). Divide, compute one side and store it, then compute another side. Can be applied to many other problems.
 * [Leetcode]Increasing Triplet Subsequence(Algorithm**). This can also be solved using idea similar to the previous problem, but it would use O(n) extra space. The best solution can also be applied to checking the existence of increasing subsequence of any length. Useful trick and can be applied to other problems.  
-When finding max/min element, we can either use reference type variable instead of primitive type so that we can use null as the initial value, or use index of the element and -1 as the initial value(or any special value indicating invalid for the element). The latter ways may require slightly more code when update. Both ways are preferable to using primitve type and Integer.MAX_VALUE/Integer.MIN_VALUE as the initial value, since the latter way cannot return a reasonable value when there is no max/min value found. Or if the logic is simple, we can use the first element as initial value.
+When finding max/min element, we can either use reference type variable instead of primitive type so that we can use null as the initial value, or use index of the element and -1 as the initial value(or any special value indicating invalid for the element). The latter ways may require slightly more code when update. Both ways are preferable to using primitve type and Integer.MAX_VALUE/Integer.MIN_VALUE as the initial value, since the latter way cannot return a reasonable value when there is no max/min value found(latter way works well only when the max/min value is guaranteed to exist). Or if the logic is simple, we can use the first element as initial value.
 
 
 ## Strings
@@ -718,7 +718,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 * Thinking steps.
   1. Break the original problem into subproblems and then create the recursive formulas. DP/memoization works well when the subproblems overlap, otherwise simple recursion works better. Sometimes instead of breaking the original problem, we can break a variation of it whose solution can easily lead to the solution of the original problem. Think about the order of indices first before writing down the formulas. Also make sure use indices symbols that are different from the input parameters. Don't forget to write down the range of valid indices of the recursive formulas (and the target!).
   Ways of breaking the problem:
-      - For sequences(usually multiple), consider s[l-1] when solving the problem for s[l], which stores the result of sequence with length l. (It is often preferable to use length as index of cache rather than the index of sequences, since the starting elements in the cache ususally have length zero, and negative index of sequences. The index of cache should be non-negative. And the initial state for zero index cache value is usally harder to determine than zero length cache value) This way is commonly used when the input has multiple sequences(the cache is multi-dimentional). --[Leetcode]Longest Common Subsequence, [Leetcode]Edit Distance. However if both iteration directions(left to right and right to left) exist in the DP loop, it is better not to use length representation. --[Leetcode]Maximal Rectangle.
+      - For sequences(usually multiple), consider s[l-1] when solving the problem for s[l], which stores the result of sequence with length l. (It is often preferable to use length as index of cache rather than the index of sequences, since the starting elements in the cache ususally have length zero, and negative index of sequences. The index of cache should be non-negative. And the initial state for zero index cache value is usally harder to determine than zero length cache value) This way is commonly used when the input has multiple sequences(the cache is multi-dimentional). --[Leetcode]Longest Common Subsequence, [Leetcode]Edit Distance. However if both iteration directions(left to right and right to left) exist in the DP loop, it is better not to use length representation. --[Leetcode]Maximal Rectangle. And for some simple grid problems, the boundary value is very easy to determine and using index rather than length is okay too.
       - For single sequence problems, consider s[i-1] when solving the problem for s[i], which contains the result of sequence starting or ending with element at index i. It might be surprising that this can also be used as one dimention when the subproblem is multi-dimentional. Similar to previous way, length representation can also be used here, especially when the cache is multi-dimentional. -- [Leetcode]Maximum Subarray.
       - Sometimes it is good to have a final process to conquer the results of all the subproblems, which could help design subproblems that are easier to solve in less time. -- [Leetcode]Best Time to Buy And Sell Stock, generaliazation DP solution.
       - If the cache is multi-dimensional, like d[m][l], when coming up with the recursive formula, try considering its relation with all possible subproblems, like d[m-1][l], d[m][l-1], or a combination of them. -- [Lintcode]Maximum Subarray III.
@@ -759,6 +759,13 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
       The above options also apply to memoization.
 
 ### Problems
+* Grid problems.  
+  Usually the boundary values are easy to determine, and using index representation is simpler than length representation. In some cases when the boundary values require complex logic to determine, using length representation might be preferable.
+  - [Leetcode] Unique Paths I and II(Algorithm). Boundary value is very easy to deal with.
+* Single sequence problems.  
+  Typically using index representation is enough since the initial value is often easy to determine.
+  - [Leetcode] Coin Change(Algorithm*). Be careful about the value when there is no valid combination with target sum. Also a good example of getting min/max of multiple elements in each iteration.
+  - [Leetcode] Paint House(Algorithm and Implementation of the scalable version*).
 * [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
 * [Leetcode] Maximum Subarray(Algorithm*). Note two edge cases: 
   - The input array is null or zero length. Expected 0.
@@ -769,13 +776,15 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 * Find the number of subsets that have sum equals to s(elements and s are positive):
   - [Leetcode] Combination Sum IV(Best Algorithm**). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
   - [Leetcode] Target Sum(Best Algorithm**).
-* [Leetcode] Coin Change(Algorithm*). Be careful about the value when there is no valid combination with target sum. Also a good example of getting min/max of multiple elements in each iteration. 
+ 
 
 
 
 ## Other Concepts and special problems, including greedy problems.
 * Best Time to Buy and Sell Stock problems
   - [Leetcode] Best Time to Buy and Sell Stock I and II(Algorithms).
+* Use graphs to see the essence!
+  - [Leetcode] Jump Game(Algorithms*).
 * Parentheses related problems.  
   Two ways of thinking: 
   1. Using a stack and iterate a string, whenever you encounter a ')', check if the top of the stack is '(', if so, pop it, otherwise push ')'. For any substring representing valid parenthese, if you scan from left to right, each time a ')' comes in, there must be a '(' matching it, which is always the closest unmatched '(' to it. Similarly case if you scan from right to left.
