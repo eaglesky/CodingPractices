@@ -770,6 +770,8 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Paint House(Algorithm and Implementation of the scalable version*).
   - [Leetcode] Decode ways(Algorithm). Clarification: '02' can not be decoded using 2 -> 'B' since there is a preceding 0.
   - [Lintcode] Longest Increasing Continuous Subsequence(Algorithm).
+* Bit manipulation problems.
+  - [Leetcode] Counting Bits(Algorithm)
 * [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
 * [Leetcode] Maximum Subarray(Algorithm*). Note two edge cases: 
   - The input array is null or zero length. Expected 0.
