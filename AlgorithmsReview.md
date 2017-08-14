@@ -99,9 +99,10 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
     - [Leetcode] Max Sum of Rectangle No Larger Than K(Algorithm*). Extension of above.
 * [Others] Task schedule with cool down(Algorithm and implementation**).
 * [Leetcode] Product of Array Except Self(Algorithm**). Divide, compute one side and store it, then compute another side. Can be applied to many other problems.
-* [Leetcode]Increasing Triplet Subsequence(Algorithm**). This can also be solved using idea similar to the previous problem, but it would use O(n) extra space. The best solution can also be applied to checking the existence of increasing subsequence of any length. Useful trick and can be applied to other problems.  
+* [Leetcode] Increasing Triplet Subsequence(Algorithm**). This can also be solved using idea similar to the previous problem, but it would use O(n) extra space. The best solution can also be applied to checking the existence of increasing subsequence of any length. Useful trick and can be applied to other problems.  
 When finding max/min element, we can either use reference type variable instead of primitive type so that we can use null as the initial value, or use index of the element and -1 as the initial value(or any special value indicating invalid for the element). The latter ways may require slightly more code when update. Both ways are preferable to using primitve type and Integer.MAX_VALUE/Integer.MIN_VALUE as the initial value, since the latter way cannot return a reasonable value when there is no max/min value found(latter way works well only when the max/min value is guaranteed to exist). Or if the logic is simple, we can use the first element as initial value.
-
+* [Leetcode] Longest Consecutive Sequence(Algorithms**). Remember the trick that processes each streak in an inner loop at the beginning of each streak, which still takes linear time overall.
+* [Leetcode] Bomb Enemy(Best algorithm**). Remember the implementation of dealing with streaks/chunks, which is similar to previous problem. An alternative is to process each chunk and moves on to the next chunk immediately, which is less flexible and cannot be used as caching.
 
 ## Strings
 
