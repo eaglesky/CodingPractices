@@ -330,6 +330,10 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     Building a map of node to its parent node while traversing the tree is a great trick that can be applied to some other tree problems.
     + [Others] Lowest commmon ancestor of deepest nodes(Best algorithm* and best implementation*). Remember the recursive thinking of LCA algorithms.
     + [Leetcode] House Robber III(Algorithm*)
+    + [Leetcode] Binary Tree Paths(Implementation). Remember the worst case and time complexity analysis of this kind of problem.
+    + [Leetcode] Boundary of Binary Tree(Best Algorithm** and best implementation*). Clarification: Root node can be counted as left or right boundary node. When root.left != null, the path from the root to the left-most node is the left boundary, otherwise there is no other left boundary node. Similar for the right boundary nodes, which only have more than one node when root.right != null.  
+    For this kind of reverse traversal problem, remember try some post-order approach. The best implementation may not be easily come up with at the beginning. It's okay to write two functions first and then consolidate them later.  
+    The iterative solution for the two functions version is easy to implement since they are all pre-order traversals. But need to add a map of node to the flag.
   - Level order traversal related.
     + [Leetcode] Binary tree level order traversal I(Multiple algorithms*), II is just adding reverse to the end of the solution of I. The recursive algorithm can be applied to some other problems.
     + [Leetcode] Zigzag level order traversal. Reverse the array for that level every two levels(or assign the values reversely when creating the array for that level).
