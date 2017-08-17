@@ -345,9 +345,13 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     + [Leetcode] Find leaves of binary tree(Algorithm** and Implementation). When requiring return a list of nodes that does not follow the order of basic traversal, consider storing the element directly to the corresponding location in the output array.
     + [Leetcode] Minimum Depth of Binary Tree(Algorithms and Implementation)
     + [Leetcode] Balanced Binary Tree(Best Algorithm*)
+* Recontruction of binary tree:
+  - [Leetcode] Construct Binary Tree from Inorder and Postorder Traversal (Algorithm*), and Construct Binary Tree from Preorder and Inorder Traversal (same). Cannot construct the binary tree from Preorder and Postorder(why? When coming up with exceptions, try starting with the simplest examples) Note that if duplicates exist in the input array, there may not be unique tree!
+  - [Leetcode] Serialize and Deserialize Binary Tree(Algorithms**)
 * Binary Search Tree:
-  - [Leetcode]Validate Binary Search Tree(Multiple algorithms* and Implementations*) -- this reveals an important attribute of BST when traversing it!
-  - [Leetcode]Inorder Successor in BST(Algorithm*). This algorithm uses the ascending order attribute of BST so that it can run in O(h) time not in O(n) time. Therefore this algorithm works only when the target is INORDER successor and there are no duplicates in the tree. If duplicates are allowed, this algorithm can not gurantee that the node returned is INORDER successor. Example:
+  - [Leetcode] Validate Binary Search Tree(Multiple algorithms* and Implementations*) -- this reveals an important attribute of BST when traversing it!
+  - [Leetcode] Recover Binary Search Tree(Algorithm and Implementation*). Note that this question assumes there are no duplicates in BST! What would be the solution if there could be duplicates?
+  - [Leetcode] Inorder Successor in BST(Algorithm*). This algorithm uses the ascending order attribute of BST so that it can run in O(h) time not in O(n) time. Therefore this algorithm works only when the target is INORDER successor and there are no duplicates in the tree. If duplicates are allowed, this algorithm can not gurantee that the node returned is INORDER successor. Example:
       ```
             13 (actual returned node)
           10
