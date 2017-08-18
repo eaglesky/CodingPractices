@@ -12,6 +12,7 @@ Also don't think too much about whether using a separate helper function. Just d
 	4. For sequence related problems, there could be duplicates. This matters if the solution uses hashmap.
   5. When iterating over a collection and the end condition involves multiple variables, put the id check at first! Also make sure there is no out-of-boundary or null-pointer exception in the end condition!
 * For implementation problems with a lot of corner cases, pay more attention to writing robust code with good style than performance! Refactor the code to improve the performance after you have a working solution!
+* If the code needs to run, and got wrong answer, do first compare the actual and expected result and guess where could be wrong first, and then debug by adding logs.
 * Refactor the code if the code is correct. This could be done earlier before checking the correctness of the code if the code needs obvious refactoring.
 
 ## Online coding interview preparation

@@ -100,7 +100,7 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 * [Others] Task schedule with cool down(Algorithm and implementation**).
 * [Leetcode] Product of Array Except Self(Algorithm**). Divide, compute one side and store it, then compute another side. Can be applied to many other problems.
 * [Leetcode] Increasing Triplet Subsequence(Algorithm**). This can also be solved using idea similar to the previous problem, but it would use O(n) extra space. The best solution can also be applied to checking the existence of increasing subsequence of any length. Useful trick and can be applied to other problems.  
-When finding max/min element, we can either use reference type variable instead of primitive type so that we can use null as the initial value, or use index of the element and -1 as the initial value(or any special value indicating invalid for the element). The latter ways may require slightly more code when update. Both ways are preferable to using primitve type and Integer.MAX_VALUE/Integer.MIN_VALUE as the initial value, since the latter way cannot return a reasonable value when there is no max/min value found(latter way works well only when the max/min value is guaranteed to exist). Or if the logic is simple, we can use the first element as initial value.
+Trick: When finding max/min element, we can either use reference type variable instead of primitive type so that we can use null as the initial value, or use index of the element and -1 as the initial value(or any special value indicating invalid for the element). The latter ways may require slightly more code when update. Both ways are preferable to using primitve type and Integer.MAX_VALUE/Integer.MIN_VALUE as the initial value, since the latter way cannot return a reasonable value when there is no max/min value found(latter way works well only when the max/min value is guaranteed to exist). Or if the logic is simple, we can use the first element as initial value.
 * [Leetcode] Longest Consecutive Sequence(Algorithms**). Remember the trick that processes each streak in an inner loop at the beginning of each streak, which still takes linear time overall.
 * [Leetcode] Bomb Enemy(Best algorithm**). Remember the implementation of dealing with streaks/chunks, which is similar to previous problem. An alternative is to process each chunk and moves on to the next chunk immediately, which is less flexible and cannot be used as caching.
 
@@ -732,11 +732,11 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
       - Sometimes it is good to have a final process to conquer the results of all the subproblems, which could help design subproblems that are easier to solve in less time. -- [Leetcode]Best Time to Buy And Sell Stock, generaliazation DP solution.
       - If the cache is multi-dimensional, like d[m][l], when coming up with the recursive formula, try considering its relation with all possible subproblems, like d[m-1][l], d[m][l-1], or a combination of them. -- [Lintcode]Maximum Subarray III.
       - Sometimes multi-dimensional cache in the recursive formula can be reduced to one-dimentional by fixing the other dimention(usually that requrires another iteration to get the final result). -- [Leetcode]Palindrome Partitioning II, Maximum Subarray III.
-      - Sometimes need to maintain multiple db arrays, e.g. Let d[i][1] denote select the current element and d[i][0] denote not select. Or d[i][k] denote including the current element, and d[i][t] denote not including. This is often used for problems similar to 0-1 knapsack problem. This kind of problem can also be visualized, like in [Leetcode]Pain House II. [Leetcode]Maximum product subarray, house robber I, Target Sum, Paint House.
+      - Sometimes need to maintain multiple db arrays, e.g. Let d[i][1] denote select the current element and d[i][0] denote not select. Or d[i][k] denote including the current element, and d[i][t] denote not including. This is often used for problems similar to 0-1 knapsack problem. This kind of problem can also be visualized, like in [Leetcode]Paint House II. [Leetcode]Maximum product subarray, house robber I, Target Sum, Paint House.
       - The recursive relation may not necessarily involve adjacent indices. Sometimes we need to come up with it by observing the pattern/attribute from the problem. -- [GeeksForGeeks]Longest Arithmetic Progression, sorted array.
   2. Implement the solution using DP/memoization. 
     * Draw a graph to visualize dimentions, boundaries, and DP formula first.
-    * If using DP and the path needs not to be returned, consider reducing the size of cache. For many problems the size can be reduced to one or two 1D arrays or even a few variables. A swap of array pointers is often used at the end of each iteration if two 1D arrays are used. 
+    * If using DP and the path needs not to be returned, consider reducing the size of cache. For many problems the size can be reduced to one or two 1D arrays or even a few variables. A swap of array pointers is often used at the end of each iteration if two 1D arrays are used, or use the way in Paint House II. For more number of arrays, maintain a pointer array and rotate the pointers to the left. But we can save more space using following ways:
       - Previous visited element of the current array can be stored lazily to reduce two arrays to only one.-- [Leetcode]Edit Distance. 
       ```
                a_i
@@ -774,10 +774,12 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Unique Paths I and II(Algorithm). Boundary value is very easy to deal with.
   - [Leetcode] Minimum Path Sum(Algorithm and Implementation*). 
 * Single sequence problems.  
-  Typically using index representation is enough since the initial value is often easy to determine. However if input is string, length representation is often preferable.
-  - [Leetcode] Paint House(Algorithm and Implementation of the scalable version*).
+  Typically using index representation is enough since the initial value is often easy to determine. However if input is string, or the current value depends on multiple previous values, length representation is often preferable.
+  - [Leetcode] Paint House(Algorithm and Implementation).
   - [Leetcode] Decode ways(Algorithm). Clarification: '02' can not be decoded using 2 -> 'B' since there is a preceding 0.
   - [Lintcode] Longest Increasing Continuous Subsequence(Algorithm).
+* Multiple sequence problems. Usually need to use length representation.
+  - [Leetcode] Paint House II(Algorithms** and implementations*). Remember the efficient way of finding minimum elements except a certain element. Remember the best algorithm with least space usage.
 * Bit manipulation problems.
   - [Leetcode] Counting Bits(Algorithm)
 * [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
