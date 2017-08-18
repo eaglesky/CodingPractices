@@ -775,20 +775,22 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Minimum Path Sum(Algorithm and Implementation*). 
 * Single sequence problems.  
   Typically using index representation is enough since the initial value is often easy to determine. However if input is string, or the current value depends on multiple previous values, length representation is often preferable.
+  - [Leetcode] Maximum Subarray(Algorithm*). Note two edge cases: 
+    + The input array is null or zero length. Expected 0.
+    + Otherwise, the contiguous subarray must not be empty!
+  - [Leetcode] Maximum Product Subarray(Algorithm*).
   - [Leetcode] Paint House(Algorithm and Implementation).
+  - [Leetcode] House Robber I(Algorithm).
+  - [Leetcode] House Robber II(Algorithm*).
   - [Leetcode] Decode ways(Algorithm). Clarification: '02' can not be decoded using 2 -> 'B' since there is a preceding 0.
   - [Lintcode] Longest Increasing Continuous Subsequence(Algorithm).
 * Multiple sequence problems. Usually need to use length representation.
+  - [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
   - [Leetcode] Paint House II(Algorithms** and implementations*). Remember the efficient way of finding minimum elements except a certain element. Remember the best algorithm with least space usage.
 * Bit manipulation problems.
   - [Leetcode] Counting Bits(Algorithm)
-* [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
-* [Leetcode] Maximum Subarray(Algorithm*). Note two edge cases: 
-  - The input array is null or zero length. Expected 0.
-  - Otherwise, the contiguous subarray must not be empty!
 * [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
 * [Lintcode] Maximum Subarray III(Algorithm**). 
-* [Leetcode] Maximum Product Subarray(Algorithm*).
 * Find the number of subsets that have sum equals to s(elements and s are positive):
   - [Leetcode] Combination Sum IV(Best Algorithm**). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
   - [Leetcode] Target Sum(Best Algorithm**).
