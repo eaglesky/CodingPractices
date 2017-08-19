@@ -801,6 +801,8 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 ## Other Concepts and special problems, including greedy problems.
 * Best Time to Buy and Sell Stock problems
   - [Leetcode] Best Time to Buy and Sell Stock I and II(Algorithms).
+  - [Leetcode] Best Time to Buy and Sell Stock III(Multiple algorithms**)
+  - [Leetcode] Best Time to Buy and Sell Stock IV(Multiple algorithms**). Remember the state transition DP and interval DP(not practiced yet). The former one seems better as it can be applied to III using minum extra space.
 * Use graphs to see the essence!
   - [Leetcode] Jump Game(Algorithms*).
 * Parentheses related problems.  
