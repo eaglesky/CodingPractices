@@ -793,6 +793,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Coin Change(Algorithm*). Be careful about the value when there is no valid combination with target sum. Also a good example of getting min/max of multiple elements in each iteration.
   - [Leetcode] Perfect Squares(Algorithm).
   - [Leetcode] Palindrome Partitioning II(Best Algorithm** and Best Implementation**).
+  - [Lintcode] Copy Books(Algorithms**). What is the O(nk) solution?
 * Bit manipulation problems.
   - [Leetcode] Counting Bits(Algorithm)
 * [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
