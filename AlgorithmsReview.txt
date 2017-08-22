@@ -1480,7 +1480,15 @@ Suppose a number num = (a_n-1 a_n-2 ... a_0)b and the base is b.
     Always think about the expression to base 10 number first. Then you'll know why
     and how to convert a decimal to another base. Sometimes you need to do some pre-processing
     of num before getting the remainder.
-
+(7) To iterate from 1 to sqrt(n): use the following to avoid potential overflow:
+    for (int i = 1; i <= n / i; ++i) {
+        ...
+    }
+    Note that sqrt(n) is usually a decimal representing the precise value of square
+    root of n. n / i <= precise_value_of(n / i). So i <= precise_value_of(n / i) is
+    always true. So i * i <= n is always true. If i > n / i, then i > precise_value_of
+    (n/i) since i and n/i are integers, and precise_value_of(n/i) < n / i + 1. So
+    i must iterate all integers no greater than sqrt(n).
 
 Problems:
 (1)[Leetcode]Pow(x, n). (Best algorithm* and Implementation). Remember the best algorithm
