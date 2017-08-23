@@ -719,6 +719,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 
 ## Dynamic Programming and Memoization
 ### Knowledge
+* DP and greedy algorithm. In greedy algorithm, each step tries to achieve the local optimum, while in DP, each step is not necessarily the local optimum, but can definitely achieve global optimum. To prove if a greedy algortithm works or not, think like this: assuming there is a correct solution that achieves global optimum, for each step in the greedy solution, can it replace the first step in the correct solution? If it can, then the greedy solution can achieve the global optimum, otherwise, it cannot.
 * Comparison of DP and Memoization. (http://stackoverflow.com/questions/6184869/what-is-difference-between-memoization-and-dynamic-programming)
   - If the problem want to find out the max/min value, or counting how many ways to solve the problem, or checking the exisitence, it is often a sign of optimization problem which can potentially be tackled using DP/Memoization. Search algorithms like DFS/BFS can also be used, but sometimes the search space could be extremely large, making them not preferable approaches. Greedy algorithm can solve them too, which is often hard to come up with, error-prone, and should be used as a last resort. For some problems, divide and conquer can also be used to solve them. -- [Leetcode]Maximum Subarray.
   - DP is usually bottom-up while memoization is top-down. 
@@ -796,10 +797,15 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Lintcode] Copy Books(Algorithms**). What is the O(nk) solution?
 * Bit manipulation problems.
   - [Leetcode] Counting Bits(Algorithm)
+* Gaming problems.
+  - [Lintcode] Coins In Line(Algorithm*).
+* Backpack problems. Usually use d[i][w] representing the first i items adding up to weight w. Check if the last item is included or which one. Length representation is preferred here.
+  - [Lintcode] Backpack I (Algorithms*). Greedy algroithm won't work.
+  - [Lintcode] Backpack V (Algorithm). Be careful about the initial values.
+  - [Leetcode] Combination Sum IV(Best Algorithm*)(same as [Lintcode] Backpack VI). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
 * [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
 * [Lintcode] Maximum Subarray III(Algorithm**). 
 * Find the number of subsets that have sum equals to s(elements and s are positive):
-  - [Leetcode] Combination Sum IV(Best Algorithm**). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
   - [Leetcode] Target Sum(Best Algorithm**).
  
 
