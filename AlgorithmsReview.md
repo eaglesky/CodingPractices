@@ -799,10 +799,12 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Counting Bits(Algorithm)
 * Gaming problems.
   - [Lintcode] Coins In Line(Algorithm*).
-* Backpack problems. Usually use d[i][w] representing the first i items adding up to weight w. Check if the last item is included or which one. Length representation is preferred here.
+* Backpack problems. Usually use d[i][w] representing the first i items adding up to weight w(or with limit of weight w). Check if the last item is included or which one. Length representation is preferred here.
   - [Lintcode] Backpack I (Algorithms*). Greedy algroithm won't work.
   - [Lintcode] Backpack V (Algorithm). Be careful about the initial values.
   - [Leetcode] Combination Sum IV(Best Algorithm*)(same as [Lintcode] Backpack VI). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
+  - [Lintcode] Backpack II (Algorithm). 0-1 knapsack problem. Understand why greedy doesn't work here.
+  - [Lintcode] Backpack III (Algorithm*). Unbounded knapsack problem. Greedy doesn't work for it either.
 * [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
 * [Lintcode] Maximum Subarray III(Algorithm**). 
 * Find the number of subsets that have sum equals to s(elements and s are positive):
