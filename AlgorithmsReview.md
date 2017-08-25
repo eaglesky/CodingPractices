@@ -360,6 +360,8 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
             10 (expected returned node)
       ```
     This algorithm can be easily extended to implement Ceiling and Floor methods. Remember the inductive proof from the root.
+  - [Leetcode] Convert Sorted Array to Binary Search Tree(Algorithms and Iterative Implementation*)
+  - [Leetcode] Convert Sorted List to Binary Search Tree(Best Algorithm* and Implementations*), constructing tree from array can also be solved by bottom-up approach!
 * Others
   - [Others] Find Depth. (Algorithms* and implementations*).
 
@@ -797,7 +799,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Lintcode] Copy Books(Algorithms**). What is the O(nk) solution?
 * Bit manipulation problems.
   - [Leetcode] Counting Bits(Algorithm)
-* Gaming problems.
+* Game problems. Think of the final states first and then think reversely to find out the underlying pattern.
   - [Lintcode] Coins In Line(Algorithm*).
 * Backpack problems. Usually use d[i][w] representing the first i items adding up to weight w(or with limit of weight w). Check if the last item is included or which one. Length representation is preferred here.
   - [Lintcode] Backpack I (Algorithms*). Greedy algroithm won't work.
@@ -809,6 +811,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Longest Palindromic Subsequence(Algorithm* and implementation**). Remember the best implementation. It is better than iterating l and i since the latter is hard to optimize space usage from O(n^2) to O(n).
   - [Lintcode] Coins In Line III(Algorithms**).
   - [Lintcode] Scramble String(Algorithm*). If there are multiple sequences, using l as a dimension might help reduce the total number of dimensions.
+  - [Leetcode] Burst Balloons(Algorithm**). If iterating l in the outer loop, ususally it is very hard to optimize the space usage.
 * [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
 * [Lintcode] Maximum Subarray III(Algorithm**). 
 * Find the number of subsets that have sum equals to s(elements and s are positive):
