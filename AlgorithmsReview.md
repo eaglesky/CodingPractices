@@ -362,6 +362,8 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     This algorithm can be easily extended to implement Ceiling and Floor methods. Remember the inductive proof from the root.
   - [Leetcode] Convert Sorted Array to Binary Search Tree(Algorithms and Iterative Implementation*)
   - [Leetcode] Convert Sorted List to Binary Search Tree(Best Algorithm* and Implementations*), constructing tree from array can also be solved by bottom-up approach!
+  - [Leetcode] Delete Node in a BST(Best Algorithm* and Implementation)
+  - [Leetcode] Kth Smallest Element in a BST(Multiple Algorithms*)
 * Others
   - [Others] Find Depth. (Algorithms* and implementations*).
 
