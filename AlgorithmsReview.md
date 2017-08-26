@@ -303,7 +303,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   * Search, Minimum, Maximum, (inorder)Successor, (inorder)Predecessor  operations all run in O(h) time. h is the height of the BST. See the Leetcode practices for Successor implementation.
   * Insertion(easy) and Deletion(harder, see one example problem) can also run in O(h) time.
   * Selection and Rank. See Leetcode problem below.
-  * Range query -- finding all elements in a BST that have values within a given range. See Robert's Algorithms. O(n) time and O(h) space
+  * Range query -- finding all elements in a BST that have values within a given range. See Robert's Algorithms. O(n) time and O(h) space. Can be solved both iteratively or recursively. Recursive solution that has target range as one parameter of the recursive function can avoid iterating out-of-range nodes.
 * Trie(Prefix tree/radix tree/digital tree):
   * Refer to Robert's Algorithms. Think of the chars on the link instead of on the node.
   * The map in each node can be implemented with hashmap or array.
@@ -328,7 +328,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     + [Leetcode] Path Sum III(Algorithm**). Remember the top-down way of enumerating all the path with target sum! Passing the total count as a parameter may be easier to think of, which can be improved to change to the return value of the recursive function, if the count is used in post-order way.
     + [Leetcode] Lowest Common Ancestor of a Binary Tree(Algorithms*). If the question asks to return special value when not both of the input nodes exist in the tree, then the recursive function should return not only a node, but also the number of found nodes.   
     Building a map of node to its parent node while traversing the tree is a great trick that can be applied to some other tree problems.
-    + [Others] Lowest commmon ancestor of deepest nodes(Best algorithm* and best implementation*). Remember the recursive thinking of LCA algorithms.
+    + [Others] Lowest commmon ancestor of deepest nodes(Best algorithm** and best implementation**). Remember the recursive thinking of LCA algorithms.
     + [Leetcode] House Robber III(Algorithm*)
     + [Leetcode] Binary Tree Paths(Implementation). Remember the worst case and time complexity analysis of this kind of problem.
     + [Leetcode] Boundary of Binary Tree(Best Algorithm** and best implementation*). Clarification: Root node can be counted as left or right boundary node. When root.left != null, the path from the root to the left-most node is the left boundary, otherwise there is no other left boundary node. Similar for the right boundary nodes, which only have more than one node when root.right != null.  
@@ -347,7 +347,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     + [Leetcode] Balanced Binary Tree(Best Algorithm*)
 * Recontruction of binary tree:
   - [Leetcode] Construct Binary Tree from Inorder and Postorder Traversal (Algorithm*), and Construct Binary Tree from Preorder and Inorder Traversal (same). Cannot construct the binary tree from Preorder and Postorder(why? When coming up with exceptions, try starting with the simplest examples) Note that if duplicates exist in the input array, there may not be unique tree!
-  - [Leetcode] Serialize and Deserialize Binary Tree(Algorithms**)
+  - [Leetcode] Serialize and Deserialize Binary Tree(Algorithms** and implementation*)
 * Binary Search Tree:
   - [Leetcode] Validate Binary Search Tree(Multiple algorithms* and Implementations*) -- this reveals an important attribute of BST when traversing it!
   - [Leetcode] Recover Binary Search Tree(Algorithm and Implementation*). Note that this question assumes there are no duplicates in BST! What would be the solution if there could be duplicates?
@@ -364,6 +364,8 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   - [Leetcode] Convert Sorted List to Binary Search Tree(Best Algorithm* and Implementations*), constructing tree from array can also be solved by bottom-up approach!
   - [Leetcode] Delete Node in a BST(Best Algorithm* and Implementation)
   - [Leetcode] Kth Smallest Element in a BST(Multiple Algorithms*)
+  - [Leetcode] Lowest Common Ancestor of a Binary Search Tree(Algorithm*)
+  - [Leetcode] Serialize and Deserialize BST(Algorithm** and implementation*). Remember the algorithm and implementation. Be careful about the integer pointer!
 * Others
   - [Others] Find Depth. (Algorithms* and implementations*).
 
