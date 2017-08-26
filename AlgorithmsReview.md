@@ -304,6 +304,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   * Insertion(easy) and Deletion(harder, see one example problem) can also run in O(h) time.
   * Selection and Rank. See Leetcode problem below.
   * Range query -- finding all elements in a BST that have values within a given range. See Robert's Algorithms. O(n) time and O(h) space. Can be solved both iteratively or recursively. Recursive solution that has target range as one parameter of the recursive function can avoid iterating out-of-range nodes.
+  * Implementation. Java: TreeSet/TreeMap, balanced BST(red-black tree). It provides guaranteed log(n) time cost for the containsKey, get(give key or first/last key), put and remove operations. NOTE: BST usually doesn't allow duplicates. Workarounds for it are either store map of node to counts, or use more complex keys.
 * Trie(Prefix tree/radix tree/digital tree):
   * Refer to Robert's Algorithms. Think of the chars on the link instead of on the node.
   * The map in each node can be implemented with hashmap or array.
@@ -366,6 +367,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   - [Leetcode] Kth Smallest Element in a BST(Multiple Algorithms*)
   - [Leetcode] Lowest Common Ancestor of a Binary Search Tree(Algorithm*)
   - [Leetcode] Serialize and Deserialize BST(Algorithm** and implementation*). Remember the algorithm and implementation. Be careful about the integer pointer!
+  - [Leetcode] Skyline Problem(Best Algorithm** and implementations**). Remember the two ways of implementing BST multi-map/set. They are equivelent in logic, so don't hesitate to use them exchangely.
 * Others
   - [Others] Find Depth. (Algorithms* and implementations*).
 
@@ -538,6 +540,7 @@ The following template is just used for implementation. Think about the problem 
 ### Knowledge(Refer to Robert's Algorithms)
 * Priority queue is a abstract data type, like an interface in Java, that can be implemented with different concrete data structures -- unordered array, ordered array, linked list or heap. The performance of the basic operations like max and insert varies in all those implmentations(See Robert's Algorithms for the comparison chart).
 * Heap is a concrete data structure that is typically used to implement priority queue. Usually heap refers to binary heap, but could also refer to d-ary heaps. In concept, a binary heap is a complete binary tree. Each node in the tree is larger than or equal to the keys in that node's two children if it is a max heap. The heap operations require traversing not only down but also up, so in practice, heap is usually implemented as an array.
+* Different from BST, heap allows duplicates. 
 * Properties of Heap(max-root)
   1. The largest key in a heap-ordered binary tree is found at the root.
   2. The height of a complete binary tree of size N is ⎣lg N⎦ .

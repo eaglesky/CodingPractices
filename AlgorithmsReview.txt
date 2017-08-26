@@ -1985,7 +1985,8 @@ cases:
     (2)Binary search, either recursively and then iterate(divide and conquer), or
     doing it in each iteration.
     (3)Constructing/using a balanced BST(like Java TreeMap) in each iteration.
-    (4)Constructing/using a heap in each iteration.
+    (4)Constructing/using a heap in each iteration. Note that heap ususally allows
+    duplicates while BST usually does not!
 
 
 
