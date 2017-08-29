@@ -114,9 +114,10 @@ Trick: When finding max/min element, we can either use reference type variable i
 * Palindrome.
   * Definition. A string that reads the same backward as forward, e.g., madam.
   Checking if a string is a palindrome can be easily done in O(n) time. And so is checking if a linked list a palindrome, which can also be done using O(1) space if reversing the first/second half of the original list is allowed.
-  * Check if concatenation of two strings is a palindrome. The reverse of the
-  second string has to be the 1)the prefix of the first string, and the rest of
-  the first string is a palindrome, or 2)the first string is the prefix of the reverse of second string, and the rest of the reversed string is a palindrome. [Leetcode]Palindrome Pairs.
+  * Check if concatenation of two strings is a palindrome.
+    - The reverse of the second string has to be the 1)the prefix of the first string, and the rest of the first string is a palindrome, or 2)the first string is the prefix of the reverse of second string, and the rest of the reversed string is a palindrome. [Leetcode]Palindrome Pairs. Trie approach.
+    - Choose the longer(or equal) one s1, the other is s2. If s2_reverse is the prefix of s1, and the rest of s1 is a palindrome, then s1s2 is a palindrome. Otherwise if s2_reverse is the suffix of s1, and the rest of s1 is a palindrome, then s2s1 is a palindrome. When s1.length == s2.length, the concatenation is a palindrome when and only when s2_reverse == s1. [Leetcode]Palindrome Pairs. Hashmap approach.
+
   * Find out all the palindrome substrings. There are two ways to do this, which are very useful when solving more complex palindrome related problems. Both ways take O(n^2) time, n is the length of string s.
     * Search all the substrings and check if each of them is palindrome. Has to use addition space.  
     Let f[i][j] indicate whether substring s[i...j] is a palindrome or
@@ -158,6 +159,7 @@ Trick: When finding max/min element, we can either use reference type variable i
   - [Leetcode] Valid Number(Algorithm* and Implementation*). The decription is vague, so refer to the comments in my Java solution for detailed requirements.
 * Palindrome related:
   - [Leetcode] Shortest Palindrome(Algorithm*, very hard!)
+  - [Leetcode] Palindrome Pairs(Multiple Algorithms** and Implementations**).(Distinct indices (i, j) just means that i != j) One way to improve the speed of not optimal algorithm is consider caching some values when building the trie. Remember the edge cases for the second approach.
 * Anagram related.
   - [Leetcode] Group Anagrams(Algorithms*). The key is to find out how to uniquely represent the anagrams. The robust way is to use the sorted string, but in some cases the counting array, or even the product of prime numbers could work too.
 * Parsing.
@@ -368,6 +370,9 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   - [Leetcode] Lowest Common Ancestor of a Binary Search Tree(Algorithm*)
   - [Leetcode] Serialize and Deserialize BST(Algorithm** and implementation*). Remember the algorithm and implementation. Be careful about the integer pointer!
   - [Leetcode] Skyline Problem(Best Algorithm** and implementations**). Remember the two ways of implementing BST multi-map/set. They are equivelent in logic, so don't hesitate to use them exchangely.
+* Trie
+  - [Leetcode] Implement Trie (Prefix Tree)(Full Implementation*, recursive solution of delete?)
+  - [Leetcode] Add and Search Word - Data structure design(Implementation)
 * Others
   - [Others] Find Depth. (Algorithms* and implementations*).
 

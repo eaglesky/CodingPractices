@@ -1966,8 +1966,9 @@ while for the second approach, it only needs to load the necessary nodes.
 
 
 Summary of algorithms that are frequently used:
-1. Caching. If there are multiple arrays involved, caching could be used on any one
-of them!
+1. Caching(hashmap). If there are multiple arrays involved, caching could be used
+on any one of them! Hashmap can often be used to get result directly instead
+of using an iteration, assuming it has already be computed beforehand.
 2. Recursive thinking. Break the original problem into sub-problems. Try solving with
 recursive approach first --- can be broken down into two or more parts, or based on
 the result of first n-1 elements. If there are repetitions among sub-problems, consider
