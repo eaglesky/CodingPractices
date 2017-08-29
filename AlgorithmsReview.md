@@ -804,6 +804,8 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 * Multiple sequence problems. Usually need to use length representation.
   - [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
   - [Leetcode] Paint House II(Algorithms** and implementations*). Remember the efficient way of finding minimum elements except a certain element. Remember the best algorithm with least space usage.
+  - [Leetcode] Interleaving String(Algorithm*).
+  - [Leetcode] Edit Distance(Algorithm**)
 * Partitioning problems. The problem usually asks to partition a sequence of n elements, either into k parts, or without this constraint. Each part should satisfy a certain property. The state is usually defined as d[i][j] representing the value of first j elements with i parts satisfying the given property. If no constaint of number of parts, then d[j] is usually enough, and iterate each possible last part satisfying given property. Note that length representation is usually the preferable choice.
   - [Leetcode] Coin Change(Algorithm*). Be careful about the value when there is no valid combination with target sum. Also a good example of getting min/max of multiple elements in each iteration.
   - [Leetcode] Perfect Squares(Algorithm).
