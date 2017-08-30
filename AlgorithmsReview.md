@@ -749,9 +749,9 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
       - Sometimes multi-dimensional cache in the recursive formula can be reduced to one-dimentional by fixing the other dimention(usually that requrires another iteration to get the final result). -- [Leetcode]Palindrome Partitioning II, Maximum Subarray III.
       - Sometimes need to maintain multiple db arrays, e.g. Let d[i][1] denote select the current element and d[i][0] denote not select. Or d[i][k] denote including the current element, and d[i][t] denote not including. This is often used for problems similar to 0-1 knapsack problem. This kind of problem can also be visualized, like in [Leetcode]Paint House II. [Leetcode]Maximum product subarray, house robber I, Target Sum, Paint House.
       - The recursive relation may not necessarily involve adjacent indices. Sometimes we need to come up with it by observing the pattern/attribute from the problem. -- [GeeksForGeeks]Longest Arithmetic Progression, sorted array.
-  2. Implement the solution using DP/memoization. 
+  2. Implement the solution.
     * Draw a graph to visualize dimentions, boundaries, and DP formula first.
-    * If using DP and the path needs not to be returned, consider reducing the size of cache. For many problems the size can be reduced to one or two 1D arrays or even a few variables. A swap of array pointers is often used at the end of each iteration if two 1D arrays are used, or use the way in Paint House II. For more number of arrays, maintain a pointer array and rotate the pointers to the left. But we can save more space using following ways:
+    * If using DP and the path needs not to be returned, consider reducing the size of cache. For many problems the size can be reduced to one or two 1D arrays or even a few variables. Sometimes we need to swap the indices in the recursive formula to make it easier to optimize space usage. A swap of array pointers is often used at the end of each iteration if two 1D arrays are used, or use the way in Paint House II. For more number of arrays, maintain a pointer array and rotate the pointers to the left. But we can save more space using following ways:
       - Previous visited element of the current array can be stored lazily to reduce two arrays to only one.-- [Leetcode]Edit Distance. 
       ```
                a_i
@@ -773,7 +773,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
                         b_i-1 <-  b_i
       ```
       If k is a constant, then we need k variables p_i-k, p_i-k+1, ... p_i-1 to store a_i-k ... a_i-1. Use variable temp to store a_i, and after computing and storing the new values(b_i) to the array, shift the values in p to the left : p_i-k = p_i-k+1, p_i-k+1 = p_i-k+2 ... p_i-1 = temp. -- [Leetcode]Maximal Square.
-    * Think about the starting values carefully, especially those out of the range of valid cache elements. Note that the recursive formulas assume that the previous state is valid. So when coding be sure to check the cache values that are next to the starting values. Better to do this with a full DP matrix and check the edge computed values that are adjacent to initialized values carefully. They could need special handling sometimes! Be careful when using a seperate for-loop to handle the edge elements, which could repeat some logic and is error-prone since some repeated logic(like update of certain variable) could be missing.
+    * Think about the starting values carefully, especially those out of the range of valid cache elements. Edges like when any of the indices is 0 often need to be treated separatively. Note that the recursive formulas assume that the previous state is valid. So when coding be sure to check the cache values that are next to the starting values(using the dependency graph is helpful to see what elements depend on the edge elements). Be careful when using a seperate for-loop to handle the edge elements, which could repeat some logic and is error-prone since some repeated logic(like update of certain variable) could be missing.
     * The max/min in the recursive formulas can often be computed on the fly instead of using a separate loop. This may be more obvious by switching the dimention variables sometimes. This trick can often reduce the degree of time complexity, but is hard to come up with and should be used after there is a working DP formula.
     * Prefer using boolean expression to if-else statements to implement the recursive formulas.--[Leetcode] Interleaving String.
   3. When the path needs to be returned, we have following options:
@@ -806,6 +806,9 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Paint House II(Algorithms** and implementations*). Remember the efficient way of finding minimum elements except a certain element. Remember the best algorithm with least space usage.
   - [Leetcode] Interleaving String(Algorithm*).
   - [Leetcode] Edit Distance(Algorithm**)
+  - [Leetcode] Distinct Subsequences(Algorithm)
+  - [Leetcode] Regular Expression Matching(Algorithm* and Implementation*). Initial values are a bit hard to determine.
+  - [Leetcode] Wildcard Matching(Best Algorithm**). Using lp as the second dimension is good for saving space for this and the previous problem, since pattern string is usually much shorter than text string.
 * Partitioning problems. The problem usually asks to partition a sequence of n elements, either into k parts, or without this constraint. Each part should satisfy a certain property. The state is usually defined as d[i][j] representing the value of first j elements with i parts satisfying the given property. If no constaint of number of parts, then d[j] is usually enough, and iterate each possible last part satisfying given property. Note that length representation is usually the preferable choice.
   - [Leetcode] Coin Change(Algorithm*). Be careful about the value when there is no valid combination with target sum. Also a good example of getting min/max of multiple elements in each iteration.
   - [Leetcode] Perfect Squares(Algorithm).
