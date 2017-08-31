@@ -751,7 +751,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
       - The recursive relation may not necessarily involve adjacent indices. Sometimes we need to come up with it by observing the pattern/attribute from the problem. -- [GeeksForGeeks]Longest Arithmetic Progression, sorted array.
   2. Implement the solution.
     * Draw a graph to visualize dimentions, boundaries, and DP formula first.
-    * If using DP and the path needs not to be returned, consider reducing the size of cache. For many problems the size can be reduced to one or two 1D arrays or even a few variables. Sometimes we need to swap the indices in the recursive formula to make it easier to optimize space usage. A swap of array pointers is often used at the end of each iteration if two 1D arrays are used, or use the way in Paint House II. For more number of arrays, maintain a pointer array and rotate the pointers to the left. But we can save more space using following ways:
+    * If using DP and the path needs not to be returned, consider reducing the size of cache. For many problems the size can be reduced to one or two 1D arrays or even a few variables. Sometimes we need to swap the indices in the recursive formula to make it easier to optimize space usage. A swap of array pointers is often used at the end of each iteration if two 1D arrays are used, or use the way in Minimum Adjustment Cost. For more number of arrays, maintain a pointer array and rotate the pointers to the left. But we can save more space using following ways:
       - Previous visited element of the current array can be stored lazily to reduce two arrays to only one.-- [Leetcode]Edit Distance. 
       ```
                a_i
@@ -789,21 +789,22 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Unique Paths I and II(Algorithm). Boundary value is very easy to deal with.
   - [Leetcode] Minimum Path Sum(Algorithm and Implementation*). 
 * Single sequence problems.  
-  Typically using index representation is enough since the initial value is often easy to determine. However if input is string, or the current value depends on multiple previous values, length representation is often preferable.
+  Typically using index representation is enough since the initial value is often easy to determine. However if input is string, or the current value depends on multiple previous values, or current state has multiple dimensions, length representation is often preferable.
   - [Leetcode] Maximum Subarray(Algorithm*). Note two edge cases: 
     + The input array is null or zero length. Expected 0.
     + Otherwise, the contiguous subarray must not be empty!
   - [Leetcode] Maximum Product Subarray(Algorithm*).
   - [Leetcode] Paint House(Algorithm and Implementation).
+  - [Leetcode] Paint House II(Algorithms** and implementations*). Remember the efficient way of finding minimum elements except a certain element. Remember the best algorithm with least space usage.
   - [Leetcode] House Robber I(Algorithm).
   - [Leetcode] House Robber II(Algorithm*).
   - [Leetcode] Decode ways(Algorithm). Clarification: '02' can not be decoded using 2 -> 'B' since there is a preceding 0.
   - [Lintcode] Longest Increasing Continuous Subsequence(Algorithm).
   - [Leetcode] Longest Increasing Subsequence(Best Algorithm**).
   - [Leetcode] Russian Doll Envelopes (Best Algorithm**). Similar to above, but requires another trick to deal with envelopes of equal widths. If the question allows the envelope to rotate, then we can sort the width and height of each envelope first so that (w <= h) always holds, and then sort the entire array. 
+  - [Lintcode] Minimum Adjustment Cost(Algorithm*). 
 * Multiple sequence problems. Usually need to use length representation.
   - [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
-  - [Leetcode] Paint House II(Algorithms** and implementations*). Remember the efficient way of finding minimum elements except a certain element. Remember the best algorithm with least space usage.
   - [Leetcode] Interleaving String(Algorithm*).
   - [Leetcode] Edit Distance(Algorithm**)
   - [Leetcode] Distinct Subsequences(Algorithm)
@@ -824,6 +825,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Combination Sum IV(Best Algorithm*)(same as [Lintcode] Backpack VI). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
   - [Lintcode] Backpack II (Algorithm). 0-1 knapsack problem. Understand why greedy doesn't work here.
   - [Lintcode] Backpack III (Algorithm*). Unbounded knapsack problem. Greedy doesn't work for it either.
+  - [Leetcode] Ones and Zeroes (Algorithm). Note that greedy algorithm that chooses shortest string first doesn't work. E.g., s = {1, 11, 001, 0001}, m = 5, n = 2.
 * Interval problems. Usually use d[i][j] representing interval between [i..j]. Usually use index representation. This way is better than using l(interval length) as a dimension in terms of optimizing space usage. 
   - [Leetcode] Longest Palindromic Subsequence(Algorithm* and implementation**). Remember the best implementation. It is better than iterating l and i since the latter is hard to optimize space usage from O(n^2) to O(n).
   - [Lintcode] Coins In Line III(Algorithms**).
