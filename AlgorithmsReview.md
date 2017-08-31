@@ -788,6 +788,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   Remember the thought of recursive relation.
   - [Leetcode] Unique Paths I and II(Algorithm). Boundary value is very easy to deal with.
   - [Leetcode] Minimum Path Sum(Algorithm and Implementation*). 
+  - [Leetcode] Maximal Square(Best algorithm*). 
 * Single sequence problems.  
   Typically using index representation is enough since the initial value is often easy to determine. However if input is string, or the current value depends on multiple previous values, or current state has multiple dimensions, length representation is often preferable.
   - [Leetcode] Maximum Subarray(Algorithm*). Note two edge cases: 
@@ -826,6 +827,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Lintcode] Backpack II (Algorithm). 0-1 knapsack problem. Understand why greedy doesn't work here.
   - [Lintcode] Backpack III (Algorithm*). Unbounded knapsack problem. Greedy doesn't work for it either.
   - [Leetcode] Ones and Zeroes (Algorithm). Note that greedy algorithm that chooses shortest string first doesn't work. E.g., s = {1, 11, 001, 0001}, m = 5, n = 2.
+  - [Lintcode] k sum. (Algorithm**). If the input elements and target could be negative, it can also be solved using DP or Memoization.
 * Interval problems. Usually use d[i][j] representing interval between [i..j]. Usually use index representation. This way is better than using l(interval length) as a dimension in terms of optimizing space usage. 
   - [Leetcode] Longest Palindromic Subsequence(Algorithm* and implementation**). Remember the best implementation. It is better than iterating l and i since the latter is hard to optimize space usage from O(n^2) to O(n).
   - [Lintcode] Coins In Line III(Algorithms**).
