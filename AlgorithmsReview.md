@@ -802,6 +802,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] House Robber I(Algorithm).
   - [Leetcode] House Robber II(Algorithm*).
   - [Leetcode] Decode ways(Algorithm). Clarification: '02' can not be decoded using 2 -> 'B' since there is a preceding 0.
+  - [Leetcode] Decode ways II(Algorithm and Implementation**). Need to do mod for every element.
   - [Lintcode] Longest Increasing Continuous Subsequence(Algorithm).
   - [Leetcode] Longest Increasing Subsequence(Best Algorithm**).
   - [Leetcode] Russian Doll Envelopes (Best Algorithm**). Similar to above, but requires another trick to deal with envelopes of equal widths. If the question allows the envelope to rotate, then we can sort the width and height of each envelope first so that (w <= h) always holds, and then sort the entire array. 
@@ -810,6 +811,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
   - [Leetcode] Interleaving String(Algorithm*).
   - [Leetcode] Edit Distance(Algorithm**)
+  - [Leetcode] K Edit Distance(Best Algorithm** and implementation*).
   - [Leetcode] One Edit Distance(Algorithm*). Remember the algorithm and its proof
   - [Leetcode] Distinct Subsequences(Algorithm)
   - [Leetcode] Regular Expression Matching(Algorithm* and Implementation*). Initial values are a bit hard to determine.
@@ -849,7 +851,8 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Best Time to Buy and Sell Stock III(Multiple algorithms**)
   - [Leetcode] Best Time to Buy and Sell Stock IV(Multiple algorithms**). Remember the state transition DP and interval DP(not practiced yet). The former one seems better as it can be applied to III using minum extra space.
 * Use graphs to see the essence!
-  - [Leetcode] Jump Game(Algorithms*).
+  - [Leetcode] Jump Game(Best Algorithm**).
+  - [Leetcode] Frog Jump(Algorithm**).
 * Parentheses related problems.  
   Two ways of thinking: 
   1. Using a stack and iterate a string, whenever you encounter a ')', check if the top of the stack is '(', if so, pop it, otherwise push ')'. For any substring representing valid parenthese, if you scan from left to right, each time a ')' comes in, there must be a '(' matching it, which is always the closest unmatched '(' to it. Similarly case if you scan from right to left.
