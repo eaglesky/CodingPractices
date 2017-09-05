@@ -405,7 +405,7 @@ The following template is just used for implementation. Think about the problem 
           }
           Done;
         ```
-      + More popular implementation, very suitable for grid related problems:
+      + More popular implementation, very suitable for grid based problems:
         ```
         DFS_Recursive_Main(node):
           DFS(node, visited);
@@ -426,11 +426,11 @@ The following template is just used for implementation. Think about the problem 
         ```
           main:
             //Initialize the capacity of curPath if possible!
-            DFS(node, 0, curPath, paths);
+            DFS(node, 0, curPath, paths, visited);
             return paths;
           
           //curPath store previous visited nodes
-          DFS(node, startId, curPath, paths):
+          DFS(node, startId, curPath, paths, visited):
             if end state {
                 paths.add(curPath.shallow_copy);
                 return;
@@ -441,7 +441,7 @@ The following template is just used for implementation. Think about the problem 
             if current state is not valid {
                 return;
             }
-            visited[node] = true;
+            visited[node] = true; //This is necessary for grid problems.
             //Can do some pruning here to remove unnecessary adjNode 
             //to be iterated below
             for (adjNode : node.adjNodes) {
@@ -517,6 +517,8 @@ The following template is just used for implementation. Think about the problem 
 ### Problems
 * [Leetcode] Clone Graph(Implementations*). Shows a special implementation of BFS and DFS. This kinds of problem need to maintain a lot of variables in each recursion/iteration, which is easier by thinking the traversal and cloning processes separately.
 * [Leetcode] Surrounded Regions. (Algorithms and Implementations*). For DFS, sometimes we need to add some restrictions to prevent stack overflow. Remember BFS implementation to this kind of problems.
+* [Leetcode] Number of Islands. (Algorithms*)
+* [Leetcode] Word Search. (Algorithm*) When the word is empty, returns true. Remember the trick of saving space usage.
 * [Leetcode] Restore IP Addresses(Implementation**). '012' is invalid while '0' is valid.
 * [Leetcode] Combination Sum(Algorithm*).
 * [Leetcode] Combination Sum II(Algorithm*).
