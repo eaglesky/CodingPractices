@@ -475,6 +475,7 @@ The following template is just used for implementation. Think about the problem 
                     curPath.add(sub_states);
                     DFS(sub_states, startId + 1, curPath, visited);
                     visited[sub_states] = false;
+                    //If curPath is a static array, this step can be omitted.
                     curPath.remove(curPath.length() - 1);
                 }
             }
@@ -551,7 +552,9 @@ The following template is just used for implementation. Think about the problem 
 * [Leetcode] Combination Sum(Algorithm*).
 * [Leetcode] Combination Sum II(Algorithm*).
 * [Leetcode] Combination Sum III(Algorithm*).
-* [Leetcode] N Queens. (Best Algorithm*).
+* [Leetcode] N Queens. (Best Algorithm*). Good example of range backtracking with dedupe.
+* [Leetcode] Sudoku Solver(Algorithm*). DFS with return boolean check. What is the parallel algorithm?
+* [Leetcode] Generate Parentheses. (Algorithm). 
 
 
 ## Permutations, Combinations and Subsets.
