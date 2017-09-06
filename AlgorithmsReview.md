@@ -422,7 +422,7 @@ The following template is just used for implementation. Think about the problem 
           Done;
         ```
     - Finding all the paths between two states(backtracking).
-      + Basic Implementation
+      + When starting from a single node. E.g. [Leetcode]Word Search.
         ```
           main:
             //Initialize the capacity of curPath if possible!
@@ -431,31 +431,55 @@ The following template is just used for implementation. Think about the problem 
           
           //curPath store previous visited nodes
           DFS(node, startId, curPath, paths, visited):
-            if end state {
-                paths.add(curPath.shallow_copy);
-                return;
-            }
-            //Check validity after checking end node because usually
-            //the condition here is more complex than the end node 
-            //condition
             if current state is not valid {
                 return;
             }
-            visited[node] = true; //This is necessary for grid problems.
-            //Can do some pruning here to remove unnecessary adjNode 
-            //to be iterated below
+            visited[node] = true; 
+            curPath.add(node);
+            if end state {
+                paths.add(curPath.shallow_copy);
+                visited[node] = false;
+                curPath.remove(node);
+                return;
+            }
             for (adjNode : node.adjNodes) {
-                curPath.add(adjNode); //To be corrected
                 //Be careful about newStartId!
                 DFS(adjNode, newStartId, curPath, paths);
-                //If using Java StringBuilder, try sb.setLength(originalLen)
-                //or sb.setCharAt(id, newChar) to change directly
-                curPath.removeLast; 
+
             }
             visited[node] = false;
+            //If using Java StringBuilder, try sb.setLength(originalLen)
+            //or sb.setCharAt(id, newChar) to change directly
+            curPath.remove(node).
             Done;
         ```
-  * BFS. Besides traversal, it is also often used to find the shorted path(s) and its length between two vertices. It cannot find all the path between two states as DFS, since BFS proceeds level by level and many paths are not able to searched in this way. Implemented iteratively using queue, O(V + E) time.
+      + When starting with a range. This seems to be the dominant type.
+        ```
+          main:
+            DFS(states, 0, new ArrayList<>(), paths, visited);
+            return paths;
+
+          //curPath stores all the valid elements up to now,
+          //not including any of of current states
+          DFS(states, startId, curPath, paths, visited):
+            if (startId > limit) {
+                paths.add(curPath.shallow_copy);
+                return;
+            }
+            if (other checks are not passed) {
+                return;
+            }
+            for (sub_states : states) {
+                if (sub_states is valid && !visited[sub_states]) {
+                    visited[sub_states] = true;
+                    curPath.add(sub_states);
+                    DFS(sub_states, startId + 1, curPath, visited);
+                    visited[sub_states] = false;
+                    curPath.remove(curPath.length() - 1);
+                }
+            }
+        ```
+  * BFS. Besides traversal, it is also often used to find the shorted path(s) and its length between two vertices. It cannot find all the path between two states as DFS, since BFS proceeds level by level and many paths are not able to searched in this way. Implemented iteratively using queue, O(V + E) time. Usually need to maintain a visited set of node that are visited or currently in the queue. 
     * Standard implementation:
       ```
         BFS(node):
@@ -487,7 +511,7 @@ The following template is just used for implementation. Think about the problem 
           print(prev) // Print out the shortest path recursively, optional
           done;
       ```
-    * Algorithm of level BFS(node), which can give the distance from the node being traversed to the source node.
+    * Algorithm of level BFS(node), which can give the distance from the node being traversed to the source node. Besides this way, we can also keep using the previous implementation but change the visited set to a map of visited/in-queue node to its shortest distance from the beginning node. This is useful when we want to output all shortest paths between to nodes, which requires storing the mapping of each node of dis i to all its predecessors with dis (i - 1). E.g.[Leetcode]Word Ladder II.
       ```
         BFS(node):
           If node is null, return; //queue usually doesn't allow null value
@@ -503,7 +527,7 @@ The following template is just used for implementation. Think about the problem 
                   for (adjNode : curNode.adjNodes) {
                       if (visited(adjNode) == false) {
                           visited[adjNode] = true;
-                          prev[adjNode] = curNode;  //optional
+                          prev[adjNode] = curNode;  //optional,
                           q.enqueue(adjNode);
                       }
                   }          
@@ -512,6 +536,7 @@ The following template is just used for implementation. Think about the problem 
           print(prev)  //optional
           done;
       ```
+    * Bidirectional BFS. Speed-up for finding shortest paths between two nodes. E.g. [Leetcode]Word Ladder II.
   * Try visualizing the recursive stack when analyzing the problem.
 
 ### Problems
@@ -519,11 +544,14 @@ The following template is just used for implementation. Think about the problem 
 * [Leetcode] Surrounded Regions. (Algorithms and Implementations*). For DFS, sometimes we need to add some restrictions to prevent stack overflow. Remember BFS implementation to this kind of problems.
 * [Leetcode] Number of Islands. (Algorithms*)
 * [Leetcode] Word Search. (Algorithm*) When the word is empty, returns true. Remember the trick of saving space usage.
+* [Leetcode] Word Search II. (Algorithm and Best Implementation*)
+* [Leetcode] Word Ladder I(Algorithms and Implementations*). Remember the implementation of Bidirectional BFS? endWord is counted as transformed word, so if it is not in the wordList, we should return 0.
+* [Leetcode] Word Ladder II(Algorithms* and Implementations*). Remember the implementation of finding all shortest paths using BFS. 
 * [Leetcode] Restore IP Addresses(Implementation**). '012' is invalid while '0' is valid.
 * [Leetcode] Combination Sum(Algorithm*).
 * [Leetcode] Combination Sum II(Algorithm*).
 * [Leetcode] Combination Sum III(Algorithm*).
-
+* [Leetcode] N Queens. (Best Algorithm*).
 
 
 ## Permutations, Combinations and Subsets.
