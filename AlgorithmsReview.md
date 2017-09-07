@@ -453,7 +453,7 @@ The following template is just used for implementation. Think about the problem 
             curPath.remove(node).
             Done;
         ```
-      + When starting with a range. This seems to be the dominant type.
+      + When starting with a range. This seems to be the dominant type. The parameters must include all the necessary info that determines the next states. Usually id is one of them, like id of an array or string, which could be change if the string itself change(E.g. [Leetcode]Remove Invalid Parentheses). When debugging it is often necessary to print these parameters out for each recursive function.
         ```
           main:
             DFS(states, 0, new ArrayList<>(), paths, visited);
@@ -555,7 +555,6 @@ The following template is just used for implementation. Think about the problem 
 * [Leetcode] Combination Sum III(Algorithm*).
 * [Leetcode] N Queens. (Best Algorithm*). Good example of range backtracking with dedupe.
 * [Leetcode] Sudoku Solver(Algorithm*). DFS with return boolean check. What is the parallel algorithm?
-* [Leetcode] Generate Parentheses. (Algorithm). 
 
 
 ## Permutations, Combinations and Subsets.
@@ -893,6 +892,8 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   2. Compare the numbers of '(' and ')' encountered so far and compare them. For any valid parentheses, those number should be equal. Using counters of parentheses can easily calculate the length of formed parentheses. 
   - [Leetcode] Valid Parentheses(Algorithm)
   - [Leetcode] Longest Valid Parentheses(Algorithms** and implementation* of constanct space solution). 
+  - [Leetcode] Generate Parentheses. (Algorithm). 
+  - [Leetcode] Remove Invalid Parentheses(Algorithms** and implementation**). The hard part is how to dedup without using hash set. Be careful about what the reversed parentheses looks like -- '(()(' -> '()(('.
 * Arithmetic expression evaluation.
   - [Leetcode] Basic Calculator II(See previous).
   - [Leetcode] Basic Calculator I(Algorithms* and Implementations*). Might be better to deal with the digits first in each iteration. How to solve it when the operators have * and / ??
