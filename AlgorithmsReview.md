@@ -379,9 +379,17 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
 ## Graph
 ### Knowledge(to be completed)
 * Representations(Refer to CTCI)
-  * Adjacency list. V(number of Vertices) + E(number of edges) space for directed graph, or V + 2E for undirected graph. This is usually the preferred representation. Works well when accessing the neighbors is frequent. For fast edge lookup, just use hashset of integers(instead of list) as the element of arrays in the Graph class(Refer to the implementation of adjacency list in Robert's Algorithms). The list can be implemented with a HashMap or ArrayList. The former works better if the graph is sparse and  it doesn't require initializing each element. However
+  * Adjacency list. V(number of Vertices) + E(number of edges) space for directed graph, or V + 2E for undirected graph. This is usually the preferred representation. Works well when accessing the neighbors is frequent. For fast edge lookup, just use hashset of integers(instead of list) as the element of arrays in the Graph class(Refer to the implementation of adjacency list in Robert's Algorithms). The list can be implemented with a HashMap or ArrayList(the latter can handle most of the porblems, so think of it first). The former works better if the graph is sparse and  it doesn't require initializing each element. However
   need to know that when creating the map, if the graph is directed, the node without outbounding edges will not be inserted. So when getting the adjacent elements of a node, first check if the corresponding adjacency list in the map is null!
   * Adjacency matrix. V*V space. Fast for edge lookup, easier to represent weights, but usually takes more space than adjacency list. And has no way to represent parallel edges.
+  * Properties. A free tree(usually just referred as 'tree') is a connected, acyclic, undirected graph. Let G = (V, E) be an undirected graph. The following statements are equivalent.
+    - G is a free tree.
+    - Any two vertices in G are connected by a unique simple path.
+    - G is connected, but if any edge is removed from E, the resulting graph is disconnected.
+    - G is connected, and |E| = |V| - 1.
+    - G is acyclic, and |E| = |V| - 1.
+    - G is acyclic, but if any edge is added to E, the resulting graph contains acycle.
+    => Leaves(vertices that have degree 1) must exist. Otherwise you can always traverse from one vertix to another and sooner or later you'll have to go back to a vertic that has been visited, since the number of vertices in a graph is limited. Then there would be a cycle. See more proof in CTCI, B.5.1. Remember these equal properties and their prooves. Basically, to keep n vertices connected, there must be at least n-1 edges. Proof: Let's take a look at one of the vertices v1. If the graph is connected, then there must be a path from v1 to any of the other vertices. The current connected component K_v = {v1}. Edge set is K_e = {}. Say v2 is connected to S, then there has to be at least one more edge between v2 and S(say e2), then the connected componet is: K_v = {v1, v2}, K_e = {e2}. K_e always has the least number of edges that connect the vertices in K_v, and after the last vertex, there must be n - 1 edges in K_e, which is the least number of edges that connect the n vertices.
 * Traversal. Don't forget null input node and loops! Also note that the following pseudocode only implements traversing from one node. If the graph is not connected, then DFS and BFS below must be called for each node!  
 The following template is just used for implementation. Think about the problem itself when considering the algorithm -- like what parameters to use in the recursive functions and what they do in each recursion.
   * DFS. Can be used for counting the number of connected components in a graph, check if two vertices are connected, etc. Implemented recursively. Iterative solution usually uses a stack(of actual element or iterator of lists of elements. Often used as step-by-step backtracking and implementing iterators. E.g. [Leetcode]Flatten Nested List Iterator). And a map of node to its parent can be created while traversing to retrieve the paths. 
@@ -556,6 +564,10 @@ The following template is just used for implementation. Think about the problem 
 * [Leetcode] N Queens. (Best Algorithm*). Good example of range backtracking with dedupe.
 * [Leetcode] Sudoku Solver(Algorithm*). DFS with return boolean check. What is the parallel algorithm?
 * [Other] Union Contacts. (Algorithm**). Essentially a node finding problem.
+* [Leetcode] Minimum Height Trees(Algorithm** and implementation*). Remember the proof. Also remember the implementation of iteratively removing leaves using adjacency list.
+
+
+
 
 ## Permutations, Combinations and Subsets.
 ### Knowledge
