@@ -503,6 +503,12 @@ The following template is just used for implementation. Think about the problem 
           while (!q.isEmpty) {
               curNode = q.dequeue();
               visit(curNode);
+
+              //For grid based problems, add four adjacent coordinates
+              //in an array and iterate them here. Alternatively you can 
+              //also write a separate helper function, but you'll have to
+              //repeatedly write those arguments, which could be more 
+              //time consuming in an interview.
               for (adjNode : curNode.adjNodes) {
                   if (visited(adjNode) == false) {
                       // This must be set true before enqueuing each element.
@@ -526,8 +532,11 @@ The following template is just used for implementation. Think about the problem 
           If node is null, return; //queue usually doesn't allow null value
           Create queue q;
           q.enqueue(node);
-          visited[node] = true; //Usually a hashmap. Flexible, can vary a bit depending
-                                //on the problem
+
+          //Usually a hashmap. Flexible, can vary a bit depending
+          //on the problem
+          visited[node] = true; 
+                                
           for (level = 0; !q.isEmpty; ++level) {
               size = q.size();
               for (i = 0; i < size; ++i) {
@@ -545,6 +554,7 @@ The following template is just used for implementation. Think about the problem 
           print(prev)  //optional
           done;
       ```
+    * Multi-source BFS. Often used for finding the distance between other nodes with nearest source. Just add multiple sources to the queue. Implementation is very similar to above. E.g. [Leetcode]Walls and Gates
     * Bidirectional BFS. Speed-up for finding shortest paths between two nodes. E.g. [Leetcode]Word Ladder II.
   * Try visualizing the recursive stack when analyzing the problem.
 
@@ -565,7 +575,8 @@ The following template is just used for implementation. Think about the problem 
 * [Leetcode] Sudoku Solver(Algorithm*). DFS with return boolean check. What is the parallel algorithm?
 * [Other] Union Contacts. (Algorithm**). Essentially a node finding problem.
 * [Leetcode] Minimum Height Trees(Algorithm** and implementation*). Remember the proof. Also remember the implementation of iteratively removing leaves using adjacency list.
-
+* [Leetcode] Graph Valid Tree(Algorithm*)
+* [Leetcoce] Walls and Gates(Algorithm*).
 
 
 
