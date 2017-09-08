@@ -555,7 +555,7 @@ The following template is just used for implementation. Think about the problem 
 * [Leetcode] Combination Sum III(Algorithm*).
 * [Leetcode] N Queens. (Best Algorithm*). Good example of range backtracking with dedupe.
 * [Leetcode] Sudoku Solver(Algorithm*). DFS with return boolean check. What is the parallel algorithm?
-
+* [Other] Union Contacts. (Algorithm**). Essentially a node finding problem.
 
 ## Permutations, Combinations and Subsets.
 ### Knowledge
@@ -893,7 +893,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Valid Parentheses(Algorithm)
   - [Leetcode] Longest Valid Parentheses(Algorithms** and implementation* of constanct space solution). 
   - [Leetcode] Generate Parentheses. (Algorithm). 
-  - [Leetcode] Remove Invalid Parentheses(Algorithms** and implementation**). The hard part is how to dedup without using hash set. Be careful about what the reversed parentheses looks like -- '(()(' -> '()(('.
+  - [Leetcode] Remove Invalid Parentheses(Algorithms** and implementations**). The hard part is how to de-dup without using hash set. Be careful about what the reversed parentheses looks like -- '(()(' -> '()(('. Remember both algorithms.
 * Arithmetic expression evaluation.
   - [Leetcode] Basic Calculator II(See previous).
   - [Leetcode] Basic Calculator I(Algorithms* and Implementations*). Might be better to deal with the digits first in each iteration. How to solve it when the operators have * and / ??

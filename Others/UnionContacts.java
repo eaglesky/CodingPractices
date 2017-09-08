@@ -18,11 +18,20 @@ import java.util.*;
 public class UnionContacts {
 
 	//DFS solution. Better visualize this before writing the code.
-	//O(n) time and O(n) space, n is the total number of strings.
+	//O(n^2) + O(ns) time and O(n) space, n is the total number of contacts.
+	//ns is the number of strings.
 	//Each node in the graph represents a string in the contacts, and a box wrapping several
 	//nodes represents a contact that include those strings. 
-	//If we want to return a list of merged contacts, we can treat the string as node in DFS,
-	//and use a hashset to store the strings that belong to the same contact.
+	//However a better way of visualizing this problem is to treat each contact as a
+	//node, and if two contacts share any info, add an edge between them.
+	//So each connected component in the graph belongs to the same group, 
+	//and we can use an array to store group ids for each contact, and 
+	//finally use a loop to put the ids in the result. This can ensure the order
+	//in each group of the result. If the order is not required, we can just put
+	//the contact id directly into the result list in the dfs function, 
+	//if the contact has not been visited.
+	//If we want to return a list of merged contacts, we can treat the string as 
+	//node in DFS, and use a hashset to store the strings that belong to the same contact.
 	private static void dfs(int contactId, List<List<String>> contacts, Map<String, List<Integer>> map,
 		int[] groups, int groupId) {
 		if (groups[contactId] > 0) {
