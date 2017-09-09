@@ -557,6 +557,30 @@ The following template is just used for implementation. Think about the problem 
     * Multi-source BFS. Often used for finding the distance between other nodes with nearest source. Just add multiple sources to the queue. Implementation is very similar to above. E.g. [Leetcode]Walls and Gates
     * Bidirectional BFS. Speed-up for finding shortest paths between two nodes. E.g. [Leetcode]Word Ladder II.
   * Try visualizing the recursive stack when analyzing the problem.
+* Topological sort.(Refer to Robert's algorithms)
+  * Definition: Given a digraph, put the vertices in order such that all its directed edges point from a vertex earlier in the order to a vertex later in the order (or report that doing so is not possible).
+  * A digraph has a topological order if and only if it is a DAG(directed acyclic graph, a digraph with no directed cycles). The topological order is not necessarily unique.
+  * Algorithms that can detect if the given digraph is a DAG, and compute the topological order if it is: 
+    * DFS solution(more straightforward). Add the element to the stack right after each recursive function call and the reverse of the elements in the stack is the topological sorted sequence. Stack can be replaced with linked list. 
+    * BFS solution(Kahn's algorithm) -- repeatedly find a vertex of in-degree 0, store it in a queue, and remove it and all of its outgoing edges from the graph. The queue stores nodes in the topological sorted order. If there are still unvisited nodes when the queue is empty, meaning that all the nodes have inbound edges, they must form cycles(in that case you can traverse back from any node repeatedly and must come back since the number of nodes is limited). The output nodes are in topological order.
+  The above solutions require to build a adjacency list first. If a has to be executed before b, then natually a->b is the edge. This works well for both of the above solutions.   
+  Both solutions can be applied to undirected graph to find out if there is a cycle. DFS is essentially iterating all paths and if there is a cycle, there must be a hash set hit. BFS is basically repeatedly delete a leaf, if there is no leaf, you can traverse from a node and must come back again, since each node has 2 or more edges, and there are limited number of nodes.
+  Example: [Leetcode]Course Schedule I and II.
+  * Given a sequence, does it satisfy the constraints? If so, is it the only sequence that can be contructed from the constraints? Example: [Leetcode]Sequence Reconstruction, not implemented yet. Solutions:
+    * Still use BFS solution above, but everytime before polling an element out from the queue, check if there are already more than 1 element in the queue. If so, then the result is not unique. Otherwise need to compare the polled element with the next element in the given sequence to see if they are matched. 
+    https://discuss.leetcode.com/topic/65948/java-solution-using-bfs-topological-sort/2
+    O(V+E) time and O(V+E) space, the code is quite long.
+    * A simpler and better algorithm is like this: 
+      * To see if the given sequence satisfies the constraints, we can first create a map of sequnce element to its position, called pos, and check each constraints (edges) and see if the two positions are indeed ascending. 
+      * To see if the given sequence is the only one, we need to make sure if there is an edge between any consequtive elements in the given sequence. Otherwise we can swap the two consequtive elements to create a new valid sequence. This can be clearly seen and proved by visualizing the topological sorted sequence with edges on it. This can be implemented while iterating the edges, if it connects two consequtive elements in the given sequence, we mark the previous element as true. After finish the iteration, if the number of marked elements is equal to n - 1(n is the total number of element in the given sequence), then it means that this condition is satisfied.  
+      https://discuss.leetcode.com/topic/65633/very-short-solution-with-explanation  
+      https://discuss.leetcode.com/topic/65961/simple-solution-one-pass-using-only-array-c-92ms-java-16ms
+      O(V+E) time and O(V) space, much shorter code!
+  * Compute all topological sorts. The solution should always run in O(N!) time. If in a graph on N vertices with no edges, the number of valid topological sort outcomes is N!. One way is to check if each possible solution is topological sort in linear time.  
+  https://www.quora.com/Given-a-graph-how-to-compute-all-of-the-possible-topological-sort-outcomes
+  Another way is to do DFS traversal combined with Kahn's algorithm, starting from each node with 0 incoming degree, which is hard to implement:
+  http://www.geeksforgeeks.org/all-topological-sorts-of-a-directed-acyclic-graph/  
+  https://stackoverflow.com/questions/19066338/how-to-get-all-the-solutions-of-topological-sorting
 
 ### Problems
 * [Leetcode] Clone Graph(Implementations*). Shows a special implementation of BFS and DFS. This kinds of problem need to maintain a lot of variables in each recursion/iteration, which is easier by thinking the traversal and cloning processes separately.
@@ -576,7 +600,7 @@ The following template is just used for implementation. Think about the problem 
 * [Other] Union Contacts. (Algorithm**). Essentially a node finding problem.
 * [Leetcode] Minimum Height Trees(Algorithm** and implementation*). Remember the proof. Also remember the implementation of iteratively removing leaves using adjacency list.
 * [Leetcode] Graph Valid Tree(Algorithm*)
-* [Leetcoce] Walls and Gates(Algorithm*).
+* [Leetcode] Walls and Gates(Algorithm*).
 
 
 

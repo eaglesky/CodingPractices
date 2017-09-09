@@ -916,11 +916,13 @@ Solutions:
     https://discuss.leetcode.com/topic/65961/simple-solution-one-pass-using-only-array-c-92ms-java-16ms
     O(V+E) time and O(V) space, much shorter code!
 (3.5)Compute all topological sorts. The solution should always run in O(N!) time.
-One way is to check if each possible solution is topological sort in linear time.
+If in a graph on N vertices with no edges, the number of valid topological sort outcomes
+is N!. One way is to check if each possible solution is topological sort in linear time.
 https://www.quora.com/Given-a-graph-how-to-compute-all-of-the-possible-topological-sort-outcomes
-Another way is to do DFS traversal, starting from each node with 0 incoming degree,
-which is hard to implement:
+Another way is to do DFS traversal combined with Kahn's algorithm, starting from each
+node with 0 incoming degree, which is hard to implement:
 http://www.geeksforgeeks.org/all-topological-sorts-of-a-directed-acyclic-graph/
+https://stackoverflow.com/questions/19066338/how-to-get-all-the-solutions-of-topological-sorting
 (4)Eulerian path.
 (4.1)Definition: In graph theory, an Eulerian trail (or Eulerian path) is a trail
 in a graph which visits every edge exactly once. Similarly, an Eulerian circuit or
