@@ -390,6 +390,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     - G is acyclic, and |E| = |V| - 1.
     - G is acyclic, but if any edge is added to E, the resulting graph contains acycle.
     => Leaves(vertices that have degree 1) must exist. Otherwise you can always traverse from one vertix to another and sooner or later you'll have to go back to a vertic that has been visited, since the number of vertices in a graph is limited. Then there would be a cycle. See more proof in CTCI, B.5.1. Remember these equal properties and their prooves. Basically, to keep n vertices connected, there must be at least n-1 edges. Proof: Let's take a look at one of the vertices v1. If the graph is connected, then there must be a path from v1 to any of the other vertices. The current connected component K_v = {v1}. Edge set is K_e = {}. Say v2 is connected to S, then there has to be at least one more edge between v2 and S(say e2), then the connected componet is: K_v = {v1, v2}, K_e = {e2}. K_e always has the least number of edges that connect the vertices in K_v, and after the last vertex, there must be n - 1 edges in K_e, which is the least number of edges that connect the n vertices.
+    NOTE: The above properties do not necessary work for directed graph! Especially the relation between number of edges and vertices. A digraph can contain more than |V| - 1 edges and still no cycles!
 * Traversal. Don't forget null input node and loops! Also note that the following pseudocode only implements traversing from one node. If the graph is not connected, then DFS and BFS below must be called for each node!  
 The following template is just used for implementation. Think about the problem itself when considering the algorithm -- like what parameters to use in the recursive functions and what they do in each recursion.
   * DFS. Can be used for counting the number of connected components in a graph, check if two vertices are connected, etc. Implemented recursively. Iterative solution usually uses a stack(of actual element or iterator of lists of elements. Often used as step-by-step backtracking and implementing iterators. E.g. [Leetcode]Flatten Nested List Iterator). And a map of node to its parent can be created while traversing to retrieve the paths. 
@@ -559,13 +560,21 @@ The following template is just used for implementation. Think about the problem 
   * Try visualizing the recursive stack when analyzing the problem.
 * Topological sort.(Refer to Robert's algorithms)
   * Definition: Given a digraph, put the vertices in order such that all its directed edges point from a vertex earlier in the order to a vertex later in the order (or report that doing so is not possible).
-  * A digraph has a topological order if and only if it is a DAG(directed acyclic graph, a digraph with no directed cycles). The topological order is not necessarily unique.
+  * A digraph has a topological order if and only if it is a DAG(directed acyclic graph, a digraph with no directed cycles). It is easy to understand that if the graph has a cycle, there must be no topological order. If it does not has a cycle, then using the following two algorithm we can find a topological sorted sequence, which means that the topological order exists. The topological order is not necessarily unique.
   * Algorithms that can detect if the given digraph is a DAG, and compute the topological order if it is: 
-    * DFS solution(more straightforward). Add the element to the stack right after each recursive function call and the reverse of the elements in the stack is the topological sorted sequence. Stack can be replaced with linked list. 
-    * BFS solution(Kahn's algorithm) -- repeatedly find a vertex of in-degree 0, store it in a queue, and remove it and all of its outgoing edges from the graph. The queue stores nodes in the topological sorted order. If there are still unvisited nodes when the queue is empty, meaning that all the nodes have inbound edges, they must form cycles(in that case you can traverse back from any node repeatedly and must come back since the number of nodes is limited). The output nodes are in topological order.
-  The above solutions require to build a adjacency list first. If a has to be executed before b, then natually a->b is the edge. This works well for both of the above solutions.   
-  Both solutions can be applied to undirected graph to find out if there is a cycle. DFS is essentially iterating all paths and if there is a cycle, there must be a hash set hit. BFS is basically repeatedly delete a leaf, if there is no leaf, you can traverse from a node and must come back again, since each node has 2 or more edges, and there are limited number of nodes.
-  Example: [Leetcode]Course Schedule I and II.
+    * DFS solution(more straightforward). Add the element to the stack right after each recursive function call and the reverse of the elements in the stack is the topological sorted sequence. Stack can be replaced with linked list. Why does it give a topological sorted sequence? Consider any edge v->w. One of the following three cases must hold when dfs(v) is called: 
+      1. dfs(w) has already been called and has returned (w is marked).
+      2. dfs(w) has not yet been called (w is unmarked), so v->w will cause dfs(w) to be called (and return), either directly or indirectly, before dfs(v) returns.
+      3. dfs(w) has been called and has not yet returned when dfs(v) is called. The key to the proof is that this case is impossible in a DAG, because the recursive call chain implies a path from w to v and v->w would complete a directed cycle.
+    
+      In the two possible cases, dfs(w) is done before dfs(v), which means that w is added to the sequence before v, so v -> w is satisfied.
+
+    * BFS solution(Kahn's algorithm) -- repeatedly find a vertex of in-degree 0, store it in a queue, and remove it and all of its outgoing edges from the graph. The queue stores nodes in the topological sorted order. If there are still unvisited nodes when the queue is empty, meaning that all the nodes have inbound edges, they must form cycles(in that case you can traverse back from any node repeatedly and must come back since the number of nodes is limited). The output nodes are in topological order. Why? For any edge v-> w, v must become eligible to be enqueued before w, so v - > w must be satisfied in the final sequence.
+  
+    The above solutions require to build a adjacency list first. If a has to be executed before b, then natually a->b is the edge. This works well for both of the above solutions. Both of the above algorithms can do cycle detection and topological sort computation at the same time! As for BFS, if the graph is directional, another inbound array is required to record number of inbound edges for each node, since the graph can only record outbound edges info. This inbound array is not required if the graph is not directional. With inbound array, there is no need to maintain a hashset that marks visit info. Example: [Leetcode]Course Schedule II.
+    
+    Both solutions can be applied to undirected graph to find out if there is a cycle. DFS is essentially iterating all paths and if there is a cycle, there must be a hash set hit. BFS is basically repeatedly delete a leaf, if there is no leaf, you can traverse from a node and must come back again, since each node has 2 or more edges, and there are limited number of nodes.
+    
   * Given a sequence, does it satisfy the constraints? If so, is it the only sequence that can be contructed from the constraints? Example: [Leetcode]Sequence Reconstruction, not implemented yet. Solutions:
     * Still use BFS solution above, but everytime before polling an element out from the queue, check if there are already more than 1 element in the queue. If so, then the result is not unique. Otherwise need to compare the polled element with the next element in the given sequence to see if they are matched. 
     https://discuss.leetcode.com/topic/65948/java-solution-using-bfs-topological-sort/2
@@ -601,7 +610,9 @@ The following template is just used for implementation. Think about the problem 
 * [Leetcode] Minimum Height Trees(Algorithm** and implementation*). Remember the proof. Also remember the implementation of iteratively removing leaves using adjacency list.
 * [Leetcode] Graph Valid Tree(Algorithm*)
 * [Leetcode] Walls and Gates(Algorithm*).
-
+* Topological sort:
+  - [Leetcode] Course Schedule I and II(Algorithms** and Implementations*). Just do II is enough. Remember all of the implementation. 
+  - [Leetcode] Alien Dictionary(Implementation*).
 
 
 ## Permutations, Combinations and Subsets.
