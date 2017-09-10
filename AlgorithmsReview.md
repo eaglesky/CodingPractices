@@ -590,6 +590,10 @@ The following template is just used for implementation. Think about the problem 
   http://www.geeksforgeeks.org/all-topological-sorts-of-a-directed-acyclic-graph/  
   https://stackoverflow.com/questions/19066338/how-to-get-all-the-solutions-of-topological-sorting
 
+* Eulerian path.
+  * Definition: In graph theory, an Eulerian trail (or Eulerian path) is a trail in a graph which visits every edge exactly once. Similarly, an Eulerian circuit or Eulerian cycle is an Eulerian trail which starts and ends on the same vertex.
+  * A directed graph has an Eulerian trail if and only if at most one vertex has (out-degree) − (in-degree) = 1(starting point), at most one vertex has (in-degree) − (out-degree) = 1(finishing point), every other vertex has equal in-degree and out-degree, and all of its vertices with nonzero degree belong to a single connected component of the underlying undirected graph.
+
 ### Problems
 * [Leetcode] Clone Graph(Implementations*). Shows a special implementation of BFS and DFS. This kinds of problem need to maintain a lot of variables in each recursion/iteration, which is easier by thinking the traversal and cloning processes separately.
 * [Leetcode] Surrounded Regions. (Algorithms and Implementations*). For DFS, sometimes we need to add some restrictions to prevent stack overflow. Remember BFS implementation to this kind of problems.
@@ -613,6 +617,8 @@ The following template is just used for implementation. Think about the problem 
   - [Leetcode] Course Schedule I and II(Algorithms** and Implementations*). Just do II is enough. Remember all of the implementation. 
   - [Leetcode] Alien Dictionary(Algorithm* and Implementation*). DFS solution might be easier to implement.
   - [Leetcode] Sequence Reconstruction(Best Algorithm*). Edge case is hard to consider!
+* Eulerian path. Edge info can be stored together with adj node in the adjacency list.
+  - [Leetcode] Reconstruct Itinerary(Algorithms* and Implementations*). Remember the naive algorithm and implementation. I don't get how the better algorithm works yet, though its implementation is much simpler. Can be skipped if there is not much time: http://chuansong.me/n/340513349632
 
 
 ## Permutations, Combinations and Subsets.
