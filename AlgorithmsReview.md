@@ -379,8 +379,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
 ## Graph
 ### Knowledge(to be completed)
 * Representations(Refer to CTCI)
-  * Adjacency list. V(number of Vertices) + E(number of edges) space for directed graph, or V + 2E for undirected graph. This is usually the preferred representation. Works well when accessing the neighbors is frequent. For fast edge lookup, just use hashset of integers(instead of list) as the element of arrays in the Graph class(Refer to the implementation of adjacency list in Robert's Algorithms). The list can be implemented with a HashMap or ArrayList(the latter can handle most of the porblems, so think of it first). The former works better if the graph is sparse and  it doesn't require initializing each element. However
-  need to know that when creating the map, if the graph is directed, the node without outbounding edges will not be inserted. So when getting the adjacent elements of a node, first check if the corresponding adjacency list in the map is null!
+  * Adjacency list. V(number of Vertices) + E(number of edges) space for directed graph, or V + 2E for undirected graph. This is usually the preferred representation. Works well when accessing the neighbors is frequent. For fast edge lookup, just use hashset of integers(instead of list) as the element of arrays in the Graph class(Refer to the implementation of adjacency list in Robert's Algorithms). The list can be implemented with a HashMap or ArrayList(the latter can handle most of the porblems, so think of it first). The former works better if the graph is sparse or the key is not easily mapped to an integer. However need to know that when creating the map, if the graph is directed, the node without outbounding edges will not be inserted. So when getting the adjacent elements of a node, first check if the corresponding adjacency list in the map is null! Or better simply make sure all the nodes are inserted.
   * Adjacency matrix. V*V space. Fast for edge lookup, easier to represent weights, but usually takes more space than adjacency list. And has no way to represent parallel edges.
   * Properties. A free tree(usually just referred as 'tree') is a connected, acyclic, undirected graph. Let G = (V, E) be an undirected graph. The following statements are equivalent.
     - G is a free tree.
@@ -571,8 +570,8 @@ The following template is just used for implementation. Think about the problem 
 
     * BFS solution(Kahn's algorithm) -- repeatedly find a vertex of in-degree 0, store it in a queue, and remove it and all of its outgoing edges from the graph. The queue stores nodes in the topological sorted order. If there are still unvisited nodes when the queue is empty, meaning that all the nodes have inbound edges, they must form cycles(in that case you can traverse back from any node repeatedly and must come back since the number of nodes is limited). The output nodes are in topological order. Why? For any edge v-> w, v must become eligible to be enqueued before w, so v - > w must be satisfied in the final sequence.
   
-    The above solutions require to build a adjacency list first. If a has to be executed before b, then natually a->b is the edge. This works well for both of the above solutions. Both of the above algorithms can do cycle detection and topological sort computation at the same time! As for BFS, if the graph is directional, another inbound array is required to record number of inbound edges for each node, since the graph can only record outbound edges info. This inbound array is not required if the graph is not directional. With inbound array, there is no need to maintain a hashset that marks visit info. Example: [Leetcode]Course Schedule II.
-    
+    The above solutions require to build a adjacency list first. If a has to be executed before b, then natually a->b is the edge. This works well for both of the above solutions. Both of the above algorithms can do cycle detection and topological sort computation at the same time! As for BFS, if the graph is directional, another inbound array is required to record inbound degree for each node, since the graph can only record outbound edges info. When creating this array/map, make sure it contains all the vertices! This inbound array is not required if the graph is not directional. With inbound array, there is no need to maintain a hashset that marks visit info. Example: [Leetcode]Course Schedule II.
+
     Both solutions can be applied to undirected graph to find out if there is a cycle. DFS is essentially iterating all paths and if there is a cycle, there must be a hash set hit. BFS is basically repeatedly delete a leaf, if there is no leaf, you can traverse from a node and must come back again, since each node has 2 or more edges, and there are limited number of nodes.
     
   * Given a sequence, does it satisfy the constraints? If so, is it the only sequence that can be contructed from the constraints? Example: [Leetcode]Sequence Reconstruction, not implemented yet. Solutions:
@@ -612,7 +611,7 @@ The following template is just used for implementation. Think about the problem 
 * [Leetcode] Walls and Gates(Algorithm*).
 * Topological sort:
   - [Leetcode] Course Schedule I and II(Algorithms** and Implementations*). Just do II is enough. Remember all of the implementation. 
-  - [Leetcode] Alien Dictionary(Implementation*).
+  - [Leetcode] Alien Dictionary(Algorithm* and Implementation*). DFS solution might be easier to implement.
 
 
 ## Permutations, Combinations and Subsets.
