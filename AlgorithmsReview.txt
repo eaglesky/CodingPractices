@@ -935,20 +935,22 @@ of the underlying undirected graph.
 (5)Union find(may not be useful..). Refer to Robert's algorithms for details.
 The problem: how to quickly determine if there is a path connecting two given nodes
 in a graph?
-Solution: we can use disjoint sets as the data structure, implementing find, union
-and connected APIs. Two possible implementations(second one is better):
-* Quick find: use an array to store the elements, a map to store the mapping of each
-element to the representative of its set. Find takes O(1) time, and Union takes O
-(n) time. Note that we could also use linked lists to store the elements, but that
-would be more complicated to implement and doesn't change the time complexity.
+Solution: we can use disjoint sets as the data structure for the graph, implementing
+find, union and connected APIs. Two possible implementations(second one is better):
+* Quick find: use an array to store the representatative of each element, or a map
+to store the mapping of each element to the representative of its set. Find takes
+O(1) time, and Union takes O(n) time. Note that we could also use linked lists to
+store the elements, but that would be more complicated to implement and doesn't change
+the time complexity.
 * Weighted quick union: represent each disjoint set as a tree, and its root is the
 representative. Also maintain a map of representative of component to its size. Union
 simply change the parent of the representative of smaller component to that of the
 larger component. It takes much less time, but find time takes slightly longer than
 O(1) time. The actual time find takes is O(logN).
-An improvement to this, known as "path compression": just add another to find and
-sets each node along the way to link directly to the root. This makes the amortized
-time of find and union to be close to a small constant.
+An improvement to this, known as "path compression": add another loop to find() that
+sets the representatives of each node encountered along the way to link
+directly to the root. This makes the amortized time of find and union to be close
+to a small constant.
 Note that there exists no algorithm that can guarantee to perform each union-find
 operation in amortized constant time (under the very general “cell probe” model
 of computation). Weighted quick-union with path compression is very close to the

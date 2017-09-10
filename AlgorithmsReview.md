@@ -377,7 +377,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   - [Others] Find Depth. (Algorithms* and implementations*).
 
 ## Graph
-### Knowledge(to be completed)
+### Knowledge
 * Representations(Refer to CTCI)
   * Adjacency list. V(number of Vertices) + E(number of edges) space for directed graph, or V + 2E for undirected graph. This is usually the preferred representation. Works well when accessing the neighbors is frequent. For fast edge lookup, just use hashset of integers(instead of list) as the element of arrays in the Graph class(Refer to the implementation of adjacency list in Robert's Algorithms). The list can be implemented with a HashMap or ArrayList(the latter can handle most of the porblems, so think of it first). The former works better if the graph is sparse or the key is not easily mapped to an integer. However need to know that when creating the map, if the graph is directed, the node without outbounding edges will not be inserted. So when getting the adjacent elements of a node, first check if the corresponding adjacency list in the map is null! Or better simply make sure all the nodes are inserted.
   * Adjacency matrix. V*V space. Fast for edge lookup, easier to represent weights, but usually takes more space than adjacency list. And has no way to represent parallel edges.
@@ -593,6 +593,16 @@ The following template is just used for implementation. Think about the problem 
 * Eulerian path.
   * Definition: In graph theory, an Eulerian trail (or Eulerian path) is a trail in a graph which visits every edge exactly once. Similarly, an Eulerian circuit or Eulerian cycle is an Eulerian trail which starts and ends on the same vertex.
   * A directed graph has an Eulerian trail if and only if at most one vertex has (out-degree) − (in-degree) = 1(starting point), at most one vertex has (in-degree) − (out-degree) = 1(finishing point), every other vertex has equal in-degree and out-degree, and all of its vertices with nonzero degree belong to a single connected component of the underlying undirected graph.
+
+* Union find(may not be useful..). Refer to Robert's algorithms for details.
+The problem: how to quickly determine if there is a path connecting two given nodes in a graph? Solution: we can use disjoint sets as the data structure for the graph, implementing find, union and connected APIs. Two possible implementations:
+  * Quick find: use an array to store the representatative of each element, or a map to store the mapping of each element to the representative of its set. Find takes O(1) time, and Union takes O(n) time. Note that we could also use linked lists to store the elements, but that would be more complicated to implement and doesn't change the time complexity.
+  * Weighted quick union: represent each disjoint set as a tree, and its root is the representative. Also maintain a map of representative of component to its size. Union simply change the parent of the representative of smaller component to that of the larger component. It takes much less time -- O(logN), but find time takes slightly longer than O(1) time. The actual time find takes is O(logN) too. An improvement to this, known as "path compression": add another loop to find() that sets the representatives of each node encountered along the way to link directly to the root. This makes the amortized time of find and union to be close to a small constant.
+  
+  Note that there exists no algorithm that can guarantee to perform each union-find operation in amortized constant time (under the very general “cell probe” model of computation). Weighted quick-union with path compression is very close to the best that we can do for this problem.
+
+  Union find can also be used to find connected component, but is more suitable for dynamic graph -- graph that has new edges being added. For static graph, DFS is faster.
+  http://stackoverflow.com/questions/28398101/union-find-or-dfs-which-one-is-better-to-find-connected-component
 
 ### Problems
 * [Leetcode] Clone Graph(Implementations*). Shows a special implementation of BFS and DFS. This kinds of problem need to maintain a lot of variables in each recursion/iteration, which is easier by thinking the traversal and cloning processes separately.
