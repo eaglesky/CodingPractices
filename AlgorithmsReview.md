@@ -574,7 +574,7 @@ The following template is just used for implementation. Think about the problem 
 
     Both solutions can be applied to undirected graph to find out if there is a cycle. DFS is essentially iterating all paths and if there is a cycle, there must be a hash set hit. BFS is basically repeatedly delete a leaf, if there is no leaf, you can traverse from a node and must come back again, since each node has 2 or more edges, and there are limited number of nodes.
     
-  * Given a sequence, does it satisfy the constraints? If so, is it the only sequence that can be contructed from the constraints? Example: [Leetcode]Sequence Reconstruction, not implemented yet. Solutions:
+  * Given a sequence, does it satisfy the constraints? If so, is it the only sequence that can be contructed from the constraints? Example: [Leetcode]Sequence Reconstruction. Solutions:
     * Still use BFS solution above, but everytime before polling an element out from the queue, check if there are already more than 1 element in the queue. If so, then the result is not unique. Otherwise need to compare the polled element with the next element in the given sequence to see if they are matched. 
     https://discuss.leetcode.com/topic/65948/java-solution-using-bfs-topological-sort/2
     O(V+E) time and O(V+E) space, the code is quite long.
@@ -612,6 +612,7 @@ The following template is just used for implementation. Think about the problem 
 * Topological sort:
   - [Leetcode] Course Schedule I and II(Algorithms** and Implementations*). Just do II is enough. Remember all of the implementation. 
   - [Leetcode] Alien Dictionary(Algorithm* and Implementation*). DFS solution might be easier to implement.
+  - [Leetcode] Sequence Reconstruction(Best Algorithm*). Edge case is hard to consider!
 
 
 ## Permutations, Combinations and Subsets.
