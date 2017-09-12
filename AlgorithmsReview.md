@@ -973,3 +973,5 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Basic Calculator I(Algorithms* and Implementations*). Might be better to deal with the digits first in each iteration. How to solve it when the operators have * and / ??
   - [Leetcode] Different Ways to Add Parentheses(Algorithm**).Remember the way of enumerating different order of calculating an arithmetic expression.
   - [Leetcode] Expression Add Operators(Algorithm** and Implementation*). Remember the best backtracking logic and implementation. Note that "00" is not valid number. Also the overflowed values should not be counted.
+* Greedy problems. Need to understand why greedy algorithm could get the optimal result, and if it doesn't, why isn't there the optimal solution. The brute force alternative is often backtracking.
+  - [Leetcode] Rearrange String k Distance Apart(Algorithms** and Implementations**). The naive algorithm and greedy algorithm should all be mastered! Don't know how to prove the correctness of greedy algorithm yet. 
