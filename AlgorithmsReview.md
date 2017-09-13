@@ -746,7 +746,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
     - Target element is out of the range of the array, either smaller than the minimum element in the array or greater than the maximum element in the array.
     - For above cases, don't forget the case when the input array has no or only one element.
   * Type of search problems and its implementations. General idea is to start
-    with initial range of candidates [low, high], compare target with a[mid](or a[low], a[high] if necessary), then narrow down the candidates by half and search in the new range. Pay attention to how mid value is calculated since we want the range to keep shrinking to 1. For problems that the range can not be cut down to half(time is more than O(logn)), low or high can be increased or decreased gradually.
+    with initial range of candidates [low, high], compare target with a[mid](or a[low], a[high] if necessary), then narrow down the candidates by half and search in the new range(elements outside the new range are guaranteed not valid and thus skipped). Pay attention to how mid value is calculated since we want the range to keep shrinking to 1. For problems that the range can not be cut down to half(time is more than O(logn)), low or high can be increased or decreased gradually.
     1. Traditional problem -- return the index of the element if found, otherwise return -1. [low, high] keeps shrinking and the size will always become 2 or 1 eventually, which is the range of possible ids. Each iteration makes sure that any id that lies out side this range is not possible to be the result(or has been considered). Therefore if target exists, it will eventually lies in a window of size 1 and target == a[mid] will always happen.
     ```java
       int binarySearch(int[] a, int target) {
@@ -787,7 +787,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
     ```java
       int firstGreaterEqual(int[] nums, int target) {
         int low = 0;
-        int high = nums.length;
+        int high = nums.length; //For some problems this could overflow
         while (low < high) {
             int mid = low + (high - low) / 2;
             if (target > nums[mid]) {
@@ -833,10 +833,14 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Search in rotated sorted array I and II(Algorithm**). Type 1 with changes. Remember the algorithm!
   - [Leetcode] Find Minimum in Rotated Sorted Array I and II(Algorithm**). These problems return the min value rather than the id. Similar to http://practice.geeksforgeeks.org/problems/maximum-value-in-a-bitonic-array/0
   - [EPI] Search local minimum in partially sorted array(Algorithm). Type 6. Description is in CodingPractices/EPI/SearchLocalMinimum.java
+  - [Leetcode] Search a 2d Matrix.
+  - [Leetcode] Search a 2d Matrix2.(Best algorithm*)
+  - [Leetcode] First bad version(Algorithms*). When all of the versions are good, return whatever(0 works).  Type 2 & 4.
+  - [Leetcode] H-Index II.(Algorithm* and implementation)
   - [Leetcode] Median of two sorted arrays(Algorithm** and Implementation**)
 * Sorting Problems.
-  - [Leetcode]Kth largest element in an array(Algorithm* and implementation* of quick select?)
-  - [Leetcode]Sort Colors(Algorithm**). Two-passes constanct-space solution is actually better than the one-pass solution.
+  - [Leetcode] Kth largest element in an array(Algorithm* and implementation* of quick select?)
+  - [Leetcode] Sort Colors(Algorithm**). Two-passes constanct-space solution is actually better than the one-pass solution.
 
 
 ## Dynamic Programming and Memoization
