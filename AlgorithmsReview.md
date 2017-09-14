@@ -226,6 +226,7 @@ This approach is preferable if we can skip iterating the non-null list after the
 The above implementations can also be appied to two pointers iteration on arrays or strings. E.g. The merge function of Merge Sort. 
 * Sometimes we can use the input pointers to reduce the number of pointers created. It is possible to delete a node only by using that pointer if that node is not the head or tail --- by shifting the contents of the following nodes toward it and remove the last one.
 * Adding dummy node to the front a linked list can be convenient for iterating over the list using two pointers, especially if we want to remove the first node, or insert in front of the first node. It also helps when there is cycle in the linked list and the cycle starting point if the head of linked list. New head is always dummy.next, not neccessary the original head! Think carefully about edge cases involving the head node if we do not want to add the dummy node(for node finding problems, think about the case when there is only one node in a list).
+* When iterating a linked list, just use preNode if you could insert another node into it.
 * Edge cases: (think normal case first), insert/remove the first/last node, one node linked list, null list.
 * Three approaches for reversing linked list and their implementation(see below). Use previous node pointer instead of the current node pointer if we want to move the current node around or remove a node. 
 
@@ -824,7 +825,11 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
     target value. The algorithm is usually to first check the middle value for
     a certain condition and use that condition to determine whether the next step is to go to the left half or the right half. The key is to determine what condition to use.
 * When implementing customized comparator, make sure it satisfies three properties listed here: [https://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html#compare(T,%20T)]
-
+* Interval related.
+  * How to check if two intervals overlap each other
+  * Activities selection problems. Greedy algorithm to find out the maximum set of compatible activities: sort the activities by ending times and keep selecting the earliest ending activity. (Introduction to Algorithms, Greedy algorithms.)
+  * Greedy algorithm to schedule the activities. The miniumum number of rooms is equals to the maximum number of overlapping activities. [Leetcode]Meeting rooms II.
+    
 ### Problems
 * Binary Search Problems.
   - [Leetcode] Search Insert Position(Algorithms*). Type 2.
@@ -844,6 +849,11 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] H-Index (Best algorithm**). The following diagram shows why there is always one and only one h index.
   <img src="hindex.png" width="300">
   The black dots represent the sorted array values, in this case they are [2, 2, 3, 3, 4, 5, 6]. The line represents the relation between current id and h index. If you can find a h such that the array values on the left of its corresponding id are no greater than it, and the array values on the right(including the id) are greater or equal to it, then that would be the h-index. 
+  - [Leetcode] Insertion Sort List(Algorithm** and Implementation*).
+  - [Leetcode] Sort List(Implementation*). Bottom-up merge sort on linked list.
+    Very hard to write the code! Top-down approach is much easier and may probably be enough.
+  - Interval related.
+    + [Leetcode] Merge Intervals(Algorithm).
 
 
 ## Dynamic Programming and Memoization
