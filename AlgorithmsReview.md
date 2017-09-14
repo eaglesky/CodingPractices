@@ -841,6 +841,9 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 * Sorting Problems.
   - [Leetcode] Kth largest element in an array(Algorithm* and implementation* of quick select?)
   - [Leetcode] Sort Colors(Algorithm**). Two-passes constanct-space solution is actually better than the one-pass solution.
+  - [Leetcode] H-Index (Best algorithm**). The following diagram shows why there is always one and only one h index.
+  <img src="hindex.png" width="300">
+  The black dots represent the sorted array values, in this case they are [2, 2, 3, 3, 4, 5, 6]. The line represents the relation between current id and h index. If you can find a h such that the array values on the left of its corresponding id are no greater than it, and the array values on the right(including the id) are greater or equal to it, then that would be the h-index. 
 
 
 ## Dynamic Programming and Memoization
