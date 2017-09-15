@@ -25,6 +25,7 @@
   * Performance: get, set is O(1), amortized time of add is O(1) and why. Remove an element at some position is typically O(n), but could be O(1) by switching the last element with the one to be deleted and then remove the last element. In Java, ArrayList.remove(int id) does it, and if id is the last position, it simply decrease the size counter and doesn't copy any element.
 * Basic language syntax for array(fixed and dynamic), hash map and hash set.
 * In Java, it's better to use constructor to get the shallow copy of ArrayList than calling the clone method, since List interface does not have clone method.
+* In Java, when using a interface list as a parameter, it is better to use iterator to iterate it than get(id), since the latter could take O(n) time if the underlying implementation is linked list.
 * Implementation of equals and hashCode methods in Java(See *Effective Java*,
 http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html)
   * Note that if two objects are equal, their hash codes must be the same; but if two objects have the same hash codes, they don't have to be equal.
@@ -853,7 +854,9 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Sort List(Implementation*). Bottom-up merge sort on linked list.
     Very hard to write the code! Top-down approach is much easier and may probably be enough.
   - Interval related.
-    + [Leetcode] Merge Intervals(Algorithm).
+    + [Leetcode] Merge Intervals(Algorithm and implementation*).
+    + [Leetcode] Insert Interval(Algorithm* and Implementation**). Might not need to master the in-place solution. The iterator solution should be mastered.
+    + [Leetcode] Meeting rooms(Algorithm). Clarification: if [s1, e1], [s2, e2], (e1 == s2), then return true.
 
 
 ## Dynamic Programming and Memoization
