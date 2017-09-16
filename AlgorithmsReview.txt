@@ -2023,6 +2023,9 @@ Implementation Utils:
                         return Integer.compare(o1[0], o2[0]);
                     }
             });
+            //Can also use lamda:
+            Arrays.sort(sumAndIds, (int[] o1, int[] o2) ->
+                Integer.compare(o1[0], o2[0]));
 
 * Sorting an list:
     (1) Java: List<Airport> dests = new ArrayList<>();

@@ -4,7 +4,7 @@ pop(): randomly pop an element out, which could be either the first one or the l
 peek(): randomly peek an element, which could be either the first one or the last one.
 isEmpty(): check if the black box is empty.
 
-Write a function that takes out all the elements out from the black box and keeps the order.
+Write a function that takes all the elements out from the black box and keeps the order.
 Assuming there are no duplicates.
 
 http://www.1point3acres.com/bbs/thread-158720-1-1.html

@@ -830,7 +830,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   * How to check if two intervals overlap each other
   * Activities selection problems. Greedy algorithm to find out the maximum set of compatible activities: sort the activities by ending times and keep selecting the earliest ending activity. (Introduction to Algorithms, Greedy algorithms.)
   * Greedy algorithm to schedule the activities. The miniumum number of rooms is equals to the maximum number of overlapping activities. [Leetcode]Meeting rooms II.
-    
+
 ### Problems
 * Binary Search Problems.
   - [Leetcode] Search Insert Position(Algorithms*). Type 2.
@@ -857,6 +857,8 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
     + [Leetcode] Merge Intervals(Algorithm and implementation*).
     + [Leetcode] Insert Interval(Algorithm* and Implementation**). Might not need to master the in-place solution. The iterator solution should be mastered.
     + [Leetcode] Meeting rooms(Algorithm). Clarification: if [s1, e1], [s2, e2], (e1 == s2), then return true.
+    + [Leetcode] Meeting rooms II(Algorithms**).
+  - [Others] Find Elements from Black Box(Algorithm**)
 
 
 ## Dynamic Programming and Memoization
@@ -953,7 +955,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Counting Bits(Algorithm)
 * Game problems. Think of the final states first and then think reversely to find out the underlying pattern.
   - [Lintcode] Coins In Line(Algorithm*).
-* Backpack problems. Usually use d[i][w] representing the first i items adding up to weight w(or with limit of weight w). Check if the last item is included or which one. Length representation is preferred here.
+* Backpack problems. Find some elements with n given elements that satisfy some constraints. Usually use d[i][w] representing the first i items adding up to weight w(or with limit of weight w). Check if the last item is included or which one. Length representation is preferred here. If w could be any large number, we might need use id instead of w and have a inner loop to iterate the splitting element -- DP solution of Activity selection problem in *Introduction to algorithms*.
   - [Lintcode] Backpack I (Algorithms*). Greedy algroithm won't work.
   - [Lintcode] Backpack V (Algorithm). Be careful about the initial values.
   - [Leetcode] Combination Sum IV(Best Algorithm*)(same as [Lintcode] Backpack VI). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
@@ -994,5 +996,5 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Basic Calculator I(Algorithms* and Implementations*). Might be better to deal with the digits first in each iteration. How to solve it when the operators have * and / ??
   - [Leetcode] Different Ways to Add Parentheses(Algorithm**).Remember the way of enumerating different order of calculating an arithmetic expression.
   - [Leetcode] Expression Add Operators(Algorithm** and Implementation*). Remember the best backtracking logic and implementation. Note that "00" is not valid number. Also the overflowed values should not be counted.
-* Greedy problems. Need to understand why greedy algorithm could get the optimal result, and if it doesn't, why isn't there the optimal solution. The brute force alternative is often backtracking.
+* Greedy problems. Need to understand why greedy algorithm could get the optimal result, and if it doesn't, why isn't there the optimal solution. The brute force alternative is often backtracking. DP can be used first to find out the relation between the original problem and sub-problems, and think of if we can make greedy choice to reduce the number of sub-problem to one -- 16.2 Elements of the greedy strategy of *Introduction to Algorithms*
   - [Leetcode] Rearrange String k Distance Apart(Algorithms** and Implementations**). The naive algorithm and greedy algorithm should all be mastered! Don't know how to prove the correctness of greedy algorithm yet. 
