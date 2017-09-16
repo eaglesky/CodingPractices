@@ -860,6 +860,67 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
     + [Leetcode] Meeting rooms II(Algorithms**).
   - [Others] Find Elements from Black Box(Algorithm**)
 
+## Bit Manipulation
+### Knowledge
+* Arithmetic(Signed) shift vs Logical(Unsigned) shift. Java: >>, <<(arithmetic), >>>(logical). http://docs.oracle.com/javase/tutorial/java/nutsandbolts/op3.html There is no '<<<' in Java since arithmetic shift left works the same as logical shift left -- the bit next to MSB is left-shifted to replace MSB.
+https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
+* Implementation of several common bit operations(Java):
+  ```java
+    /* i is the zero-based index from the right for all the following methods*/
+    boolean get(int num, int i) {
+        return ((num & (1 << i)) != 0);
+    }
+
+    int set(int num, int i) {//set the bit at index i in num to 1
+        return num | (1 << i);
+    }
+
+    int clear(int num, int i) {//set the bit at index i in num to 0
+        return num & (~(1 << i));
+    }
+
+    //Clear all bits from the most significant bit(leftmost bit) through i(inclusive):
+    int clearBitsMSBthroughI(int num, int i) {
+        return num & ((1 << i) - 1);
+    }
+
+    //Clear all bits from i through 0(inclusive)
+    //-1 is a sequence of all 1s in the binary represenation
+    int clearBitsithrough0(int num, int i) {
+        return num & ((-1 << (i + 1)));
+    }
+
+    //Update the bit value at index i to be the value corresponding bitisl
+    int updateBit(int num, int i, boolean bitisOne) {
+        return bitisOne ? set(num, i) : clear(num, i);
+    }
+  ```
+* Exclusive or(`^`) has commutativity and associativity.([Leetcode]Single Number)
+* Negation of an integer is just to take the 2's complement -- invert all the bits and add one. This works for both positive and negative integer!
+* Subtract 1 from positive integer and negative integer work the same!
+* Find out the rightmost set bit: if diff = (10010)b, then diff & (-diff) is (00010)b, which is the same as diff & ~(diff - 1). ([Leetcode]Single Number III)
+* Endianness. 
+  * Big-endian: the most significant byte is put at the lowest address
+    Little-endian: the least significant byte is put at the lowest address.
+    Usually the unit is byte. So we don't consider the order of bits within a byte. Example: the IBM z/Architecture mainframes use big-endian while the Intel x86 processors use little-endian. Note that the compiler always produces the binary code that uses the same format as the CPU by default, since when parsing the source code file, the digits are sent to the CPU to calculate the number, which uses the endianness of the CPU. However some compilers allow converting the endianness.
+    See more in the Wikipedia: https://en.wikipedia.org/wiki/Endianness
+  * JVM uses big-endian for all multibyte data, including operand. To know what the underlying endian used by the processor is, just check java.nio.ByteOrder.nativeOrder().toString(), to see if it is "BIG_ENDIAN" or "LITTLE_ENDIAN". http://stackoverflow.com/questions/981549/javas-virtual-machines-endianness
+  *  How to change the endiness:
+  ```c
+  uint32_t ChangeEndianness(uint32_t value)
+  {
+      uint32_t result = 0;
+      result |= (value & 0x000000FF) << 24; //Can be done in java too
+      result |= (value & 0x0000FF00) << 8;
+      result |= (value & 0x00FF0000) >> 8;
+      result |= (value & 0xFF000000) >> 24;
+      return result;
+  }
+  ```
+
+### Problems
+
+
 
 ## Dynamic Programming and Memoization
 ### Knowledge
