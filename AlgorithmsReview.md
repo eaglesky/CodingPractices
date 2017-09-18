@@ -919,8 +919,8 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
   ```
 
 ### Problems
-
-
+* [Leetcode] Gray Code(Algorithm*). Remember the algorithm.
+* [Leetcode] Single Number(Best Algorithm*). Clarification of the description: Every element appears twice except that one element appears only once. Remember the algorithm. Also do this progressively by using the hashset algorithm first and then think of how to check duplicates by using only one variable.
 
 ## Dynamic Programming and Memoization
 ### Knowledge
