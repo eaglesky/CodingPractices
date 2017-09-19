@@ -895,7 +895,7 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
         return bitisOne ? set(num, i) : clear(num, i);
     }
   ```
-* Exclusive or(`^`) has commutativity and associativity.([Leetcode]Single Number)
+* Exclusive or(`^`) has commutativity and associativity.([Leetcode]Single Number). See prooves here https://math.stackexchange.com/questions/293793/prove-xor-is-commutative-and-associative. The first one is strict proof and the second one proves it conceptually by seeing exlusive or as "conditional flip".
 * Negation of an integer is just to take the 2's complement -- invert all the bits and add one. This works for both positive and negative integer!
 * Subtract 1 from positive integer and negative integer work the same!
 * Find out the rightmost set bit: if diff = (10010)b, then diff & (-diff) is (00010)b, which is the same as diff & ~(diff - 1). ([Leetcode]Single Number III)
@@ -921,6 +921,10 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
 ### Problems
 * [Leetcode] Gray Code(Algorithm*). Remember the algorithm.
 * [Leetcode] Single Number(Best Algorithm*). Clarification of the description: Every element appears twice except that one element appears only once. Remember the algorithm. Also do this progressively by using the hashset algorithm first and then think of how to check duplicates by using only one variable.
+* [Leetcode] Single Number II(Algorithms**). The algorithms can be extended.
+* [Leetcode] Single Number III(Algorithm**).
+* [Leetcode] Number of 1 bits.
+
 
 ## Dynamic Programming and Memoization
 ### Knowledge
