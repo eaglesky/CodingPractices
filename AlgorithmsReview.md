@@ -926,6 +926,18 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
 * [Leetcode] Number of 1 bits.
 
 
+## Math
+### Knowledge
+* Terms.
+  * Addition. In addition, an augend and an addend are added to find a sum. `6(augend) + 3(addend) = 9(sum/total)`. Sometimes both the augend and addend are called addends
+  * Subtraction. In subtraction, a subtrahend is subtracted from a minuend to find a difference.`9(minuend) - 3(subtrahend) = 6(difference)`
+  * Multiplication. In multiplication, a multiplicand and a multiplier are multiplied to find a product. `6(multiplicand) x 3(multiplier) = 18(product)`. Sometimes the multiplicand and the multiplier are both called factors.
+  * Division. In division, a dividend is divided by a divisor to find a quotient. If a quotient is a whole number, then it is called that numbers are *divisible*, i.e. one number is divided without remainder by another. Otherwise we present the amount left over as the *remainder*. `18(dividend) / 7(divisor) = 2(quotient) ... 4(remainder)`. We can also present the result as *fraction* -- `18(numerator) / 7(denominator)`. 
+  * Power. In `b^n`, b is the *base* and n is the *exponent/index/power*. The result is value of a power. It is called as: *b (raised) to the n-th (power), b (raised) to the (power of) n, or the n-th power of b*. "raised" can be omitted here, and sometimes "power" as well. Specifically, when n = 2, we can call it *b squared*. When n = 3, we can call it *b cubed*. We call all the powers of base b as *powers of b*. 
+  * Root. `\sqrt[n]{k}`, k is the *radicand*, and n is *degree/index*. The second root is called a *square root of k(or simply root k)*, the third root -- *cube root of k*. Generally, it's called as *nth root of k*.  
+
+
+
 ## Dynamic Programming and Memoization
 ### Knowledge
 * DP and greedy algorithm. In greedy algorithm, each step tries to achieve the local optimum, while in DP, each step is not necessarily the local optimum, but can definitely achieve global optimum. To prove if a greedy algortithm works or not, think like this: assuming there is a correct solution that achieves global optimum, for each step in the greedy solution, can it replace the first step in the correct solution? If it can, then the greedy solution can achieve the global optimum, otherwise, it cannot.
