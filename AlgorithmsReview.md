@@ -943,10 +943,10 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
     * The dividend is INT_MIN and the divisor is -1. The quotient will overflow. This is the only overflow case.
     * The dividend is INT_MIN and the divisor is 1. The quotient will not underflow, which is INT_MIN. But this case should be noticed.
   * Powers of zero. Zero to the zero power equals ONE. Zero to any positive powers equals ZERO. Zero to any negative powers is UNDEFINED.
-  * Negation could overflow if the variable is MIN_VALUE.
-  * Handling overflows:
+  * Negation & absolute could overflow if the variable is MIN_VALUE. Simple way to deal with it is to cast the original value into larger primitive type before negation or getting absolute value. Or if we are certain that the original value n is non-positive, and n is the exponent, then use `-n = -(n + 1) + 1`.
+  * General ways to handle overflows:
     * Use larger primitive types. E.g. Use Long for Int, Double for float.
-    * Use unsigned primitive types.
+    * Use unsigned primitive types. Note: Java doesn't have them.
 * About decimals(numbers that have decimal point in them). They can not precisely represented by double/float, especially when it is equal to an integer of large absolute value or most of the other decimals. Usually BigDecimal is used to precisely represent decimals. 
 http://stackoverflow.com/questions/28972497/java-double-comparing-vs-string-comparing
 http://blog.csdn.net/wcxiaoych/article/details/42806313.
@@ -985,7 +985,9 @@ Main points:
   Note that sqrt(n) is usually a decimal representing the precise value of square root of n. n / i <= precise_value_of(n / i). So i <= precise_value_of(n / i) is always true. So i * i <= n is always true. If i > n / i, then i > precise_value_of (n/i) since i and n/i are integers, and precise_value_of(n/i) < n / i + 1. So i must iterate all integers no greater than sqrt(n).
 
 ### Problems
-
+* [Leetcode] Pow(x, n). (Best algorithm* and Implementation). Remember the best algorithm.
+* [Leetcode] Add Two Numbers I and II.(Algorithm and Implementation*). For II, the naive solution is to put input values into two stacks first and then use similar solution in I. The other solution using O(1) extra space would be first iterate two linked lists to find out their lengths, and then add the corresponding elements up and store the sums in a new linked list in reverse order, and finally reverse that linked list while calculating the values and carries.
+* [Leetcode] Divide Two Integers.(Algorithm* and Implementation*). Clarify what is -5 / 4 first. 
 
 
 
