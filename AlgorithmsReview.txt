@@ -1433,6 +1433,7 @@ case):
         ** The divisor is zero, return INT_MIN if the dividend is negative or INT_MAX
         if otherwise.
         ** The dividend is INT_MIN and the divisor is -1. The quotient will overflow.
+        This is the only overflow case.
         ** The dividend is INT_MIN and the divisor is 1. The quotient will not underflow,
         which is INT_MIN. But this case should be noticed.
     * Powers of zero. Zero to the zero power equals ONE. Zero to any positive powers

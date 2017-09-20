@@ -934,7 +934,58 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
   * Multiplication. In multiplication, a multiplicand and a multiplier are multiplied to find a product. `6(multiplicand) x 3(multiplier) = 18(product)`. Sometimes the multiplicand and the multiplier are both called factors.
   * Division. In division, a dividend is divided by a divisor to find a quotient. If a quotient is a whole number, then it is called that numbers are *divisible*, i.e. one number is divided without remainder by another. Otherwise we present the amount left over as the *remainder*. `18(dividend) / 7(divisor) = 2(quotient) ... 4(remainder)`. We can also present the result as *fraction* -- `18(numerator) / 7(denominator)`. 
   * Power. In `b^n`, b is the *base* and n is the *exponent/index/power*. The result is value of a power. It is called as: *b (raised) to the n-th (power), b (raised) to the (power of) n, or the n-th power of b*. "raised" can be omitted here, and sometimes "power" as well. Specifically, when n = 2, we can call it *b squared*. When n = 3, we can call it *b cubed*. We call all the powers of base b as *powers of b*. 
-  * Root. `\sqrt[n]{k}`, k is the *radicand*, and n is *degree/index*. The second root is called a *square root of k(or simply root k)*, the third root -- *cube root of k*. Generally, it's called as *nth root of k*.  
+  * Root. `\sqrt[n]{k}`, k is the *radicand*, and n is *degree/index*. The second root is called a *square root of k(or simply root k)*, the third root -- *cube root of k*. Generally, it's called as *nth root of k*.
+  * In y = kx + b, k is called 'slope', and b is called 'y-intercept'.
+* Pay attention to the following cases(here overflow also refers to the underflow case):
+  * The sum/diff/product of two numeric variables could overflow.
+  * In the case of division( 5/4 = 1, -5/4 = -1(NOT -2)):
+    * The divisor is zero, return INT_MIN if the dividend is negative or INT_MAX if otherwise.
+    * The dividend is INT_MIN and the divisor is -1. The quotient will overflow. This is the only overflow case.
+    * The dividend is INT_MIN and the divisor is 1. The quotient will not underflow, which is INT_MIN. But this case should be noticed.
+  * Powers of zero. Zero to the zero power equals ONE. Zero to any positive powers equals ZERO. Zero to any negative powers is UNDEFINED.
+  * Negation could overflow if the variable is MIN_VALUE.
+  * Handling overflows:
+    * Use larger primitive types. E.g. Use Long for Int, Double for float.
+    * Use unsigned primitive types.
+* About decimals(numbers that have decimal point in them). They can not precisely represented by double/float, especially when it is equal to an integer of large absolute value or most of the other decimals. Usually BigDecimal is used to precisely represent decimals. 
+http://stackoverflow.com/questions/28972497/java-double-comparing-vs-string-comparing
+http://blog.csdn.net/wcxiaoych/article/details/42806313.
+Good tutorial: 
+http://www.opentaps.org/docs/index.php/How_to_Use_Java_BigDecimal:_A_Tutorial
+See more details in JavaPractice/BigDecimalTest.java
+Main points:
+  * BigDecimal is represented by [unscaled_value, scale], where the former is a BigInteger and the latter is an integer. `value = unscaled_value * 10^(-scale)`
+  * Preferably use the constructer with String as the parameter, or BigDecimal.valueOf(double).
+  * BigDecimal is immutatable.
+  * BigDecimal.setScale will change the scale directly, but to maintain the value it represents, unscaled_value will also change accordingly.
+  * Use BigDecimal.compareTo to compare two BigDecimals rather than BigDecimal.equals, since the latter returns true only when both unscaled_value and scale are the same!
+* Base conversion. Suppose a number `num = (a_n-1 a_n-2 ... a_0)b` and the base is b. 
+  * Convert the number from any base to base 10 decimal:
+  Since 
+    ```
+    num = a_n-1 * b^(n-1) + a_n-2 * b^(n-2) + ... + a_1 * b + a_0 
+        = (...(a_n-1 * b + a_n-2) * b + a_n-3) ...) * b + a_1) * b + a_0
+    ```
+    we can implement this iteratively. Initally a = 0, then times b and plus a_n-1, then times b and plus a_n-2 in the next iteration, and so on, until we times b and plus a_0. This is essentially like keep shifting the digits to the left until all of them show up. Remember this algorithm and how to prove it. Always think about the expression first before implementing it. 
+  * Convert a decimal to another base:
+    ```java
+    String result;//Better to use StringBuilder in JAVA.
+    for(; num > 0; num /= base) {
+        result = (num % base) + result;
+    }
+    return result;
+    ```
+    Always think about the expression to base 10 number first. Then you'll know why and how to convert a decimal to another base. Sometimes you need to do some pre-processing of num before getting the remainder.
+* To iterate from 1 to sqrt(n): use the following to avoid potential overflow:
+  ```java
+    for (int i = 1; i <= n / i; ++i) {
+        ...
+    }
+  ```
+  Note that sqrt(n) is usually a decimal representing the precise value of square root of n. n / i <= precise_value_of(n / i). So i <= precise_value_of(n / i) is always true. So i * i <= n is always true. If i > n / i, then i > precise_value_of (n/i) since i and n/i are integers, and precise_value_of(n/i) < n / i + 1. So i must iterate all integers no greater than sqrt(n).
+
+### Problems
+
 
 
 
