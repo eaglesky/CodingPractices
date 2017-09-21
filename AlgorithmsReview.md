@@ -988,6 +988,8 @@ Main points:
 * [Leetcode] Pow(x, n). (Best algorithm* and Implementation). Remember the best algorithm.
 * [Leetcode] Add Two Numbers I and II.(Algorithm and Implementation*). For II, the naive solution is to put input values into two stacks first and then use similar solution in I. The other solution using O(1) extra space would be first iterate two linked lists to find out their lengths, and then add the corresponding elements up and store the sums in a new linked list in reverse order, and finally reverse that linked list while calculating the values and carries.
 * [Leetcode] Divide Two Integers.(Algorithm* and Implementation*). Clarify what is -5 / 4 first. 
+* [Leetcode] Multiply Strings. (Best Algorithm*)
+* [Leetcode] Max Points on a Line. (Best Algorithm** and Implementation*). Note that to represent infinity, we can just use any value that will not appear. Say if the values are stored in Integer, then we can use any value outside the range of Integer to represent infinity. Also note that when using BigDecimal as the key in a hashmap, make sure that the scale is fixed, due to the way how equals() works. Or we can use BigDecimal.toString() and store the string representation. 
 
 
 
