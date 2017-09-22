@@ -938,12 +938,14 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
   * In y = kx + b, k is called 'slope', and b is called 'y-intercept'.
 * Pay attention to the following cases(here overflow also refers to the underflow case):
   * The sum/diff/product of two numeric variables could overflow.
-  * In the case of division( 5/4 = 1, -5/4 = -1(NOT -2)):
+  * In the case of division
+    * 5/4 = 1...1(remainder), -5/4 = -1(NOT -2) ... (-1 is remainder)).
     * The divisor is zero, return INT_MIN if the dividend is negative or INT_MAX if otherwise.
     * The dividend is INT_MIN and the divisor is -1. The quotient will overflow. This is the only overflow case.
     * The dividend is INT_MIN and the divisor is 1. The quotient will not underflow, which is INT_MIN. But this case should be noticed.
   * Powers of zero. Zero to the zero power equals ONE. Zero to any positive powers equals ZERO. Zero to any negative powers is UNDEFINED.
   * Negation & absolute could overflow if the variable is MIN_VALUE. Simple way to deal with it is to cast the original value into larger primitive type before negation or getting absolute value. Or if we are certain that the original value n is non-positive, and n is the exponent, then use `-n = -(n + 1) + 1`.
+  * Reverse integer. E.g. [Leetcode]Reverse Integer.
   * General ways to handle overflows:
     * Use larger primitive types. E.g. Use Long for Int, Double for float.
     * Use unsigned primitive types. Note: Java doesn't have them.
@@ -993,6 +995,9 @@ Main points:
 * [Leetcode] Sparse Matrix Multiplication(Best Algorithm**). Clarification: Don't consider overflow for this problem. Remember the new way of doing matrix multiplication. 
 * Base conversion.
   - [Leetcode] Excel Sheet Column Number.
+  - [Leetcode] Excel Sheet Column Title(Algorithm**)
+  - [Leetcode] Encode and Decode TinyURL(Algorithm*)
+* [Leetcode] Reverse Integer (Best Algorithm**)
 
 
 
