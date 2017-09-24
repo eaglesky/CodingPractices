@@ -27,4 +27,7 @@ public class LongestArithmeticProgression {
     //Another solution:
     //http://codercareer.blogspot.com/2014/03/no-53-longest-arithmetic-sequence.html
     //No better than mine.
+
+    //To print out the result, just record the last element with the maximum length of
+    //progression, we can get all the elements in the arithmetic progression from them.
 }

@@ -1045,8 +1045,9 @@ Main points:
       ```
       If k is a constant, then we need k variables p_i-k, p_i-k+1, ... p_i-1 to store a_i-k ... a_i-1. Use variable temp to store a_i, and after computing and storing the new values(b_i) to the array, shift the values in p to the left : p_i-k = p_i-k+1, p_i-k+1 = p_i-k+2 ... p_i-1 = temp. -- [Leetcode]Maximal Square.
     * Think about the starting values carefully, especially those out of the range of valid cache elements. Edges like when any of the indices is 0 often need to be treated separatively. Note that the recursive formulas assume that the previous state is valid. So when coding be sure to check the cache values that are next to the starting values(using the dependency graph is helpful to see what elements depend on the edge elements). Be careful when using a seperate for-loop to handle the edge elements, which could repeat some logic and is error-prone since some repeated logic(like update of certain variable) could be missing.
+    * Implement the range correctly. Don't forget the length of array being iterated! It should always exist in the end condition check of for-loop.
     * The max/min in the recursive formulas can often be computed on the fly instead of using a separate loop. This may be more obvious by switching the dimention variables sometimes. This trick can often reduce the degree of time complexity, but is hard to come up with and should be used after there is a working DP formula.
-    * Prefer using boolean expression to if-else statements to implement the recursive formulas.--[Leetcode] Interleaving String.
+    * Prefer using boolean expression to if-else statements to implement the recursive formulas.--[Leetcode]Interleaving String.
   4. When the path needs to be returned, we have following options:
       - Cache the optimal path for each subproblem and return the result in O(1) time. However the downside is it is very costly in space.
       - If the cache for the optimal results is in 2D, we can reconstruct the path from the final problem by iterating the cache, which can be done in linear time.
@@ -1058,7 +1059,8 @@ Main points:
   Usually the boundary values are easy to determine, and using index representation is simpler than length representation. In some cases when the boundary values require complex logic to determine, using length representation might be preferable.
   Remember the thought of recursive relation.
   - [Leetcode] Unique Paths I and II(Algorithm). Boundary value is very easy to deal with.
-  - [Leetcode] Minimum Path Sum(Algorithm and Implementation*). 
+  - [Leetcode] Minimum Path Sum(Algorithm and Implementation*).
+  - [Leetcode] Triangle(Best Algorithm*). 
   - [Leetcode] Maximal Square(Best algorithm*).
   - [Leetcode] Maximal Rectangle (DP Algorithm** and implementation of DP solution*). Prefer the histogram solution. Remember the dp algorithm also, and be careful about the dp relation(very error prone). 
 * Single sequence problems.  
@@ -1077,6 +1079,8 @@ Main points:
   - [Leetcode] Longest Increasing Subsequence(Best Algorithm**).
   - [Leetcode] Russian Doll Envelopes (Best Algorithm**). Similar to above, but requires another trick to deal with envelopes of equal widths. If the question allows the envelope to rotate, then we can sort the width and height of each envelope first so that (w <= h) always holds, and then sort the entire array. 
   - [Lintcode] Minimum Adjustment Cost(Algorithm*). 
+  - [Leetcode] Unique Binary Search Trees.
+  - [InterviewBit] Longest Arithmetic Progression, general case(Algorithm** and implementation*). Need to clarify if the order of the arithmetic progression is the same as the given sequence. In this question they must be the same -- no reordering allowed.
 * Multiple sequence problems. Usually need to use length representation.
   - [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
   - [Leetcode] Interleaving String(Algorithm*).
@@ -1086,11 +1090,14 @@ Main points:
   - [Leetcode] Distinct Subsequences(Algorithm)
   - [Leetcode] Regular Expression Matching(Algorithm* and Implementation*). Initial values are a bit hard to determine.
   - [Leetcode] Wildcard Matching(Best Algorithm** and its implementation**). Using lp as the second dimension is good for saving space for this and the previous problem, since pattern string is usually much shorter than text string.
-* Partitioning problems. The problem usually asks to partition a sequence of n elements, either into k parts, or without this constraint. Each part should satisfy a certain property. The state is usually defined as d[i][j] representing the value of first j elements with i parts satisfying the given property. If no constaint of number of parts, then d[j] is usually enough, and iterate each possible last part satisfying given property. Note that length representation is usually the preferable choice.
+* Partitioning problems. The problem usually asks to partition a sequence of n elements, either into k parts, or without this constraint. Note that the k parts do not necessarily cover all elements(e.g. [Lintcode]Maximum Subarray III). Each part should satisfy a certain property. The state is usually defined as d[i][j] representing the value of first j elements with i parts satisfying the given property, and the jth element belongs to the ith part. If no constaint of number of parts, then d[j] is usually enough, and iterate each possible last part satisfying given property. Note that length representation is usually the preferable choice.
   - [Leetcode] Coin Change(Algorithm*). Be careful about the value when there is no valid combination with target sum. Also a good example of getting min/max of multiple elements in each iteration.
   - [Leetcode] Perfect Squares(Algorithm).
+  - [Leetcode] Word Break(Algorithms). Clarification: It is okay for the substring in s to appear multiple times in dict. E.g. wordDict("leetcodeleet", ["leet", "code"]) should also returns true. The order in s doesn't matter. and "leetleet" should return true too.
   - [Leetcode] Palindrome Partitioning II(Best Algorithm** and Best Implementation**).
   - [Lintcode] Copy Books(Algorithms**). What is the O(nk) solution?
+  - [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
+  - [Lintcode] Maximum Subarray III(Algorithm**). 
 * Bit manipulation problems.
   - [Leetcode] Counting Bits(Algorithm)
 * Game problems. Think of the final states first and then think reversely to find out the underlying pattern.
@@ -1101,6 +1108,7 @@ Main points:
   - [Leetcode] Combination Sum IV(Best Algorithm*)(same as [Lintcode] Backpack VI). And follow-up. Try walking through examples is a great way of finding out the problem and solution to it.
   - [Lintcode] Backpack II (Algorithm). 0-1 knapsack problem. Understand why greedy doesn't work here.
   - [Lintcode] Backpack III (Algorithm*). Unbounded knapsack problem. Greedy doesn't work for it either.
+  - [Leetcode] Target Sum(Best Algorithm**).
   - [Leetcode] Ones and Zeroes (Algorithm). Note that greedy algorithm that chooses shortest string first doesn't work. E.g., s = {1, 11, 001, 0001}, m = 5, n = 2.
   - [Lintcode] k sum. (Algorithm**). If the input elements and target could be negative, it can also be solved using DP or Memoization.
 * Interval problems. Usually use d[i][j] representing interval between [i..j]. Usually use index representation. This way is better than using l(interval length) as a dimension in terms of optimizing space usage. 
@@ -1108,11 +1116,10 @@ Main points:
   - [Lintcode] Coins In Line III(Algorithms**).
   - [Lintcode] Scramble String(Algorithm*). If there are multiple sequences, using l as a dimension might help reduce the total number of dimensions.
   - [Leetcode] Burst Balloons(Algorithm**). If iterating l in the outer loop, ususally it is very hard to optimize the space usage.
-* [Lintcode] Maximum Subarray II(Algorithm*). Assuming that none of the subarray can be empty. Need to master the two-passes solution.
-* [Lintcode] Maximum Subarray III(Algorithm**). 
-* Find the number of subsets that have sum equals to s(elements and s are positive):
-  - [Leetcode] Target Sum(Best Algorithm**).
- 
+* Backtracking with memoization. Usually each recursive method solves a subproblem, returning all sulutions to that subproblem. It has to be this way and should not implemented same as ordinary backtracking algorithm, because those sulutions to that subproblem has to be calculated and stored in the cache.
+  - [Leetcode] Word Break II(Implementation**). Good example of using DFS memoization to return all solutions instead of just a value. If you have to copy array of strings, sometimes just store the concatenation of them makes writing the code much easier. Remember this implementation.
+  - [Leetcode] Unique Binary Search Trees II.(Algorithms*)
+
 
 
 ## Other Concepts and special problems, including greedy problems.
