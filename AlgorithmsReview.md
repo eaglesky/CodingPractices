@@ -1081,6 +1081,7 @@ Main points:
   - [Lintcode] Minimum Adjustment Cost(Algorithm*). 
   - [Leetcode] Unique Binary Search Trees.
   - [InterviewBit] Longest Arithmetic Progression, general case(Algorithm** and implementation*). Need to clarify if the order of the arithmetic progression is the same as the given sequence. In this question they must be the same -- no reordering allowed.
+  - [GeeksForGeeks] Longest Arithmetic Progression, sorted array(Algorithm**). The recursive relation is hard to come up with. Remember the two pointer logic and how to prove the correctness(very useful!).
 * Multiple sequence problems. Usually need to use length representation.
   - [Lintcode] Longest Common Subsequence(Algorithms* and Implementations). Very good introductory problem. Remember the algroithm to get paths for DP and Memoization solutions.
   - [Leetcode] Interleaving String(Algorithm*).
