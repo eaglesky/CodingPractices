@@ -825,7 +825,11 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
     5. Search a certain element that satisfies some condition. No explicit
     target value. The algorithm is usually to first check the middle value for
     a certain condition and use that condition to determine whether the next step is to go to the left half or the right half. The key is to determine what condition to use.
-* When implementing customized comparator, make sure it satisfies three properties listed here: [https://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html#compare(T,%20T)]
+* When implementing customized comparator, make sure it satisfies three properties listed here: [https://docs.oracle.com/javase/7/docs/api/java/util/Comparator.html#compare(T,%20T)].
+  - if x < y, then y > x.
+  - if x > y, y > z, then x > z.
+  - if x - y == 0, then x - z == y - z.
+  - Note that x - y == 0 and x == y may not be the same.
 * Interval related.
   * How to check if two intervals overlap each other
   * Activities selection problems. Greedy algorithm to find out the maximum set of compatible activities: sort the activities by ending times and keep selecting the earliest ending activity. (Introduction to Algorithms, Greedy algorithms.)
@@ -936,6 +940,7 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
   * Power. In `b^n`, b is the *base* and n is the *exponent/index/power*. The result is value of a power. It is called as: *b (raised) to the n-th (power), b (raised) to the (power of) n, or the n-th power of b*. "raised" can be omitted here, and sometimes "power" as well. Specifically, when n = 2, we can call it *b squared*. When n = 3, we can call it *b cubed*. We call all the powers of base b as *powers of b*. 
   * Root. `\sqrt[n]{k}`, k is the *radicand*, and n is *degree/index*. The second root is called a *square root of k(or simply root k)*, the third root -- *cube root of k*. Generally, it's called as *nth root of k*.
   * In y = kx + b, k is called 'slope', and b is called 'y-intercept'.
+  * Read more [here](math_en.pdf)
 * Pay attention to the following cases(here overflow also refers to the underflow case):
   * The sum/diff/product of two numeric variables could overflow.
   * In the case of division
@@ -998,6 +1003,57 @@ Main points:
   - [Leetcode] Excel Sheet Column Title(Algorithm**)
   - [Leetcode] Encode and Decode TinyURL(Algorithm*)
 * [Leetcode] Reverse Integer (Best Algorithm**)
+
+
+## Randomized algorithms
+### Knowledge
+* Reservoir sampling. It is used for randomly choosing a sample of k items from a list S containing n items, where n is either a very large or unknown number. Typically n is large enough that the list doesn't fit into main memory.
+Sampling alogorithms must ensure that all the items get selected with equal probability, which is k/n(= C(n-1, k-1)/C(n,k)). This is usually equivelent to proving each permutation appears with same probability.
+  * One simple way of doing this is one by one randomly select an item from the input array. It is important to check if the selected item has been previously selected, which makes this algorithm not O(k). If we use array to store the input items and reservoir items, the time complexity is between O(k^2) to O(kn). This doesn't reduce even if we use hashset to store them instead. However we can still consider using this algorithm if the input items can fit into memory and k is relatively smaller than n. An improvement that can make it O(n) time is to iterate from last element to the first one for k times, and in each iteration, pick one element randomly from the first i elements and swap with the ith element(same as knuth shuffle). Each element has k/n probability of being selected in the k elements, and the last k elements are the sampled ones. For a certain selected permutation of k elements, its probability using this algorithm is: `1/n x 1/n-1 x 1/n-2 x ... x 1/n-k+1 = 1/P(n, k)`. So I think it should work correctly. 
+  * Another more common way of doing this is using reservoir sampling algorithm(O(n) time):
+    ```
+    //S has items to sample, R will contain the result
+    ReservoirSample(S[1..n], R[1..k])
+      // fill the reservoir array
+      for i = 1 to k
+          R[i] := S[i]
+
+      // replace elements with gradually decreasing probability
+      for i = k+1 to n
+        j := random(1, i)   // important: inclusive range
+        if j <= k
+            R[j] := S[i]
+    ```
+    * Proof:
+      * For the first k items, each of them gets selected with the probability of:
+      `[k/(k+1)] x [(k+1)/(k+2)] x [(k+2)/(k+3)] x … x [(n-1)/n] = k/n`
+      * For the remaining n-k items, let's consider probability of the ith item from the last being selected:
+      `[k/(n-i)] x [(n-i)/(n-i+1)] x [(n-i+1)/(n-i+2)] x ... x [(n-1)/n] = k/n`
+      So all the items get selected with the probability of k/n using this algorithm.
+      References: http://www.geeksforgeeks.org/reservoir-sampling/.
+
+* Shuffling algorithm.
+  * The modern version of the Fisher–Yates shuffling algorithm, to shuffle an array a of n elements (indices 0..n-1):
+    ```
+    for i from n−1 downto 1 do
+         j ← random integer such that 0 ≤ j ≤ i
+         exchange a[j] and a[i]
+    ```
+    Intuitively, this algorithm pick one element randomly from the first n elements and move it to the last position, then pick one from the rest in the same way and move it to the last but one position. For any element e, the probability that it will be shuffled into any particular position = 1/n. So intuitively each permutation this algorithm generates should have equal probability. This can be proved using induction : `P(n) = P(n-1) x (1 / n)`, P(n) is the probability of n elements getting shuffled into a particular sequence. n elements can always be seperated as two parts -- one selected element and the rest. More details: https://cs.stackexchange.com/questions/2152/how-to-prove-correctness-of-a-shuffle-algorithm
+  * The inside-out algorithm, suitable when n is unknown. To initialize an array a of n elements to a randomly shuffled copy of source, both 0-based:
+    ```
+      for i from 0 to n − 1 do
+          j ← random integer such that 0 ≤ j ≤ i
+          if j ≠ i
+              a[i] ← a[j]
+          a[j] ← source[i]
+    ```
+    How to prove it? Why not use swap in the inside-out algorithm?
+    https://cs.stackexchange.com/questions/81719/how-to-prove-the-correctness-of-inside-out-shuffle-algorithm
+
+    References:http://www.geeksforgeeks.org/shuffle-a-given-array/
+
+### Problems
 
 
 
