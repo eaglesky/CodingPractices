@@ -1054,7 +1054,7 @@ Sampling alogorithms must ensure that all the items get selected with equal prob
     References:http://www.geeksforgeeks.org/shuffle-a-given-array/
 
 ### Problems
-
+* [Leetcode] Random Pick Index(Algorithms*).
 
 
 ## Dynamic Programming and Memoization
@@ -1180,6 +1180,9 @@ Sampling alogorithms must ensure that all the items get selected with equal prob
 
 
 ## Other Concepts and special problems, including greedy problems.
+* P, NP, NP-Complete, NP-Hard.
+http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard
+https://en.wikipedia.org/wiki/NP-hardness
 * Best Time to Buy and Sell Stock problems
   - [Leetcode] Best Time to Buy and Sell Stock I and II(Algorithms).
   - [Leetcode] Best Time to Buy and Sell Stock III(Multiple algorithms**)
@@ -1187,6 +1190,8 @@ Sampling alogorithms must ensure that all the items get selected with equal prob
 * Use graphs to see the essence!
   - [Leetcode] Jump Game(Best Algorithm**).
   - [Leetcode] Frog Jump(Algorithm**).
+  - [Leetcode] Gas Station(Best Algorithm* and Implementation*)
+  - [Leetcode] Find the Celebrity(Best Algorithm**). If the input nodes are in an array, we can often find better algorithm by putting them in the same line in the graph. And sometimes changing the direction of arrow helps too.
 * Parentheses related problems.  
   Two ways of thinking: 
   1. Using a stack and iterate a string, whenever you encounter a ')', check if the top of the stack is '(', if so, pop it, otherwise push ')'. For any substring representing valid parenthese, if you scan from left to right, each time a ')' comes in, there must be a '(' matching it, which is always the closest unmatched '(' to it. Similarly case if you scan from right to left.
