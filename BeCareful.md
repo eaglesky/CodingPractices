@@ -11,7 +11,7 @@ Also don't think too much about whether using a separate helper function. Just d
 	3. For heap/stack/queue or any collection related usage, remember the case when the structure is empty, especially when peek is used!
 	4. For sequence related problems, there could be duplicates. This matters if the solution uses hashmap.
   5. When iterating over a collection and the end condition involves multiple variables, put the id check at first! Also make sure there is no out-of-boundary or null-pointer exception in the end condition!
-* For implementation problems with a lot of corner cases, pay more attention to writing robust code with good style than performance! Refactor the code to improve the performance after you have a working solution!
+* For implementation problems with a lot of corner cases, pay more attention to writing robust code with good style than performance! Also focus on implementing one most common case correctly and than adjust the code to handle other cases. Refactor the code to improve the performance after you have a working solution!
 * If the code needs to run, and got wrong answer, do first compare the actual and expected result and guess where could be wrong first, and then debug by adding logs.
 * Refactor the code if the code is correct. This could be done earlier before checking the correctness of the code if the code needs obvious refactoring.
 

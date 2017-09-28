@@ -104,6 +104,8 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 Trick: When finding max/min element, we can either use reference type variable instead of primitive type so that we can use null as the initial value, or use index of the element and -1 as the initial value(or any special value indicating invalid for the element). The latter ways may require slightly more code when update. Both ways are preferable to using primitve type and Integer.MAX_VALUE/Integer.MIN_VALUE as the initial value, since the latter way cannot return a reasonable value when there is no max/min value found(latter way works well only when the max/min value is guaranteed to exist). Or if the logic is simple, we can use the first element as initial value.
 * [Leetcode] Longest Consecutive Sequence(Algorithms**). Remember the trick that processes each streak in an inner loop at the beginning of each streak, which still takes linear time overall.
 * [Leetcode] Bomb Enemy(Best algorithm**). Remember the implementation of dealing with streaks/chunks, which is similar to previous problem. An alternative is to process each chunk and moves on to the next chunk immediately, which is less flexible and cannot be used as caching.
+* [Leetcode] Majority Element(Best algorithm**).
+
 
 ## Strings
 
@@ -1192,6 +1194,7 @@ https://en.wikipedia.org/wiki/NP-hardness
   - [Leetcode] Frog Jump(Algorithm**).
   - [Leetcode] Gas Station(Best Algorithm* and Implementation*)
   - [Leetcode] Find the Celebrity(Best Algorithm**). If the input nodes are in an array, we can often find better algorithm by putting them in the same line in the graph. And sometimes changing the direction of arrow helps too.
+  - [Leetcode] Candy(Algorithms* and Implementation of best algorithm**). Clarification: if two children have equal rate, then there is no constraint on the candies they can get.
 * Parentheses related problems.  
   Two ways of thinking: 
   1. Using a stack and iterate a string, whenever you encounter a ')', check if the top of the stack is '(', if so, pop it, otherwise push ')'. For any substring representing valid parenthese, if you scan from left to right, each time a ')' comes in, there must be a '(' matching it, which is always the closest unmatched '(' to it. Similarly case if you scan from right to left.
@@ -1200,6 +1203,8 @@ https://en.wikipedia.org/wiki/NP-hardness
   - [Leetcode] Longest Valid Parentheses(Algorithms** and implementation* of constanct space solution). 
   - [Leetcode] Generate Parentheses. (Algorithm). 
   - [Leetcode] Remove Invalid Parentheses(Algorithms** and implementations**). The hard part is how to de-dup without using hash set. Be careful about what the reversed parentheses looks like -- '(()(' -> '()(('. Remember both algorithms.
+* File related.
+  - [Leetcode] Read N Characters Given Read4 I (Algorithm** and Implementation**). Remember the usage of Java method System.arraycopy().
 * Arithmetic expression evaluation.
   - [Leetcode] Basic Calculator II(See previous).
   - [Leetcode] Basic Calculator I(Algorithms* and Implementations*). Might be better to deal with the digits first in each iteration. How to solve it when the operators have * and / ??
