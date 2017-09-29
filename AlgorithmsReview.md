@@ -1242,9 +1242,11 @@ https://en.wikipedia.org/wiki/NP-hardness
   * Make sure the contents in all the data structures are valid/consistent after each possible intermediate states(or each method call). Do consider the edge cases like some of the sub-data structures are empty.
   * Refactor if asked -- try reducing time/space usage.
 * Be careful with null element, especially when using the element as a flag!
-* Some problems can be speeded up by using pre-processing, which typically is done in the constructor. The get() method could be called once or multiple times. And balancing the time of pre-processing and get() is often a trade-off, depending on how many times get() will be called. If pre-processing time takes too long and the get() is not called too many times, consider using a more balanced algorithm, and cache the result to speed up. Example: [Leetcode]Shortest Word Distance II(See previous)
+* Some problems can be speeded up by using pre-processing, which typically is done in the constructor. The get() method could be called once or multiple times. And balancing the time of pre-processing and get() is often a trade-off, depending on how many times get() will be called. If pre-processing time takes too long and the get() is not called too many times, consider using a more balanced algorithm, and cache the result to speed up. This caching and lazy computing trick is useful to improve the retrival operation when it is costly. Example: [Leetcode]Shortest Word Distance II(See previous)
 
 ### Problems
 * File related.
   - [Leetcode] Read N Characters Given Read4 I (Algorithm** and Implementation**). Remember the usage of Java method System.arraycopy().
   - [Leetcode] Read N Characters Given Read4 II (Algorithm** and Implementation**).
+* Max Stack(Algorithm**). Implement a Max Stack that supports peekMax() and popMax(), both of which should run in O(1) time. My solution: Maintain two double-linked lists, one is sorted, the other serves as a stack. The corresponding nodes in two lists have pointers pointing to each other, so that when popMax is called on the sorted list, the corresponding one in the stack is removed, and when pop is called on the stack, the corresponding one in the sorted list is removed. And since the two lists are double-linked list, the pop operations run in O(1) time. peekMax is also O(1). For push, one element is inserted in the stack, and a copy of it is inserted in the sorted array in O(n) time.
+* [Leetcode] Find Median from Data Stream(Algorithm* and Best Implementations*)
