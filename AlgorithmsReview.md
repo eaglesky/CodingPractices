@@ -945,6 +945,7 @@ https://en.wikipedia.org/wiki/Bitwise_operation#Arithmetic_shift
   * Read more [here](math_en.pdf)
 * Pay attention to the following cases(here overflow also refers to the underflow case):
   * The sum/diff/product of two numeric variables could overflow.
+  * Median is the average of two middle elements if there are even elements in total, or the middle one if there are odd elements. In the first case, the sume could overflow. A workaround is: median = a x 0.5 + b x 0.5.
   * In the case of division
     * 5/4 = 1...1(remainder), -5/4 = -1(NOT -2) ... (-1 is remainder)).
     * The divisor is zero, return INT_MIN if the dividend is negative or INT_MAX if otherwise.
@@ -1249,4 +1250,5 @@ https://en.wikipedia.org/wiki/NP-hardness
   - [Leetcode] Read N Characters Given Read4 I (Algorithm** and Implementation**). Remember the usage of Java method System.arraycopy().
   - [Leetcode] Read N Characters Given Read4 II (Algorithm** and Implementation**).
 * Max Stack(Algorithm**). Implement a Max Stack that supports peekMax() and popMax(), both of which should run in O(1) time. My solution: Maintain two double-linked lists, one is sorted, the other serves as a stack. The corresponding nodes in two lists have pointers pointing to each other, so that when popMax is called on the sorted list, the corresponding one in the stack is removed, and when pop is called on the stack, the corresponding one in the sorted list is removed. And since the two lists are double-linked list, the pop operations run in O(1) time. peekMax is also O(1). For push, one element is inserted in the stack, and a copy of it is inserted in the sorted array in O(n) time.
-* [Leetcode] Find Median from Data Stream(Algorithm* and Best Implementations*)
+* [Leetcode] Find Median from Data Stream(Algorithm* and Best Implementations*).
+* [Leetcode] Sliding Window Median(Algorithms* and Best Implementation**). Remember the two ways of implementing multi-sets! The tree-set way is preferable if no need to compile and run the code, since the main logic is simpler.
