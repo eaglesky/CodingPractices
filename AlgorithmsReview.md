@@ -1216,15 +1216,14 @@ https://en.wikipedia.org/wiki/NP-hardness
 ### Knowledge
 * If multiple lists are involved in the data structure to be designed, make sure they are synced if there are removal operations. One typical way is to maintain pointer from each node to the corresponding one. If the removal operation could happen on both lists, then the pointers must be from two directions. And if there are pointers between the two structures, remember to update them when remove is called on any of them!
 * Balanced BST and heap have similar performance. Always consider both of them together! Note: removal in balanced BST takes O(logn) while in heap is O(n). Retrieving the max/min in balanced BST takes O(logn) while in heap is O(1).
-* About iterator. 
+* Iterator. 
   * It should not contain a copy of the original data. Iterator should always operate on the original data. The additional space it uses should be constant compared to the original data size. Try using existing iterators. So familiarize the usage of common iterator and listIterator in JAVA! Pay attention that many iterators like listIterator do not support concurrent modification, if the underlying data structure do not support concurrent modification.
-  * It has a hasNext() method to check if there is more element to be iterated. And this method should be better off not change the state of the iterator. Some does like http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/java/util/Spliterators.java#l679, but that would make it necessary to have a "valueReady" field.
+  * It has a hasNext() method to check if there is more element to be iterated. And this method should be better off not change the state of the iterator. Some does like http://hg.openjdk.java.net/jdk8/jdk8/jdk/file/687fd7c7986d/src/share/classes/java/util/Spliterators.java#l679, but that would make it necessary to have a "valueReady" field. 
   * It has a next() method to return the next element. If there is no next element, the correct behavior is to throw NoSuchElementException. And this must be done when the iterator class implements Java Iterator interface. A typcial implementation is to call hasNext at the beginning of next() and if it is false, throw NoSuchElementException. If hasNext does not change the state, then the code would be simple. Another implementation I came up with is to add try...catch and rethrow a NoSuchElementException if any exception is caught. However I don't see this being used by any official code. The correct usage of next() is to call it after hasNext(), but this should not be an assumption. next() should always return a valid next element when there is one, even if it is called without hasNext() before it. 
 
-  My code for [Leetcode]Flatten 2D Vector shows a good example of how to dealing with the above. Basically add a private helper method("advance.." or "moveToNextAvailable") to advance the iterators to next available elements, which is called at the end of constructor and next(). hasNext() simply checks the related variables to return true if there is next element. 
+  My code for [Leetcode]Flatten 2D Vector shows a good example of how to dealing with the above. Basically add a private helper method("advance.." or "moveToNextAvailable") to advance the iterators to next available elements, which is called at the end of constructor and next()(sometimes this is only done when some inner iterator.hasNext() is false. Usually this should has a check of if there is still elements to iterate. This helper function can take arguments!). hasNext() simply checks the related variables to return true if there is next element. This way is more natural and can handle more problems than putting the move iterator logic in hasNext()(e.g. [Leetcode]Binary Search Tree Iterator).
 
 * If the problem uses some existing data structures, be sure to understand what they essencially are first! Some existing data structures are like graphs, which indicate a dfs/bfs could be used in the problem
-* How to test the code? See Problem Circular queue.
 * Basic data structures that are often used:
   + Array(fixed size or dynmaic).
   + (Doubly)Linked list.
@@ -1242,6 +1241,8 @@ https://en.wikipedia.org/wiki/NP-hardness
   * For those methods that have time complexities not being satisfied, try to add pointers and see if it helps.
   * Make sure the contents in all the data structures are valid/consistent after each possible intermediate states(or each method call). Do consider the edge cases like some of the sub-data structures are empty.
   * Refactor if asked -- try reducing time/space usage.
+* How to test the code? See Problem Circular queue.
+  - Usually need to consider the use case of interleaving multiple method calls together, and see after each call, the result of the call and also the contents of fields are correct.
 * Be careful with null element, especially when using the element as a flag!
 * Some problems can be speeded up by using pre-processing, which typically is done in the constructor. The get() method could be called once or multiple times. And balancing the time of pre-processing and get() is often a trade-off, depending on how many times get() will be called. If pre-processing time takes too long and the get() is not called too many times, consider using a more balanced algorithm, and cache the result to speed up. This caching and lazy computing trick is useful to improve the retrival operation when it is costly. Example: [Leetcode]Shortest Word Distance II(See previous)
 
@@ -1255,3 +1256,6 @@ https://en.wikipedia.org/wiki/NP-hardness
 * Iterator related:
   - [Leetcode] Flatten 2D Vector(Algorithm** and Implementation*). Very basic iterator implementation problem.
   - [Leetcode] Flatten Nested List Iterator(Algorithms** and Implementation*). Remeber the best two implementations. This problem is special, since the iterator has to go past the next element to be returned.
+  - [Leetcode] Binary Search Tree Iterator(Algorithm** and Implementation*). Remember this step-iteration of inorder traversal. What's the iterator for preorder and postorder traversal?
+  - [Leetcode] Zigzag Iterator(Algorithm*). Remember the clever way of cyclic iteration with conditional removal.
+  - [Leetcode] Peeking Iterator(Algorithm* and Implementation**). Pay attention to the test.
