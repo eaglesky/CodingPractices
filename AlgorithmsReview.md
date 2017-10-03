@@ -1242,7 +1242,9 @@ https://en.wikipedia.org/wiki/NP-hardness
   * Make sure the contents in all the data structures are valid/consistent after each possible intermediate states(or each method call). Do consider the edge cases like some of the sub-data structures are empty.
   * Refactor if asked -- try reducing time/space usage.
 * How to test the code? See Problem Circular queue.
-  - Usually need to consider the use case of interleaving multiple method calls together, and see after each call, the result of the call and also the contents of fields are correct.
+  - Usually if there are not many methods in the class, consider the use case of interleaving multiple method calls together, and see after each call, the result of the call and also the contents of fields are correct.
+  - If there are many methods in the class, we can also think about the use cases of each method one by one. For each method, consider calling it when the object is in different states -- like some sub-structures are empty, partially occupied or fully occupied. Do cover all the possible edge cases for each method.
+  - Usually check the methods that change the inner states of the object first, and then the read-only ones later. But if the first type of methods call the latter, then the latter should be checked together with the former ones.
 * Be careful with null element, especially when using the element as a flag!
 * Some problems can be speeded up by using pre-processing, which typically is done in the constructor. The get() method could be called once or multiple times. And balancing the time of pre-processing and get() is often a trade-off, depending on how many times get() will be called. If pre-processing time takes too long and the get() is not called too many times, consider using a more balanced algorithm, and cache the result to speed up. This caching and lazy computing trick is useful to improve the retrival operation when it is costly. Example: [Leetcode]Shortest Word Distance II(See previous)
 
@@ -1259,3 +1261,12 @@ https://en.wikipedia.org/wiki/NP-hardness
   - [Leetcode] Binary Search Tree Iterator(Algorithm** and Implementation*). Remember this step-iteration of inorder traversal. What's the iterator for preorder and postorder traversal?
   - [Leetcode] Zigzag Iterator(Algorithm*). Remember the clever way of cyclic iteration with conditional removal.
   - [Leetcode] Peeking Iterator(Algorithm* and Implementation**). Pay attention to the test.
+  - [Leetcode] Design Compressed String Iterator(Implementation**). The caching thought is similar to Peeking Iterator!
+* [Others] Circular queue. There are two possible implementations:
+  * Using start index, end index and count(optional). Has to waste one location in the array.
+  * Using start index and count. This is easier to implement than the first one, and doesn't waste any space in the array, but the offer method could be costly if modulus is always calculated(modulus is as expensive as division).
+  http://tutorials.jenkov.com/java-performance/ring-buffer.html#ring-buffers-are-fast
+
+  When testing the code, think about if offer/poll/isEmpty/size() can behave correctly when the array is empty, partially occupied, and fully occupied. Think about the edge cases for each method seperately, and try using one or as few as possible example input to test them.
+  
+  During the interview, use the second implementation first, and if not allowed, change it to the first one.

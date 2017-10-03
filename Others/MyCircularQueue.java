@@ -2,13 +2,14 @@ import java.util.*;
 
 //Implementation of circular buffer using start and end index pointers.
 //This is already similar to the implementation of Java ArrayDeque,
-//except that for the later it uses (tail - head) & (elements.length - 1)
+//except that the latter uses (tail - head) & (elements.length - 1)
 //to compute the number of elements, so that it doesn't have count field.
+//This way wastes one location in the array.
 public class MyCircularQueue<T> {
 
 	private final Object[] arr; //Note that T[] won't compile!
-	private int start = 0; //Point to the element to be dequeued.
-	private int end = 0; //Point to the location to be enqueued.
+	private int start = 0; //Point to the first element 
+	private int end = 0; //Point to the location next to the last element
 	private int count = 0; //Current number of elements
 
 	//Assuming n >= 0
