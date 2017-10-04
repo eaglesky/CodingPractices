@@ -1239,9 +1239,10 @@ https://en.wikipedia.org/wiki/NP-hardness
   * Think about use cases of the data structure to be designed first. How those methods are called? In what order? Single thread or multithread? -- Usually consider single thread usage first(the client calling all those methods in a single thread) and then try making it thread-safe if asked. Better write them down with graphs!
   * Try to come up with data structures that satisfy as many constraints as possible.Usually time constraints are explicit. However also keep in mind that the space usage should make sense(must not growing too quickly!).
   * For those methods that have time complexities not being satisfied, try to add pointers and see if it helps.
-  * Make sure the contents in all the data structures are valid/consistent after each possible intermediate states(or each method call). Do consider the edge cases like some of the sub-data structures are empty.
+  * Make sure the contents in all the data structures are valid and consistent after each possible intermediate states(or each method call). Do consider the edge cases like some of the sub-data structures are empty.
   * Refactor if asked -- try reducing time/space usage.
 * How to test the code? See Problem Circular queue.
+  - Check the constructor -- if the sub structures are initialized correctly.
   - Usually if there are not many methods in the class, consider the use case of interleaving multiple method calls together, and see after each call, the result of the call and also the contents of fields are correct.
   - If there are many methods in the class, we can also think about the use cases of each method one by one. For each method, consider calling it when the object is in different states -- like some sub-structures are empty, partially occupied or fully occupied. Do cover all the possible edge cases for each method.
   - Usually check the methods that change the inner states of the object first, and then the read-only ones later. But if the first type of methods call the latter, then the latter should be checked together with the former ones.
@@ -1270,3 +1271,6 @@ https://en.wikipedia.org/wiki/NP-hardness
   When testing the code, think about if offer/poll/isEmpty/size() can behave correctly when the array is empty, partially occupied, and fully occupied. Think about the edge cases for each method seperately, and try using one or as few as possible example input to test them.
   
   During the interview, use the second implementation first, and if not allowed, change it to the first one.
+* [Leetcode] Insert Delete GetRandom O(1)(Algorithm* and implementation*). ArrayList can support O(1) random remove, but at the expense of changing the order.
+* [Leetcode] Insert Delete GetRandom O(1) - Duplicates allowed(Algorithms* and implementations**). Storing map of val to its ids is an useful trick, also a good way of implementing multi-set other than the other two ways shown before. Maintaining the pointer using an element in a pair is also an useful trick!
+* [Leetcode] LRU Cache. (Algorithm* and Implementation*). Remember the best implementation.
