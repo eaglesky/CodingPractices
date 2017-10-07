@@ -304,7 +304,7 @@ For depth(distance from the root to the current node) related problems, if the p
 Note that the bottom-up recursion code of finding the minimum height/depth is more complex than finding the maximum(technically they should not be called at height/depth)! For the minimum, usually if one of them is null, we take the height/depth of the other, otherwise we use the minium one plus 1. E.g. [Leetcode]Minimum Depth of Binary Tree  
 Besides traditional resursive approach, max-depth problem can also be solved by removing the leaf nodes in each iteration until the tree is empty. E.g. [Others]Find Depth.
 * Binary search tree:
-  * Definition: A binary search tree (BST) is a binary tree where each node has a Comparable key (and an associated value) and satisfies the restriction that the key in any node is larger than the keys in all nodes in that node’s left subtree and smaller than the keys in all nodes in that node’s right subtree.
+  * Definition: A binary search tree (BST) is a binary tree where each node has a Comparable key (and an associated value) and satisfies the restriction that the key in any node is larger than the keys in all nodes in that node’s left subtree and smaller than the keys in all nodes in that node’s right subtree. So the values in each subtree is within a range, which can often be used in a recursive function to solve many BST problems(use reference type in the range since the range is often exclusive). E.g. Validate BST, Serialize and Deserialize BST. 
   * Ascending order when doing inorder traversal on it.
   * Search, Minimum, Maximum, (inorder)Successor, (inorder)Predecessor  operations all run in O(h) time. h is the height of the BST. See the Leetcode practices for Successor implementation.
   * Insertion(easy) and Deletion(harder, see one example problem) can also run in O(h) time.
@@ -324,7 +324,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   Tree problems can often be solved by recursion. DP rarely works. The recursion could be either top-down or bottom-up, or both.
   - Basic Traversals.
     + [Leetcode] Binary tree inorder traversal(Algorithms* and Implementation*). Recursive solution, typical iterative solution using a stack, Morris Traversal(rarely used).
-    + [Leetcode] Binary tree preorder traversal(Algorithms* and implementation*). Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).
+    + [Leetcode] Binary tree preorder traversal(Algorithms* and implementation*). Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used). In the typical iterative solution for preorder and inorder traversals, at the beginning of each iteration, the stack contains the ancestors of current element such that the current element is in the left subtree of each one of them. This is an important loop-invariant that might be helpful sometimes! 
     + [Leetcode] Binary tree postorder traversal(Algorithms** and implementation**), it can be seen as a reverse of preorder traversal. Hardest among the three. Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).  
     The recursive solutions to many other problems can be converted into iterative one by storing the computed result for left and right child of the current node, usually in a map. After storing the computed result for the current node, the results for its children can be discarded.
     + [Others] Find in-order successor of node in binary tree using parent pointer(Algorithm and implementation).
@@ -372,7 +372,8 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   - [Leetcode] Delete Node in a BST(Best Algorithm* and Implementation)
   - [Leetcode] Kth Smallest Element in a BST(Multiple Algorithms*)
   - [Leetcode] Lowest Common Ancestor of a Binary Search Tree(Algorithm*)
-  - [Leetcode] Serialize and Deserialize BST(Algorithm** and implementation*). Remember the algorithm and implementation. Be careful about the integer pointer!
+  - [Leetcode] Serialize and Deserialize BST(Algorithm** and implementation**). Remember the algorithm and implementation. Be careful about the integer pointer!
+  - [Leetcode] Verify Preorder Sequence in Binary Search Tree(Best Algorithm**). 
   - [Leetcode] Skyline Problem(Best Algorithm** and implementations**). Remember the two ways of implementing BST multi-map/set. They are equivelent in logic, so don't hesitate to use them exchangely.
 * Trie
   - [Leetcode] Implement Trie (Prefix Tree)(Full Implementation*, recursive solution of delete?)
@@ -1247,7 +1248,7 @@ https://en.wikipedia.org/wiki/NP-hardness
   - If there are many methods in the class, we can also think about the use cases of each method one by one. For each method, consider calling it when the object is in different states -- like some sub-structures are empty, partially occupied or fully occupied. Do cover all the possible edge cases for each method.
   - Usually check the methods that change the inner states of the object first, and then the read-only ones later. But if the first type of methods call the latter, then the latter should be checked together with the former ones.
 * Be careful with null element, especially when using the element as a flag!
-* Some problems can be speeded up by using pre-processing, which typically is done in the constructor. The get() method could be called once or multiple times. And balancing the time of pre-processing and get() is often a trade-off, depending on how many times get() will be called. If pre-processing time takes too long and the get() is not called too many times, consider using a more balanced algorithm, and cache the result to speed up. This caching and lazy computing trick is useful to improve the retrival operation when it is costly. Example: [Leetcode]Shortest Word Distance II(See previous)
+* Some problems can be speeded up by using pre-processing, which typically is done in the constructor. The get() method could be called once or multiple times. And balancing the time of pre-processing and get() is often a trade-off, depending on how many times get() will be called. If pre-processing time takes too long and the get() is not called too many times, consider using a more balanced algorithm, and cache the result to speed up. This caching and lazy computing trick is useful to improve the retrival operation when it is costly. Example: [Leetcode]Shortest Word Distance II(See previous). Sometimes result can be computed and cached in the other methods and get() just retrieves the result in O(1).
 
 ### Problems
 * File related.
