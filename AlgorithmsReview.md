@@ -398,7 +398,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
 * Traversal. Don't forget null input node and loops! Also note that the following pseudocode only implements traversing from one node. If the graph is not connected, then DFS and BFS below must be called for each node!  
 The following template is just used for implementation. Think about the problem itself when considering the algorithm -- like what parameters to use in the recursive functions and what they do in each recursion.
   * DFS. Can be used for counting the number of connected components in a graph, check if two vertices are connected, etc. Implemented recursively. Iterative solution usually uses a stack(of actual element or iterator of lists of elements. Often used as step-by-step backtracking and implementing iterators. E.g. [Leetcode]Flatten Nested List Iterator). And a map of node to its parent can be created while traversing to retrieve the paths. 
-    - Search all nodes in a graph. DFS will search all the nodes and only once for each one, because in each iteration/recursion all the possible neighbors are checked and we only go to the unvisited node in the next iteration/recursion.
+    - Search all nodes in a graph. DFS will search all the nodes and only once for each one, because in each iteration/recursion all the possible neighbors are checked and we only go to the unvisited node in the next iteration/recursion. This is often used to traverse all the nodes in a connected component.
       + Implementation 1:
         ```
         DFS_Recursive_Main(node):
