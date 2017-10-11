@@ -33,6 +33,8 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 
 ### Problems
 * [Leetcode] First Missing Positive(Algorithm* and Implementation**). Think about the O(n) space solution first and then the O(1) space solution.
+* [Leetcode] Find All Numbers Disappeared in an Array(Best Algorithm*).
+* [Leetcode] Find All Duplicates in an Array(Algorithm*). Similar to the previous problem. For all previous three problems, we should always think about using an extra array to store the presence of each number, then think about how to use original array to do this -- either by negation or swapping.
 * K Sum problems. Can be solved using two approaches:
   * Sort the input array first. Then using two pointers starting from the beginning and the end of the array, moving one of them towards the other each time based on the comparison of the sum of the two elements and target, until they meet. The two pointers process takes O(n) time. No extra space needed, assuming sort is in place. For K > 2, always move the leftmost/rightmost pointer, and do it recursively, until the innermost two pointers which use the two pointer approach instead. Using this approach, it is easy to return unique combinations, easy but not effienct to return one solution, and hard to return complete combinations.
   * Using a hash set of combinations to record the results and remove duplicates. Sort the input array first if K > 2(this is optional and can make de-duple faster and easier to implement). Divide K into two parts first. Iterate the second part and solve the subproblem for the first part. Cache the sums and their corresponding elements at the end of each iteration. Using this approach, it is easy to return complete combinations, efficient to return one solution,  and also not very hard to return unique combinations, with additional space.  
@@ -1136,7 +1138,7 @@ Sampling alogorithms must ensure that all the items get selected with equal prob
   - [Leetcode] House Robber II(Algorithm*).
   - [Leetcode] Decode ways(Algorithm). Clarification: '02' can not be decoded using 2 -> 'B' since there is a preceding 0.
   - [Leetcode] Decode ways II(Algorithm and Implementation**). Need to do mod for every element.
-  - [Lintcode] Longest Increasing Continuous Subsequence(Algorithm).
+  - [Lintcode] Longest Increasing Continuous Subsequence(Algorithm). == [Leetcode] Longest Continuous Increasing Subsequence. 
   - [Leetcode] Longest Increasing Subsequence(Best Algorithm**).
   - [Leetcode] Russian Doll Envelopes (Best Algorithm**). Similar to above, but requires another trick to deal with envelopes of equal widths. If the question allows the envelope to rotate, then we can sort the width and height of each envelope first so that (w <= h) always holds, and then sort the entire array. 
   - [Lintcode] Minimum Adjustment Cost(Algorithm*). 
