@@ -1140,7 +1140,7 @@ Sampling alogorithms must ensure that all the items get selected with equal prob
   - [Leetcode] Decode ways II(Algorithm and Implementation**). Need to do mod for every element.
   - [Lintcode] Longest Increasing Continuous Subsequence(Algorithm). == [Leetcode] Longest Continuous Increasing Subsequence. 
   - [Leetcode] Longest Increasing Subsequence(Best Algorithm**).
-  - [Leetcode] Russian Doll Envelopes (Best Algorithm**). Similar to above, but requires another trick to deal with envelopes of equal widths. If the question allows the envelope to rotate, then we can sort the width and height of each envelope first so that (w <= h) always holds, and then sort the entire array. 
+  - [Leetcode] Russian Doll Envelopes (Best Algorithm**). Similar to above, but requires another trick to deal with envelopes of equal widths. If the question allows the envelope to rotate, then we can sort the width and height of each envelope first so that (w <= h) always holds, and then sort the entire array. Note that if (w1, h1) cannot be put in (w2, h2), then no matter how you rotate each envelop, they can not contain each other. Say envelope 1 can be put in 2 after rotating 1, w1' >= h1', w2 <= h2, then h1' <= w1' < w2 <= h2, so if you don't rotate envelope 1, 1 can still be put in 2.
   - [Lintcode] Minimum Adjustment Cost(Algorithm*). 
   - [Leetcode] Unique Binary Search Trees.
   - [InterviewBit] Longest Arithmetic Progression, general case(Algorithm** and implementation*). Need to clarify if the order of the arithmetic progression is the same as the given sequence. In this question they must be the same -- no reordering allowed.
