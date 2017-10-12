@@ -35,6 +35,12 @@ http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html
 * [Leetcode] First Missing Positive(Algorithm* and Implementation**). Think about the O(n) space solution first and then the O(1) space solution.
 * [Leetcode] Find All Numbers Disappeared in an Array(Best Algorithm*).
 * [Leetcode] Find All Duplicates in an Array(Algorithm*). Similar to the previous problem. For all previous three problems, we should always think about using an extra array to store the presence of each number, then think about how to use original array to do this -- either by negation or swapping.
+* [Others] Given an array of 1,000,000 integers where each integer is between 0 and 2^20 - 1, find one integer that is between 0 and 2^20 -1 that is not in the array.
+Hint: 2^20 = 1,048,576 > 1,000,000. That means there are at least 48,576 integers that are not in the array.
+Try to optimize time and space complexity.
+  * Solution 1: using original array to see if 0 -- 999999 occur or not. Use another array of size 48576 to check if 1000000 -- 2^20 - 1 occur or not. O(2*n) time and O(48576) space.
+  * Solution 2: Instead of using an extra array of 48576 to check if the rest of integers are in the array or not, we can use bitset(48576 / 32 = 1519) integers to do that, assuming each integer has 32 bits. A bit hard to code.
+  * Solution 3: Use 1024 buckets to check the presence of each number. Each bucket stores the count of the numbers that fall in that range. If a certain bucket has less than 1024 count, than we can further check that range and see which one is missing. We can use the original array to do that. So O(2n) time and O(1024) space.
 * K Sum problems. Can be solved using two approaches:
   * Sort the input array first. Then using two pointers starting from the beginning and the end of the array, moving one of them towards the other each time based on the comparison of the sum of the two elements and target, until they meet. The two pointers process takes O(n) time. No extra space needed, assuming sort is in place. For K > 2, always move the leftmost/rightmost pointer, and do it recursively, until the innermost two pointers which use the two pointer approach instead. Using this approach, it is easy to return unique combinations, easy but not effienct to return one solution, and hard to return complete combinations.
   * Using a hash set of combinations to record the results and remove duplicates. Sort the input array first if K > 2(this is optional and can make de-duple faster and easier to implement). Divide K into two parts first. Iterate the second part and solve the subproblem for the first part. Cache the sums and their corresponding elements at the end of each iteration. Using this approach, it is easy to return complete combinations, efficient to return one solution,  and also not very hard to return unique combinations, with additional space.  
@@ -107,6 +113,7 @@ Trick: When finding max/min element, we can either use reference type variable i
 * [Leetcode] Longest Consecutive Sequence(Algorithms**). Remember the trick that processes each streak in an inner loop at the beginning of each streak, which still takes linear time overall.
 * [Leetcode] Bomb Enemy(Best algorithm**). Remember the implementation of dealing with streaks/chunks, which is similar to previous problem. An alternative is to process each chunk and moves on to the next chunk immediately, which is less flexible and cannot be used as caching.
 * [Leetcode] Majority Element(Best algorithm**).
+* [Leetcode] Rotate Array(Algorithms**).
 
 
 ## Strings
