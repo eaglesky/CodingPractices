@@ -1993,7 +1993,8 @@ cases:
     doing it in each iteration.
     (3)Constructing/using a balanced BST(like Java TreeMap) in each iteration.
     (4)Constructing/using a heap in each iteration. Note that heap ususally allows
-    duplicates while BST usually does not!
+    duplicates while BST usually does not! But as for getting all elments in sorted
+    order, BST takes O(n) time while heap takes O(nlogn) time.
 
 
 

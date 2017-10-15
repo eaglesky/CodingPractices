@@ -13,7 +13,6 @@ Also don't think too much about whether using a separate helper function. Just d
   5. When iterating over a collection and the end condition involves multiple variables, put the id check at first! Also make sure there is no out-of-boundary or null-pointer exception in the end condition! When checking using a specific use case, be sure to complete the iteration so that you can cover the end condition check!
   6. For recursive functions, make sure to check if the parameters are out-of-range. Check the end condition and related edge cases!
 * For implementation problems with a lot of corner cases, pay more attention to writing robust code with good style than performance! Also focus on implementing one most common case correctly and than adjust the code to handle other cases. Refactor the code to improve the performance after you have a working solution!
-* If the code needs to run, and got wrong answer, do first compare the actual and expected result and guess where could be wrong first, and then debug by adding logs.
 * Refactor the code if the code is correct. This could be done earlier before checking the correctness of the code if the code needs obvious refactoring.
 
 ## Online coding interview preparation
@@ -21,7 +20,8 @@ Also don't think too much about whether using a separate helper function. Just d
 * Get familar with adding a main function to the Solution class and other nitty-gritty on Java. This will save the compling time.
 * Prepare pens and paper if it is a phone interview.
 * Check the headphone and microphone if it is phone interview.
-* Before debugging, first do a visual check. Don't let any unsure places go -- correct it even if you are unsure why it leads to the incorrect result.
+* Before debugging, first do a visual check. Don't let any unsure places go -- correct it even if you are unsure why it leads to the incorrect result. Be careful about the API calls as they often perferms differently from what you expect if you don't read the doc. (e.g., String.split(String regex))
+* After running the code and got the wrong anser, do first compare the actual and expected result and guess where could be wrong first, and then debug by adding logs.
 
 
 1. Be careful about the end value of iterator after the for loop!!
