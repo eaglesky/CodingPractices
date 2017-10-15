@@ -1308,3 +1308,260 @@ There are two approaches to solve it:
 The first approach is good for in-memory file system, but for on-disk file system, it might use too much memory since it has to maintain that hash map in the memory, while for the second approach, it only needs to load the necessary nodes. This is why real FSs use second approach!
 Also the first approach needs to store the full path for each file/directory, which uses slightly more space than the second approach, if the second approach doesn't use hashmap to speed-up.
 To support storing files of same name but different types, we need to declare a node that has both name and type fields and override the compare method. See the Java solution for the details.
+
+
+## Brainstorming Tips
+1. Caching(hashmap). If there are multiple arrays involved, caching could be used on any one of them! Hashmap can often be used to get result directly instead of using an iteration, assuming it has already be computed beforehand.
+2. Recursive thinking. Break the original problem into sub-problems. Try solving with recursive approach first --- can be broken down into two or more parts, or based on the result of first n-1 elements. If there are repetitions among sub-problems, consider caching and DP, otherwise, consider simple backtracking with pruning or divide(two or more parts) and conquer. DP solution can be improved to use O(1) space only for many array related problems. Don't think about DP solution at first, unless you met the problem before and it has strong sign of using DP solution.
+  * Don't always try finding the breaking point in O(1) time. It might be easier to find it in O(n) time first(top-down approach).
+3. Greedy thinking(TBD)
+4. If the problem has the time complexity of (nlogn), consider the following possible cases:
+  * Sorting(sorting first and then sweep can be a great improvement of using BST/heap in each iteration, see [Leetcode]Meeting rooms II, the best greedy solution)
+  * Binary search, either recursively and then iterate(divide and conquer), or doing it in each iteration.
+  * Constructing/using a balanced BST(like Java TreeMap) in each iteration.
+  * Constructing/using a heap in each iteration. Note that heap ususally allows duplicates while BST usually does not! But as for getting all elments in sorted order, BST takes O(n) time while heap takes O(nlogn) time.
+5. Other tips:
+  * Sometimes when getting stuck, rethink what the problem asks and try coming up with a different idea. Be sure to think clearly what exactly gets stuck and can explain it.
+  * Sometimes not understanding a concept/representation well is the cause of getting stuck.
+  * Don't stop persuing a thought too quickly!
+  * Try guessing the possible time complexity could sometimes give a hint(like nlogn).
+
+
+## Implementation Utils
+### Sorting an array
+  * Java:
+    ```java
+        int[] nums;
+        Arrays.sort(nums);//In place, stable, O(nlogn) time.
+
+        //Sort 2d array:
+        //sumAndIds = {{5, 8}, {1, 2, 4}, {4, 5}}
+        //After sorted: {{1, 2, 4}, {4, 5}, {5, 8}}
+        Arrays.sort(sumAndIds, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return Integer.compare(o1[0], o2[0]);
+            }
+        });
+        //Can also use lamda:
+        Arrays.sort(sumAndIds, (int[] o1, int[] o2) ->
+            Integer.compare(o1[0], o2[0]));
+    ```
+
+### Sorting an list
+  * Java:
+    ```java
+        List<Airport> dests = new ArrayList<>();
+        dests.sort(new Comparator<Airport>() {
+            @Override
+            public int compare(Airport a1, Airport a2) {
+                return a1.name.compareTo(a2.name);
+            }
+        });
+        //Same as Collections.sort, in place
+    ```
+
+### Copying an array to a new array
+  * Java
+    ```java
+        //System.arraycopy():
+        int[] arr = {1,2,3,4,5};
+        int[] copied = new int[10];
+        System.arraycopy(arr, 0, copied, 1, 5);//5 is the length to copy
+        System.out.println(Arrays.toString(copied));
+    ```
+      Output:
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          [0, 1, 2, 3, 4, 5, 0, 0, 0, 0]
+
+    ```java
+        //Arrays.copyOf() returns a copy of original array:
+        int[] copied = Arrays.copyOf(arr, 10); //10 the the length of the new array
+        System.out.println(Arrays.toString(copied));
+        copied = Arrays.copyOf(arr, 3);
+        System.out.println(Arrays.toString(copied));
+    ```
+      Output:
+            [1, 2, 3, 4, 5, 0, 0, 0, 0, 0]
+            [1, 2, 3]
+
+
+### Max and min Int
+  * Java
+    Integer.MAX_VALUE;
+    Integer.MIN_VALUE;
+
+### Absolute value
+  * Java
+    `int absDiff = Math.abs(4-5);`
+
+### Comparison of two numerical values
+  * Java
+    `int maxOfTwo = Math.max(5, 4);`
+    `int minOfTwo = Math.min(5, 4);`
+
+### Find the maximum/minimum in an array as well as the index
+  * Java
+    ```java
+      //input: int[] height
+      int highestPos = 0;
+      for (int i = 0; i < height.length; ++i) {
+          highestPos = (height[i] > height[highestPos]) ? i : highestPos;
+      }
+    ```
+
+### Reverse a list
+  * Java: in place. java.util.Collections.reverse(List<?> list).
+
+### Reverse a string
+  * Java: 
+    ```java
+      //In place reverse!
+      String reversed = new StringBuilder(original).reverse().toString();
+    ```
+
+### Convert String to Int
+  * Java:
+    ```java
+      String number = "10";
+      int result = Integer.parseInt(number);
+      Integer result2 = Integer.valueOf(number);//if number is of int type,
+      // this can also convert it to its Integer class
+    ```
+
+### Count the occurence of each character in a string
+  * Java:
+    ```java
+      String t = "aerwerrsdf";
+      Map<Character, Integer> TcharCounts = new HashMap<>();
+      for (int i = 0; i < t.length(); ++i) {
+          //getOrDefault is introduced since Java 8
+          int curCount = TcharCounts.getOrDefault(t.charAt(i), 0);
+          TcharCounts.put(t.charAt(i), curCount + 1);
+      }
+    ```
+
+### Substring
+  * Java: (public String substring(int beginIndex, int endIndex) ), beginIndex is inclusive and endIndex is exclusive
+  E.g. "hamburger".substring(4, 8) returns "urge"
+       "smiles".substring(1, 5) returns "mile"
+
+### Find the index of a character in a string
+  * Java:
+    ```java
+      String str1 = "allen chin is a hero";
+      int pos1 = str1.indexOf('a'); // 0
+      int pos2 = str1.indexOf('a', 3); // 14
+    ```
+        
+### Concatinating strings and add delimiters between them
+  * Java 8: public static String join(CharSequence delimiter, Iterable<? extends CharSequence> elements)
+    ```java
+      List<String> strings = new LinkedList<>();
+      strings.add("Java");strings.add("is");
+      strings.add("cool");
+      String message = String.join(" ", strings);
+      //message returned is: "Java is cool"
+      //This essentially iterate the input collection and append each element
+      //to a string builder with delimiter in between. And at last convert the
+      //string builder to string by calling sb.toString().
+    ```
+
+### Initialization of multiple variables
+  * Java supports this, which can also be used in for-loop:
+    int a1 = 3, a2 = 5, a3 = 7;
+
+### Switch syntax
+  * Java:
+    ```java
+      public String getTypeOfDayWithSwitchStatement(String dayOfWeekArg) {
+       String typeOfDay;
+       switch (dayOfWeekArg) {
+           case "Monday":
+               typeOfDay = "Start of work week";
+               break;
+           case "Tuesday":
+           case "Wednesday":
+           case "Thursday":
+               typeOfDay = "Midweek";
+               break;
+           case "Friday":
+               typeOfDay = "End of work week";
+               break;
+           case "Saturday":
+           case "Sunday":
+               typeOfDay = "Weekend";
+               break;
+           default:
+               throw new IllegalArgumentException("Invalid day of the week: " +
+               dayOfWeekArg);
+       }
+       return typeOfDay;
+      }
+    ```
+
+### Conversion between primitive types and Binary Numeric Promotion
+
+### Fastest way to return a list view of any number of elements
+  * Java
+    ```java
+     List<String> stooges = Arrays.asList("Larry", "Moe", "Curly");
+     //Note that the returned list is backed by the original array, not a copy,
+     //so modifying the original array will change the list!
+     //O(1) time, returning a special defined List implementation that supports
+     //random access and similar to ArrayList.
+     //This can be used to initialize hash set/map in one line.
+    ```
+
+### Initialize elements of an array with same values
+  * Java
+    ```java
+      boolean[] validCols = new boolean[n];
+      Arrays.fill(validCols, true);
+      //Initialize array list with null values:
+      //The List returned by Collections.nCopies is immutable.
+      List<String> strs = new ArrayList<>(Collections.nCopies(10, null));
+    ```
+
+### Iterating and modifying a list
+  * Java, use ListIterator
+    ```java
+      List<Integer> l1 = new ArrayList<>();
+      ListIterator<Integer> iter = l1.listIterator();
+      while (iter.hasNext()) {
+          int id = iter.nextIndex();
+          int cur = iter.next();
+          if (cur == 4) {
+              iter.remove();
+          }
+          System.out.println(id + ": " + cur);
+      }
+    ```
+
+### Convert list to array
+  * Java:
+    ```java
+      List<String> stockList = new ArrayList<String>();
+      stockList.add("stock1");
+      stockList.add("stock2");
+
+      String[] stockArr = stockList.toArray(new String[0]);
+    ```
+
+### Get a value from a map, if absent, create one and add it to the map
+  * Java:
+    ```java
+      Map<K, V> map = new HashMap<>();
+      if (map.get(key) == null) {
+          V newValue = mappingFunction.apply(key);
+          if (newValue != null)
+              map.put(key, newValue);
+      }
+      //The above can be simplified by the following in Java 8:
+      V newValue = map.computeIfAbsent(key, k -> new Value(f(k)))
+      //newValue is either existing value corresponding to key,
+      //or the newly computed one. 
+      //And if it is a collection, we can do this to add an element to it.
+      map.computeIfAbsent(key, k -> new HashSet<V>()).add(v);
+    ```
+
