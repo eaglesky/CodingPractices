@@ -178,6 +178,7 @@ Trick: When finding max/min element, we can either use reference type variable i
   - [Leetcode] Basic Calculator II(Best Algorithm* and Implementation). Remember the best algorithm, which can be applied to many other problems. Also remember the way how to get integersformed by a substring without using Integer.parseInt(string).
   - [Leetcode] Valid Number(Algorithm* and Implementation*). The decription is vague, so refer to the comments in my Java solution for detailed requirements.
 * Palindrome related:
+  - [Leetcode] Palindrome Permutation(Best Algorithm**)
   - [Leetcode] Shortest Palindrome(Algorithm*, very hard!)
   - [Leetcode] Palindrome Pairs(Multiple Algorithms** and Implementations**).(Distinct indices (i, j) just means that i != j) One way to improve the speed of not optimal algorithm is consider caching some values when building the trie. Remember the edge cases for the second approach.
 * Anagram related.
@@ -461,17 +462,15 @@ The following template is just used for implementation. Think about the problem 
           
           //curPath store previous visited nodes
           DFS(node, startId, curPath, paths, visited):
+            if end state {
+                paths.add(curPath.shallow_copy);
+                return;
+            }
             if current state is not valid {
                 return;
             }
             visited[node] = true; 
             curPath.add(node);
-            if end state {
-                paths.add(curPath.shallow_copy);
-                visited[node] = false;
-                curPath.remove(node);
-                return;
-            }
             for (adjNode : node.adjNodes) {
                 //Be careful about newStartId!
                 DFS(adjNode, newStartId, curPath, paths);
@@ -640,7 +639,7 @@ The problem: how to quickly determine if there is a path connecting two given no
 * [Leetcode] Combination Sum II(Algorithm*).
 * [Leetcode] Combination Sum III(Algorithm*).
 * [Leetcode] N Queens. (Best Algorithm*). Good example of range backtracking with dedupe.
-* [Leetcode] Sudoku Solver(Algorithm*). DFS with return boolean check. What is the parallel algorithm?
+* [Leetcode] Sudoku Solver(Algorithm* and implementation*). DFS with return boolean check and two dimentional recursion! What is the parallel algorithm?
 * [Other] Union Contacts. (Algorithm**). Essentially a node finding problem.
 * [Leetcode] Minimum Height Trees(Algorithm** and implementation*). Remember the proof. Also remember the implementation of iteratively removing leaves using adjacency list.
 * [Leetcode] Graph Valid Tree(Algorithm*)
