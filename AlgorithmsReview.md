@@ -414,7 +414,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     => Leaves(vertices that have degree 1) must exist. Otherwise you can always traverse from one vertix to another and sooner or later you'll have to go back to a vertic that has been visited, since the number of vertices in a graph is limited. Then there would be a cycle. See more proof in CTCI, B.5.1. Remember these equal properties and their prooves. Basically, to keep n vertices connected, there must be at least n-1 edges. Proof: Let's take a look at one of the vertices v1. If the graph is connected, then there must be a path from v1 to any of the other vertices. The current connected component K_v = {v1}. Edge set is K_e = {}. Say v2 is connected to S, then there has to be at least one more edge between v2 and S(say e2), then the connected componet is: K_v = {v1, v2}, K_e = {e2}. K_e always has the least number of edges that connect the vertices in K_v, and after the last vertex, there must be n - 1 edges in K_e, which is the least number of edges that connect the n vertices.
     NOTE: The above properties do not necessary work for directed graph! Especially the relation between number of edges and vertices. A digraph can contain more than |V| - 1 edges and still no cycles!
 * Traversal. Don't forget null input node and loops! Also note that the following pseudocode only implements traversing from one node. If the graph is not connected, then DFS and BFS below must be called for each node!  
-The following template is just used for implementation. Think about the problem itself when considering the algorithm -- like what parameters to use in the recursive functions and what they do in each recursion.
+The following template is just used for implementation. Think about the problem itself when considering the algorithm -- like what parameters to use in the recursive functions and what they do in each recursion. For backtracking problems, think about if the entry point is one point or multiple first!
   * DFS. Can be used for counting the number of connected components in a graph, check if two vertices are connected, etc. Implemented recursively. Iterative solution usually uses a stack(of actual element or iterator of lists of elements. Often used as step-by-step backtracking and implementing iterators. E.g. [Leetcode]Flatten Nested List Iterator). And a map of node to its parent can be created while traversing to retrieve the paths. 
     - Search all nodes in a graph. DFS will search all the nodes and only once for each one, because in each iteration/recursion all the possible neighbors are checked and we only go to the unvisited node in the next iteration/recursion. This is often used to traverse all the nodes in a connected component.
       + Implementation 1:
@@ -499,6 +499,8 @@ The following template is just used for implementation. Think about the problem 
                 return;
             }
             for (sub_states : states) {
+                //We often must do the validation here instead of at the
+                //beginning of the dfs function. 
                 if (sub_states is valid && !visited[sub_states]) {
                     visited[sub_states] = true;
                     curPath.add(sub_states);
@@ -639,6 +641,7 @@ The problem: how to quickly determine if there is a path connecting two given no
 * [Leetcode] Combination Sum II(Algorithm*).
 * [Leetcode] Combination Sum III(Algorithm*).
 * [Leetcode] N Queens. (Best Algorithm*). Good example of range backtracking with dedupe.
+* [Others] N Queens with obstacles(Algorithm* and implementation**)
 * [Leetcode] Sudoku Solver(Algorithm* and implementation*). DFS with return boolean check and two dimentional recursion! What is the parallel algorithm?
 * [Other] Union Contacts. (Algorithm**). Essentially a node finding problem.
 * [Leetcode] Minimum Height Trees(Algorithm** and implementation*). Remember the proof. Also remember the implementation of iteratively removing leaves using adjacency list.
