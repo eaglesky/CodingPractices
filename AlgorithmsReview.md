@@ -1217,6 +1217,8 @@ https://en.wikipedia.org/wiki/NP-hardness
   - [Leetcode] Gas Station(Best Algorithm* and Implementation*)
   - [Leetcode] Find the Celebrity(Best Algorithm**). If the input nodes are in an array, we can often find better algorithm by putting them in the same line in the graph. And sometimes changing the direction of arrow helps too.
   - [Leetcode] Candy(Algorithms* and Implementation of best algorithm**). Clarification: if two children have equal rate, then there is no constraint on the candies they can get.
+  - [Leetcode] Task Scheduler(Best Algorithm** and Implementation**). This best approach can also be used to output the sequence, see the implementation in the next problem.
+  - [Leetcode] Rearrange String k Distance Apart(Algorithms** and Implementations**). Remember the two solutions!
 * Parentheses related problems.  
   Two ways of thinking: 
   1. Using a stack and iterate a string, whenever you encounter a ')', check if the top of the stack is '(', if so, pop it, otherwise push ')'. For any substring representing valid parenthese, if you scan from left to right, each time a ')' comes in, there must be a '(' matching it, which is always the closest unmatched '(' to it. Similarly case if you scan from right to left.
@@ -1231,7 +1233,7 @@ https://en.wikipedia.org/wiki/NP-hardness
   - [Leetcode] Different Ways to Add Parentheses(Algorithm**).Remember the way of enumerating different order of calculating an arithmetic expression.
   - [Leetcode] Expression Add Operators(Algorithm** and Implementation*). Remember the best backtracking logic and implementation. Note that "00" is not valid number. Also the overflowed values should not be counted.
 * Greedy problems. Need to understand why greedy algorithm could get the optimal result, and if it doesn't, why isn't there the optimal solution. The brute force alternative is often backtracking. DP can be used first to find out the relation between the original problem and sub-problems, and think of if we can make greedy choice to reduce the number of sub-problem to one -- 16.2 Elements of the greedy strategy of *Introduction to Algorithms*
-  - [Leetcode] Rearrange String k Distance Apart(Algorithms** and Implementations**). The naive algorithm and greedy algorithm should all be mastered! Don't know how to prove the correctness of greedy algorithm yet. 
+  
 
 ## Data structure design
 ### Knowledge
@@ -1389,6 +1391,16 @@ To support storing files of same name but different types, we need to declare a 
             [1, 2, 3, 4, 5, 0, 0, 0, 0, 0]
             [1, 2, 3]
 
+### Clone 2d array
+* Java
+  ```java
+    int [][] myInt = new int[matrix.length][];
+    for(int i = 0; i < matrix.length; i++) {
+      //Deep copy, myInt[i] refers to a different 1d array,
+      //but the references in each location are equal
+      myInt[i] = matrix[i].clone();
+    }
+  ```
 
 ### Max and min Int
   * Java
