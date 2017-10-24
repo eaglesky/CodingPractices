@@ -110,7 +110,7 @@ Try to optimize time and space complexity.
   * Two pointers. 
     - [Leetcode] Minimum Size Subarray Sum(See previous).
   * Get accumulative sums first. This could be sorted in some cases. But usually we need to iterate on it while maintaining some kinds of maps. If order won't be changed, accumulative sums can be calculated on the fly instead of using additional array to store them.
-    - [Leetcode] Maximum Size Subarray Sum Equals k(Algorithm*). Question could ask for minium size instead, which can also be handled similarly.
+    - [Leetcode] Maximum Size Subarray Sum Equals k(Algorithm**). Question could ask for minium size instead, which can also be handled similarly.
     - [Lintcode] Subarray Sum Closest(Algorithms**). Remember both solutions. Also note how useful a treemap is when getting the closest key instead of an exact key. If the questions asks for the minium length of subarray that has sum closest to k, it can still be solved with a few modifications.
     - [Lintcode] Submatrix Sum(Algorithms**). Remember how to enumerate all the sub rectangles in a 2D matrix. Remember the trick to add padding zeros. Hard to come up with the trick to reduce the 2D space usage to 1D!
     - [Leetcode] Max Sum of Rectangle No Larger Than K(Algorithm*). Extension of above.
@@ -298,7 +298,7 @@ Java ArrayDeque can be used to implement monotonic queue(see [Leetcode]Sliding W
 * [Leetcode] Implement stack using queues(Best Algorithm**)
 * [Leetcode] Largest Rectangle in Histogram(Algorithm** and implementation*). Remember the progression and think of loop invarient to prove the correctness.
 * [Leetcode] Sliding Window Maximum(Algorithm** and Implementation).
-
+* [Leetcode] Exclusive Time of Functions(Algorithm**). Pay attention to the corner cases.
 
 ## Tree
 ### Knowledge
@@ -370,6 +370,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     + [Leetcode] Find leaves of binary tree(Algorithm** and Implementation). When requiring return a list of nodes that does not follow the order of basic traversal, consider storing the element directly to the corresponding location in the output array.
     + [Leetcode] Minimum Depth of Binary Tree(Algorithms and Implementation)
     + [Leetcode] Balanced Binary Tree(Best Algorithm*)
+    + [Leetcode] Diameter of Binary Tree(Algorithm*)
 * Recontruction of binary tree:
   - [Leetcode] Construct Binary Tree from Inorder and Postorder Traversal (Algorithm*), and Construct Binary Tree from Preorder and Inorder Traversal (same). Cannot construct the binary tree from Preorder and Postorder(why? When coming up with exceptions, try starting with the simplest examples) Note that if duplicates exist in the input array, there may not be unique tree!
   - [Leetcode] Serialize and Deserialize Binary Tree(Algorithms** and implementation*)
