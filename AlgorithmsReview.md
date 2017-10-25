@@ -497,9 +497,12 @@ The following template is just used for implementation. Think about the problem 
                 paths.add(curPath.shallow_copy);
                 return;
             }
+            //Pruning can be added here
             if (other checks are not passed) {
                 return;
             }
+            //Pruning can also be added here to reduce the number of adjacent
+            //states
             for (sub_states : states) {
                 //We often must do the validation here instead of at the
                 //beginning of the dfs function. 
@@ -638,7 +641,7 @@ The problem: how to quickly determine if there is a path connecting two given no
 * [Leetcode] Word Search II. (Algorithm and Best Implementation*)
 * [Leetcode] Word Ladder I(Algorithms and Implementations*). Remember the implementation of Bidirectional BFS? endWord is counted as transformed word, so if it is not in the wordList, we should return 0.
 * [Leetcode] Word Ladder II(Algorithms* and Implementations*). Remember the implementation of finding all shortest paths using BFS. 
-* [Leetcode] Restore IP Addresses(Implementation**). '012' is invalid while '0' is valid.
+* [Leetcode] Restore IP Addresses(Implementation**). '012' is invalid while '0' is valid. Best way of pruning is not easy to come up with here.
 * [Leetcode] Combination Sum(Algorithm*).
 * [Leetcode] Combination Sum II(Algorithm*).
 * [Leetcode] Combination Sum III(Algorithm*).
@@ -1320,15 +1323,16 @@ To support storing files of same name but different types, we need to declare a 
 
 ## Brainstorming Tips
 1. Caching(hashmap). If there are multiple arrays involved, caching could be used on any one of them! Hashmap can often be used to get result directly instead of using an iteration, assuming it has already be computed beforehand.
-2. Recursive thinking. Break the original problem into sub-problems. Try solving with recursive approach first --- can be broken down into two or more parts, or based on the result of first n-1 elements. If there are repetitions among sub-problems, consider caching and DP, otherwise, consider simple backtracking with pruning or divide(two or more parts) and conquer. DP solution can be improved to use O(1) space only for many array related problems. Don't think about DP solution at first, unless you met the problem before and it has strong sign of using DP solution.
+2. Recursive thinking. Break the original problem into sub-problems. Try solving with recursive approach first --- can be broken down into two or more parts, or based on the result of first n-1 elements. If the problem asks max/min, number of solution or existence, and there are repetitions among sub-problems, consider caching and DP. DP solution can be improved to use O(1) space only for many array related problems. Don't think about DP solution at first, unless you met the problem before and it has strong sign of using DP solution. Recursive thinking is just a way of finding a quick naive solution, and improvement of it sometimes is not necessarily DP([Leetcode]Longest consequtive sequence)
   * Don't always try finding the breaking point in O(1) time. It might be easier to find it in O(n) time first(top-down approach).
-3. Greedy thinking(TBD)
-4. If the problem has the time complexity of (nlogn), consider the following possible cases:
+3. If the problem is about finding all solutions, consider simple backtracking with pruning or divide(two or more parts) and conquer. This is often better then memoization as the latter uses too much space while the performance is not much better than backtracking + pruning.
+4. Greedy thinking(TBD)
+5. If the problem has the time complexity of (nlogn), consider the following possible cases:
   * Sorting(sorting first and then sweep can be a great improvement of using BST/heap in each iteration, see [Leetcode]Meeting rooms II, the best greedy solution)
   * Binary search, either recursively and then iterate(divide and conquer), or doing it in each iteration.
   * Constructing/using a balanced BST(like Java TreeMap) in each iteration.
   * Constructing/using a heap in each iteration. Note that heap ususally allows duplicates while BST usually does not! But as for getting all elments in sorted order, BST takes O(n) time while heap takes O(nlogn) time.
-5. Other tips:
+6. Other tips:
   * Sometimes when getting stuck, rethink what the problem asks and try coming up with a different idea. Be sure to think clearly what exactly gets stuck and can explain it.
   * Sometimes not understanding a concept/representation well is the cause of getting stuck.
   * Don't stop persuing a thought too quickly!
@@ -1445,6 +1449,13 @@ To support storing files of same name but different types, we need to declare a 
       int result = Integer.parseInt(number);
       Integer result2 = Integer.valueOf(number);//if number is of int type,
       // this can also convert it to its Integer class
+    ```
+
+### Convert Int to String
+  * Java:
+    ```java
+      int i = -67;
+      s = String.valueOf(i); // s = "-67"
     ```
 
 ### Count the occurence of each character in a string
