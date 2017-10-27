@@ -176,7 +176,7 @@ Trick: When finding max/min element, we can either use reference type variable i
   - [Leetcode] Integer To Roman(Algorithm*)
   - [Leetcode] Roman To Integer(Algorithm*)
   - [Leetcode] Integer to English Words(Algorithm* and Implementation)
-  - [Leetcode] Basic Calculator II(Best Algorithm* and Implementation). Remember the best algorithm, which can be applied to many other problems. Also remember the way how to get integersformed by a substring without using Integer.parseInt(string).
+  - [Leetcode] Basic Calculator II(Best Algorithm** and Implementation). Remember the best algorithm, which can be applied to many other problems. Also remember the way how to get integers formed by a substring without using Integer.parseInt(string). In interview, give the stack solution first and then improve it to get the best solution!
   - [Leetcode] Valid Number(Algorithm* and Implementation*). The decription is vague, so refer to the comments in my Java solution for detailed requirements.
 * Palindrome related:
   - [Leetcode] Palindrome Permutation(Best Algorithm**)
@@ -878,6 +878,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
 * Sorting Problems.
   - [Leetcode] Kth largest element in an array(Algorithm* and implementation* of quick select?)
   - [Leetcode] Sort Colors(Algorithm**). Two-passes constanct-space solution is actually better than the one-pass solution.
+  - [Lintcode] Sort Colors II(Algorithms** and Best Implementation**). Best alogorithm is similar to "first missing positive". Note that the best solution does not work for reference type element, while the subopitimal solution does since it is based on swapping.
   - [Leetcode] H-Index (Best algorithm**). The following diagram shows why there is always one and only one h index.
   <img src="hindex.png" width="300">
   The black dots represent the sorted array values, in this case they are [2, 2, 3, 3, 4, 5, 6]. The line represents the relation between current id and h index. If you can find a h such that the array values on the left of its corresponding id are no greater than it, and the array values on the right(including the id) are greater or equal to it, then that would be the h-index. 

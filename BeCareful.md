@@ -12,7 +12,7 @@ When get stuck in implementation, explain why you are stuck -- like why do you t
 	3. For heap/stack/queue or any collection related usage, remember the case when the structure is empty, especially when peek is used!
 	4. For sequence related problems, there could be duplicates. This matters if the solution uses hashmap.
   5. When iterating over a collection and the end condition involves multiple variables, put the id check at first! Also make sure there is no out-of-boundary or null-pointer exception in the end condition! When checking using a specific use case, be sure to complete the iteration so that you can cover the end condition check!
-  6. For recursive functions, make sure to check if the parameters are out-of-range. Check the end condition and related edge cases!
+  6. For recursive functions, make sure to check if the parameters are out-of-range(and if they really are what you expect, e.g., id!). Check the end condition and related edge cases!
 * For implementation problems with a lot of corner cases, pay more attention to writing robust code with good style than performance! Also focus on implementing one most common case correctly and than adjust the code to handle other cases. Refactor the code to improve the performance after you have a working solution!
 * Refactor the code if the code is correct. This could be done earlier before checking the correctness of the code if the code needs obvious refactoring.
 
