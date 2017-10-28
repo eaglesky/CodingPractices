@@ -179,8 +179,8 @@ Trick: When finding max/min element, we can either use reference type variable i
   - [Leetcode] Basic Calculator II(Best Algorithm** and Implementation). Remember the best algorithm, which can be applied to many other problems. Also remember the way how to get integers formed by a substring without using Integer.parseInt(string). In interview, give the stack solution first and then improve it to get the best solution!
   - [Leetcode] Valid Number(Algorithm* and Implementation*). The decription is vague, so refer to the comments in my Java solution for detailed requirements.
 * Palindrome related:
-  - [Leetcode] Palindrome Permutation(Best Algorithm**)
-  - [Leetcode] Shortest Palindrome(Algorithm*, very hard!)
+  - [Leetcode] Palindrome Permutation(Best Algorithm*)
+  - [Leetcode] Shortest Palindrome(Best Algorithm***). Naive O(n^2) solution should be enough.
   - [Leetcode] Palindrome Pairs(Multiple Algorithms** and Implementations**).(Distinct indices (i, j) just means that i != j) One way to improve the speed of not optimal algorithm is consider caching some values when building the trie. Remember the edge cases for the second approach.
 * Anagram related.
   - [Leetcode] Group Anagrams(Algorithms*). The key is to find out how to uniquely represent the anagrams. The robust way is to use the sorted string, but in some cases the counting array, or even the product of prime numbers could work too.
@@ -188,7 +188,7 @@ Trick: When finding max/min element, we can either use reference type variable i
   Processing substring using an inner loop is usually a robust way. If this is done for certain characters only, consider doing it when only that condition is satisfied. An alternative way is do this for any case and break out when the condition is not satisfied and then continue handling other cases in the same iteration. The latter way might be simpler but requires more thought and could be less robust if different cases require different handling. So try the former way to be on the safe side.
   - [InterviewBit] Pretty Json(Best Algorithm** and Best Implementation**). Remember the best implementation logic. Also the edge case when '}' or ']' is followed by ','. For this recursive-like parsing problems, stack is often needed if the previous context value cannot be restored. But for this problem the previous value can easily be restored so using just a variable to store the current context value is enough.  
   The Json value could be a string, number, null, another json object, or an array object. The Json object is comprised of key-value pairs, while the array object is comprised of values. This problem just involves four cases as is shown in the code.  
-  - [Leetcode] Text Justification(Implementation**). We can assume the words are non-empty since they are usually the output of split on the original text string. Pay attention to the case when there is only one word in the line, and the last line.  
+  - [Leetcode] Text Justification(Best Implementation**). We can assume the words are non-empty since they are usually the output of split on the original text string. Pay attention to the case when there is only one word in the line, and the last line.  
   To deal with each group of elements in an array, one good implementation is to use a inner loop to iterate the elements of each group. This makes it cleaner to do pre-processing and post-processing of each group.
 
 ## Linked List
@@ -671,6 +671,7 @@ The problem: how to quickly determine if there is a path connecting two given no
 
 ### Problems
 * [Leetcode] Permutations I and II (Multiple Algorithms**). Need to be careful of the recursive solution for II.
+* [Leetcode] Palindrome Permutation II(Algorithm* and Implementation*)
 * [Leetcode] Permutation Sequence(Best Algorithm and Implementation**)
 * [Leetcode] Combinations(Algorithms*)
 * [Leetcode] Subsets I and II(Multiple Algorithms**). The best iterative algorithm is different from the one in Combinations!
@@ -1372,6 +1373,15 @@ To support storing files of same name but different types, we need to declare a 
             }
         });
         //Same as Collections.sort, in place
+    ```
+
+### Sorting a string
+  * Java:
+    ```java
+        String s = "abc"
+        char[] chars = s.toCharArray();
+        Arrays.sort(chars);
+        String sortedS = new String(chars); //"cba"
     ```
 
 ### Copying an array to a new array
