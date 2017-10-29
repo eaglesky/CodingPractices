@@ -326,7 +326,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   * Definition: A binary search tree (BST) is a binary tree where each node has a Comparable key (and an associated value) and satisfies the restriction that the key in any node is larger than the keys in all nodes in that node’s left subtree and smaller than the keys in all nodes in that node’s right subtree. So the values in each subtree is within a range, which can often be used in a recursive function to solve many BST problems(use reference type in the range since the range is often exclusive). E.g. Validate BST, Serialize and Deserialize BST. 
   * Ascending order when doing inorder traversal on it.
   * Search, Minimum, Maximum, (inorder)Successor, (inorder)Predecessor  operations all run in O(h) time. h is the height of the BST. See the Leetcode practices for Successor implementation.
-  * Insertion(easy) and Deletion(harder, see one example problem) can also run in O(h) time.
+  * Insertion(easy) and Deletion(harder, see one example problem) also runs in O(h) time.
   * Selection and Rank. See Leetcode problem below.
   * Range query -- finding all elements in a BST that have values within a given range. See Robert's Algorithms. O(n) time and O(h) space. Can be solved both iteratively or recursively. Recursive solution that has target range as one parameter of the recursive function can avoid iterating out-of-range nodes.
   * Implementation. Java: TreeSet/TreeMap, balanced BST(red-black tree). It provides guaranteed log(n) time cost for the containsKey, get(give key or first/last key), put and remove operations. NOTE: BST usually doesn't allow duplicates. Workarounds for it are either store map of node to counts, or use more complex keys.
@@ -342,7 +342,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
   Code usually can be proved inductively -- properties of each subtree are maintained and passed to the parent tree. See solutions of postorder traversal.
   Tree problems can often be solved by recursion. DP rarely works. The recursion could be either top-down or bottom-up, or both.
   - Basic Traversals.
-    + [Leetcode] Binary tree inorder traversal(Algorithms* and Implementation*). Recursive solution, typical iterative solution using a stack, Morris Traversal(rarely used).
+    + [Leetcode] Binary tree inorder traversal(Algorithms* and Implementation*). Recursive solution, typical iterative solution using a stack, Morris Traversal(rarely used). Step by step version: [Leetcode]Binary Search Tree Iterator.
     + [Leetcode] Binary tree preorder traversal(Algorithms* and implementation*). Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used). In the typical iterative solution for preorder and inorder traversals, at the beginning of each iteration, the stack contains the ancestors of current element such that the current element is in the left subtree of each one of them. This is an important loop-invariant that might be helpful sometimes! 
     + [Leetcode] Binary tree postorder traversal(Algorithms** and implementation**), it can be seen as a reverse of preorder traversal. Hardest among the three. Recursive solution, typical iterative solution using a stack, iterative solution applicable to n-ary trees, Morris Traversal(rarely used).  
     The recursive solutions to many other problems can be converted into iterative one by storing the computed result for left and right child of the current node, usually in a map. After storing the computed result for the current node, the results for its children can be discarded.
@@ -362,6 +362,7 @@ Besides traditional resursive approach, max-depth problem can also be solved by 
     The iterative solution for the two functions version is easy to implement since they are all pre-order traversals. But need to add a map of node to the flag.
   - Level order traversal related.
     + [Leetcode] Binary tree level order traversal I(Multiple algorithms*), II is just adding reverse to the end of the solution of I. The recursive algorithm can be applied to some other problems.
+    + [Leetcode] Invert Binary Tree. Can be solved both recursively and iteratively. Just for fun.
     + [Leetcode] Zigzag level order traversal. Reverse the array for that level every two levels(or assign the values reversely when creating the array for that level).
     + [Leetcode] Binary Tree right side view -- small variation of level order traversal.
     + [Leetcode] Symmetric Tree(Algorithm and Multiple Implementation*). Iterative solution using queue or stack can add the elements in any order.
