@@ -736,7 +736,7 @@ PriorityQueue<Integer> queue = new PriorityQueue<>(10,
 * Given n 2D points, find k closest points to the origin. k << n. 
 Solution: Using similar algorithms to (2) -- max heap(O(nlogk)) or quick select. Usually the former way is enough. The possible follow-up is, how to speed up the computation of distances? We can certainly store them along with the point coordinates in the heap, and further more, we can compute the distance(d) of the corner point of the smallest square that wraps the furthest circle, and compare the Manhanttan distance of each point d_m with d(Manhanttan distance between (p1,p2) and (q1, q2) is `|p1 - q1| + |p2 - q2|`), instead of using Euclidean distances. If d_m < d, we then compute and compare the Euclidean distances(x^2 + y^2). Several things should be noted:
   * For any point p, d_m(p, q) >= d_e(p, q).
-  * If d_m(p1, q) < d_m(p2, q), than d_e(p1, q) < d_e(p2, q).
+  * If d_m(p1, q) < d_m(p2, q), than d_e(p1, q) could be larger or smaller than d_e(p2, q).
   * For points having the same d_m, their d_e could differ greatly.
   * If the coordinates are Integers, we need to use Long to store the Euclidean distances, which is big enough even if x and y equal to Integer.MAX_VALUE.
   * References: http://www.weiming.info/zhuti/JobHunting/32078455/

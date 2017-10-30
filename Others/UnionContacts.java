@@ -30,8 +30,8 @@ public class UnionContacts {
 	//in each group of the result. If the order is not required, we can just put
 	//the contact id directly into the result list in the dfs function, 
 	//if the contact has not been visited.
-	//If we want to return a list of merged contacts, we can treat the string as 
-	//node in DFS, and use a hashset to store the strings that belong to the same contact.
+	//If we want to return a list of merged contacts, we can add a hashset to the dfs function
+	//to store the merged strings.
 	private static void dfs(int contactId, List<List<String>> contacts, Map<String, List<Integer>> map,
 		int[] groups, int groupId) {
 		if (groups[contactId] > 0) {
