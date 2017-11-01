@@ -881,9 +881,8 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
   - [Leetcode] Kth largest element in an array(Algorithm* and implementation* of quick select?)
   - [Leetcode] Sort Colors(Algorithm**). Two-passes constanct-space solution is actually better than the one-pass solution.
   - [Lintcode] Sort Colors II(Algorithms** and Best Implementation**). Best alogorithm is similar to "first missing positive". Note that the best solution does not work for reference type element, while the subopitimal solution does since it is based on swapping.
-  - [Leetcode] H-Index (Best algorithm**). The following diagram shows why there is always one and only one h index.
+  - [Leetcode] H-Index (Best algorithm***). The following diagram shows why there is always one and only one h index.
   <img src="hindex.png" width="300">
-  The black dots represent the sorted array values, in this case they are [2, 2, 3, 3, 4, 5, 6]. The line represents the relation between current id and h index. If you can find a h such that the array values on the left of its corresponding id are no greater than it, and the array values on the right(including the id) are greater or equal to it, then that would be the h-index. 
   - [Leetcode] Insertion Sort List(Algorithm** and Implementation*).
   - [Leetcode] Sort List(Implementation*). Bottom-up merge sort on linked list.
     Very hard to write the code! Top-down approach is much easier and may probably be enough.
@@ -891,7 +890,7 @@ http://faculty.simpson.edu/lydia.sinapova/www/cmsc250/LN250_Weiss/L17-ExternalSo
     + [Leetcode] Merge Intervals(Algorithm and implementation*).
     + [Leetcode] Insert Interval(Algorithm* and Implementation**). Might not need to master the in-place solution. The iterator solution should be mastered.
     + [Leetcode] Meeting rooms(Algorithm). Clarification: if [s1, e1], [s2, e2], (e1 == s2), then return true.
-    + [Leetcode] Meeting rooms II(Algorithms**).
+    + [Leetcode] Meeting rooms II(Algorithms***).
   - [Others] Find Elements from Black Box(Algorithm**)
 
 ## Bit Manipulation
