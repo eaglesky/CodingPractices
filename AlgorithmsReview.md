@@ -13,6 +13,23 @@
 
 ## Arrays and Hash tables
 ### Knowledge
+* Fixed size array
+  * Implementation.
+    * Java: Type[]. Arrays are objects. Array type inherit Object. The array's length is available as a final instance variable length. https://docs.oracle.com/javase/specs/jls/se9/html/jls-10.html
+    * Python:
+* Resizeable array
+  * Performance: get, set is O(1), amortized time of add is O(1) and why. Remove an element at some position is typically O(n), but could be O(1) by switching the last element with the one to be deleted and then remove the last element. In Java, ArrayList.remove(int id) does it, and if id is the last position, it simply decrease the size counter and doesn't copy any element.
+  * Implementation.
+    * C++: Vector
+    * Java: ArrayList.
+      * It's better to use constructor to get the shallow copy of ArrayList than calling the clone method, since List interface does not have clone method.
+      * When using a interface list as a parameter, it is better to use iterator to iterate it than get(id), since the latter could take O(n) time if the underlying implementation is linked list.
+    * Python(all implementation here and after by default refers to CPython): list.
+      CPython implements list as a dynamic array, which conforms to the performance listed here.
+      * https://docs.python.org/3.7/faq/design.html#how-are-lists-implemented-in-cpython
+      * https://wiki.python.org/moin/TimeComplexity?
+      * https://www.laurentluce.com/posts/python-list-implementation/
+
 * Hash Tables -- implementation, performance, collision.
   *  Search, insert and delete is average O(1), and we usually see them as O(1) in interview as we assume that the chance of collision is low.
   https://discuss.leetcode.com/topic/53193/are-hash-tables-ok-here-they-re-not-really-o-1-are-they/2
@@ -20,18 +37,14 @@
   * LinkedHashMap.
     * It is faster at iteration and has the same time complexity for the basic operations(put, get and remove) as HashMap. Internally it uses a linked node which has before and after pointers in addition to `<key, val>` and next pointer used by HashMap.Node. The linked nodes are linked together in insertion order, and this doubly-linked list is used for iteration. (Note that get call or override the value of existing key won't change the insertion order!). Therefore, iteration over the collection-views of a LinkedHashMap requires time proportional to the size of the map, regardless of its capacity, and iterating each element takes O(1)(including getting the iterator and return the first element, which is the first inserted element -- the head in the internal linked list). However it doesn't support getting the last element in O(1) time. One workround could be caching the last element, like in "[Leetcode]Snake Game".
     * We can also specifiy access order in the constructor so that merely querying the map with get can change the iteration order too(default is insertion order). Note that TreeNode extends LinkedHashMap Node, so each bucket can also be turned into a BST, while keeping the insertion/access order through LinkedHashMap Node pointers.
-    * Iteration on them often requires gettign a collection view first(like calling entrySet()/values()/keySet()), which just return internal references(they are all lazy-intialization, so initial value of entrySet, values and keySet fields are null) and do not copy any data. Then we can use for-each or iterator to do the iteration, which are essentially the same. https://stackoverflow.com/questions/2923856/is-the-order-guaranteed-for-the-return-of-keys-and-values-from-a-linkedhashmap-o/2924143#2924143
+    * Iteration on them often requires getting a collection view first(like calling entrySet()/values()/keySet()), which just return internal references(they are all lazy-intialization, so initial value of entrySet, values and keySet fields are null) and do not copy any data. Then we can use for-each or iterator to do the iteration, which are essentially the same. https://stackoverflow.com/questions/2923856/is-the-order-guaranteed-for-the-return-of-keys-and-values-from-a-linkedhashmap-o/2924143#2924143
     * About `protected boolean removeEldestEntry(Map.Entry<K,V> eldest)`. 'eldest' is the least recently inserted entry in the map, or if this is an access-ordered map, the least recently accessed entry. This is the entry that will be removed it this method returns true. If the map was empty prior to the put or putAll invocation resulting in this invocation, this will be the entry that was just inserted; in other words, if the map contains a single entry, the eldest entry is also the newest. This method is invoked by put and putAll after inserting a new entry into the map. If the condition in the method implementation code is satisfied, then the eldest entry will be removed. Note that in the method implementation code there could be references to variables outside the current variable inititialization.
     * Examples:
       - [Leetcode]Logger Rate Limiter. With some tests.
       - [Leetcode]Snake Game.
   * Chaining with linked lists, chaining with BST, Open Addressing with Linear Probing, Quadratic Probing and Double Hashing. (See CTCI)
-* Resizeable array
-  * Implementation: Vector(C++), ArrayList(Java)
-  * Performance: get, set is O(1), amortized time of add is O(1) and why. Remove an element at some position is typically O(n), but could be O(1) by switching the last element with the one to be deleted and then remove the last element. In Java, ArrayList.remove(int id) does it, and if id is the last position, it simply decrease the size counter and doesn't copy any element.
+
 * Basic language syntax for array(fixed and dynamic), hash map and hash set.
-* In Java, it's better to use constructor to get the shallow copy of ArrayList than calling the clone method, since List interface does not have clone method.
-* In Java, when using a interface list as a parameter, it is better to use iterator to iterate it than get(id), since the latter could take O(n) time if the underlying implementation is linked list.
 * Implementation of equals and hashCode methods in Java(See *Effective Java*,
 http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html)
   * Note that if two objects are equal, their hash codes must be the same; but if two objects have the same hash codes, they don't have to be equal.
