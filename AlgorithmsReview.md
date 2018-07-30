@@ -16,7 +16,7 @@
 * Fixed size array
   * Implementation.
     * Java: Type[]. Arrays are objects. Array type inherit Object. The array's length is available as a final instance variable length. https://docs.oracle.com/javase/specs/jls/se9/html/jls-10.html
-    * Python:
+    * Python: Tuple. It's immutable static array and does not support modifiying elements. Supports random access as List, but membership check takes O(n).
 * Resizeable array
   * Performance: get, set is O(1), amortized time of add is O(1) and why. Remove an element at some position is typically O(n), but could be O(1) by switching the last element with the one to be deleted and then remove the last element. In Java, ArrayList.remove(int id) does it, and if id is the last position, it simply decrease the size counter and doesn't copy any element.
   * Implementation.
