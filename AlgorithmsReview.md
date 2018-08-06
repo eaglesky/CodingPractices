@@ -43,8 +43,11 @@
       - [Leetcode]Logger Rate Limiter. With some tests.
       - [Leetcode]Snake Game.
   * Chaining with linked lists, chaining with BST, Open Addressing with Linear Probing, Quadratic Probing and Double Hashing. (See CTCI)
+  * Implementation.
+    * C++
+    * Java: HashMap, LinkedHashMap
+    * Python: set(mutable hash table), frozenset(immutable hash table), dict(mutable hash map, after v3.7 it preserves insertion order)
 
-* Basic language syntax for array(fixed and dynamic), hash map and hash set.
 * Implementation of equals and hashCode methods in Java(See *Effective Java*,
 http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html)
   * Note that if two objects are equal, their hash codes must be the same; but if two objects have the same hash codes, they don't have to be equal.
