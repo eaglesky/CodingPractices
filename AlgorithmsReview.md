@@ -46,7 +46,7 @@
   * Implementation.
     * C++
     * Java: HashMap, LinkedHashMap
-    * Python: set(mutable hash table), frozenset(immutable hash table), dict(mutable hash map, after v3.7 it preserves insertion order)
+    * Python: set(mutable hash table), frozenset(immutable hash table), dict(mutable hash map, after v3.7 it preserves insertion order). len() of them takes O(1): https://stackoverflow.com/questions/1115313/cost-of-len-function
 
 * Implementation of equals and hashCode methods in Java(See *Effective Java*,
 http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html)
