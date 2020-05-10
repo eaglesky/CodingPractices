@@ -16,7 +16,9 @@
 * Fixed size array
   * Implementation.
     * Java: Type[]. Arrays are objects. Array type inherit Object. The array's length is available as a final instance variable length. https://docs.oracle.com/javase/specs/jls/se9/html/jls-10.html
-    * Python: Tuple. It's immutable static array and does not support modifiying elements. Supports random access as List, but membership check takes O(n).
+    * Python: Tuple. It's immutable static array and does not support modifiying
+      elements. Supports random access as List, but membership check takes O(n).
+    * JavaScript: None.
 * Resizeable array
   * Performance: get, set is O(1), amortized time of add is O(1) and why. Remove an element at some position is typically O(n), but could be O(1) by switching the last element with the one to be deleted and then remove the last element. In Java, ArrayList.remove(int id) does it, and if id is the last position, it simply decrease the size counter and doesn't copy any element.
   * Implementation.
@@ -29,6 +31,10 @@
       * https://docs.python.org/3.7/faq/design.html#how-are-lists-implemented-in-cpython
       * https://wiki.python.org/moin/TimeComplexity?
       * https://www.laurentluce.com/posts/python-list-implementation/
+    * JavaScript:
+      [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
+      The underlying structure is hashtable since JS Array is essentially an
+      object with number-like properties.
 
 * Hash Tables -- implementation, performance, collision.
   *  Search, insert and delete is average O(1), and we usually see them as O(1) in interview as we assume that the chance of collision is low.
@@ -46,7 +52,18 @@
   * Implementation.
     * C++
     * Java: HashMap, LinkedHashMap
-    * Python: set(mutable hash table), frozenset(immutable hash table), dict(mutable hash map, after v3.7 it preserves insertion order). len() of them takes O(1): https://stackoverflow.com/questions/1115313/cost-of-len-function
+    * Python: set(mutable hash table), frozenset(immutable hash table),
+      dict(mutable hash map, after v3.7 it preserves insertion order). len() of
+      them takes O(1):
+      https://stackoverflow.com/questions/1115313/cost-of-len-function
+    * JavaScript:
+      * Object as hashtable
+        ([ref](https://en.wikipedia.org/wiki/Hash_table#Object_representation)).
+      * [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
+        Not sure how it is implemented under the hood. Compared with Object, Map
+        has no risk of colliding with pre-defined keys and keeps the insertion
+        order (Object doesn't, e.g. when the keys are indices. The note in the
+        doc says otherwise after ECMAScript 2015 which is not accurate).
 
 * Implementation of equals and hashCode methods in Java(See *Effective Java*,
 http://www.angelikalanger.com/Articles/JavaSolutions/SecretsOfEquals/Equals.html)
